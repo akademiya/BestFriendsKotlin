@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listView"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_kido_container"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackground">
+
+    <TextView
+        android:id="@+id/person_name"
+        style="@style/TextStyle_Body2_Primary_Dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/edge_margins"
+        android:layout_marginStart="@dimen/edge_margins"
+        android:layout_toStartOf="@+id/check_people"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="Остап Бендер" />
+
+    <CheckBox
+        android:id="@+id/check_people"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/edge_margins"
+        android:buttonTint="@color/primary" />
+
+    <View
+        style="@style/AppTheme.HorizontalViewDivider"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/edge_margins" />
+
+    <FrameLayout
+        android:id="@+id/listReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/icon_pressed"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_kido_container">
+
+            <ImageView
+                android:id="@+id/go_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/parent_margin"
+                android:background="@drawable/button_ripple_green"
+                android:padding="12dp"
+                android:src="@drawable/ic_arrow_back" />
+
+            <ImageView
+                android:id="@+id/edit_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/margin8"
+                android:layout_toStartOf="@+id/delete_item"
+                android:background="@drawable/button_ripple_green"
+                android:padding="12dp"
+                android:src="@drawable/ic_edit" />
+
+            <ImageView
+                android:id="@+id/delete_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/parent_margin"
+                android:background="@drawable/button_ripple_green"
+                android:padding="12dp"
+                android:src="@drawable/ic_delete" />
+
+        </RelativeLayout>
+    </FrameLayout>
+</RelativeLayout>

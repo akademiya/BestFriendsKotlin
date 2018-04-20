@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:padding="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/button_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/menu_icon_margin"
+                android:padding="@dimen/margin8"
+                android:src="@drawable/ic_menu_white"
+                android:tint="@color/white" />
+
+            <TextView
+                style="@style/Toolbar.TitleText"
+                android:layout_toEndOf="@+id/button_menu"
+                android:text="@string/kido_list" />
+
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <Button
+                android:id="@+id/start"
+                style="@style/ButtonChronometer"
+                android:text="@string/start" />
+
+            <Button
+                android:id="@+id/stop"
+                style="@style/ButtonChronometer"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/stop" />
+
+            <Button
+                android:id="@+id/reset"
+                style="@style/ButtonChronometer"
+                android:text="@string/reset" />
+        </LinearLayout>
+
+        <View
+            style="@style/AppTheme.HorizontalViewDivider"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/activity_to_do"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_list_kido"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_list_kido" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_add"
+            app:rippleColor="@color/primary" />
+
+        <include
+            android:id="@+id/list_kido_empty"
+            layout="@layout/view_kido_empty"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>
