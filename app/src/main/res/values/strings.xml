@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">BestFriendsKotlin</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     // Dialog
     <string name="add_new_person">Add new person</string>
     <string name="add_person">Add person</string>
@@ -22,16 +25,7 @@
     <string name="tp_kido">Молитвы ИО</string>
     <string name="tp_mKido">Молитвы Истинного Отца</string>
     <string name="mense">가정맹세</string>
-    <string name="books">Книги</string>
-    <string name="calendar">Календарь</string>
     <string name="kido_list">Список Кидо</string>
-    <string name="korean">Корейский</string>
-    <string name="birthday">Дни рождения</string>
-    <string name="exercises">Зарядка ИО</string>
-    <string name="mExercises">Зарядка Истинного Отца</string>
-    <string name="tp_video">Видео</string>
-    <string name="contact">Контакты</string>
-    <string name="settings">Настройки</string>
     <string name="communicate">Связаться</string>
     <string name="share">Поделиться</string>
     <string name="send">Отправить сообщение</string>

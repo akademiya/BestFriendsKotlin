@@ -90,7 +90,7 @@
             android:id="@+id/rv_list_kido"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_list_kido" />
+            tools:listitem="@layout/item_kido" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
