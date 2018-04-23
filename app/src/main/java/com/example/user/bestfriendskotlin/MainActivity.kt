@@ -1,6 +1,7 @@
 package com.example.user.bestfriendskotlin
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import com.example.user.bestfriendskotlin.father_kido.FatherKidoView
 import com.example.user.bestfriendskotlin.kido.PersonView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -49,7 +51,25 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
             R.id.nav_kido -> startActivity(Intent(this, PersonView::class.java))
 
-            R.id.nav_share -> {}
+            R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java))
+
+            R.id.nav_share -> {
+                val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
+                val shareBody = "Here is the share content body"
+                sharingIntent.apply {
+                    type = "text/plain"
+                    putExtra(android.content.Intent.EXTRA_SUBJECT, "BestFriend")
+                    putExtra(android.content.Intent.EXTRA_TEXT, shareBody)
+                }
+                startActivity(Intent.createChooser(sharingIntent, "Поделиться:"))
+            }
+
+            R.id.nav_send -> {
+                val uri = Uri.parse("mailto:vadym.adv@gmail.com")
+                val sendIntent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"))
+                sendIntent.setData(uri)
+                startActivity(Intent.createChooser(sendIntent, "BestFriend"))
+            }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)

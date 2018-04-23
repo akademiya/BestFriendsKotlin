@@ -13,6 +13,11 @@
             android:id="@+id/nav_kido"
             android:icon="@drawable/ic_person"
             android:title="@string/kido_list" />
+
+        <item
+            android:id="@+id/nav_father_kido"
+            android:icon="@drawable/books"
+            android:title="@string/tp_kido" />
     </group>
 
     <item android:title="@string/communicate">
@@ -21,8 +26,10 @@
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share"
                 android:title="@string/share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_send"
+                android:title="@string/send" />
         </menu>
     </item>
-
-
 </menu>
