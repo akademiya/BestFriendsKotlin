@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
-import com.example.user.bestfriendskotlin.father_kido.intro.FatherKidoNadezdyViewIntro
-import com.example.user.bestfriendskotlin.father_kido.intro.FatherKidoPobedyViewIntro
+import com.example.user.bestfriendskotlin.father_kido.intro.nadezdy.FatherKidoNadezdyViewIntro
+import com.example.user.bestfriendskotlin.father_kido.intro.pobedy.FatherKidoPobedyViewIntro
 
 class FatherKidoView : MainActivity() {
 
@@ -19,7 +19,6 @@ class FatherKidoView : MainActivity() {
         val rv = findViewById<RecyclerView>(R.id.view_list_tpkido)
         rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
-
 
         val books = ArrayList<FatherKido>()
         books.add(FatherKido(1, getString(R.string.pr_nadezdy)))

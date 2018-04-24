@@ -22,7 +22,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open,
@@ -32,11 +32,6 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.activity_main_drawer, menu)
-        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

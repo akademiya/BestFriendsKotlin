@@ -19,8 +19,8 @@
 
         <activity android:name=".kido.PersonView"/>
         <activity android:name=".father_kido.FatherKidoView"/>
-        <activity android:name=".father_kido.intro.FatherKidoNadezdyViewIntro"/>
-        <activity android:name=".father_kido.intro.FatherKidoPobedyViewIntro"/>
+        <activity android:name=".father_kido.intro.nadezdy.FatherKidoNadezdyViewIntro"/>
+        <activity android:name=".father_kido.intro.pobedy.FatherKidoPobedyViewIntro"/>
     </application>
 
 </manifest>
