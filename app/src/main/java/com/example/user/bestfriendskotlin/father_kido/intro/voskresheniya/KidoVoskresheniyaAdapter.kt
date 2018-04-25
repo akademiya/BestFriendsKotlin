@@ -1,4 +1,4 @@
-package com.example.user.bestfriendskotlin.father_kido.intro.pobedy
+package com.example.user.bestfriendskotlin.father_kido.intro.voskresheniya
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import com.example.user.bestfriendskotlin.R
 import kotlinx.android.synthetic.main.item_father_kido_intro.view.*
 
-class KidoPobedyAdapter(private val booksList: ArrayList<KidoPobedy>) : RecyclerView.Adapter<KidoPobedyAdapter.VH>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH (
+class KidoVoskresheniyaAdapter(private val booksList: ArrayList<KidoVoskresheniya>) : RecyclerView.Adapter<KidoVoskresheniyaAdapter.VH>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_father_kido_intro, parent, false)
     )
 
@@ -16,11 +16,11 @@ class KidoPobedyAdapter(private val booksList: ArrayList<KidoPobedy>) : Recycler
 
     override fun onBindViewHolder(holder: VH, position: Int) { holder.bind(booksList[position]) }
 
-    class VH(val view: View?) : RecyclerView.ViewHolder(view) {
-        fun bind(books: KidoPobedy) {
+    class VH(view: View?) : RecyclerView.ViewHolder(view) {
+        fun bind(books: KidoVoskresheniya) {
             itemView.let {
                 it.kido_title.text = books.textTitle
-                it.kido_description.text =  books.textDescription
+                it.kido_description.text = books.textDescription
             }
         }
     }

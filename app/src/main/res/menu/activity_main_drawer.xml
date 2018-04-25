@@ -11,7 +11,7 @@
 
         <item
             android:id="@+id/nav_kido"
-            android:icon="@drawable/ic_person"
+            android:icon="@drawable/ic_list_person"
             android:title="@string/kido_list" />
 
         <item

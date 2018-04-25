@@ -1,4 +1,4 @@
-package com.example.user.bestfriendskotlin.father_kido.intro.pobedy
+package com.example.user.bestfriendskotlin.father_kido.intro.serdca
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -10,7 +10,7 @@ import com.example.user.bestfriendskotlin.R
 import com.example.user.bestfriendskotlin.father_kido.intro.ReadTextFromFile
 import java.io.InputStream
 
-class FatherKidoPobedyViewIntro : MainActivity(), ReadTextFromFile {
+class FatherKidoSerdcaViewIntro : MainActivity(), ReadTextFromFile {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,19 +32,10 @@ class FatherKidoPobedyViewIntro : MainActivity(), ReadTextFromFile {
         rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
-        val kido = ArrayList<KidoPobedy>()
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_1), readTextFromFile("pr_pobedy_1.txt")))
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_2), readTextFromFile("pr_pobedy_2.txt")))
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_3), readTextFromFile("pr_pobedy_3.txt")))
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_4), readTextFromFile("pr_pobedy_4.txt")))
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_5), readTextFromFile("pr_pobedy_5.txt")))
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_6), readTextFromFile("pr_pobedy_6.txt")))
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_7), readTextFromFile("pr_pobedy_7.txt")))
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_8), readTextFromFile("pr_pobedy_8.txt")))
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_9), readTextFromFile("pr_pobedy_9.txt")))
-        kido.add(KidoPobedy(getString(R.string.pr_pobedy_10), readTextFromFile("pr_pobedy_10.txt")))
+        val kido = ArrayList<KidoSerdca>()
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_1), readTextFromFile("pr_serdca_1.txt")))
 
-        val adapter = KidoPobedyAdapter(kido)
+        val adapter = KidoSerdcaAdapter(kido)
         rv.adapter = adapter
     }
 

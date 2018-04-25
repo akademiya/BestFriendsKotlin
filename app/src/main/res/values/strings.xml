@@ -28,16 +28,15 @@
     <string name="kido_list">Список Кидо</string>
     <string name="communicate">Связаться</string>
     <string name="share">Поделиться</string>
-    <string name="send">Отправить сообщение</string>
+    <string name="send">Написать автору</string>
 
     // TP kido books
     <string name="pr_nadezdy">Молитвы надежды</string>
     <string name="pr_pobedy">Молитвы победы</string>
-    <string name="pr_pochtitelnosty">Молитвы почтительности</string>
     <string name="pr_serdca">Молитвы сердца</string>
+    <string name="pr_pochtitelnosty">Молитвы почтительности</string>
     <string name="pr_voskresheniya">Молитвы воскрешения</string>
     <string name="pr_zelaniya">Молитвы желания</string>
-
 
     <string name="pr_nadezdy_1">1. Отец, дай нам воплотить собой Твою первозданную красоту</string>
     <string name="pr_nadezdy_2">2. Отец, позволь вернуть Тебе славу</string>
@@ -49,5 +48,34 @@
     <string name="pr_nadezdy_8">8. Позволь нам стать существами, обладающими любовью четырех направлений</string>
     <string name="pr_nadezdy_9">9. Позволь нам уподобиться изначальному образу и стать для Тебя радостью</string>
     <string name="pr_nadezdy_10">10. Помоги нам обрести изначальный облик и стереть историю печали</string>
+
+    <string name="pr_pobedy_1">1. Помоги нам стать избранными воинами Небес</string>
+    <string name="pr_pobedy_2">2. Позволь нам стать живой жертвой чистого добра</string>
+    <string name="pr_pobedy_3">3. Иди вперед и действуй, ибо мы с готовностью последуем за Тобой везде</string>
+    <string name="pr_pobedy_4">4. Призри нас и владей нами</string>
+    <string name="pr_pobedy_5">5. Раскаявшись в нашем несовершенстве, мы просим Тебя владеть нами и всем творением</string>
+    <string name="pr_pobedy_6">6. Даруй нам просветление</string>
+    <string name="pr_pobedy_7">7. Отец! Ниспошли нам Твою любовь и милостивое сострадание</string>
+    <string name="pr_pobedy_8">8. Пусть будет единая универсальная идея и всеобъемлющая истина</string>
+    <string name="pr_pobedy_9">9. Отец! Стань нашим центром!</string>
+    <string name="pr_pobedy_10">10. Очисти нас от греха</string>
+
+
+    <string name="pr_pochtitelnosty_1">1. Помоги нам стать почтительными детьми и утешить Тебя, Отец</string>
+    <string name="pr_pochtitelnosty_2"></string>
+    <string name="pr_pochtitelnosty_3"></string>
+    <string name="pr_pochtitelnosty_4"></string>
+    <string name="pr_pochtitelnosty_5"></string>
+    <string name="pr_pochtitelnosty_6"></string>
+    <string name="pr_pochtitelnosty_7"></string>
+    <string name="pr_pochtitelnosty_8"></string>
+    <string name="pr_pochtitelnosty_9"></string>
+    <string name="pr_pochtitelnosty_10"></string>
+
+    <string name="pr_serdca_1">1. Услышьте голос своего сердца</string>
+
+    <string name="pr_voskresheniya_1">1. Отец, позволь нам стать Твоим внешним отражением</string>
+
+    <string name="pr_zelaniya_1">1. Отец, снизойди, мы недостойны Тебя</string>
 
 </resources>
