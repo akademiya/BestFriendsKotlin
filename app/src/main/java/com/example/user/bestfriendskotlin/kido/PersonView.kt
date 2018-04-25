@@ -1,61 +1,100 @@
 package com.example.user.bestfriendskotlin.kido
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.SystemClock
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
-import android.view.Gravity
+import android.text.TextUtils
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
-import com.example.user.bestfriendskotlin.R.id.fab
 import com.example.user.bestfriendskotlin.kido.adapter.PersonAdapter
+import com.example.user.bestfriendskotlin.kido.database.SqliteDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class PersonView : MainActivity() {
-
     private lateinit var rv: RecyclerView
     private lateinit var fab: FloatingActionButton
+    private lateinit var allPerson: List<Person>
+    private lateinit var listPersonEmpty: RelativeLayout
+    private lateinit var database: SqliteDatabase
+    private lateinit var adapter: PersonAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kido)
+        toolbar_button_menu()
         init()
+        showOrHideFab()
+        chronometer()
+    }
+
+    private fun toolbar_button_menu() {
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+//        val mDrawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+//        val button_menu: ImageView = findViewById(R.id.button_menu)
+//        button_menu.setOnClickListener { _ -> mDrawerLayout.openDrawer(Gravity.START) }
+    }
+
+    fun init() {
+        rv = findViewById(R.id.rv_list_kido)
+        fab = findViewById(R.id.fab)
+        fab.setOnClickListener { _ -> addTaskDialog() }
+        listPersonEmpty = findViewById(R.id.list_kido_empty)
 
         rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv.setHasFixedSize(true)
 
-        val persons = ArrayList<Person>()
-        persons.add(Person(0, "Bob"))
-        persons.add(Person(1, "Laya"))
-        persons.add(Person(2, "Stiven"))
-        persons.add(Person(3, "Nika"))
-        persons.add(Person(4, "Garry"))
+        database = SqliteDatabase(this)
+        allPerson = database.listPerson()
 
-        val adapter = PersonAdapter(persons)
-        rv.adapter = adapter
-
+        if (allPerson.isNotEmpty()) {
+            rv.visibility = View.VISIBLE
+            adapter = PersonAdapter(allPerson, this, database)
+            rv.adapter = adapter
+        } else {
+            rv.visibility = View.GONE
+            listPersonEmpty.visibility = View.VISIBLE
+        }
     }
 
     private fun addTaskDialog() {
-        Toast.makeText(this, "Будет всплывать диалог", Toast.LENGTH_SHORT).show()
-    }
+        val inflater = LayoutInflater.from(this)
+        val subView = inflater.inflate(R.layout.item_edit_list_person, null)
 
-    private fun showOrHideFab() {
-        rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                if (dy > 0 && fab.getVisibility() == View.VISIBLE) {
-                    fab.hide()
-                } else if (dy < 0 && fab.getVisibility() != View.VISIBLE) {
-                    fab.show()
-                }
+        val nameField = subView.findViewById<EditText>(R.id.create_person_name)
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.add_new_person)
+        builder.setView(subView)
+        builder.create()
+
+        builder.setPositiveButton(R.string.add_person) { _, _ ->
+            val name = nameField.text.toString()
+
+            if (TextUtils.isEmpty(name)) {
+                Toast.makeText(this, R.string.something_wrong, Toast.LENGTH_SHORT).show()
+            } else {
+                val newPerson = Person(name)
+                database.addPerson(newPerson)
+
+                finish()
+                startActivity(intent)
             }
-        })
+        }
+
+        builder.setNegativeButton(R.string.cancel) { _, _ -> Toast.makeText(this, R.string.task_cancelled, Toast.LENGTH_SHORT).show() }
+        builder.show()
     }
 
     private fun chronometer() {
@@ -66,32 +105,26 @@ class PersonView : MainActivity() {
 
         startChronometer.setOnClickListener { _ ->
             mChronometer.apply {
-                setBase(SystemClock.elapsedRealtime())
+                base = SystemClock.elapsedRealtime()
                 start()
             }
         }
 
         stopChronometer.setOnClickListener { _ -> mChronometer.stop() }
-        restartChronometer.setOnClickListener { _ -> mChronometer.setBase(SystemClock.elapsedRealtime()) }
+        restartChronometer.setOnClickListener { _ -> mChronometer.base = SystemClock.elapsedRealtime() }
     }
 
-    fun init() {
-        rv = findViewById(R.id.rv_list_kido)
-        fab = findViewById(R.id.fab)
-        fab.setOnClickListener { _ -> addTaskDialog() }
-
-//        toolbar_button_menu()
-        showOrHideFab()
-        chronometer()
-    }
-
-    private fun toolbar_button_menu() {
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setHomeButtonEnabled(true)
-        val mDrawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val button_menu: ImageView = findViewById(R.id.button_menu)
-        button_menu?.setOnClickListener { _ -> mDrawerLayout.openDrawer(Gravity.START) }
+    private fun showOrHideFab() {
+        rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if (dy > 0 && fab.visibility == View.VISIBLE) {
+                    fab.hide()
+                } else if (dy < 0 && fab.visibility != View.VISIBLE) {
+                    fab.show()
+                }
+            }
+        })
     }
 
     override fun onBackPressed() {

@@ -1,4 +1,17 @@
 package com.example.user.bestfriendskotlin.kido
 
-data class Person (var personId: Long,
-                   val personName: String)
+class Person {
+
+    var personId: Int = 0
+    var personName: String? = null
+
+    constructor(personId: Int, personName: String?) {
+        this.personId = personId
+        this.personName = personName
+    }
+
+    constructor(personName: String?) {
+        this.personName = personName
+    }
+
+}

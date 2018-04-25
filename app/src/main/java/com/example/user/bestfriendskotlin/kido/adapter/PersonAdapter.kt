@@ -1,36 +1,74 @@
 package com.example.user.bestfriendskotlin.kido.adapter
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.*
 import com.example.user.bestfriendskotlin.R
 import com.example.user.bestfriendskotlin.kido.Person
+import com.example.user.bestfriendskotlin.kido.database.SqliteDatabase
 
-class PersonAdapter(val userList: ArrayList<Person>) : RecyclerView.Adapter<PersonAdapter.VH>() {
-
-//    private var listPerson = emptyList<Person>()
+class PersonAdapter(private val personList: List<Person>, val context: Context, private val database: SqliteDatabase) : RecyclerView.Adapter<PersonAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_kido, parent, false)
     )
 
-    override fun getItemCount(): Int { return userList.size }
+    override fun getItemCount(): Int { return personList.size }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-//        val singlePerson = listPerson[position]
-        holder.let { it.personName?.text = userList[position].personName }
+        val singlePerson = personList[position]
 
+        holder.let {
+            it.personName?.text = singlePerson.personName
+            it.listView?.setOnLongClickListener { _ ->
+                holder.listReview?.visibility = View.VISIBLE
+                false
+            }
+            it.goBack?.setOnClickListener { _ ->
+                holder.listReview?.visibility = View.GONE
+            }
+            it.deleteItem?.setOnClickListener { _ ->
+                database.deletePerson(singlePerson.personId)
+                (context as Activity).finish()
+                context.startActivity(context.intent)
+            }
+            it.editItem?.setOnClickListener { editTaskDialog(singlePerson) }
+        }
     }
 
-//    fun setPersonList(listPerson: List<Person>) = updateListWithDiffs(
-//        this.listPerson, listPerson,
-//        {this.listPerson = it},
-//        {o, n -> o.id == n.id})
+    private fun editTaskDialog(person: Person) {
+        val inflater = LayoutInflater.from(context)
+        val subView = inflater.inflate(R.layout.item_edit_list_person, null)
+        val nameField = subView.findViewById<EditText>(R.id.create_person_name)
+        nameField.setText(person.personName)
+
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(R.string.edit_person)
+        builder.setView(subView)
+        builder.create()
+        builder.setPositiveButton(R.string.edit_person) { _, _ ->
+            val name = nameField.text.toString()
+            database.updatePerson(Person(person.personId, name))
+            (context as Activity).finish()
+            context.startActivity(context.intent)
+        }
+
+        builder.setNegativeButton(R.string.cancel) { _, _ -> Toast.makeText(context, R.string.task_cancelled, Toast.LENGTH_SHORT).show() }
+        builder.show()
+    }
 
 
     class VH(view: View?) : RecyclerView.ViewHolder(view) {
         val personName = view?.findViewById<TextView>(R.id.person_name)
+        val listReview = view?.findViewById<FrameLayout>(R.id.listReview)
+        val listView = view?.findViewById<RelativeLayout>(R.id.listView)
+        val goBack = view?.findViewById<ImageView>(R.id.go_back)
+        val deleteItem = view?.findViewById<ImageView>(R.id.delete_item)
+        val editItem = view?.findViewById<ImageView>(R.id.edit_item)
     }
 }
