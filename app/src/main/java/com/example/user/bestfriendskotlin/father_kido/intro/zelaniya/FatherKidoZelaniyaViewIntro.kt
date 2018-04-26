@@ -34,6 +34,15 @@ class FatherKidoZelaniyaViewIntro : MainActivity(), ReadTextFromFile {
 
         val kido = ArrayList<KidoZelaniya>()
         kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_1), readTextFromFile("pr_zelaniya_1.txt")))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_2), readTextFromFile("pr_zelaniya_2.txt")))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_3), readTextFromFile("pr_zelaniya_3.txt")))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_4), readTextFromFile("pr_zelaniya_4.txt")))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_5), readTextFromFile("pr_zelaniya_5.txt")))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_6), readTextFromFile("pr_zelaniya_6.txt")))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_7), readTextFromFile("pr_zelaniya_7.txt")))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_8), readTextFromFile("pr_zelaniya_8.txt")))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_9), readTextFromFile("pr_zelaniya_9.txt")))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_10), readTextFromFile("pr_zelaniya_10.txt")))
 
         val adapter = KidoZelaniyaAdapter(kido)
         rv.adapter = adapter

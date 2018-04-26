@@ -34,6 +34,15 @@ class FatherKidoVoskresheniyaViewIntro : MainActivity(), ReadTextFromFile  {
 
         val kido = ArrayList<KidoVoskresheniya>()
         kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_1), readTextFromFile("pr_voskresheniya_1.txt")))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_2), readTextFromFile("pr_voskresheniya_2.txt")))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_3), readTextFromFile("pr_voskresheniya_3.txt")))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_4), readTextFromFile("pr_voskresheniya_4.txt")))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_5), readTextFromFile("pr_voskresheniya_5.txt")))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_6), readTextFromFile("pr_voskresheniya_6.txt")))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_7), readTextFromFile("pr_voskresheniya_7.txt")))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_8), readTextFromFile("pr_voskresheniya_8.txt")))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_9), readTextFromFile("pr_voskresheniya_9.txt")))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_10), readTextFromFile("pr_voskresheniya_10.txt")))
 
         val adapter = KidoVoskresheniyaAdapter(kido)
         rv.adapter = adapter

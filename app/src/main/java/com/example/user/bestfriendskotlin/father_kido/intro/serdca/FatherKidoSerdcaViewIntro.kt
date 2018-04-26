@@ -34,6 +34,15 @@ class FatherKidoSerdcaViewIntro : MainActivity(), ReadTextFromFile {
 
         val kido = ArrayList<KidoSerdca>()
         kido.add(KidoSerdca(getString(R.string.pr_serdca_1), readTextFromFile("pr_serdca_1.txt")))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_2), readTextFromFile("pr_serdca_2.txt")))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_3), readTextFromFile("pr_serdca_3.txt")))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_4), readTextFromFile("pr_serdca_4.txt")))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_5), readTextFromFile("pr_serdca_5.txt")))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_6), readTextFromFile("pr_serdca_6.txt")))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_7), readTextFromFile("pr_serdca_7.txt")))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_8), readTextFromFile("pr_serdca_8.txt")))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_9), readTextFromFile("pr_serdca_9.txt")))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_10), readTextFromFile("pr_serdca_10.txt")))
 
         val adapter = KidoSerdcaAdapter(kido)
         rv.adapter = adapter

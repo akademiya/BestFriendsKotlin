@@ -60,22 +60,48 @@
     <string name="pr_pobedy_9">9. Отец! Стань нашим центром!</string>
     <string name="pr_pobedy_10">10. Очисти нас от греха</string>
 
-
     <string name="pr_pochtitelnosty_1">1. Помоги нам стать почтительными детьми и утешить Тебя, Отец</string>
-    <string name="pr_pochtitelnosty_2"></string>
-    <string name="pr_pochtitelnosty_3"></string>
-    <string name="pr_pochtitelnosty_4"></string>
-    <string name="pr_pochtitelnosty_5"></string>
-    <string name="pr_pochtitelnosty_6"></string>
-    <string name="pr_pochtitelnosty_7"></string>
-    <string name="pr_pochtitelnosty_8"></string>
-    <string name="pr_pochtitelnosty_9"></string>
-    <string name="pr_pochtitelnosty_10"></string>
+    <string name="pr_pochtitelnosty_2">2. Помоги нам, детям Твоим, до конца исполнить свой долг</string>
+    <string name="pr_pochtitelnosty_3">3. Сподобь нас, детей Твоих, успокоить скорбное Сердце Твое, Отец</string>
+    <string name="pr_pochtitelnosty_4">4. Сподобь нас стать сыновьями и дочерьми Твоего Сердца, сильными и мужественными</string>
+    <string name="pr_pochtitelnosty_5">5. Помоги нам с полной ответственностью исполнить наш долг в роли невесты</string>
+    <string name="pr_pochtitelnosty_6">6. Помоги нам стать истинными детьми, представителями Вселенной</string>
+    <string name="pr_pochtitelnosty_7">7. Сподобь нас стать детьми, способными утешить Тебя, Отец</string>
+    <string name="pr_pochtitelnosty_8">8. Помоги нам обрести покой, исходящий от любви Твоей, Отец</string>
+    <string name="pr_pochtitelnosty_9">9. Помоги нам, детям Твоим, с уважением внять советам Твоим</string>
+    <string name="pr_pochtitelnosty_10">10. В любом нашем деле позволь нам принадлежать только Тебе</string>
 
     <string name="pr_serdca_1">1. Услышьте голос своего сердца</string>
+    <string name="pr_serdca_2">2. Помоги нам понять Твое Сердце, Отец</string>
+    <string name="pr_serdca_3">3. Чтя Твой скорбный путь, мы преклоняемся перед Тобой, Отец</string>
+    <string name="pr_serdca_4">4. Помоги нам стать достойными лидерами и возложить на свои плечи бремя скорби и страдания Небес</string>
+    <string name="pr_serdca_5">5. Хотим стать истинными сыновьями и дочерьми, утешителями Сердца Отца нашего</string>
+    <string name="pr_serdca_6">6. Позволь нам с помощью Иисуса познать глубины Твоего Сердца</string>
+    <string name="pr_serdca_7">7. Позволь нам свидетельствовать о скорбном Сердце Отца нашего</string>
+    <string name="pr_serdca_8">8. Пусть перейдут к нам Твои скорби, Отец</string>
+    <string name="pr_serdca_9">9. Отец, подари нам бремя Своих забот, подари нам Свое Сердце</string>
+    <string name="pr_serdca_10">10. Если путь ведет в Небесный дворец, мы пойдем по нему даже через море слез</string>
 
     <string name="pr_voskresheniya_1">1. Отец, позволь нам стать Твоим внешним отражением</string>
+    <string name="pr_voskresheniya_2">2. Воссоздай нас</string>
+    <string name="pr_voskresheniya_3">3. Помоги нам силой Слова Твоего стать воплощением добра</string>
+    <string name="pr_voskresheniya_4">4. Воскреси нас реальным воплощением добра</string>
+    <string name="pr_voskresheniya_5">5. Помоги нам, детям Твоим, стать воплощением истины, жизни и любви</string>
+    <string name="pr_voskresheniya_6">6. Позволь нам стать истинными сыновьями и дочерьми вечных Истинных Родителей</string>
+    <string name="pr_voskresheniya_7">7. Защити и воссоздай нас</string>
+    <string name="pr_voskresheniya_8">8. Позволь нам жить в единстве с Небесами</string>
+    <string name="pr_voskresheniya_9">9. Помоги нам искоренить зло и вступить на новый путь</string>
+    <string name="pr_voskresheniya_10">10. Восстанови нас в нашем первозданном облике</string>
 
     <string name="pr_zelaniya_1">1. Отец, снизойди, мы недостойны Тебя</string>
+    <string name="pr_zelaniya_2">2. Позволь нам стать живой жертвой чистого добра</string>
+    <string name="pr_zelaniya_3">3. Иди вперед и действуй, ибо мы с готовностью последуем за Тобой везде</string>
+    <string name="pr_zelaniya_4">4. Призри нас и владей нами</string>
+    <string name="pr_zelaniya_5">5. Раскаявшись в нашем несовершенстве, мы просим Тебя владеть нами и всем творением</string>
+    <string name="pr_zelaniya_6">6. Даруй нам просветление</string>
+    <string name="pr_zelaniya_7">7. Отец! Ниспошли нам Твою любовь и милостивое сострадание</string>
+    <string name="pr_zelaniya_8">8. Пусть будет единая универсальная идея и всеобъемлющая истина</string>
+    <string name="pr_zelaniya_9">9. Отец! Стань нашим центром!</string>
+    <string name="pr_zelaniya_10">10. Очисти нас от греха</string>
 
 </resources>
