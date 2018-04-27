@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.os.SystemClock
 import android.support.design.widget.FloatingActionButton
-import android.support.v4.view.GravityCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
@@ -16,7 +15,6 @@ import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
 import com.example.user.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.example.user.bestfriendskotlin.kido.database.SqliteDatabase
-import kotlinx.android.synthetic.main.activity_main.*
 
 class PersonView : MainActivity() {
     private lateinit var rv: RecyclerView
@@ -38,12 +36,14 @@ class PersonView : MainActivity() {
     private fun toolbar_button_menu() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.setHomeButtonEnabled(true)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
+        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
 
-//        val mDrawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
 //        val button_menu: ImageView = findViewById(R.id.button_menu)
-//        button_menu.setOnClickListener { _ -> mDrawerLayout.openDrawer(Gravity.START) }
+//        button_menu.setOnClickListener { _ -> drawer_layout.openDrawer(Gravity.START) }
     }
 
     fun init() {
@@ -125,14 +125,6 @@ class PersonView : MainActivity() {
                 }
             }
         })
-    }
-
-    override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
     }
 
 }

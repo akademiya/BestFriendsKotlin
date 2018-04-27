@@ -1,8 +1,6 @@
 <resources>
-    <string name="app_name">BestFriendsKotlin</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="app_name">Истинные Родители</string>
+    <string name="app_start_name">TF PRAY</string>
 
     // Dialog
     <string name="add_new_person">Add new person</string>
@@ -29,6 +27,8 @@
     <string name="communicate">Связаться</string>
     <string name="share">Поделиться</string>
     <string name="send">Написать автору</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     // TP kido books
     <string name="pr_nadezdy">Молитвы надежды</string>

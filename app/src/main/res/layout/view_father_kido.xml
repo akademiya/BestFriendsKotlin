@@ -20,15 +20,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/button_menu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/menu_icon_margin"
-                android:padding="@dimen/margin8"
-                android:src="@drawable/ic_menu_white"
-                android:tint="@color/white" />
+            <!--<ImageView-->
+                <!--android:id="@+id/button_menu"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginStart="@dimen/menu_icon_margin"-->
+                <!--android:padding="@dimen/margin8"-->
+                <!--android:src="@drawable/ic_menu_white"-->
+                <!--android:tint="@color/white" />-->
 
             <TextView
                 style="@style/Toolbar.TitleText"

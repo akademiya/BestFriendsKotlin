@@ -8,7 +8,6 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.view.Menu
 import android.view.MenuItem
 import com.example.user.bestfriendskotlin.father_kido.FatherKidoView
 import com.example.user.bestfriendskotlin.kido.PersonView
@@ -22,10 +21,13 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val toggle = ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open,
+                this,
+                drawer_layout,
+                toolbar,
+                R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close)
 
         drawer_layout.addDrawerListener(toggle)

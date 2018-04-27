@@ -2,14 +2,9 @@ package com.example.user.bestfriendskotlin.father_kido
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
-import android.view.Gravity
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
@@ -19,7 +14,6 @@ import com.example.user.bestfriendskotlin.father_kido.intro.pochtitelnosty.Fathe
 import com.example.user.bestfriendskotlin.father_kido.intro.serdca.FatherKidoSerdcaViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
-import kotlinx.android.synthetic.main.activity_main.*
 
 class FatherKidoView : MainActivity() {
 
@@ -47,19 +41,11 @@ class FatherKidoView : MainActivity() {
     private fun toolbar_button_menu() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        supportActionBar?.setDisplayShowTitleEnabled(false)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-
-        val toggle = ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close)
-
-        drawer_layout.addDrawerListener(toggle)
-        toggle.syncState()
-        val mDrawerLayout: DrawerLayout? = null
-        val button_menu: ImageView = findViewById(R.id.button_menu)
-        button_menu.setOnClickListener({ _ -> mDrawerLayout?.openDrawer(Gravity.START) })
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
+        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
     }
 
     private fun booksItemClicked(booksItem: FatherKido) {
