@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
@@ -16,12 +15,11 @@
     <dimen name="menu_icon_margin">8dp</dimen>
 
     // List item, view
-    <dimen name="item_kido_container">68dp</dimen>
+    <dimen name="item_kido_container">60dp</dimen>
     <dimen name="item_books_container">68dp</dimen>
-    <dimen name="item_korean_container">68dp</dimen>
-    <dimen name="item_contact_container">100dp</dimen>
     <dimen name="img_people_parameter">40dp</dimen>
     <dimen name="edge_margins">16dp</dimen>
+    <dimen name="arrow_size">32dp</dimen>
 
     // text size
     <dimen name="text_size">16sp</dimen>

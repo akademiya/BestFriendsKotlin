@@ -7,7 +7,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin8"
         android:background="@color/white">
 
         <EditText
@@ -15,17 +16,28 @@
             style="@style/TextStyle_Body2_Primary_Dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/margin8"
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
             android:ellipsize="end"
-            android:hint="Остап Бендер"
+            android:hint="Имя"
             android:inputType="textCapWords"
             android:maxLines="1" />
 
+        <EditText
+            android:id="@+id/create_person_description"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_person_name"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginEnd="@dimen/edge_margins"
+            android:layout_marginStart="@dimen/edge_margins"
+            android:hint="Описание"
+            android:inputType="text" />
+
         <View
             style="@style/AppTheme.HorizontalViewDivider"
-            android:layout_alignParentBottom="true" />
-
+            android:layout_below="@+id/create_person_description" />
     </RelativeLayout>
 </LinearLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/listView"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/item_kido_container"
+    android:layout_height="wrap_content"
     android:background="@color/white"
     android:clickable="true"
     android:focusable="true"
@@ -14,26 +14,39 @@
         android:id="@+id/person_name"
         style="@style/TextStyle_Body2_Primary_Dark"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_height="@dimen/item_kido_container"
         android:layout_marginEnd="@dimen/edge_margins"
         android:layout_marginStart="@dimen/edge_margins"
         android:layout_toStartOf="@+id/check_people"
         android:ellipsize="end"
+        android:gravity="center_vertical"
         android:maxLines="1"
         tools:text="Остап Бендер" />
 
     <CheckBox
         android:id="@+id/check_people"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/item_kido_container"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/edge_margins"
-        android:buttonTint="@color/primary" />
+        android:buttonTint="@color/primary"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/person_description"
+        style="@style/TextStyle_Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/person_name"
+        android:layout_marginBottom="@dimen/margin8"
+        android:layout_marginEnd="@dimen/edge_margins"
+        android:layout_marginStart="@dimen/edge_margins"
+        android:ellipsize="end"
+        tools:text="Остап Бендер родился от папы и мамы счастливым и любознательным ребенком. Остап Бендер родился от папы и мамы счастливым и любознательным ребенком." />
 
     <View
         style="@style/AppTheme.HorizontalViewDivider"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/person_description"
         android:layout_marginStart="@dimen/edge_margins" />
 
     <FrameLayout
@@ -42,7 +55,7 @@
         android:layout_height="wrap_content"
         android:background="@color/icon_pressed"
         android:visibility="gone"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 package com.example.user.bestfriendskotlin.kido
 
 import android.app.AlertDialog
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.SystemClock
 import android.support.design.widget.FloatingActionButton
@@ -11,6 +12,7 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import android.widget.Chronometer
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
 import com.example.user.bestfriendskotlin.kido.adapter.PersonAdapter
@@ -73,6 +75,7 @@ class PersonView : MainActivity() {
         val subView = inflater.inflate(R.layout.item_edit_list_person, null)
 
         val nameField = subView.findViewById<EditText>(R.id.create_person_name)
+        val descriptionFiled = subView.findViewById<EditText>(R.id.create_person_description)
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.add_new_person)
@@ -81,11 +84,12 @@ class PersonView : MainActivity() {
 
         builder.setPositiveButton(R.string.add_person) { _, _ ->
             val name = nameField.text.toString()
+            val description = descriptionFiled.text.toString()
 
             if (TextUtils.isEmpty(name)) {
                 Toast.makeText(this, R.string.something_wrong, Toast.LENGTH_SHORT).show()
             } else {
-                val newPerson = Person(name)
+                val newPerson = Person(name, description)
                 database.addPerson(newPerson)
 
                 finish()
@@ -102,11 +106,43 @@ class PersonView : MainActivity() {
         val startChronometer: Button = findViewById(R.id.start)
         val stopChronometer: Button = findViewById(R.id.stop)
         val restartChronometer: Button = findViewById(R.id.reset)
+        val mp = MediaPlayer.create(this, R.raw.ton)
+        var flag3 = false
+        var flag7 = false
+        var flag12 = false
+        var flag21 = false
+        var flag40 = false
 
         startChronometer.setOnClickListener { _ ->
             mChronometer.apply {
                 base = SystemClock.elapsedRealtime()
                 start()
+            }
+        }
+
+        mChronometer.onChronometerTickListener = Chronometer.OnChronometerTickListener {
+            val elapsedMillis = SystemClock.elapsedRealtime() - mChronometer.base
+
+            if (elapsedMillis >= 180000 && flag3 == false) {
+                Toast.makeText(this, "Прошло 3 минуты", Toast.LENGTH_SHORT).show()
+                mp.start()
+                flag3 = true
+            } else if(elapsedMillis >= 420000 && flag7 == false) {
+                Toast.makeText(this, "Прошло 7 минут", Toast.LENGTH_SHORT).show()
+                mp.start()
+                flag7 = true
+            } else if(elapsedMillis >= 720000 && flag12 == false) {
+                Toast.makeText(this, "Прошло 12 минут", Toast.LENGTH_SHORT).show()
+                mp.start()
+                flag12 = true
+            } else if(elapsedMillis >= 1260000 && flag21 == false) {
+                Toast.makeText(this, "Прошло 21 минута", Toast.LENGTH_SHORT).show()
+                mp.start()
+                flag21 = true
+            } else if(elapsedMillis >= 2400000 && flag40 == false) {
+                Toast.makeText(this, "Прошло 40 минут", Toast.LENGTH_SHORT).show()
+                mp.start()
+                flag40 = true
             }
         }
 
