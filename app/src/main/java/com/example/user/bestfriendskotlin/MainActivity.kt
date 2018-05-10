@@ -52,10 +52,11 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
             R.id.nav_share -> {
                 val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
-                val shareBody = "Here is the share content body"
+                val shareBody = "Хочу поделиться данным приложением. Пробуй, пиши feedback. \nВот ссылка на APK: \n" +
+                        "https://drive.google.com/open?id=1hFmdNiSxiD4kXU48CuJXi37_Y4Z8Ynil"
                 sharingIntent.apply {
                     type = "text/plain"
-                    putExtra(android.content.Intent.EXTRA_SUBJECT, "BestFriend")
+                    putExtra(android.content.Intent.EXTRA_SUBJECT, "TF Pray")
                     putExtra(android.content.Intent.EXTRA_TEXT, shareBody)
                 }
                 startActivity(Intent.createChooser(sharingIntent, "Поделиться:"))
@@ -65,7 +66,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 val uri = Uri.parse("mailto:vadym.adv@gmail.com")
                 val sendIntent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"))
                 sendIntent.setData(uri)
-                startActivity(Intent.createChooser(sendIntent, "BestFriend"))
+                startActivity(Intent.createChooser(sendIntent, "TF Pray"))
             }
         }
 
