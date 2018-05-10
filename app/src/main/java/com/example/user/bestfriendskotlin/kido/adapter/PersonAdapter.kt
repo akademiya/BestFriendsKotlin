@@ -3,6 +3,7 @@ package com.example.user.bestfriendskotlin.kido.adapter
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Color
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v7.widget.RecyclerView
@@ -31,12 +32,12 @@ class PersonAdapter(private val personList: List<Person>, val context: Context, 
             it.personDescription?.text = singlePerson.personDescription
             it.listView?.setOnLongClickListener { _ ->
                 holder.listReview?.visibility = View.VISIBLE
-                holder.personDescription?.setTextColor(context.getColor(R.color.light_gray))
+                holder.personDescription?.setTextColor(Color.LTGRAY)
                 false
             }
             it.goBack?.setOnClickListener { _ ->
                 holder.listReview?.visibility = View.GONE
-                holder.personDescription?.setTextColor(context.getColor(R.color.dark_gray))
+                holder.personDescription?.setTextColor(Color.DKGRAY)
             }
             it.deleteItem?.setOnClickListener { _ ->
                 database.deletePerson(singlePerson.personId)
