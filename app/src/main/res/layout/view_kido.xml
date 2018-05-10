@@ -93,5 +93,23 @@
             android:id="@+id/list_kido_empty"
             layout="@layout/view_kido_empty"
             android:visibility="gone" />
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="@dimen/parent_margin"-->
+                <!--android:text="@string/advert" />-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dp" />-->
+        <!--</LinearLayout>-->
+        <!--android:layout_marginBottom="100dp"-->
     </FrameLayout>
 </LinearLayout>

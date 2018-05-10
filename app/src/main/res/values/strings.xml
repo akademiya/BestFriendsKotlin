@@ -2,6 +2,8 @@
     <string name="app_name">Истинные Родители</string>
     <string name="app_start_name">TF PRAY</string>
 
+    <string name="advert">Реклама</string>
+
     // Dialog
     <string name="add_new_person">Add new person</string>
     <string name="add_person">Add person</string>
