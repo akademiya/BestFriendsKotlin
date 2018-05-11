@@ -116,8 +116,10 @@ class PersonView : MainActivity() {
         var flag21 = false
         var flag40 = false
 
-        mChronometer.base = SystemClock.elapsedRealtime()
-        startChronometer.setOnClickListener { _ -> mChronometer.start() }
+        startChronometer.setOnClickListener { _ ->
+            mChronometer.base = SystemClock.elapsedRealtime()
+            mChronometer.start()
+        }
 
         mChronometer.onChronometerTickListener = Chronometer.OnChronometerTickListener {
             val elapsedMillis = SystemClock.elapsedRealtime() - mChronometer.base
@@ -154,6 +156,15 @@ class PersonView : MainActivity() {
             flag40 = false
         }
 
+        stopChronometer.setOnClickListener { _ ->
+            mChronometer.stop()
+            flag3 = false
+            flag7 = false
+            flag12 = false
+            flag21 = false
+            flag40 = false
+        }
+
         restartChronometer.setOnClickListener { _ ->
             mChronometer.base = SystemClock.elapsedRealtime()
             flag3 = false
@@ -175,11 +186,6 @@ class PersonView : MainActivity() {
                 }
             }
         })
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        chronometer()
     }
 
 }
