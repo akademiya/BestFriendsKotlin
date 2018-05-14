@@ -3,6 +3,9 @@
     <string name="app_start_name">TF PRAY</string>
 
     <string name="advert">Реклама</string>
+    <string name="donation_text">Привет. Меня зовут Вадим. \n\nРад, что данное приложение находит отклик в душе, что оно полезное. Все возможные пожелания и предложения принимаю. \n\nДанное приложение разрабатывал исключительно для молитвенного списка. Есть разработка еще одного, в котором включен комплекс инструментов для члена ЦО. \n\nЧтобы поддержать развитие будущего проекта, Вы можете сделать пожертвование, перейдя по кнопке ниже.</string>
+    <string name="donations">Пожертвовать</string>
+    <string name="about">О приложении</string>
 
     // Dialog
     <string name="add_new_person">Add new person</string>
@@ -29,6 +32,7 @@
     <string name="communicate">Связаться</string>
     <string name="share">Поделиться</string>
     <string name="send">Написать автору</string>
+    <string name="donation">Пожертвование</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

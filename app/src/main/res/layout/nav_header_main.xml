@@ -25,20 +25,20 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/gvd" />
+            android:src="@mipmap/tf100" />
     </android.support.v7.widget.CardView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Vadym Gryganskiy"
+        android:text="Автор: Vadym Gryganskiy"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="vadym.adv@gmail.com" />
+        android:text="E-mail: vadym.adv@gmail.com" />
 
 </LinearLayout>

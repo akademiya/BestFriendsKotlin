@@ -68,6 +68,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 sendIntent.setData(uri)
                 startActivity(Intent.createChooser(sendIntent, "TF Pray"))
             }
+
+            R.id.nav_donation -> startActivity(Intent(this, DonationView::class.java))
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
