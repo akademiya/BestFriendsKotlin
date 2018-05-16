@@ -52,21 +52,20 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
             R.id.nav_share -> {
                 val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
-                val shareBody = "Хочу поделиться данным приложением. Пробуй, пиши feedback. \nВот ссылка на APK: \n" +
-                        "https://drive.google.com/open?id=1hFmdNiSxiD4kXU48CuJXi37_Y4Z8Ynil"
+                val shareBody = getString(R.string.share_body)
                 sharingIntent.apply {
                     type = "text/plain"
-                    putExtra(android.content.Intent.EXTRA_SUBJECT, "TF Pray")
+                    putExtra(android.content.Intent.EXTRA_SUBJECT, "True Father Prayers")
                     putExtra(android.content.Intent.EXTRA_TEXT, shareBody)
                 }
-                startActivity(Intent.createChooser(sharingIntent, "Поделиться:"))
+                startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_by)))
             }
 
             R.id.nav_send -> {
                 val uri = Uri.parse("mailto:vadym.adv@gmail.com")
                 val sendIntent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"))
                 sendIntent.setData(uri)
-                startActivity(Intent.createChooser(sendIntent, "TF Pray"))
+                startActivity(Intent.createChooser(sendIntent, "True Father Prayers"))
             }
 
             R.id.nav_donation -> startActivity(Intent(this, DonationView::class.java))

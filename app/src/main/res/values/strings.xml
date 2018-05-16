@@ -1,20 +1,27 @@
 <resources>
     <string name="app_name">Истинные Родители</string>
-    <string name="app_start_name">TF PRAY</string>
+    <string name="app_start_name">TF PRAYER</string>
 
     <string name="advert">Реклама</string>
     <string name="donation_text">Привет. Меня зовут Вадим. \n\nРад, что данное приложение находит отклик в душе, что оно полезное. Все возможные пожелания и предложения принимаю. \n\nДанное приложение разрабатывал исключительно для молитвенного списка. Есть разработка еще одного, в котором включен комплекс инструментов для члена ЦО. \n\nЧтобы поддержать развитие будущего проекта, Вы можете сделать пожертвование, перейдя по кнопке ниже.</string>
     <string name="donations">Пожертвовать</string>
     <string name="about">О приложении</string>
+    <string name="share_by">Поделиться:</string>
+    <string name="share_body">Хочу поделиться данным приложением. Пробуй, пиши feedback. \nВот ссылка на APK: \nhttps://drive.google.com/open?id=1hFmdNiSxiD4kXU48CuJXi37_Y4Z8Ynil</string>
+    <string name="empty_list">Список пустой</string>
+    <string name="author">Автор: Vadym Gryganskiy</string>
+    <string name="email">E-mail: vadym.adv@gmail.com</string>
 
     // Dialog
-    <string name="add_new_person">Add new person</string>
-    <string name="add_person">Add person</string>
-    <string name="edit_person">Edit person</string>
-    <string name="cancel">Cancel</string>
+    <string name="add_new_person">Добавить новую позицию</string>
+    <string name="add_person">Добавить</string>
+    <string name="edit_person">Редактировать данные</string>
+    <string name="cancel">Отмена</string>
     <string name="task_cancelled">Задача отменена</string>
     <string name="something_wrong">Что-то пошло не так. Проверьте свои входные значения</string>
     <string name="error_email">Неверный Email</string>
+    <string name="name">Имя</string>
+    <string name="description">Описание</string>
 
     // Timer
     <string name="start">Старт</string>
@@ -23,12 +30,12 @@
 
     // drawer navigation
     <string name="home_page">Главная</string>
-    <string name="tp_photo">TP фото</string>
+    <string name="tp_photo">Истинные Родители</string>
     <string name="tp_mPhoto">Истинные Родители</string>
-    <string name="tp_kido">Молитвы ИО</string>
+    <string name="tp_kido">Молитвы Отца</string>
     <string name="tp_mKido">Молитвы Истинного Отца</string>
     <string name="mense">가정맹세</string>
-    <string name="kido_list">Список Кидо</string>
+    <string name="kido_list">Молитвенный список</string>
     <string name="communicate">Связаться</string>
     <string name="share">Поделиться</string>
     <string name="send">Написать автору</string>
