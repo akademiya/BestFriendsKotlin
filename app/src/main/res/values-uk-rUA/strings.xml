@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Істинні Батьки</string>
+    <string name="app_start_name">TF PRAYER</string>
+
+    <string name="advert">Реклама</string>
+    <string name="donation_text">Привіт. Я Вадим. \n\nЦей додаток розробляв виключно для молитвенного списку. Тому всі зауваження та побажання я охоче приймаю для покращення софту. \n\nНаразі працюю ще над одним додатком, який буде включати комплекс інструментів для братів/сестер ЦО. Щоб підтримати розвиток майбутнього проекту, Ви можете зробити пожертвування за посиланням нижче.</string>
+    <string name="donations">Перерахувати</string>
+    <string name="about">Про додаток</string>
+    <string name="share_by">Поділитися:</string>
+    <string name="share_body">Мені сподобався доддаток "TP PRAYER". Рекомендую спробувати. \nОсь посилання на APK: \nhttps://drive.google.com/open?id=1hFmdNiSxiD4kXU48CuJXi37_Y4Z8Ynil</string>
+    <string name="empty_list">Список пустий</string>
+    <string name="author">Автор: Vadym Gryganskiy</string>
+    <string name="email">E-mail: vadym.adv@gmail.com</string>
+
+    // Dialog
+    <string name="add_new_person">Додати нову позицію</string>
+    <string name="add_person">Додати</string>
+    <string name="edit_person">Редагувати дані</string>
+    <string name="cancel">Відмінити</string>
+    <string name="task_cancelled">Задача відмінена</string>
+    <string name="something_wrong">Якісь поля пусті. Перевірте свої вхідні дані</string>
+    <string name="name">Им\'я</string>
+    <string name="description">Ситуація</string>
+
+    // Timer
+    <string name="start">Почати</string>
+    <string name="stop">Зупинити</string>
+    <string name="reset">Оновити</string>
+
+    // drawer navigation
+    <string name="home_page">Головна</string>
+    <string name="tp_photo">Істинні Батьки</string>
+    <string name="tp_mPhoto">Істинні Батьки</string>
+    <string name="tp_kido">Молитви Батька</string>
+    <string name="tp_mKido">Молитви Істинного Батька</string>
+    <string name="mense">가정 맹세</string>
+    <string name="kido_list">Молитвенний список</string>
+    <string name="communicate">Зв\'язатися</string>
+    <string name="share">Поділитися</string>
+    <string name="send">Написати автору</string>
+    <string name="donation">Пожертвування</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    // TP kido books
+    <string name="pr_nadezdy">Молитви надії</string>
+    <string name="pr_pobedy">Молитви перемоги</string>
+    <string name="pr_serdca">Молитви серця</string>
+    <string name="pr_pochtitelnosty">Молитви шанобливості</string>
+    <string name="pr_voskresheniya">Молитви воскресіння</string>
+    <string name="pr_zelaniya">Молитви бажання</string>
+</resources>
