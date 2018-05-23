@@ -1,7 +1,6 @@
 package com.example.user.bestfriendskotlin.kido
 
 import android.app.AlertDialog
-import android.content.Context
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.SystemClock
@@ -10,14 +9,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import android.widget.Chronometer
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
-import com.example.user.bestfriendskotlin.R.id.fab
 import com.example.user.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.example.user.bestfriendskotlin.kido.database.SqliteDatabase
 
@@ -145,15 +142,6 @@ class PersonView : MainActivity() {
                 mp.start()
                 flag40 = true
             }
-        }
-
-        stopChronometer.setOnClickListener { _ ->
-            mChronometer.stop()
-            flag3 = false
-            flag7 = false
-            flag12 = false
-            flag21 = false
-            flag40 = false
         }
 
         stopChronometer.setOnClickListener { _ ->
