@@ -32,4 +32,8 @@
 
     // contact
     <dimen name="item_height">26dp</dimen>
+
+    // fab
+    <dimen name="first_fab">75dp</dimen>
+    <dimen name="second_fab">130dp</dimen>
 </resources>
