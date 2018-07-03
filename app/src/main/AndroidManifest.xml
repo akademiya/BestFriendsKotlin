@@ -27,6 +27,7 @@
         <activity android:name=".father_kido.intro.serdca.FatherKidoSerdcaViewIntro"/>
         <activity android:name=".father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro"/>
         <activity android:name=".DonationView"/>
+        <activity android:name=".kido.FabView"/>
     </application>
 
 </manifest>
