@@ -44,12 +44,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_main -> startActivity(Intent(this, MainActivity::class.java))
-
             R.id.nav_kido -> startActivity(Intent(this, PersonView::class.java))
-
             R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java))
-
             R.id.nav_share -> {
                 val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
                 val shareBody = getString(R.string.share_body)
@@ -68,7 +64,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 startActivity(Intent.createChooser(sendIntent, "True Father Prayers"))
             }
 
-            R.id.nav_donation -> startActivity(Intent(this, DonationView::class.java))
+            R.id.nav_info -> startActivity(Intent(this, DonationView::class.java))
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)

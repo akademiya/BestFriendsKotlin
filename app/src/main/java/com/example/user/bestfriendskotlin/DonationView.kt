@@ -3,13 +3,13 @@ package com.example.user.bestfriendskotlin
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.widget.Toast
-import kotlinx.android.synthetic.main.view_donation.*
+import kotlinx.android.synthetic.main.view_info.*
 
 class DonationView : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.view_donation)
+        setContentView(R.layout.view_info)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)

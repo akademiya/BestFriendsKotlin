@@ -22,14 +22,22 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            style="@style/TextStyle_Body2_Primary_Dark"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/parent_margin"
-            android:text="@string/donation_text" />
+            android:layout_marginBottom="72dp">
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/parent_margin"
+                android:text="@string/info_text" />
+
+        </ScrollView>
 
         <Button
             android:id="@+id/donation"
@@ -37,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/parent_margin"
             android:text="@string/donations" />
-
     </RelativeLayout>
 </LinearLayout>
