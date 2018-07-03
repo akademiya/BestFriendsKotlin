@@ -1,9 +1,11 @@
 package com.example.user.bestfriendskotlin
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
-import android.widget.Toast
 import kotlinx.android.synthetic.main.view_info.*
+
 
 class DonationView : MainActivity() {
 
@@ -19,10 +21,10 @@ class DonationView : MainActivity() {
         }
         toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
 
-//        val button_menu: ImageView = findViewById(R.id.button_menu)
-//        button_menu.setOnClickListener { _ -> drawer_layout.openDrawer(Gravity.START) }
-
-        donation.setOnClickListener { Toast.makeText(applicationContext, "click ok", Toast.LENGTH_SHORT).show() }
+        donation.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sendmoney.privatbank.ua/ru/?hash=564861218"))
+            startActivity(browserIntent)
+        }
 
     }
 
