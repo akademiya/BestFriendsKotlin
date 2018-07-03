@@ -9,7 +9,7 @@
     <string name="donations">기부</string>
     <string name="about">응용 프로그램 정보</string>
     <string name="share_by">몫:</string>
-    <string name="share_body">I liked "TF PRAYER" application. I want to share it. You can try also and write feedback. \nThis link on APK: \nhttps://drive.google.com/open?id=1hFmdNiSxiD4kXU48CuJXi37_Y4Z8Ynil</string>
+    <string name="share_body">I want to share "TF PRAYER" application.</string>
     <string name="empty_list">목록이 비어 있습니다</string>
     <string name="author">작성자: Vadym Gryganskiy</string>
     <string name="email">이메일: vadym.adv@gmail.com</string>
