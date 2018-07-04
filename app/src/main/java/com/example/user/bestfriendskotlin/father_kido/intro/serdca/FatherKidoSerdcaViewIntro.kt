@@ -5,9 +5,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.widget.LinearLayout
+import com.example.user.bestfriendskotlin.AndroidApplication
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
 import com.example.user.bestfriendskotlin.father_kido.intro.ReadTextFromFile
+import com.example.user.bestfriendskotlin.tracker
 import java.io.InputStream
 
 class FatherKidoSerdcaViewIntro : MainActivity(), ReadTextFromFile {
@@ -24,6 +26,7 @@ class FatherKidoSerdcaViewIntro : MainActivity(), ReadTextFromFile {
         }
         toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
 
+        tracker().setScreenName("Kido Serdca")
         init()
     }
 

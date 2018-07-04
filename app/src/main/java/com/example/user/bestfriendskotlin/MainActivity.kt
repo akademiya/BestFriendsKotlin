@@ -9,8 +9,10 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import com.example.user.bestfriendskotlin.R.string.name
 import com.example.user.bestfriendskotlin.father_kido.FatherKidoView
 import com.example.user.bestfriendskotlin.kido.PersonView
+import com.google.android.gms.analytics.HitBuilders
 import kotlinx.android.synthetic.main.activity_main.*
 
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -18,6 +20,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        analyticsTracker()
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -34,6 +38,15 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+    }
+
+    private fun analyticsTracker() {
+        // Obtain the shared Tracker instance.
+        tracker().setScreenName("Image~$name")
+        tracker().send(HitBuilders.ScreenViewBuilder().build())
+        tracker().send(HitBuilders.EventBuilder()
+                .setCategory("Main Activity")
+                .build())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

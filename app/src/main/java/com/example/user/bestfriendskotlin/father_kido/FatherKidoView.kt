@@ -14,6 +14,10 @@ import com.example.user.bestfriendskotlin.father_kido.intro.pochtitelnosty.Fathe
 import com.example.user.bestfriendskotlin.father_kido.intro.serdca.FatherKidoSerdcaViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
+import com.example.user.bestfriendskotlin.tracker
+import com.google.android.gms.analytics.HitBuilders
+
+
 
 class FatherKidoView : MainActivity() {
 
@@ -49,6 +53,13 @@ class FatherKidoView : MainActivity() {
     }
 
     private fun booksItemClicked(booksItem: FatherKido) {
+
+        // analytics tracker
+        tracker().send(HitBuilders.EventBuilder()
+                .setCategory("Father Kido")
+                .setAction("List")
+                .build())
+
         when(booksItem.booksID) {
             1 -> startActivity(Intent(this, FatherKidoNadezdyViewIntro::class.java))
             2 -> startActivity(Intent(this, FatherKidoPobedyViewIntro::class.java))

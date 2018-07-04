@@ -17,6 +17,7 @@ import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
 import com.example.user.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.example.user.bestfriendskotlin.kido.database.SqliteDatabase
+import com.example.user.bestfriendskotlin.tracker
 
 class PersonView : MainActivity() {
     private lateinit var rv: RecyclerView
@@ -33,6 +34,7 @@ class PersonView : MainActivity() {
         init()
         showOrHideFab()
         chronometer()
+        tracker().setScreenName("Kido for Person")
     }
 
     private fun toolbar_button_menu() {
@@ -43,9 +45,6 @@ class PersonView : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
-
-//        val button_menu: ImageView = findViewById(R.id.button_menu)
-//        button_menu.setOnClickListener { _ -> drawer_layout.openDrawer(Gravity.START) }
     }
 
     fun init() {
