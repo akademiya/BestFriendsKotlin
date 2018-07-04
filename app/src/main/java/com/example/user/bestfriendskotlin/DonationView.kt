@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
+import android.text.method.LinkMovementMethod
 import kotlinx.android.synthetic.main.view_info.*
 
 
@@ -19,13 +20,13 @@ class DonationView : MainActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
+
         toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
+        private_policy.movementMethod = LinkMovementMethod.getInstance()
 
         donation.setOnClickListener {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sendmoney.privatbank.ua/ru/?hash=564861218"))
             startActivity(browserIntent)
         }
-
     }
-
 }

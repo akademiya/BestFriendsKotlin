@@ -6,6 +6,7 @@
     <string name="advert">광고</string>
     <string name="info_text">Hello. I`m Vadym. \n\nThe application is designed only for the prayer list. On the main page there will always be True Parents. The "Prayer List" menu allows you to add, edit and delete items. You can select the item for whom/what you pray for. There is also a chronometer that counts the time. After 3, 7, 12, 21, 40 minutes, a signal will sound with a message that expired according to the time. \n\nThe "Father's Prayer" menu is a collection of prayers that are in translation to russian for the time being. \n\nYou can always unsubscribe to me according to the wishes of the application. If you want, you can express gratitude by transferring the money. \n\nAs for the development of the project, at least it is planned to implement prayers in the languages ​​of ko, en. And also the ability to download the finished list.
     </string>
+    <string name="private_policy"><a href="https://drive.google.com/open?id=1wsbkQ0TLdPWQ9WFKnp6_Yw7wYDpgAWNSxViHhmjoI3Y">개인 정책</a></string>
     <string name="donations">기부</string>
     <string name="about">응용 프로그램 정보</string>
     <string name="share_by">몫:</string>
