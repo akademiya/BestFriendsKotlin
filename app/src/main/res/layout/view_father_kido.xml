@@ -16,16 +16,10 @@
         app:contentInsetEnd="0dp"
         app:contentInsetStart="0dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            style="@style/Toolbar.TitleText"
+            android:text="@string/tp_mKido" />
 
-            <TextView
-                style="@style/Toolbar.TitleText"
-                android:layout_toEndOf="@+id/button_menu"
-                android:text="@string/tp_mKido" />
-
-        </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
