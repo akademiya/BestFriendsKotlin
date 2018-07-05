@@ -10,13 +10,14 @@ android {
         applicationId "me.vadym.adv.tfprayer"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.01"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -58,4 +59,6 @@ dependencies {
 
     apply plugin: 'kotlin-android-extensions'
     implementation 'com.google.android.gms:play-services-analytics:16.0.1'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
 }

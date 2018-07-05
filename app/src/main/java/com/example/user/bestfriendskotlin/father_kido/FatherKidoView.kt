@@ -15,16 +15,22 @@ import com.example.user.bestfriendskotlin.father_kido.intro.serdca.FatherKidoSer
 import com.example.user.bestfriendskotlin.father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
 import com.example.user.bestfriendskotlin.tracker
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.analytics.HitBuilders
 
 
 
 class FatherKidoView : MainActivity() {
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido)
         toolbar_button_menu()
+        admob()
 
         val rv = findViewById<RecyclerView>(R.id.view_list_tpkido)
         rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
@@ -40,6 +46,19 @@ class FatherKidoView : MainActivity() {
 
         val adapter = FatherKidoAdapter(books, { booksItem: FatherKido -> booksItemClicked(booksItem) })
         rv.adapter = adapter
+    }
+
+    private fun admob() {
+        // Sample AdMob app ID: ca-app-pub-5169531562006723/6552139134
+        MobileAds.initialize(this, "ca-app-pub-5169531562006723~5810328137")
+
+        val adView = AdView(this)
+        adView.adSize = AdSize.SMART_BANNER
+        adView.adUnitId = "ca-app-pub-5169531562006723/6552139134"
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     private fun toolbar_button_menu() {
