@@ -27,12 +27,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        val toggle = ActionBarDrawerToggle(
-                this,
-                drawer_layout,
-                toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close)
+        val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
 
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
@@ -77,7 +72,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 startActivity(Intent.createChooser(sendIntent, "True Father Prayers"))
             }
 
-            R.id.nav_info -> startActivity(Intent(this, DonationView::class.java))
+            R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)

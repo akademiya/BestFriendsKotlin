@@ -9,7 +9,7 @@ import com.google.android.gms.analytics.HitBuilders
 import kotlinx.android.synthetic.main.view_info.*
 
 
-class DonationView : MainActivity() {
+class InfoView : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +25,8 @@ class DonationView : MainActivity() {
         toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
         private_policy.movementMethod = LinkMovementMethod.getInstance()
 
-        donation.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sendmoney.privatbank.ua/ru/?hash=564861218"))
+        coffee_gift.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/tfprayer/main"))
             startActivity(browserIntent)
         }
 
