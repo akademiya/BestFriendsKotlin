@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "240937171406",
+    "firebase_url": "https://tf-prayer.firebaseio.com",
+    "project_id": "tf-prayer",
+    "storage_bucket": "tf-prayer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240937171406:android:22f0147db6200f69",
+        "android_client_info": {
+          "package_name": "me.vadym.adv.tfprayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240937171406-jpo602vt2hl9e2oc20g2bspa602n1l3g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTQC8V8EFz_-Xx-8RxWYr3QScW79XYuY0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
