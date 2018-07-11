@@ -46,6 +46,16 @@ class FatherKidoZelaniyaViewIntro : MainActivity(), ReadTextFromFile {
         kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_8), getString(R.string.pr_zelaniya_8t)))
         kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_9), getString(R.string.pr_zelaniya_9t)))
         kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_10), getString(R.string.pr_zelaniya_10t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_11), getString(R.string.pr_zelaniya_11t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_12), getString(R.string.pr_zelaniya_12t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_13), getString(R.string.pr_zelaniya_13t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_14), getString(R.string.pr_zelaniya_14t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_15), getString(R.string.pr_zelaniya_15t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_16), getString(R.string.pr_zelaniya_16t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_17), getString(R.string.pr_zelaniya_17t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_18), getString(R.string.pr_zelaniya_18t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_19), getString(R.string.pr_zelaniya_19t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_20), getString(R.string.pr_zelaniya_20t)))
 
         val adapter = KidoZelaniyaAdapter(kido)
         rv.adapter = adapter
