@@ -106,6 +106,12 @@
     <string name="pr_pobedy_13">13. </string>
     <string name="pr_pobedy_14">14. </string>
     <string name="pr_pobedy_15">15. </string>
+    <string name="pr_pobedy_16">16. </string>
+    <string name="pr_pobedy_17">17. </string>
+    <string name="pr_pobedy_18">18. </string>
+    <string name="pr_pobedy_19">19. </string>
+    <string name="pr_pobedy_20">20. </string>
+    <string name="pr_pobedy_21">21. </string>
 
     <string name="pr_pochtitelnosty_1">1. Помоги нам стать почтительными детьми и утешить Тебя, Отец</string>
     <string name="pr_pochtitelnosty_2">2. Помоги нам, детям Твоим, до конца исполнить свой долг</string>
@@ -117,11 +123,17 @@
     <string name="pr_pochtitelnosty_8">8. Помоги нам обрести покой, исходящий от любви Твоей, Отец</string>
     <string name="pr_pochtitelnosty_9">9. Помоги нам, детям Твоим, с уважением внять советам Твоим</string>
     <string name="pr_pochtitelnosty_10">10. В любом нашем деле позволь нам принадлежать только Тебе</string>
-    <string name="pr_pochtitelnosty_11">11. </string>
-    <string name="pr_pochtitelnosty_12">12. </string>
-    <string name="pr_pochtitelnosty_13">13. </string>
-    <string name="pr_pochtitelnosty_14">14. </string>
-    <string name="pr_pochtitelnosty_15">15. </string>
+    <string name="pr_pochtitelnosty_11">11. Давайте пойдем путем разрешения исторической скорби</string>
+    <string name="pr_pochtitelnosty_12">12. Приказывай нам через наше изначальное сердце</string>
+    <string name="pr_pochtitelnosty_13">13. Да будет наш путь путем веры и служения нашему скорбному Отцу</string>
+    <string name="pr_pochtitelnosty_14">14. Помоги нам в наших поисках скорбного пути</string>
+    <string name="pr_pochtitelnosty_15">15. Сподобь нас воспеть Твое освобождение, Отец</string>
+    <string name="pr_pochtitelnosty_16">16. Отец! Мы испытываем к Тебе глубокое благоговение</string>
+    <string name="pr_pochtitelnosty_17">17. Помоги нам, детям Твоим, не оставить после себя скорби</string>
+    <string name="pr_pochtitelnosty_18">18. Позволь нам, служа Тебе, шагать по пути преданности и сыновней почтительности</string>
+    <string name="pr_pochtitelnosty_19">19. Помоги нам стать истинными дочерьми и сыновьями, готовыми служить Тебе, Отец</string>
+    <string name="pr_pochtitelnosty_20">20. Помоги нам стать истинными почтительными детьми, до конца преданными Тебе</string>
+    <string name="pr_pochtitelnosty_21">21. </string>
 
     <string name="pr_serdca_1">1. Услышьте голос своего сердца</string>
     <string name="pr_serdca_2">2. Помоги нам понять Твое Сердце, Отец</string>
@@ -187,5 +199,6 @@
     <string name="pr_zelaniya_18">18. Отец, яви сострадание!</string>
     <string name="pr_zelaniya_19">19. Помоги нам сохранить душу кроткую и смиренную</string>
     <string name="pr_zelaniya_20">20. Помоги нам осознать наше жалкое положение</string>
+    <string name="pr_zelaniya_21">21. </string>
 
 </resources>

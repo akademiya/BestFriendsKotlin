@@ -46,6 +46,16 @@ class FatherKidoPochtitelnostyViewIntro : MainActivity(), ReadTextFromFile {
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_8), getString(R.string.pr_pochtitelnosty_8t)))
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_9), getString(R.string.pr_pochtitelnosty_9t)))
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_10), getString(R.string.pr_pochtitelnosty_10t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_11), getString(R.string.pr_pochtitelnosty_11t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_12), getString(R.string.pr_pochtitelnosty_12t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_13), getString(R.string.pr_pochtitelnosty_13t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_14), getString(R.string.pr_pochtitelnosty_14t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_15), getString(R.string.pr_pochtitelnosty_15t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_16), getString(R.string.pr_pochtitelnosty_16t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_17), getString(R.string.pr_pochtitelnosty_17t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_18), getString(R.string.pr_pochtitelnosty_18t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_19), getString(R.string.pr_pochtitelnosty_19t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_20), getString(R.string.pr_pochtitelnosty_20t)))
 
         val adapter = KidoPochtitelnostyAdapter(kido)
         rv.adapter = adapter
