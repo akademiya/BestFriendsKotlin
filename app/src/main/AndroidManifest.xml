@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,16 +23,26 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".kido.PersonView"/>
-        <activity android:name=".father_kido.FatherKidoView"/>
-        <activity android:name=".father_kido.intro.nadezdy.FatherKidoNadezdyViewIntro"/>
-        <activity android:name=".father_kido.intro.pobedy.FatherKidoPobedyViewIntro"/>
-        <activity android:name=".father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro"/>
-        <activity android:name=".father_kido.intro.pochtitelnosty.FatherKidoPochtitelnostyViewIntro"/>
-        <activity android:name=".father_kido.intro.serdca.FatherKidoSerdcaViewIntro"/>
-        <activity android:name=".father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro"/>
-        <activity android:name=".InfoView"/>
-        <activity android:name=".kido.FabView"/>
+        <activity android:name=".kido.PersonView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.FatherKidoView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.nadezdy.FatherKidoNadezdyViewIntro"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.pobedy.FatherKidoPobedyViewIntro"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.pochtitelnosty.FatherKidoPochtitelnostyViewIntro"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.serdca.FatherKidoSerdcaViewIntro"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".InfoView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".kido.FabView"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
