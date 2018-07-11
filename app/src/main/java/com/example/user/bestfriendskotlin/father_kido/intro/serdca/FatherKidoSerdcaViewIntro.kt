@@ -46,6 +46,16 @@ class FatherKidoSerdcaViewIntro : MainActivity(), ReadTextFromFile {
         kido.add(KidoSerdca(getString(R.string.pr_serdca_8), getString(R.string.pr_serdca_8t)))
         kido.add(KidoSerdca(getString(R.string.pr_serdca_9), getString(R.string.pr_serdca_9t)))
         kido.add(KidoSerdca(getString(R.string.pr_serdca_10), getString(R.string.pr_serdca_10t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_11), getString(R.string.pr_serdca_11t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_12), getString(R.string.pr_serdca_12t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_13), getString(R.string.pr_serdca_13t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_14), getString(R.string.pr_serdca_14t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_15), getString(R.string.pr_serdca_15t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_16), getString(R.string.pr_serdca_16t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_17), getString(R.string.pr_serdca_17t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_18), getString(R.string.pr_serdca_18t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_19), getString(R.string.pr_serdca_19t)))
+        kido.add(KidoSerdca(getString(R.string.pr_serdca_20), getString(R.string.pr_serdca_20t)))
 
         val adapter = KidoSerdcaAdapter(kido)
         rv.adapter = adapter
