@@ -46,6 +46,16 @@ class FatherKidoVoskresheniyaViewIntro : MainActivity(), ReadTextFromFile  {
         kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_8), getString(R.string.pr_voskresheniya_8t)))
         kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_9), getString(R.string.pr_voskresheniya_9t)))
         kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_10), getString(R.string.pr_voskresheniya_10t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_11), getString(R.string.pr_voskresheniya_11t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_12), getString(R.string.pr_voskresheniya_12t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_13), getString(R.string.pr_voskresheniya_13t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_14), getString(R.string.pr_voskresheniya_14t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_15), getString(R.string.pr_voskresheniya_15t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_16), getString(R.string.pr_voskresheniya_16t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_17), getString(R.string.pr_voskresheniya_17t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_18), getString(R.string.pr_voskresheniya_18t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_19), getString(R.string.pr_voskresheniya_19t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_20), getString(R.string.pr_voskresheniya_20t)))
 
         val adapter = KidoVoskresheniyaAdapter(kido)
         rv.adapter = adapter
