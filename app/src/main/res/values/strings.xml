@@ -28,7 +28,7 @@
     <string name="stop">Стоп</string>
     <string name="reset">Сброс</string>
 
-    // drawer navigation
+    // Drawer navigation
     <string name="home_page">Главная</string>
     <string name="tp_photo">Истинные Родители</string>
     <string name="tp_mPhoto">Истинные Родители</string>
@@ -101,16 +101,16 @@
     <string name="pr_pobedy_8">8. Пусть будет единая универсальная идея и всеобъемлющая истина</string>
     <string name="pr_pobedy_9">9. Отец! Стань нашим центром!</string>
     <string name="pr_pobedy_10">10. Очисти нас от греха</string>
-    <string name="pr_pobedy_11">11. </string>
-    <string name="pr_pobedy_12">12. </string>
-    <string name="pr_pobedy_13">13. </string>
-    <string name="pr_pobedy_14">14. </string>
-    <string name="pr_pobedy_15">15. </string>
-    <string name="pr_pobedy_16">16. </string>
-    <string name="pr_pobedy_17">17. </string>
-    <string name="pr_pobedy_18">18. </string>
-    <string name="pr_pobedy_19">19. </string>
-    <string name="pr_pobedy_20">20. </string>
+    <string name="pr_pobedy_11">11. Отец, сподобь нас остаться с Тобой до конца</string>
+    <string name="pr_pobedy_12">12. Сподобь нас стать мужественными воинами Небес и преодолеть все</string>
+    <string name="pr_pobedy_13">13. Позволь нам стать избранными Небесными воинами, сильными и мужественными</string>
+    <string name="pr_pobedy_14">14. Позволь нам терпеливо трудиться, чтобы принести плоды завершения</string>
+    <string name="pr_pobedy_15">15. Сподобь нас принести добрые плоды</string>
+    <string name="pr_pobedy_16">16. Помоги нам стать храбрыми воинами Небес, устремленными в Ханаан</string>
+    <string name="pr_pobedy_17">17. Позволь нам храбро перейти в наступление, чтобы одержать победу в сатанинском мире</string>
+    <string name="pr_pobedy_18">18. Помоги нам быть неизменными до конца на поле последней яростной битвы</string>
+    <string name="pr_pobedy_19">19. Мы выступили вперед с решимостью умереть</string>
+    <string name="pr_pobedy_20">20. Сподобь нас стать мужественными Небесными воинами, смело шагающими в мир</string>
     <string name="pr_pobedy_21">21. </string>
 
     <string name="pr_pochtitelnosty_1">1. Помоги нам стать почтительными детьми и утешить Тебя, Отец</string>
