@@ -23,7 +23,7 @@
                 style="@style/Toolbar.TitleText"
                 android:text="@string/kido_list" />
 
-            <Chronometer
+            <TextView
                 android:id="@+id/chronometer"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
