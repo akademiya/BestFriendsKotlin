@@ -4,24 +4,20 @@ import android.app.AlertDialog
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.SystemClock
-import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
-import android.widget.Chronometer
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
 import com.example.user.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.example.user.bestfriendskotlin.kido.database.SqliteDatabase
 import com.example.user.bestfriendskotlin.tracker
+import kotlinx.android.synthetic.main.view_kido.*
 
-class PersonView : MainActivity() {
-    private lateinit var rv: RecyclerView
-    private lateinit var fab: FloatingActionButton
+class PersonView : MainActivity(), IPersonView {
     private lateinit var allPerson: List<Person>
     private lateinit var listPersonEmpty: RelativeLayout
     private lateinit var database: SqliteDatabase
@@ -31,14 +27,13 @@ class PersonView : MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kido)
         toolbar_button_menu()
-        init()
+        initializ()
         showOrHideFab()
         chronometer()
         tracker().setScreenName("Kido for Person")
     }
 
     private fun toolbar_button_menu() {
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -47,24 +42,22 @@ class PersonView : MainActivity() {
         toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
     }
 
-    fun init() {
-        rv = findViewById(R.id.rv_list_kido)
-        fab = findViewById(R.id.fab)
+    fun initializ() {
         fab.setOnClickListener { _ -> addTaskDialog() }
         listPersonEmpty = findViewById(R.id.list_kido_empty)
 
-        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        rv.setHasFixedSize(true)
+        rv_list_kido.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv_list_kido.setHasFixedSize(true)
 
-        database = SqliteDatabase(this)
+        database = SqliteDatabase.getInstance(this)
         allPerson = database.listPerson()
 
         if (allPerson.isNotEmpty()) {
-            rv.visibility = View.VISIBLE
+            rv_list_kido.visibility = View.VISIBLE
             adapter = PersonAdapter(allPerson, this, database)
-            rv.adapter = adapter
+            rv_list_kido.adapter = adapter
         } else {
-            rv.visibility = View.GONE
+            rv_list_kido.visibility = View.GONE
             listPersonEmpty.visibility = View.VISIBLE
         }
     }
@@ -101,10 +94,6 @@ class PersonView : MainActivity() {
     }
 
     private fun chronometer() {
-        val mChronometer: Chronometer = findViewById(R.id.chronometer)
-        val startChronometer: Button = findViewById(R.id.start)
-        val stopChronometer: Button = findViewById(R.id.stop)
-        val restartChronometer: Button = findViewById(R.id.reset)
         val mp = MediaPlayer.create(this, R.raw.ton)
         var flag3 = false
         var flag7 = false
@@ -112,13 +101,13 @@ class PersonView : MainActivity() {
         var flag21 = false
         var flag40 = false
 
-        startChronometer.setOnClickListener { _ ->
-            mChronometer.base = SystemClock.elapsedRealtime()
-            mChronometer.start()
+        start.setOnClickListener { _ ->
+            chronometer.base = SystemClock.elapsedRealtime()
+            chronometer.start()
         }
 
-        mChronometer.onChronometerTickListener = Chronometer.OnChronometerTickListener {
-            val elapsedMillis = SystemClock.elapsedRealtime() - mChronometer.base
+        chronometer.onChronometerTickListener = Chronometer.OnChronometerTickListener {
+            val elapsedMillis = SystemClock.elapsedRealtime() - chronometer.base
 
             if (elapsedMillis >= 180000 && flag3 == false) {
                 Toast.makeText(this, "Прошло 3 минуты", Toast.LENGTH_SHORT).show()
@@ -143,8 +132,8 @@ class PersonView : MainActivity() {
             }
         }
 
-        stopChronometer.setOnClickListener { _ ->
-            mChronometer.stop()
+        stop.setOnClickListener { _ ->
+            chronometer.stop()
             flag3 = false
             flag7 = false
             flag12 = false
@@ -152,8 +141,8 @@ class PersonView : MainActivity() {
             flag40 = false
         }
 
-        restartChronometer.setOnClickListener { _ ->
-            mChronometer.base = SystemClock.elapsedRealtime()
+        reset.setOnClickListener { _ ->
+            chronometer.base = SystemClock.elapsedRealtime()
             flag3 = false
             flag7 = false
             flag12 = false
@@ -163,7 +152,7 @@ class PersonView : MainActivity() {
     }
 
     private fun showOrHideFab() {
-        rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        rv_list_kido.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 if (dy > 0 && fab.visibility == View.VISIBLE) {

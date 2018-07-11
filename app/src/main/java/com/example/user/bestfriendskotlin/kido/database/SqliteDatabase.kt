@@ -1,13 +1,13 @@
 package com.example.user.bestfriendskotlin.kido.database
 
 import android.content.ContentValues
+import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.content.Context
 import com.example.user.bestfriendskotlin.kido.Person
-import java.util.ArrayList
+import java.util.*
 
-class SqliteDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_PERSON_TABLE = ("CREATE TABLE $TABLE_PERSONS($KEY_ID INTEGER PRIMARY KEY,$KEY_PERSON_NAME TEXT,$KEY_PERSON_DESCRIPTION TEXT)")
@@ -68,6 +68,15 @@ class SqliteDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val KEY_ID = "_id"
         val KEY_PERSON_NAME = "personname"
         val KEY_PERSON_DESCRIPTION = "persondescription"
+
+        private var instance: SqliteDatabase? = null
+        fun getInstance(context: Context): SqliteDatabase {
+            if (instance == null) {
+                instance = SqliteDatabase(context)
+            }
+            return instance!!
+        }
+
     }
 
 }

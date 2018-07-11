@@ -3,7 +3,6 @@ package com.example.user.bestfriendskotlin.father_kido
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.widget.LinearLayout
 import com.example.user.bestfriendskotlin.MainActivity
@@ -20,7 +19,7 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.analytics.HitBuilders
-
+import kotlinx.android.synthetic.main.view_father_kido.*
 
 
 class FatherKidoView : MainActivity() {
@@ -32,9 +31,8 @@ class FatherKidoView : MainActivity() {
         toolbar_button_menu()
         admob()
 
-        val rv = findViewById<RecyclerView>(R.id.view_list_tpkido)
-        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        rv.hasFixedSize()
+        view_list_tpkido.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        view_list_tpkido.hasFixedSize()
 
         val books = ArrayList<FatherKido>()
         books.add(FatherKido(1, getString(R.string.pr_nadezdy)))
@@ -45,7 +43,7 @@ class FatherKidoView : MainActivity() {
         books.add(FatherKido(6, getString(R.string.pr_zelaniya)))
 
         val adapter = FatherKidoAdapter(books, { booksItem: FatherKido -> booksItemClicked(booksItem) })
-        rv.adapter = adapter
+        view_list_tpkido.adapter = adapter
     }
 
     private fun admob() {
@@ -62,7 +60,6 @@ class FatherKidoView : MainActivity() {
     }
 
     private fun toolbar_button_menu() {
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
