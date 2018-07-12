@@ -10,6 +10,7 @@ object Chronometer {
 
     private lateinit var tickListener: () -> Unit
     private lateinit var scheduledTask: TimerTask
+    private var justOneStart = false
     private val timer = Timer()
 
     fun setOnTick(whatIDo: () -> Unit) {
@@ -17,14 +18,17 @@ object Chronometer {
     }
 
     fun start() {
-        scheduledTask = object : TimerTask() {
-            override fun run() {
-                Handler(Looper.getMainLooper()).post {
-                    tickListener()
+        if (!justOneStart) {
+            scheduledTask = object : TimerTask() {
+                override fun run() {
+                    Handler(Looper.getMainLooper()).post {
+                        tickListener()
+                    }
                 }
             }
-        }
-        timer.scheduleAtFixedRate(scheduledTask, 1000, 1000)
+            timer.scheduleAtFixedRate(scheduledTask, 1000, 1000)
+            justOneStart = true
+        } else return
     }
 
     fun stop() {
@@ -32,6 +36,7 @@ object Chronometer {
             scheduledTask.cancel()
         else doNothing()
         nextBeep = 0
+        justOneStart = false
     }
 
     fun doNothing() {}
