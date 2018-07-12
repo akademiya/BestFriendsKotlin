@@ -28,8 +28,12 @@ object Chronometer {
     }
 
     fun stop() {
-        scheduledTask.cancel()
+        if (base > 0)
+            scheduledTask.cancel()
+        else doNothing()
         nextBeep = 0
     }
+
+    fun doNothing() {}
 
 }
