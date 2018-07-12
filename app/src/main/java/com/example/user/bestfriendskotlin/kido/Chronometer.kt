@@ -32,10 +32,4 @@ object Chronometer {
         nextBeep = 0
     }
 
-    fun reset() {
-        scheduledTask.cancel()
-        nextBeep = 0
-        base = 0
-    }
-
 }

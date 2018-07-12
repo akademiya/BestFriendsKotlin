@@ -97,6 +97,7 @@ class PersonView : MainActivity() {
 
     private fun chronometer() {
         val mp = MediaPlayer.create(this, R.raw.ton)
+        chronometer.text = DateUtils.formatElapsedTime(0)
 
         start.setOnClickListener { _ ->
             Chronometer.base = SystemClock.elapsedRealtime()
@@ -145,8 +146,8 @@ class PersonView : MainActivity() {
         }
 
         reset.setOnClickListener { _ ->
-            Chronometer.reset()
-            Chronometer.base = SystemClock.elapsedRealtime()
+            Chronometer.stop()
+            chronometer.text = DateUtils.formatElapsedTime(0)
         }
     }
 
