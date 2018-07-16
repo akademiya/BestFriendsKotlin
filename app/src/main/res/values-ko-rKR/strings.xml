@@ -46,12 +46,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     // TP kido books
-    <string name="pr_nadezdy">Молитви надії</string>
-    <string name="pr_pobedy">Молитви перемоги</string>
-    <string name="pr_serdca">Молитви серця</string>
-    <string name="pr_pochtitelnosty">Молитви шанобливості</string>
-    <string name="pr_voskresheniya">Молитви воскресіння</string>
-    <string name="pr_zelaniya">Молитви бажання</string>
+    <string name="pr_nadezdy">Prayers of Hope</string>
+    <string name="pr_pobedy">Victory Prayers</string>
+    <string name="pr_serdca">Heart Prayers</string>
+    <string name="pr_pochtitelnosty">Prayer of Piety</string>
+    <string name="pr_voskresheniya">Prayers of Resurrection</string>
+    <string name="pr_zelaniya">Prayers of Desire</string>
 </resources>
 
 
