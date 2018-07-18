@@ -52,6 +52,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.nav_mense -> startActivity(Intent(this, MenseView::class.java))
             R.id.nav_kido -> startActivity(Intent(this, PersonView::class.java))
             R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java))
             R.id.nav_share -> {

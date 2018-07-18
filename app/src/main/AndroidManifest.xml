@@ -41,6 +41,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".InfoView"
             android:screenOrientation="portrait"/>
+        <activity android:name=".MenseView"
+            android:screenOrientation="portrait"/>
         <activity android:name=".kido.FabView"
             android:screenOrientation="portrait"/>
     </application>
