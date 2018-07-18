@@ -39,7 +39,7 @@ class FragmentMenseUa : MainActivity() {
         when (item.getItemId()) {
             R.id.ko -> startActivity(Intent(this, MenseView::class.java))
             R.id.en -> startActivity(Intent(this, FragmentMenseEn::class.java))
-            R.id.ua -> startActivity(Intent(this, FragmentMenseUa::class.java))
+            R.id.ua -> doNothing()
             R.id.ru -> startActivity(Intent(this, FragmentMenseRu::class.java))
         }
         return super.onOptionsItemSelected(item)

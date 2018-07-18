@@ -37,7 +37,7 @@ class MenseView : MainActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.getItemId()) {
-            R.id.ko -> startActivity(Intent(this, MenseView::class.java))
+            R.id.ko -> doNothing()
             R.id.en -> startActivity(Intent(this, FragmentMenseEn::class.java))
             R.id.ua -> startActivity(Intent(this, FragmentMenseUa::class.java))
             R.id.ru -> startActivity(Intent(this, FragmentMenseRu::class.java))
