@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:padding="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <TextView
+            style="@style/Toolbar.TitleText"
+            android:text="@string/mense" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/parent_margin"
+            android:layout_marginStart="@dimen/parent_margin"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin8"
+                android:layout_marginTop="@dimen/parent_margin"
+                android:gravity="center_horizontal"
+                android:text="@string/mense_r"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Kajon_mense"
+                android:text="@string/one_r" />
+
+            <TextView
+                style="@style/Kajon_mense"
+                android:text="@string/two_r" />
+
+            <TextView
+                style="@style/Kajon_mense"
+                android:text="@string/three_r" />
+
+            <TextView
+                style="@style/Kajon_mense"
+                android:text="@string/four_r" />
+
+            <TextView
+                style="@style/Kajon_mense"
+                android:text="@string/five_r" />
+
+            <TextView
+                style="@style/Kajon_mense"
+                android:text="@string/six_r" />
+
+            <TextView
+                style="@style/Kajon_mense"
+                android:text="@string/seven_r" />
+
+            <TextView
+                style="@style/Kajon_mense"
+                android:text="@string/eight_r" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

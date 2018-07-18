@@ -39,7 +39,7 @@
                 android:layout_marginBottom="@dimen/margin8"
                 android:layout_marginTop="@dimen/parent_margin"
                 android:gravity="center_horizontal"
-                android:text="@string/mense"
+                android:text="@string/mense_k"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 

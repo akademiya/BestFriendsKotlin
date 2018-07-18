@@ -43,6 +43,13 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".MenseView"
             android:screenOrientation="portrait"/>
+        <activity android:name=".FragmentMenseEn"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FragmentMenseUa"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FragmentMenseRu"
+            android:screenOrientation="portrait"/>
+        
         <activity android:name=".kido.FabView"
             android:screenOrientation="portrait"/>
     </application>

@@ -7,11 +7,11 @@ import android.view.Menu
 import android.view.MenuItem
 import com.google.android.gms.analytics.HitBuilders
 
-class MenseView : MainActivity() {
+class FragmentMenseUa : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.view_kajon_mense)
+        setContentView(R.layout.fragment_mense_ua)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -20,12 +20,12 @@ class MenseView : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
 
-        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
+        toolbar.setNavigationOnClickListener { _ -> startActivity(Intent(this, MainActivity::class.java)) }
 
         // analytics tracker
-        tracker().setScreenName("Mense")
+        tracker().setScreenName("FragmentMenseUa")
         tracker().send(HitBuilders.EventBuilder()
-                .setCategory("Mense View")
+                .setCategory("Fragment Mense Ua")
                 .build())
     }
 
