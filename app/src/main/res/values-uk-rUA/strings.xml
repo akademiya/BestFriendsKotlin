@@ -14,6 +14,12 @@
     <string name="author">Автор: Vadym Gryganskiy</string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>
 
+    // App rater
+    <string name="rate">Оцінити "TF PRAYER"</string>
+    <string name="later_rate">Нагадати пізніше</string>
+    <string name="no_rate">Ні, дякую</string>
+    <string name="to_rate">Виділіть хвилинку, щоб оцінити додаток "TF PRAYER". Дякую за підтримку!</string>
+
     // Dialog
     <string name="add_new_person">Додати нову позицію</string>
     <string name="add_person">Додати</string>

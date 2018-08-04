@@ -37,7 +37,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     private fun analyticsTracker() {
         // Obtain the shared Tracker instance.
-        tracker().setScreenName("Image~$name")
+        tracker().setScreenName("MainActivity")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
         tracker().send(HitBuilders.EventBuilder()
                 .setCategory("Main Activity")

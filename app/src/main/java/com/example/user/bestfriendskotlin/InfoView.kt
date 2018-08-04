@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.view_info.*
 
 
 class InfoView : MainActivity() {
+    private val rater = object : AppRater(){}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,5 +37,7 @@ class InfoView : MainActivity() {
                 .setCategory("Father Kido")
                 .setAction("List")
                 .build())
+
+        rater.app_launched(this)
     }
 }
