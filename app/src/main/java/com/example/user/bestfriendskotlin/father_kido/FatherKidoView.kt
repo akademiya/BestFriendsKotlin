@@ -3,13 +3,13 @@ package com.example.user.bestfriendskotlin.father_kido
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.Toolbar
 import android.widget.LinearLayout
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
 import com.example.user.bestfriendskotlin.father_kido.intro.nadezdy.FatherKidoNadezdyViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.pobedy.FatherKidoPobedyViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.pochtitelnosty.FatherKidoPochtitelnostyViewIntro
+import com.example.user.bestfriendskotlin.father_kido.intro.reshimosty.FatherKidoReshimostyViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.serdca.FatherKidoSerdcaViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
@@ -41,6 +41,7 @@ class FatherKidoView : MainActivity() {
         books.add(FatherKido(4, getString(R.string.pr_pochtitelnosty)))
         books.add(FatherKido(5, getString(R.string.pr_voskresheniya)))
         books.add(FatherKido(6, getString(R.string.pr_zelaniya)))
+        books.add(FatherKido(7, getString(R.string.pr_reshimosty)))
 
         val adapter = FatherKidoAdapter(books, { booksItem: FatherKido -> booksItemClicked(booksItem) })
         view_list_tpkido.adapter = adapter
@@ -83,6 +84,7 @@ class FatherKidoView : MainActivity() {
             4 -> startActivity(Intent(this, FatherKidoPochtitelnostyViewIntro::class.java))
             5 -> startActivity(Intent(this, FatherKidoVoskresheniyaViewIntro::class.java))
             6 -> startActivity(Intent(this, FatherKidoZelaniyaViewIntro::class.java))
+            7 -> startActivity(Intent(this, FatherKidoReshimostyViewIntro::class.java))
         }
     }
 }

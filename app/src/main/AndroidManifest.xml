@@ -39,6 +39,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro"
             android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.reshimosty.FatherKidoReshimostyViewIntro"
+            android:screenOrientation="portrait"/>
         <activity android:name=".InfoView"
             android:screenOrientation="portrait"/>
         <activity android:name=".MenseView"
