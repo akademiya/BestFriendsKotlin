@@ -5,15 +5,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.widget.LinearLayout
-import com.example.user.bestfriendskotlin.AndroidApplication
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
-import com.example.user.bestfriendskotlin.father_kido.intro.ReadTextFromFile
 import com.example.user.bestfriendskotlin.tracker
-import java.io.InputStream
-import java.util.ArrayList
+import java.util.*
 
-class FatherKidoNadezdyViewIntro : MainActivity(), ReadTextFromFile {
+class FatherKidoNadezdyViewIntro : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,13 +54,27 @@ class FatherKidoNadezdyViewIntro : MainActivity(), ReadTextFromFile {
         kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_18), getString(R.string.pr_nadezdy_18t)))
         kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_19), getString(R.string.pr_nadezdy_19t)))
         kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_20), getString(R.string.pr_nadezdy_20t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_21), getString(R.string.pr_nadezdy_21t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_22), getString(R.string.pr_nadezdy_22t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_23), getString(R.string.pr_nadezdy_23t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_24), getString(R.string.pr_nadezdy_24t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_25), getString(R.string.pr_nadezdy_25t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_26), getString(R.string.pr_nadezdy_26t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_27), getString(R.string.pr_nadezdy_27t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_28), getString(R.string.pr_nadezdy_28t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_29), getString(R.string.pr_nadezdy_29t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_30), getString(R.string.pr_nadezdy_30t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_31), getString(R.string.pr_nadezdy_31t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_32), getString(R.string.pr_nadezdy_32t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_33), getString(R.string.pr_nadezdy_33t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_34), getString(R.string.pr_nadezdy_34t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_35), getString(R.string.pr_nadezdy_35t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_36), getString(R.string.pr_nadezdy_36t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_37), getString(R.string.pr_nadezdy_37t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_38), getString(R.string.pr_nadezdy_38t)))
+        kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_39), getString(R.string.pr_nadezdy_39t)))
 
         val adapter = KidoNadezdyAdapter(kido)
         rv.adapter = adapter
-    }
-
-    override fun readTextFromFile(textFile: String): String {
-        val inputStream: InputStream = assets.open(textFile)
-        return inputStream.bufferedReader().use { it.readText() }
     }
 }
