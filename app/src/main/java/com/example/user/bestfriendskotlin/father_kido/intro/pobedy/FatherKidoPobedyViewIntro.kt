@@ -5,14 +5,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.widget.LinearLayout
-import com.example.user.bestfriendskotlin.AndroidApplication
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
-import com.example.user.bestfriendskotlin.father_kido.intro.ReadTextFromFile
 import com.example.user.bestfriendskotlin.tracker
-import java.io.InputStream
 
-class FatherKidoPobedyViewIntro : MainActivity(), ReadTextFromFile {
+class FatherKidoPobedyViewIntro : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,10 +67,5 @@ class FatherKidoPobedyViewIntro : MainActivity(), ReadTextFromFile {
 
         val adapter = KidoPobedyAdapter(kido)
         rv.adapter = adapter
-    }
-
-    override fun readTextFromFile(textFile: String): String {
-        val inputStream: InputStream = assets.open(textFile)
-        return inputStream.bufferedReader().use { it.readText() }
     }
 }
