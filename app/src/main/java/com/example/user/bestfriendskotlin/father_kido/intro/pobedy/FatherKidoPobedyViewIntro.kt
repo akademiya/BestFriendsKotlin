@@ -56,6 +56,17 @@ class FatherKidoPobedyViewIntro : MainActivity(), ReadTextFromFile {
         kido.add(KidoPobedy(getString(R.string.pr_pobedy_18), getString(R.string.pr_pobedy_18t)))
         kido.add(KidoPobedy(getString(R.string.pr_pobedy_19), getString(R.string.pr_pobedy_19t)))
         kido.add(KidoPobedy(getString(R.string.pr_pobedy_20), getString(R.string.pr_pobedy_20t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_21), getString(R.string.pr_pobedy_21t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_22), getString(R.string.pr_pobedy_22t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_23), getString(R.string.pr_pobedy_23t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_24), getString(R.string.pr_pobedy_24t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_25), getString(R.string.pr_pobedy_25t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_26), getString(R.string.pr_pobedy_26t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_27), getString(R.string.pr_pobedy_27t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_28), getString(R.string.pr_pobedy_28t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_29), getString(R.string.pr_pobedy_29t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_30), getString(R.string.pr_pobedy_30t)))
+        kido.add(KidoPobedy(getString(R.string.pr_pobedy_31), getString(R.string.pr_pobedy_31t)))
 
         val adapter = KidoPobedyAdapter(kido)
         rv.adapter = adapter
