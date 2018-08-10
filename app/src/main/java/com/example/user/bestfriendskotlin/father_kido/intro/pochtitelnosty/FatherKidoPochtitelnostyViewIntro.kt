@@ -5,14 +5,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.widget.LinearLayout
-import com.example.user.bestfriendskotlin.AndroidApplication
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
-import com.example.user.bestfriendskotlin.father_kido.intro.ReadTextFromFile
 import com.example.user.bestfriendskotlin.tracker
-import java.io.InputStream
 
-class FatherKidoPochtitelnostyViewIntro : MainActivity(), ReadTextFromFile {
+class FatherKidoPochtitelnostyViewIntro : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,13 +53,23 @@ class FatherKidoPochtitelnostyViewIntro : MainActivity(), ReadTextFromFile {
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_18), getString(R.string.pr_pochtitelnosty_18t)))
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_19), getString(R.string.pr_pochtitelnosty_19t)))
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_20), getString(R.string.pr_pochtitelnosty_20t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_21), getString(R.string.pr_pochtitelnosty_21t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_22), getString(R.string.pr_pochtitelnosty_22t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_23), getString(R.string.pr_pochtitelnosty_23t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_24), getString(R.string.pr_pochtitelnosty_24t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_25), getString(R.string.pr_pochtitelnosty_25t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_26), getString(R.string.pr_pochtitelnosty_26t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_27), getString(R.string.pr_pochtitelnosty_27t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_28), getString(R.string.pr_pochtitelnosty_28t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_29), getString(R.string.pr_pochtitelnosty_29t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_30), getString(R.string.pr_pochtitelnosty_30t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_31), getString(R.string.pr_pochtitelnosty_31t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_32), getString(R.string.pr_pochtitelnosty_32t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_33), getString(R.string.pr_pochtitelnosty_33t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_34), getString(R.string.pr_pochtitelnosty_34t)))
+        kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_35), getString(R.string.pr_pochtitelnosty_35t)))
 
         val adapter = KidoPochtitelnostyAdapter(kido)
         rv.adapter = adapter
-    }
-
-    override fun readTextFromFile(textFile: String): String {
-        val inputStream: InputStream = assets.open(textFile)
-        return inputStream.bufferedReader().use { it.readText() }
     }
 }
