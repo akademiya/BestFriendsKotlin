@@ -5,14 +5,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.widget.LinearLayout
-import com.example.user.bestfriendskotlin.AndroidApplication
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
-import com.example.user.bestfriendskotlin.father_kido.intro.ReadTextFromFile
 import com.example.user.bestfriendskotlin.tracker
-import java.io.InputStream
 
-class FatherKidoVoskresheniyaViewIntro : MainActivity(), ReadTextFromFile  {
+class FatherKidoVoskresheniyaViewIntro : MainActivity()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,13 +53,23 @@ class FatherKidoVoskresheniyaViewIntro : MainActivity(), ReadTextFromFile  {
         kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_18), getString(R.string.pr_voskresheniya_18t)))
         kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_19), getString(R.string.pr_voskresheniya_19t)))
         kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_20), getString(R.string.pr_voskresheniya_20t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_21), getString(R.string.pr_voskresheniya_21t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_22), getString(R.string.pr_voskresheniya_22t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_23), getString(R.string.pr_voskresheniya_23t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_24), getString(R.string.pr_voskresheniya_24t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_25), getString(R.string.pr_voskresheniya_25t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_26), getString(R.string.pr_voskresheniya_26t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_27), getString(R.string.pr_voskresheniya_27t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_28), getString(R.string.pr_voskresheniya_28t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_29), getString(R.string.pr_voskresheniya_29t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_30), getString(R.string.pr_voskresheniya_30t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_31), getString(R.string.pr_voskresheniya_31t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_32), getString(R.string.pr_voskresheniya_32t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_33), getString(R.string.pr_voskresheniya_33t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_34), getString(R.string.pr_voskresheniya_34t)))
+        kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_35), getString(R.string.pr_voskresheniya_35t)))
 
         val adapter = KidoVoskresheniyaAdapter(kido)
         rv.adapter = adapter
-    }
-
-    override fun readTextFromFile(textFile: String): String {
-        val inputStream: InputStream = assets.open(textFile)
-        return inputStream.bufferedReader().use { it.readText() }
     }
 }
