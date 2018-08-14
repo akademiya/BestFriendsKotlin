@@ -5,14 +5,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.widget.LinearLayout
-import com.example.user.bestfriendskotlin.AndroidApplication
 import com.example.user.bestfriendskotlin.MainActivity
 import com.example.user.bestfriendskotlin.R
-import com.example.user.bestfriendskotlin.father_kido.intro.ReadTextFromFile
 import com.example.user.bestfriendskotlin.tracker
-import java.io.InputStream
 
-class FatherKidoZelaniyaViewIntro : MainActivity(), ReadTextFromFile {
+class FatherKidoZelaniyaViewIntro : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,13 +53,38 @@ class FatherKidoZelaniyaViewIntro : MainActivity(), ReadTextFromFile {
         kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_18), getString(R.string.pr_zelaniya_18t)))
         kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_19), getString(R.string.pr_zelaniya_19t)))
         kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_20), getString(R.string.pr_zelaniya_20t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_21), getString(R.string.pr_zelaniya_21t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_22), getString(R.string.pr_zelaniya_22t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_23), getString(R.string.pr_zelaniya_23t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_24), getString(R.string.pr_zelaniya_24t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_25), getString(R.string.pr_zelaniya_25t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_26), getString(R.string.pr_zelaniya_26t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_27), getString(R.string.pr_zelaniya_27t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_28), getString(R.string.pr_zelaniya_28t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_29), getString(R.string.pr_zelaniya_29t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_30), getString(R.string.pr_zelaniya_30t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_31), getString(R.string.pr_zelaniya_31t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_32), getString(R.string.pr_zelaniya_32t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_33), getString(R.string.pr_zelaniya_33t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_34), getString(R.string.pr_zelaniya_34t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_35), getString(R.string.pr_zelaniya_35t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_36), getString(R.string.pr_zelaniya_36t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_37), getString(R.string.pr_zelaniya_37t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_38), getString(R.string.pr_zelaniya_38t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_39), getString(R.string.pr_zelaniya_39t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_40), getString(R.string.pr_zelaniya_40t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_41), getString(R.string.pr_zelaniya_41t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_42), getString(R.string.pr_zelaniya_42t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_43), getString(R.string.pr_zelaniya_43t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_44), getString(R.string.pr_zelaniya_44t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_45), getString(R.string.pr_zelaniya_45t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_46), getString(R.string.pr_zelaniya_46t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_47), getString(R.string.pr_zelaniya_47t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_48), getString(R.string.pr_zelaniya_48t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_49), getString(R.string.pr_zelaniya_49t)))
+        kido.add(KidoZelaniya(getString(R.string.pr_zelaniya_50), getString(R.string.pr_zelaniya_50t)))
 
         val adapter = KidoZelaniyaAdapter(kido)
         rv.adapter = adapter
-    }
-
-    override fun readTextFromFile(textFile: String): String {
-        val inputStream: InputStream = assets.open(textFile)
-        return inputStream.bufferedReader().use { it.readText() }
     }
 }
