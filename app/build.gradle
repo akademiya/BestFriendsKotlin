@@ -14,8 +14,8 @@ android {
         applicationId "me.vadym.adv.tfprayer"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 8
-        versionName "1.08"
+        versionCode 10
+        versionName "1.10"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.thoughtbot:expandablerecyclerview:1.3'
     implementation 'com.android.support:support-annotations:27.1.1'
     implementation 'me.grantland:autofittextview:0.2.1'
-    implementation 'com.google.dagger:dagger:2.11'
+    implementation 'com.google.dagger:dagger:2.15'
 
     implementation 'io.reactivex.rxjava2:rxkotlin:2.0.0'
     implementation 'io.reactivex:rxandroid:1.2.1'

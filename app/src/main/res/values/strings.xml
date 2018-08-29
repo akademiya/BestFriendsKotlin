@@ -68,6 +68,7 @@
     <string name="pr_voskresheniya">Молитвы воскрешения</string>
     <string name="pr_zelaniya">Молитвы желания</string>
     <string name="pr_reshimosty">Молитвы решимости</string>
+    <string name="pr_faith">Молитвы веры (en)</string>
 
     <string name="pr_nadezdy_1">1. Отец, дай нам воплотить собой Твою первозданную красоту</string>
     <string name="pr_nadezdy_2">2. Отец, позволь вернуть Тебе славу</string>
@@ -328,5 +329,40 @@
     <string name="pr_reshimosty_29">29. Сподобь нас идти по пути служения человечеству</string>
     <string name="pr_reshimosty_30">30. Помоги нам стать людьми, готовыми отправиться во всеобщий поход по пути Божьей воли</string>
     <string name="pr_reshimosty_31">31. Помоги мне самозабвенно исправить Небесный путь</string>
+
+    <string name="pr_faith_1">1. Please let us experience the heart of Jesus christ</string>
+    <string name="pr_faith_2">2. Please let us become people who represent Jesus</string>
+    <string name="pr_faith_3">3. Please let us actualize the value of christ`s life</string>
+    <string name="pr_faith_4">4. We will experience the heart of Jesus and go the way of Golgotha</string>
+    <string name="pr_faith_5">5. Please let us hear the voice of the good shepherd</string>
+    <string name="pr_faith_6">6. Please let us experience and feel keenly the heart of christ</string>
+    <string name="pr_faith_7">7. Please let us experience and feel keenly the aching heart` of Heaven</string>
+    <string name="pr_faith_8">8. Please let this become a day resolving the sorrow of Jesus</string>
+    <string name="pr_faith_9">9. Please let us fathom the heart of Jesus this day</string>
+    <string name="pr_faith_10">10. Please let us fathom the sorrowful situation of Jesus who was rejected</string>
+    <string name="pr_faith_11">11. Please let us sing of the glory of the resurrection beyond the cross</string>
+    <string name="pr_faith_12">12. Please let us become people who can greet the Messiah</string>
+    <string name="pr_faith_13">13. Please let us feel the sorrowful heart` of Jesus</string>
+    <string name="pr_faith_14">14. Please let us feel the heart of deep historical regret through Jesus</string>
+    <string name="pr_faith_15">15. Please let us go forth clinging to the sorrowful heart of Jesus</string>
+    <string name="pr_faith_16">16. Please let us learn a lesson from Israel which turned its back on the will</string>
+    <string name="pr_faith_17">17. Please let us become people who are fit to greet the Messiah</string>
+    <string name="pr_faith_18">18. Please let us become people who console and comfort Jesus</string>
+    <string name="pr_faith_19">19. Please let us cope with the heavenly responsibility like Jesus</string>
+    <string name="pr_faith_20">20. Please let us reflect on the day of the historical anguish of Jesus</string>
+    <string name="pr_faith_21">21. Please let us stand before You with hearts like Jesus` heart</string>
+    <string name="pr_faith_22">22. Please let us comfort the heart of Jesus who died leaving behind grief</string>
+    <string name="pr_faith_23">23. Please let us realize the mission that Israel could not accomplish</string>
+    <string name="pr_faith_24">24. Please let us resolve the grief of the will which Jesus could not realize completely</string>
+    <string name="pr_faith_25">25. Please let the Unification movement resolve the grief of Jesus</string>
+    <string name="pr_faith_26">26. Please let us fulfill the mission of the final pioneer</string>
+    <string name="pr_faith_27">27. Please let us take responsibility for the grief-filled heart of restoration</string>
+    <string name="pr_faith_28">28. Please let us be victorious along the course of restoration</string>
+    <string name="pr_faith_29">29. Please let us become children who fulfill completely the responsibility of the providence of restoration</string>
+    <string name="pr_faith_30">30. Please let us lay a solid foundation which is in accord with the Principle</string>
+    <string name="pr_faith_31">31. Please let us appear as those who will inherit the future world of hope</string>
+    <string name="pr_faith_32">32. Please let us feel keenly and have deep experiences of heart</string>
+    <string name="pr_faith_33">33. Please let us be able to form a destined relationship with Heaven`s circumstances and heart</string>
+    <string name="pr_faith_34">34. Please let us have minds and bodies of oneness centered on the will</string>
 
 </resources>
