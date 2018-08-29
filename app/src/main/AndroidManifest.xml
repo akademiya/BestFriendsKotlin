@@ -43,6 +43,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".father_kido.intro.faith.FatherKidoFaithViewIntro"
             android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.loyalty.FatherKidoLoyaltyViewIntro"
+            android:screenOrientation="portrait"/>
         <activity android:name=".InfoView"
             android:screenOrientation="portrait"/>
         <activity android:name=".MenseView"
