@@ -12,6 +12,7 @@ import com.example.user.bestfriendskotlin.father_kido.intro.nadezdy.FatherKidoNa
 import com.example.user.bestfriendskotlin.father_kido.intro.pobedy.FatherKidoPobedyViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.pochtitelnosty.FatherKidoPochtitelnostyViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.reshimosty.FatherKidoReshimostyViewIntro
+import com.example.user.bestfriendskotlin.father_kido.intro.restoration.FatherKidoRestorationViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.serdca.FatherKidoSerdcaViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro
 import com.example.user.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
@@ -46,6 +47,7 @@ class FatherKidoView : MainActivity() {
         books.add(FatherKido(7, getString(R.string.pr_reshimosty)))
         books.add(FatherKido(8, getString(R.string.pr_faith)))
         books.add(FatherKido(9, getString(R.string.pr_loyalty)))
+        books.add(FatherKido(10, getString(R.string.pr_restoration)))
 
         val adapter = FatherKidoAdapter(books, { booksItem: FatherKido -> booksItemClicked(booksItem) })
         view_list_tpkido.adapter = adapter
@@ -91,6 +93,7 @@ class FatherKidoView : MainActivity() {
             7 -> startActivity(Intent(this, FatherKidoReshimostyViewIntro::class.java))
             8 -> startActivity(Intent(this, FatherKidoFaithViewIntro::class.java))
             9 -> startActivity(Intent(this, FatherKidoLoyaltyViewIntro::class.java))
+            10 -> startActivity(Intent(this, FatherKidoRestorationViewIntro::class.java))
         }
     }
 }
