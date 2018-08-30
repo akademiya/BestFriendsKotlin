@@ -34,6 +34,11 @@
     <string name="start">Почати</string>
     <string name="stop">Зупинити</string>
     <string name="reset">Оновити</string>
+    <string name="min_3">Минуло 3 хвилини</string>
+    <string name="min_7">Минуло 7 хвилин</string>
+    <string name="min_12">Минуло 12 хвилин</string>
+    <string name="min_21">Минуло 21 хвилина</string>
+    <string name="min_40">Минуло 40 хвилин</string>
 
     // drawer navigation
     <string name="home_page">Головна</string>

@@ -34,6 +34,11 @@
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="reset">Restart</string>
+    <string name="min_3">It`s been 3 minutes</string>
+    <string name="min_7">It`s been 7 minutes</string>
+    <string name="min_12">It`s been 12 minutes</string>
+    <string name="min_21">It`s been 21 minutes</string>
+    <string name="min_40">It`s been 40 minutes</string>
 
     // drawer navigation
     <string name="home_page">Main</string>

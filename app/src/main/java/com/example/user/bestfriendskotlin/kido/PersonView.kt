@@ -115,26 +115,26 @@ class PersonView : MainActivity() {
 
             when {
                 elapsedMillis >= 2400000 -> {
-                    Toast.makeText(this, "Прошло 40 минут", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, resources.getString(R.string.min_40), Toast.LENGTH_SHORT).show()
                     mp.start()
                 }
                 elapsedMillis >= 1260000 -> {
-                    Toast.makeText(this, "Прошло 21 минута", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, resources.getString(R.string.min_21), Toast.LENGTH_SHORT).show()
                     mp.start()
                     nextBeep = 2400000
                 }
                 elapsedMillis >= 720000 -> {
-                    Toast.makeText(this, "Прошло 12 минут", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, resources.getString(R.string.min_12), Toast.LENGTH_SHORT).show()
                     mp.start()
                     nextBeep = 1260000
                 }
                 elapsedMillis >= 420000 -> {
-                    Toast.makeText(this, "Прошло 7 минут", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, resources.getString(R.string.min_7), Toast.LENGTH_SHORT).show()
                     mp.start()
                     nextBeep = 720000
                 }
                 elapsedMillis >= 180000 -> {
-                    Toast.makeText(this, "Прошло 3 минуты", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, resources.getString(R.string.min_3), Toast.LENGTH_SHORT).show()
                     mp.start()
                     nextBeep = 420000
                 }

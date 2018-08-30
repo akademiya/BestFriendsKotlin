@@ -34,6 +34,11 @@
     <string name="start">시작</string>
     <string name="stop">중지</string>
     <string name="reset">재시작</string>
+    <string name="min_3">3 분 경과</string>
+    <string name="min_7">7 분 경과</string>
+    <string name="min_12">12 분 경과</string>
+    <string name="min_21">21 분 경과</string>
+    <string name="min_40">40 분 경과</string>
 
     // drawer navigation
     <string name="home_page">메인</string>
