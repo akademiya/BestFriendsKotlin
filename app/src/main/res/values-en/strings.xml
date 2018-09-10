@@ -66,6 +66,8 @@
     <string name="pr_faith">Prayers of Faith</string>
     <string name="pr_loyalty">Prayers of Loyalty and Filial Piety</string>
     <string name="pr_restoration">Prayers of Restoration</string>
+    <string name="pr_devotion">Prayers of Devotion</string>
+    <string name="pr_unification">Prayers of Unification</string>
 
     <string name="pr_nadezdy_1">1. Please reveal the beauty of Your original nature, Father</string>
     <string name="pr_nadezdy_2">2. Please let us return glory to You, Father</string>
