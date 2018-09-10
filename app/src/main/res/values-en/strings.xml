@@ -57,9 +57,9 @@
 
     // TP kido books
     <string name="pr_nadezdy">Prayers of Hope</string>
-    <string name="pr_pobedy">Victory Prayers</string>
-    <string name="pr_serdca">Heart Prayers</string>
-    <string name="pr_pochtitelnosty">Prayer of Filial Piety</string>
+    <string name="pr_pobedy">Prayers of Victory</string>
+    <string name="pr_serdca">Prayers of Heart</string>
+    <string name="pr_pochtitelnosty">Prayers of Filial Piety</string>
     <string name="pr_voskresheniya">Prayers of Resurrection</string>
     <string name="pr_zelaniya">Prayers of Entreaty</string>
     <string name="pr_reshimosty">Prayers of Determination</string>
