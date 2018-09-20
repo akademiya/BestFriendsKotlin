@@ -28,13 +28,14 @@ import kotlinx.android.synthetic.main.view_father_kido.*
 
 
 class FatherKidoView : MainActivity() {
-    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido)
         toolbar_button_menu()
         admob()
+        tracker().setScreenName("Father Kido")
+        tracker().send(HitBuilders.ScreenViewBuilder().build())
 
         view_list_tpkido.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         view_list_tpkido.hasFixedSize()
@@ -58,16 +59,14 @@ class FatherKidoView : MainActivity() {
     }
 
     private fun admob() {
-        // Sample AdMob app ID: ca-app-pub-5169531562006723/6552139134
         MobileAds.initialize(this, "ca-app-pub-5169531562006723~5810328137")
 
-        val adView = AdView(this)
-        adView.adSize = AdSize.SMART_BANNER
-        adView.adUnitId = "ca-app-pub-5169531562006723/6552139134"
+        val gAdView = AdView(this)
+        gAdView.adSize = AdSize.SMART_BANNER
+        gAdView.adUnitId = "ca-app-pub-5169531562006723/6552139134"
 
-        mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
+        adView.loadAd(adRequest)
     }
 
     private fun toolbar_button_menu() {
@@ -81,10 +80,9 @@ class FatherKidoView : MainActivity() {
 
     private fun booksItemClicked(booksItem: FatherKido) {
 
-        // analytics tracker
         tracker().send(HitBuilders.EventBuilder()
                 .setCategory("Father Kido")
-                .setAction("List")
+                .setAction(booksItem.booksID.toString())
                 .build())
 
         when(booksItem.booksID) {

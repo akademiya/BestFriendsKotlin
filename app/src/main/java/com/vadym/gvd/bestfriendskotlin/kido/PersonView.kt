@@ -11,6 +11,7 @@ import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
@@ -33,6 +34,7 @@ class PersonView : MainActivity() {
         showOrHideFab()
         chronometer()
         tracker().setScreenName("Kido for Person")
+        tracker().send(HitBuilders.ScreenViewBuilder().build())
     }
 
     private fun toolbar_button_menu() {

@@ -22,14 +22,14 @@ class FragmentMenseEn : MainActivity() {
 
         toolbar.setNavigationOnClickListener { _ -> startActivity(Intent(this, MainActivity::class.java)) }
 
-        // analytics tracker
-        tracker().setScreenName("FragmentMenseEn")
+        tracker().setScreenName("Fragment Mense En")
+        tracker().send(HitBuilders.ScreenViewBuilder().build())
         tracker().send(HitBuilders.EventBuilder()
                 .setCategory("Fragment Mense En")
                 .build())
     }
 
-    // TODO: app bar menu переход в activity по клику на item
+    /** app bar menu переход в activity по клику на item */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.language, menu)
         return true
@@ -44,5 +44,4 @@ class FragmentMenseEn : MainActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-    // TODO: end app bar menu переход в activity по клику на item
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
+import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.tracker
@@ -22,6 +23,7 @@ class FatherKidoRestorationViewIntro : MainActivity() {
         toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
 
         tracker().setScreenName("Kido Restoration")
+        tracker().send(HitBuilders.ScreenViewBuilder().build())
         init()
     }
 
