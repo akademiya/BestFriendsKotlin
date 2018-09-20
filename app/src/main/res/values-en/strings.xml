@@ -13,6 +13,8 @@
     <string name="empty_list">Empty list</string>
     <string name="author">Author: Vadym Gryganskiy</string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>
+    <string name="explanation">Value of prayer</string>
+    <string name="explanation_text">Explanation kido</string>
 
     // App rater
     <string name="rate">Rate "TF PRAYER"</string>

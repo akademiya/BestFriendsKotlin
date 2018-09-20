@@ -20,6 +20,11 @@
             android:title="@string/tp_kido" />
 
         <item
+            android:id="@+id/nav_kido_explanation"
+            android:icon="@drawable/ic_explanation"
+            android:title="@string/explanation" />
+
+        <item
             android:id="@+id/nav_info"
             android:icon="@drawable/ic_info"
             android:title="@string/donation" />

@@ -13,6 +13,8 @@
     <string name="empty_list">Список пустий</string>
     <string name="author">Автор: Vadym Gryganskiy</string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>
+    <string name="explanation">Значення молитви</string>
+    <string name="explanation_text">Explanation kido</string>
 
     // App rater
     <string name="rate">Оцінити "TF PRAYER"</string>

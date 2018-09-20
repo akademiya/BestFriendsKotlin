@@ -35,12 +35,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     private fun analyticsTracker() {
-        // Obtain the shared Tracker instance.
         tracker().setScreenName("MainActivity")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
-        tracker().send(HitBuilders.EventBuilder()
-                .setCategory("Main Activity")
-                .build())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -54,6 +50,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_mense -> startActivity(Intent(this, MenseView::class.java))
             R.id.nav_kido -> startActivity(Intent(this, PersonView::class.java))
             R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java))
+            R.id.nav_kido_explanation -> startActivity(Intent(this, ExplanationView::class.java))
+            R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
             R.id.nav_share -> {
                 val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
                 val shareBody = getString(R.string.share_body)
@@ -71,8 +69,6 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 sendIntent.setData(uri)
                 startActivity(Intent.createChooser(sendIntent, "True Father Prayers"))
             }
-
-            R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)

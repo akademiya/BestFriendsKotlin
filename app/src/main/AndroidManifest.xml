@@ -53,6 +53,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".InfoView"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ExplanationView"
+            android:screenOrientation="portrait"/>
         <activity android:name=".MenseView"
             android:screenOrientation="portrait"/>
         <activity android:name=".FragmentMenseEn"
