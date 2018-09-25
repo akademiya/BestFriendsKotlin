@@ -74,6 +74,14 @@
         <item name="android:textSize">@dimen/text_size</item>
     </style>
 
+    <style name="TextTitle_Kido_Explanation" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
+        <item name="android:textSize">@dimen/text_size_title_explanation</item>
+    </style>
+
     <style name="TextStyle_Description" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

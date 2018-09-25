@@ -24,11 +24,119 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            style="@style/TextStyle_Body2_Primary_Dark"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/parent_margin"
-            android:text="@string/explanation_text" />
+            android:layout_marginStart="@dimen/parent_margin"
+            android:layout_marginEnd="@dimen/parent_margin"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextTitle_Kido_Explanation"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/parent_margin"
+                android:text="@string/title_global"
+                android:textSize="@dimen/text_size_big" />
+
+            <TextView
+                style="@style/TextStyle_Description"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:text="@string/link_from"
+                android:textStyle="italic" />
+
+            <TextView
+                style="@style/TextTitle_Kido_Explanation"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/margin8"
+                android:text="@string/title1" />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:text="@string/explanation_text1" />
+
+            <TextView
+                style="@style/TextTitle_Kido_Explanation"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/margin8"
+                android:text="@string/title2" />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:text="@string/explanation_text2" />
+
+            <TextView
+                style="@style/TextTitle_Kido_Explanation"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/margin8"
+                android:text="@string/title3" />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:text="@string/explanation_text3" />
+
+            <TextView
+                style="@style/TextTitle_Kido_Explanation"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/margin8"
+                android:text="@string/title4" />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:text="@string/explanation_text4" />
+
+            <TextView
+                style="@style/TextTitle_Kido_Explanation"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/margin8"
+                android:text="@string/title5" />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:text="@string/explanation_text5" />
+
+            <TextView
+                style="@style/TextTitle_Kido_Explanation"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/margin8"
+                android:text="@string/title6" />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:text="@string/explanation_text6" />
+
+            <TextView
+                style="@style/TextTitle_Kido_Explanation"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/parent_margin"
+                android:text="@string/title_global2"
+                android:textSize="@dimen/text_size_big" />
+
+            <TextView
+                style="@style/TextStyle_Description"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:text="@string/link_from2"
+                android:textStyle="italic" />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:text="@string/explanation_text7" />
+
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

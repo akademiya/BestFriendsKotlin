@@ -14,7 +14,6 @@
     <string name="author">작성자: Vadym Gryganskiy</string>
     <string name="email">이메일: vadym.adv@gmail.com</string>
     <string name="explanation">기도의 가치</string>
-    <string name="explanation_text">Explanation kido</string>
 
     // App rater
     <string name="rate">"TF PRAYER"을 평가하다</string>
