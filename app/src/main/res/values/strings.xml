@@ -5,7 +5,7 @@
 
     <string name="advert">Advertising</string>
     <string name="info_text">Hello. I`m Vadym. \n\nThe application is designed only for the prayer list. On the main page there will always be True Parents. The "Prayer List" menu allows you to add, edit and delete items. You can select the item for whom/what you pray for. There is also a chronometer that counts the time. After 3, 7, 12, 21, 40 minutes, a signal will sound with a message that expired according to the time. \n\nThe "Father's Prayer" menu is a collection of prayers that are in translation to russian for the time being. \n\nYou can always unsubscribe to me according to the wishes of the application. If you want, you can express gratitude by transferring the money.</string>
-    <string name="private_policy"><a href="https://drive.google.com/open?id=1wsbkQ0TLdPWQ9WFKnp6_Yw7wYDpgAWNSxViHhmjoI3Y">Private policy</a></string>
+    <string name="privacy_policy"><a href="https://drive.google.com/open?id=1wsbkQ0TLdPWQ9WFKnp6_Yw7wYDpgAWNSxViHhmjoI3Y">Privacy policy</a></string>
     <string name="coffee_gift">Site (ru)</string>
     <string name="about">About app</string>
     <string name="share_by">Share:</string>
@@ -56,6 +56,14 @@
     <string name="donation">Read</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    // EU GDPR Consent texts
+    <string name="eu_consent_text">Dear user!\n\nWe use Google AdMob to show ads. Ads support our work, and enable further development of this app. In line with the new European Data Protection Regulation (GDPR), we need your consent to serve ads.</string>
+    <string name="eu_consent_question">Read the terms of use of your data and check the box to agree with them.</string>
+    <string name="learn_more"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Learn <b>Privacy Policy</b> how your <b>Data is Used</b></a></string>
+    <string name="agree">I agree with privacy policy</string>
+    <string name="error_accept">You can accept privacy to continue</string>
+    <string name="let_continue">Continue</string>
 
     // Kajon mense
     <string name="one"><b>一(일)</b> 천일국 주인 우리 가정​은 참사랑을 중심하고, 본향​땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>

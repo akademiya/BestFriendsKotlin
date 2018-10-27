@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_eu_consent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            style="@style/TextGdprVsMargin_Dialog"
+            android:text="@string/eu_consent_text" />
+
+        <TextView
+            style="@style/TextGdprVsMargin_Dialog"
+            android:text="@string/eu_consent_question"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_eu_learn_more"
+            style="@style/TextGdprVsMargin_Dialog"
+            android:layout_marginTop="@dimen/margin8"
+            android:ellipsize="end"
+            android:fadingEdge="horizontal"
+            android:clickable="true"
+            android:textColorLink="@color/colorPrimary"
+            android:text="@string/learn_more" />
+
+        <CheckBox
+            android:id="@+id/cb_accept_gdpr"
+            style="@style/GDPR_Consent_Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin24"
+            android:buttonTint="@color/button_chronometer"
+            android:checked="false"
+            android:paddingStart="@dimen/margin12"
+            android:paddingEnd="@dimen/margin12"
+            android:text="@string/agree" />
+
+        <Button
+            android:id="@+id/btn_agree"
+            style="@style/ButtonAgreeGdpr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/parent_margin"
+            android:layout_marginBottom="@dimen/margin8"
+            android:enabled="false"
+            android:text="@string/let_continue"
+            android:textSize="@dimen/text_size_admob_dialog" />
+
+    </LinearLayout>
+</ScrollView>

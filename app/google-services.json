@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "240937171406-fb6i8v99l9v9ak9gos2k7e72enei1c3a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.vadym.adv.tfprayer",
+            "certificate_hash": "112e0255f43744f79af73f9b845b5798e6c56bbf"
+          }
+        },
+        {
           "client_id": "240937171406-jpo602vt2hl9e2oc20g2bspa602n1l3g.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,13 +37,19 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240937171406-jpo602vt2hl9e2oc20g2bspa602n1l3g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-5169531562006723~5810328137"
     }
   ],
   "configuration_version": "1"

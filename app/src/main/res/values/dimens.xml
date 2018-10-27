@@ -8,6 +8,8 @@
 
     <dimen name="parent_margin">16dp</dimen>
     <dimen name="margin8">8dp</dimen>
+    <dimen name="margin12">12dp</dimen>
+    <dimen name="margin24">24dp</dimen>
 
     // Toolbar
     <dimen name="toolbar_title_margin">72dp</dimen>
@@ -24,6 +26,7 @@
     <dimen name="margin_from_advert">79dp</dimen>
 
     // text size
+    <dimen name="text_size_admob_dialog">14sp</dimen>
     <dimen name="text_size">16sp</dimen>
     <dimen name="text_size_title_explanation">20sp</dimen>
     <dimen name="text_size_mense">20sp</dimen>
