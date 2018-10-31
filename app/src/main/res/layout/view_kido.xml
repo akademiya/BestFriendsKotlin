@@ -79,8 +79,6 @@
             android:layout_height="match_parent"
             tools:listitem="@layout/item_kido" />
 
-        <!--<include layout="@layout/activity_fab"/> TODO: для открывающегося fab загрузки списка-->
-
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"

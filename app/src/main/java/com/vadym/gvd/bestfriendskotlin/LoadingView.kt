@@ -3,32 +3,26 @@ package com.vadym.gvd.bestfriendskotlin
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.method.LinkMovementMethod
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
+import android.widget.Toast
 import com.google.ads.consent.ConsentInfoUpdateListener
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 
-class LoadingView: AppCompatActivity() {
+class LoadingView : AppCompatActivity() {
 
     private lateinit var alertDialog: AlertDialog
-    private val presenter = MainPresenter
-    private var showNonPersonalizedAdRequests = false
-    private var isPrivacyPolicy = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_loading)
-
-
-        if (presenter.isPrivacyPolicy) {
-            ConsentInformation.getInstance(this@LoadingView).consentStatus = ConsentStatus.NON_PERSONALIZED
-            startActivity(Intent(this, MainActivity::class.java))
-        } else checkConsentStatus()
+        checkConsentStatus()
     }
 
     private fun checkConsentStatus() {
@@ -38,21 +32,22 @@ class LoadingView: AppCompatActivity() {
         val publisherIds = arrayOf("pub-5169531562006723") // enter your admob pub-id
         consentInformation.requestConsentInfoUpdate(publisherIds, object : ConsentInfoUpdateListener {
             override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-//                if (ConsentInformation.getInstance(this@LoadingView).isRequestLocationInEeaOrUnknown) {
-                    if (consentStatus == ConsentStatus.UNKNOWN) {
+                if (ConsentInformation.getInstance(this@LoadingView).isRequestLocationInEeaOrUnknown) {
+                    if (consentStatus == ConsentStatus.UNKNOWN || consentStatus == ConsentStatus.NON_PERSONALIZED) {
                         showMyConsentDialog()
-                    } else if (consentStatus == ConsentStatus.NON_PERSONALIZED) {
-                        showMyConsentDialog()
-                        showNonPersonalizedAdRequests = true
                     }
-//                }
+                } else startUseApp()
             }
 
             override fun onFailedToUpdateConsentInfo(errorDescription: String) {}
         })
     }
 
-    fun showMyConsentDialog() {
+    private fun startUseApp() {
+        startActivity(Intent(this, MainActivity::class.java))
+    }
+
+    private fun showMyConsentDialog() {
         val inflater = layoutInflater
         val consentDialog = inflater.inflate(R.layout.view_loading_consent, null)
         val alertDialogBuilder = AlertDialog.Builder(this@LoadingView).apply {
@@ -81,20 +76,8 @@ class LoadingView: AppCompatActivity() {
         }
         iAgree.setOnClickListener {
             ConsentInformation.getInstance(this@LoadingView).consentStatus = ConsentStatus.NON_PERSONALIZED
-            showNonPersonalizedAdRequests = true
-            presenter.updatePrivacyPolicy(true)
             alertDialog.cancel()
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
-
-//    private fun onRequestAdStatus() {
-//        val extras = Bundle()
-//        extras.putString("npa", "1")
-//
-//        val request = PublisherAdRequest.Builder()
-//                .addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
-//                .build()
-//    }
-
 }
