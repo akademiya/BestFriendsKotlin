@@ -4,7 +4,7 @@
     <string name="app_start_name">TF PRAYER</string>
 
     <string name="advert">Реклама</string>
-    <string name="info_text">Привіт. Я Вадим. \n\nДодаток розрахований тільки для молитовного списку. На головній сторінці завжди будуть Істинні Батьки. Меню "Молитовний список" дозволяє додавати, редагувати і видаляти позиції. Галочкою можна виділяти той пункт, за кого/що молитесь. Є також хронометр, який відраховує час. Після 3, 7, 12, 21, 40 хв прозвучить сигнал з повідомленням, що минув відповідний час. \n\nМеню "Молитви Батька" - це збірка молитв, які є в перекладі на даний час. \n\nЗавжди можна відписати мені за побажаннями до додатка. Якщо вам сподобався додаток, я не відмовлюсь від чашки кави. \n\nЗ приводу розвитку проекту, планується реалізувати можливість завантажувати готовий список.</string>
+    <string name="info_text">Привіт. Я Вадим. \n\nДодаток розрахований тільки для молитовного списку. На головній сторінці завжди будуть Істинні Батьки. Меню "Молитовний список" дозволяє додавати, редагувати і видаляти позиції. Галочкою можна виділяти той пункт, за кого/що молитесь. Є також хронометр, який відраховує час. Після 3, 7, 12, 21, 40 хв прозвучить сигнал з повідомленням, що минув відповідний час. \n\nМеню "Молитви Батька" - це збірка молитв, які є в перекладі на даний час. На жаль, на українську мову перекладу немає. Тому збірник молитов англійською. Можна в налаштуваннях дивайса змінити мову на російську і читати молитви на російській.\n\nЗавжди можна відписати мені за побажаннями до додатка. Якщо вам сподобався додаток, я не відмовлюсь від чашки кави.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Політика конфіденційності</a></string>
     <string name="coffee_gift">Перейти на сайт</string>
     <string name="about">Про додаток</string>
@@ -57,13 +57,13 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     // TP kido books
-    <string name="pr_nadezdy">Молитви надії</string>
-    <string name="pr_pobedy">Молитви перемоги</string>
-    <string name="pr_serdca">Молитви серця</string>
-    <string name="pr_pochtitelnosty">Молитви шанобливості</string>
-    <string name="pr_voskresheniya">Молитви воскресіння</string>
-    <string name="pr_zelaniya">Молитви бажання</string>
-    <string name="pr_reshimosty">Молитви рішучості</string>
+    <string name="pr_nadezdy">Молитви надії (en)</string>
+    <string name="pr_pobedy">Молитви перемоги (en)</string>
+    <string name="pr_serdca">Молитви серця (en)</string>
+    <string name="pr_pochtitelnosty">Молитви шанобливості (en)</string>
+    <string name="pr_voskresheniya">Молитви воскресіння (en)</string>
+    <string name="pr_zelaniya">Молитви бажання (en)</string>
+    <string name="pr_reshimosty">Молитви рішучості (en)</string>
     <string name="pr_faith">Молитви віри (en)</string>
     <string name="pr_loyalty">Молитви відданості і синівської шанобливості (en)</string>
     <string name="pr_restoration">Молитви відновлення (en)</string>
