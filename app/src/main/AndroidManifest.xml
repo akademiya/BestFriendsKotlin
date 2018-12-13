@@ -14,6 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5169531562006723~6552139134"/>
+
         <activity android:name=".LoadingView"
             android:screenOrientation="portrait">
             <intent-filter>
