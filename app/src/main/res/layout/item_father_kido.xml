@@ -29,6 +29,17 @@
         android:maxLines="1"
         tools:text="Мастер и Маргарита" />
 
+    <ImageView
+        android:id="@+id/iv_new_books"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin8"
+        android:layout_marginEnd="@dimen/parent_margin"
+        android:src="@drawable/ic_new"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
     <View
         style="@style/AppTheme.HorizontalViewDivider"
         android:layout_alignParentBottom="true"

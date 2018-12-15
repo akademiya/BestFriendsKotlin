@@ -88,6 +88,19 @@
     <string name="pr_restoration">Prayers of Restoration</string>
     <string name="pr_devotion">Prayers of Devotion</string>
     <string name="pr_unification">Prayers of Unification</string>
+    <string name="b_hananim">제1장 하나님</string>
+    <string name="b_champumo">제2장 참부모</string>
+    <string name="b_chamsaran">제3장 참사랑</string>
+    <string name="b_chamingan">제4장 참인간</string>
+    <string name="b_chamkajon">제5장 참가정</string>
+    <string name="b_chammanmul">제6장 참만물</string>
+    <string name="b_yongye">제7장 지상생활과 영계</string>
+    <string name="b_suren">제8장 신앙생활과 수련</string>
+    <string name="b_mesia">제9장 가정교회와 종족적 메시아</string>
+    <string name="b_penhwasasan">제10장 평화사상</string>
+    <string name="b_menjol">제11장 예식과 명절</string>
+    <string name="b_chonilguk">제12장 천일국</string>
+    <string name="b_penhwamesigi">제13장 평화메시지</string>
 
     <string name="pr_nadezdy_1">1. Please reveal the beauty of Your original nature, Father</string>
     <string name="pr_nadezdy_2">2. Please let us return glory to You, Father</string>
@@ -517,5 +530,110 @@
     <string name="pr_unification_33">33. Father, please allow us to realize the world of peace with Your love as the center</string>
     <string name="pr_unification_34">34. Please allow us to establish the world of the realm of heart of living for others</string>
     <string name="pr_unification_35">35. Please allow us to become partners of the love of Heaven</string>
+
+    <string name="b_hananim_1">1. 승리의 깃발을 들고 아버지를 모시고 살 수 있게 하시옵소서 (57.3.6, p. 1455)</string>
+    <string name="b_hananim_2">2. 아버지의 뜻을 성취하게 하시옵소서 (56.10.7, p. 1457)</string>
+    <string name="b_hananim_3">3. 하늘의 심정을 책임질 줄 알게 하시옵소서 (59.3.15, p. 1459)</string>
+    <string name="b_hananim_4">4. 최후의 운명길에서 승리하게 하시옵소서 (69.7.27, p. 1461)</string>
+    <string name="b_hananim_5">5. 새롭게 결심하고 나아갈 수 있게 하시옵소서 (67.12.24, p. 1463)</string>
+    <string name="b_hananim_6">6. 정성을 다하는 무리가 되게 하시옵소서 (81.11.22, p. 1465)</string>
+    <string name="b_hananim_7">7. 승리의 해가 되게 하시옵소서 (84.1.1, p. 1467)</string>
+
+    <string name="b_champumo_1">1. 잠들어 있는 인류를 깨우치게 하시옵소서 (57.5.19, p. 1470)</string>
+    <string name="b_champumo_2">2. 당신이 원하는 그릇으로 만드시옵소서 (75.2.1, p. 1471)</string>
+    <string name="b_champumo_3">3. 주체성을 복귀할 수 있게 하시옵소서 (68.4.21, p. 1475)</string>
+    <string name="b_champumo_4">4. 다짐한 대로 실천하게 하시옵소서 (67.12.31, p. 1476)</string>
+    <string name="b_champumo_5">5. 새로운 부모의 전통을 세우게 하시옵소서 (80.4.15, p. 1479)</string>
+    <string name="b_champumo_6">6. 사랑하는 아들딸이 될 때까지 지켜 주시옵소서 (82.10.17, p. 1483)</string>
+    <string name="b_champumo_7">7. 참부모의 사랑권이 충만하게 하시옵소서 (90.7.8, p. 1485)</string>
+
+    <string name="b_chamsaran_1">1. 당신의 심정을 선포하게 하시옵소서 (60.11.27, p. 1486)</string>
+    <string name="b_chamsaran_2">2. 통일의 세계를 이루도록 그 길을 재촉하시옵소서 (66.12.18, p. 1489)</string>
+    <string name="b_chamsaran_3">3. 새로운 마음과 몸으로 각오할 수 있게 하시옵소서 (59.3.29, p. 1492)</string>
+    <string name="b_chamsaran_4">4. 사랑의 세계에 들어갈 수 있게 해주시옵소서 (86.2.1, p. 1495)</string>
+    <string name="b_chamsaran_5">5. 충절을 지키는 아들딸이 되게 하시옵소서 (56.12.30, p. 1496)</string>
+    <string name="b_chamsaran_6">6. 사랑의 심정으로 달려가게 하시옵소서 (82.10.27, p. 1498)</string>
+    <string name="b_chamsaran_7">7. 아버지의 사랑과 인연을 찬양할 자녀가 되게 하시옵소서 (69.5.2, p. 1500)</string>
+
+    <string name="b_chamingan_1">1. 아버님의 형상을 닮아나게 하시옵소서 (56.7.1, p. 1503)</string>
+    <string name="b_chamingan_2">2. 부활의 역사를 일으켜 주시옵소서 (59.9.6, p. 1504)</string>
+    <string name="b_chamingan_3">3. 재창조의 부름을 그리워하게 해주시옵소서 (66.12.11, p. 1506)</string>
+    <string name="b_chamingan_4">4. 충직한 자녀가 되게 하시옵소서 (57.6.23, p. 1509)</string>
+    <string name="b_chamingan_5">5. 새로운 방향을 취하게 하시옵소서 (59.6.28, p. 1511)</string>
+    <string name="b_chamingan_6">6. 끝까지 싸워 나갈 수 있게 하시옵소서 (80.11.10, p. 1513)</string>
+    <string name="b_chamingan_7">7. 당신이 사정을 알게 하시옵소서 (69.5.25, p. 1516)</string>
+
+    <string name="b_chamkajon_1">1. 사랑의 질서를 세우는 선한 조상이 되게 하시옵소서 (70.3.23, p. 1519)</string>
+    <string name="b_chamkajon_2">2. 당신의 자녀들을 기억해 주시옵소서 (70.4.19, p. 1521)</string>
+    <string name="b_chamkajon_3">3. 참다운 효자와 효녀들이 되게 하시옵소서 (58.3.23, p. 1525)</string>
+    <string name="b_chamkajon_4">4. 아버지의 사랑을 잊지 않게 하시옵소서 (68.11.17, p. 1525)</string>
+    <string name="b_chamkajon_5">5. 부끄럽지 않은 부모의 인연을 갖게 하여 주시옵소서 (71.2.1, p. 1529)</string>
+    <string name="b_chamkajon_6">6. 참부모의 사상을 지니게 하시옵소서 (71.4.29, p. 1531)</string>
+    <string name="b_chamkajon_7">7. 축복받은 후손들이 되게 해주시옵소서 (2007.3.8, p. 1533)</string>
+
+    <string name="b_chammanmul_1">1. 만물을 주관할 수 있는 아들딸로 세워 주시옵소서 (56.6.10, p. 1535)</string>
+    <string name="b_chammanmul_2">2. 만물복귀의 날을 기념하기 위하여 (63.7.26, p. 1536)</string>
+    <string name="b_chammanmul_3">3. 모든 것을 뜻대로 이루어 주시옵소서 (63.5.15, p. 1538)</string>
+    <string name="b_chammanmul_4">4. 만물이 해방을 받을 수 있게 해주시옵소서 (69.6.15, p. 1539)</string>
+    <string name="b_chammanmul_5">5. 만물의 날을 문자대로만 알지 않게 해주시옵소서 (70.6.4, p. 1541)</string>
+    <string name="b_chammanmul_6">6. 대제사장의 책임을 다하는 자녀들이 되게 하시옵소서 (66.6.19, p. 1545)</string>
+    <string name="b_chammanmul_7">7. 봉헌전환식을 선포하오니 받아주시옵소서 (98.5.26, p. 1547)</string>
+
+    <string name="b_yongye_1">1. 골고다의 한을 밟고 넘어가게 해주시옵소서 (65.12.26, p. 1549)</string>
+    <string name="b_yongye_2">2. 뜻적인 승리에 동참할 수 있게 하시옵소서 (82.9.26, p. 1552)</string>
+    <string name="b_yongye_3">3. 길이길이 바라는 뜻대로 이루어 주시옵소서 (86.1.3, p. 1553)</string>
+    <string name="b_yongye_4">4. 모든 것이 평준화될 수 있게 축복해 주시옵소서 (89.1.2, p. 1554)</string>
+    <string name="b_yongye_5">5. 가정들이 정착할 수 있는 본향 땅을 축복하시옵소서 (2000.2.6, p. 1557)</string>
+    <string name="b_yongye_6">6. 승리적인 터전을 마련할 수 있게 축복해 주시옵소서 (2000.9.3, p. 1558)</string>
+    <string name="b_yongye_7">7. 자녀의 면모를 갖추게 해주시옵소서 (96.3.17, p. 1560)</string>
+
+    <string name="b_suren_1">1. 사명을 알게 해주시옵소서 (56.11.25, p. 1562)</string>
+    <string name="b_suren_2">2. 당신의 영광을 세워 드릴 수 있게 해주시옵소서 (57.9.15, p. 1563)</string>
+    <string name="b_suren_3">3. 모든 것을 깨달을 수 있게 해주시옵소서 (57.3.17, p. 1564)</string>
+    <string name="b_suren_4">4. 새로운 생애를 향하여 달음질할 수 있게 하시옵소서 (68.1.7, p. 1564)</string>
+    <string name="b_suren_5">5. 참효자 참효녀가 되게 하시옵소서 (66.1.2, p. 1568)</string>
+    <string name="b_suren_6">6. 아버님 홀로 영광 받으시옵기를 원합니다 (69.10.19, p. 1571)</string>
+    <string name="b_suren_7">7. 지상천국이 되게 해주시옵기를 바라옵니다 (6.3.1, p. 1572)</string>
+
+    <string name="b_mesia_1">1. 가정교회의 승리적인 날이 이루어지게 하시옵소서 (80.10.19, p. 1574)</string>
+    <string name="b_mesia_2">2. 가정교회를 중심삼고 전부가 하나되게 하시옵소서 (82.1.1, p. 1575)</string>
+    <string name="b_mesia_3">3. 여명의 때가 목전에 다가왔음을 깨닫게 하시옵소서 (80.11.1, p. 1577)</string>
+    <string name="b_mesia_4">4. 통일교회의 사명을 망각하지 않게 해주시옵소서 (80.10.16, p. 1578)</string>
+    <string name="b_mesia_5">5. 가정교회의 시대를 맞게 된 것을 감사드립니다 (81.1.1, p. 1582)</string>
+    <string name="b_mesia_6">6. 한국을 불쌍히 보시옵소서 (85.12.29, p. 1583)</string>
+    <string name="b_mesia_7">7. 사랑·믿음·소망의 계승자가 되게 하시옵소서 (56.6.6, p. 1586)</string>
+
+    <string name="b_penhwasasan_1">1. 당신을 저희들 마음 가운데 모시게 하시옵소서 (71.2.11, p. 1588)</string>
+    <string name="b_penhwasasan_2">2. 무한하신 자비와 사랑으로 같이해 주시옵소서 (1970.11.1, p. 1590)</string>
+    <string name="b_penhwasasan_3">3. 만민이 하늘나라에 속할 수 있게 하시옵소서 (87.10.4, p. 1591)</string>
+    <string name="b_penhwasasan_4">4. 전진적인 발걸음을 재촉하게 해주시옵소서 (90.11.18, p. 1592)</string>
+    <string name="b_penhwasasan_5">5. 전체가 하늘 뜻 가운데 일취월장하게 해주시옵소서 (2000.6.12, p. 1594)</string>
+    <string name="b_penhwasasan_6">6. 화합 통일의 안착시대로 전진할 수 있게 하시옵소서 (2005.7.1, p. 1596)</string>
+    <string name="b_penhwasasan_7">7. 사랑의 왕권시대를 전수받는 시대가 되게 하시옵소서 (2006.5.3, p. 1597)</string>
+
+    <string name="b_menjol_1">1. 모든 것을 저희 가운데서 성취하시옵소서 (61.1.1, p. 1599)</string>
+    <string name="b_menjol_2">2. 지옥에까지 사랑 빛을 비춰주소서 (1977.2.23, p. 1602)</string>
+    <string name="b_menjol_3">3. 통일의 나라를 이룰 수 있게 해주시옵소서 (69.11.10, p. 1603)</string>
+    <string name="b_menjol_4">4. 인류의 해방을 선언할 수 있는 때를 맞았습니다 (98.5.26, p. 1604)</string>
+    <string name="b_menjol_5">5. 부끄럽지 않은 아들딸의 모습을 갖추게 하시옵소서 (80.11.8, p. 1605)</string>
+    <string name="b_menjol_6">6. 천주의 통일과 해방을 선포할 수 있는 시대를 감사합니다 (2001.8.25, p. 1608)</string>
+    <string name="b_menjol_7">7. 지상천국해방태평시대를 맞이하게 되기를 바라옵니다 (2006.1.3, p. 1610)</string>
+
+    <string name="b_chonilguk_1">1. 이상적인 아담 문화를 완결하게 하시옵소서 (1.12.9, p. 1612)</string>
+    <string name="b_chonilguk_2">2. 앞날의 갈 길에 동고동락해 주시옵기를 원합니다 (2001.12.30, p. 1613)</string>
+    <string name="b_chonilguk_3">3. 하나님 조국의 정착과 천일국을 선포했사옵니다 (2002.1.26, p. 1616)</string>
+    <string name="b_chonilguk_4">4. 만세에 승리의 태평성대국이 되게 하시옵소서 (2003.1.1, p. 1618)</string>
+    <string name="b_chonilguk_5">5. 정착의 시대를 선포할 수 있게 되었습니다 (2004.12.1, p. 1620)</string>
+    <string name="b_chonilguk_6">6. 일화통일 정착해방의 세계로 향하게 하시옵소서 (2005.4.9, p. 1621)</string>
+    <string name="b_chonilguk_7">7. 사랑의 주권이 확장되게 하시옵소서 (2005.2.25, p. 1622)</string>
+
+    <string name="b_penhwamesigi_1">1. 하나님왕권즉위식 기도 (1.1.13, p. 1624)</string>
+    <string name="b_penhwamesigi_2">2. 쌍합십승일 선포 기도 (2004.5.5, p. 1625)</string>
+    <string name="b_penhwamesigi_3">3. 천주평화의 왕 참부모님 천정궁 입궁·대관식 기도 (2006.6.13, p. 1628)</string>
+    <string name="b_penhwamesigi_4">4. 2001년 원단 기도 (2001.1.1, p. 1629)</string>
+    <string name="b_penhwamesigi_5">5. 청심평화월드센터 봉헌식 기도 (2012.3.22, p. 1633)</string>
+    <string name="b_penhwamesigi_6">6. 2005년 원단 기도 (2005.1.1, p. 1636)</string>
+    <string name="b_penhwamesigi_7">7. 2007년 원단 축도 (2007.1.1, p. 1641)</string>
+    <string name="b_penhwamesigi_8">8. 참아버님 최후의 기도 다 이루었다! (12.8.13, p. 1646)</string>
 
 </resources>

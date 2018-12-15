@@ -24,6 +24,19 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.analytics.HitBuilders
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamingan.KidoChaminganView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamkajon.KidoChamkajonView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chammanmul.KidoChammanmulView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.champumo.KidoChampumoView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamsaran.KidoChamsaranView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chonilguk.KidoChonilgukView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.hananim.KidoHananimView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.menjol.KidoMenjolView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.mesia.KidoMesiaView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.penhwamesigi.KidoPenhwamesigiView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.penhwasasan.KidoPenhwasasanView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.suren.KidoSurenView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.yongye.KidoYongyeView
 import kotlinx.android.synthetic.main.view_father_kido.*
 
 
@@ -32,7 +45,7 @@ class FatherKidoView : MainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido)
-        toolbar_button_menu()
+        toolbarButtonMenu()
         admob()
         tracker().setScreenName("Father Kido")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
@@ -54,6 +67,20 @@ class FatherKidoView : MainActivity() {
         books.add(FatherKido(11, getString(R.string.pr_pobedy)))
         books.add(FatherKido(12, getString(R.string.pr_unification)))
 
+        books.add(FatherKido(13, getString(R.string.b_hananim)))
+        books.add(FatherKido(14, getString(R.string.b_champumo)))
+        books.add(FatherKido(15, getString(R.string.b_chamsaran)))
+        books.add(FatherKido(16, getString(R.string.b_chamingan)))
+        books.add(FatherKido(17, getString(R.string.b_chamkajon)))
+        books.add(FatherKido(18, getString(R.string.b_chammanmul)))
+        books.add(FatherKido(19, getString(R.string.b_yongye)))
+        books.add(FatherKido(20, getString(R.string.b_suren)))
+        books.add(FatherKido(21, getString(R.string.b_mesia)))
+        books.add(FatherKido(22, getString(R.string.b_penhwasasan)))
+        books.add(FatherKido(23, getString(R.string.b_menjol)))
+        books.add(FatherKido(24, getString(R.string.b_chonilguk)))
+        books.add(FatherKido(25, getString(R.string.b_penhwamesigi)))
+
         val adapter = FatherKidoAdapter(books, { booksItem: FatherKido -> booksItemClicked(booksItem) })
         view_list_tpkido.adapter = adapter
     }
@@ -69,13 +96,13 @@ class FatherKidoView : MainActivity() {
         adView.loadAd(adRequest)
     }
 
-    private fun toolbar_button_menu() {
+    private fun toolbarButtonMenu() {
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
+        toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 
     private fun booksItemClicked(booksItem: FatherKido) {
@@ -98,6 +125,19 @@ class FatherKidoView : MainActivity() {
             10 -> startActivity(Intent(this, FatherKidoRestorationViewIntro::class.java))
             11 -> startActivity(Intent(this, FatherKidoPobedyViewIntro::class.java))
             12 -> startActivity(Intent(this, FatherKidoUnificationViewIntro::class.java))
+            13 -> startActivity(Intent(this, KidoHananimView::class.java))
+            14 -> startActivity(Intent(this, KidoChampumoView::class.java))
+            15 -> startActivity(Intent(this, KidoChamsaranView::class.java))
+            16 -> startActivity(Intent(this, KidoChaminganView::class.java))
+            17 -> startActivity(Intent(this, KidoChamkajonView::class.java))
+            18 -> startActivity(Intent(this, KidoChammanmulView::class.java))
+            19 -> startActivity(Intent(this, KidoYongyeView::class.java))
+            20 -> startActivity(Intent(this, KidoSurenView::class.java))
+            21 -> startActivity(Intent(this, KidoMesiaView::class.java))
+            22 -> startActivity(Intent(this, KidoPenhwasasanView::class.java))
+            23 -> startActivity(Intent(this, KidoMenjolView::class.java))
+            24 -> startActivity(Intent(this, KidoChonilgukView::class.java))
+            25 -> startActivity(Intent(this, KidoPenhwamesigiView::class.java))
         }
     }
 }

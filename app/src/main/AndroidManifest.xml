@@ -57,6 +57,32 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".father_kido.intro.unification.FatherKidoUnificationViewIntro"
             android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.hananim.KidoHananimView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.champumo.KidoChampumoView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.chamsaran.KidoChamsaranView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.chamingan.KidoChaminganView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.chamkajon.KidoChamkajonView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.chammanmul.KidoChammanmulView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.yongye.KidoYongyeView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.suren.KidoSurenView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.mesia.KidoMesiaView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.penhwasasan.KidoPenhwasasanView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.menjol.KidoMenjolView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.chonilguk.KidoChonilgukView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".father_kido.intro.penhwamesigi.KidoPenhwamesigiView"
+            android:screenOrientation="portrait"/>
         <activity android:name=".InfoView"
             android:screenOrientation="portrait"/>
         <activity android:name=".ExplanationView"
@@ -69,9 +95,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".FragmentMenseRu"
             android:screenOrientation="portrait"/>
-        
-        <activity android:name=".kido.FabView"
-            android:screenOrientation="portrait"/>
-    </application>
 
+    </application>
 </manifest>
