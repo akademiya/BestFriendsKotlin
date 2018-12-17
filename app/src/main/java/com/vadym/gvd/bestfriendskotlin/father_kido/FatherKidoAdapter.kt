@@ -23,6 +23,22 @@ class FatherKidoAdapter(private val booksList: ArrayList<FatherKido>,
             itemView.let {
                 it.name_book_kido.text = books.kidoBookName
                 it.setOnClickListener { clickListener(books) }
+                it.iv_new_books.visibility = when(books.booksID) {
+                    13 -> View.VISIBLE
+                    14 -> View.VISIBLE
+                    15 -> View.VISIBLE
+                    16 -> View.VISIBLE
+                    17 -> View.VISIBLE
+                    18 -> View.VISIBLE
+                    19 -> View.VISIBLE
+                    20 -> View.VISIBLE
+                    21 -> View.VISIBLE
+                    22 -> View.VISIBLE
+                    23 -> View.VISIBLE
+                    24 -> View.VISIBLE
+                    25 -> View.VISIBLE
+                    else -> View.GONE
+                }
             }
         }
     }
