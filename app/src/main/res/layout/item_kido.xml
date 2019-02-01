@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/listView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,20 +17,27 @@
         android:layout_height="@dimen/item_kido_container"
         android:layout_marginEnd="@dimen/edge_margins"
         android:layout_marginStart="@dimen/edge_margins"
-        android:layout_toStartOf="@+id/check_people"
+        android:layout_toStartOf="@+id/tv_counter"
         android:ellipsize="end"
         android:gravity="center_vertical"
         android:maxLines="1"
         tools:text="Остап Бендер" />
 
-    <CheckBox
-        android:id="@+id/check_people"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/item_kido_container"
+    <TextView
+        android:id="@+id/tv_counter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="@dimen/edge_margins"
-        android:buttonTint="@color/primary"
-        android:gravity="center" />
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:textColor="@color/primary"
+        app:srcCompat="@drawable/ic_circle"
+        tools:background="@drawable/ic_circle"
+        tools:ignore="VectorDrawableCompat"
+        tools:text="1" />
 
     <TextView
         android:id="@+id/person_description"
@@ -42,6 +49,7 @@
         android:layout_marginEnd="@dimen/edge_margins"
         android:layout_marginStart="@dimen/edge_margins"
         android:ellipsize="end"
+        android:visibility="gone"
         tools:text="Остап Бендер родился от папы и мамы счастливым и любознательным ребенком. Остап Бендер родился от папы и мамы счастливым и любознательным ребенком." />
 
     <View
@@ -59,7 +67,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/item_kido_container">
+            android:layout_height="@dimen/item_kido_container"
+            tools:visibility="gone">
 
             <ImageView
                 android:id="@+id/go_back"

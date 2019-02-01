@@ -10,7 +10,10 @@ import android.text.TextUtils
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.*
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
+import android.widget.Toast
 import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
@@ -29,7 +32,7 @@ class PersonView : MainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kido)
-        toolbar_button_menu()
+        toolbarButtonMenu()
         initializ()
         showOrHideFab()
         chronometer()
@@ -37,17 +40,17 @@ class PersonView : MainActivity() {
         tracker().send(HitBuilders.ScreenViewBuilder().build())
     }
 
-    private fun toolbar_button_menu() {
+    private fun toolbarButtonMenu() {
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
+        toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 
-    fun initializ() {
-        fab.setOnClickListener { _ -> addTaskDialog() }
+    private fun initializ() {
+        fab.setOnClickListener { addTaskDialog() }
         listPersonEmpty = findViewById(R.id.list_kido_empty)
 
         rv_list_kido.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
@@ -101,11 +104,10 @@ class PersonView : MainActivity() {
         val mp = MediaPlayer.create(this, R.raw.ton)
         chronometer.text = DateUtils.formatElapsedTime(0)
 
-        start.setOnClickListener { _ ->
+        start.setOnClickListener {
             Chronometer.base = SystemClock.elapsedRealtime()
             Chronometer.start()
         }
-
 
         Chronometer.setOnTick {
             val now = SystemClock.elapsedRealtime()
@@ -143,11 +145,8 @@ class PersonView : MainActivity() {
             }
         }
 
-        stop.setOnClickListener { _ ->
-            Chronometer.stop()
-        }
-
-        reset.setOnClickListener { _ ->
+        stop.setOnClickListener { Chronometer.stop() }
+        reset.setOnClickListener {
             Chronometer.stop()
             chronometer.text = DateUtils.formatElapsedTime(0)
         }

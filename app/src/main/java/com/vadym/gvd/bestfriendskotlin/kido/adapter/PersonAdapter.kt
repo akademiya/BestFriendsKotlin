@@ -15,7 +15,9 @@ import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
 
-class PersonAdapter(private val personList: List<Person>, val context: Context, private val database: SqliteDatabase) : RecyclerView.Adapter<PersonAdapter.VH>() {
+class PersonAdapter(private val personList: List<Person>,
+                    val context: Context,
+                    private val database: SqliteDatabase) : RecyclerView.Adapter<PersonAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_kido, parent, false)
@@ -27,28 +29,37 @@ class PersonAdapter(private val personList: List<Person>, val context: Context, 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val singlePerson = personList[position]
 
-        holder.let {
-            it.personName?.text = singlePerson.personName
-            it.personDescription?.text = singlePerson.personDescription
-            it.listView?.setOnLongClickListener { _ ->
+        holder.apply {
+            personName?.text = singlePerson.personName
+            personDescription?.text = singlePerson.personDescription
+            listView?.setOnLongClickListener {
                 holder.listReview?.visibility = View.VISIBLE
                 holder.personDescription?.setTextColor(Color.LTGRAY)
                 false
             }
-            it.goBack?.setOnClickListener { _ ->
+
+            counter?.setBackgroundResource(R.drawable.ic_circle)
+            counter?.text = singlePerson.counter.toString()
+            counter?.setOnClickListener {
+                singlePerson.counter++
+                notifyDataSetChanged()
+            }
+
+            goBack?.setOnClickListener {
                 holder.listReview?.visibility = View.GONE
                 holder.personDescription?.setTextColor(Color.DKGRAY)
             }
-            it.deleteItem?.setOnClickListener { _ ->
+            deleteItem?.setOnClickListener {
                 database.deletePerson(singlePerson.personId)
                 (context as Activity).finish()
                 context.startActivity(context.intent)
             }
-            it.editItem?.setOnClickListener { editTaskDialog(singlePerson) }
+            editItem?.setOnClickListener { editTaskDialog(singlePerson) }
 
-            if (singlePerson.personDescription!!.isBlank()) {
-                it.personDescription?.visibility = View.GONE
-            }
+            if (singlePerson.personDescription!!.isNotBlank()) {
+                personDescription?.visibility = View.VISIBLE
+            } else
+                personDescription?.visibility = View.GONE
         }
     }
 
@@ -82,6 +93,7 @@ class PersonAdapter(private val personList: List<Person>, val context: Context, 
     class VH(view: View?) : RecyclerView.ViewHolder(view) {
         val personName = view?.findViewById<TextView>(R.id.person_name)
         val personDescription = view?.findViewById<TextView>(R.id.person_description)
+        val counter = view?.findViewById<TextView>(R.id.tv_counter)
         val listReview = view?.findViewById<FrameLayout>(R.id.listReview)
         val listView = view?.findViewById<RelativeLayout>(R.id.listView)
         val goBack = view?.findViewById<ImageView>(R.id.go_back)
