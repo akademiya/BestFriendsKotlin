@@ -35,6 +35,9 @@
     // button chronometer
     <dimen name="switch_height">48dp</dimen>
 
+    // button anthem
+    <dimen name="play_button_height">60dp</dimen>
+
     // contact
     <dimen name="item_height">26dp</dimen>
 

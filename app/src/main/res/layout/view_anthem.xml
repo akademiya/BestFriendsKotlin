@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <TextView
+            style="@style/Toolbar.TitleText"
+            android:text="@string/anthem_chonilguk" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/parent_margin">
+
+        <ImageView
+            android:id="@+id/iv_play"
+            style="@style/ButtonAnthem"
+            android:src="@drawable/ic_play"
+            android:tint="@color/color_primary_disable" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/iv_pause"
+            style="@style/ButtonAnthem"
+            android:src="@drawable/ic_pause"
+            android:tint="@color/color_pause_disable" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/iv_stop"
+            style="@style/ButtonAnthem"
+            android:src="@drawable/ic_stop"
+            android:tint="@color/color_accent_disable" />
+    </LinearLayout>
+
+    <View style="@style/AppTheme.HorizontalViewDivider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            style="@style/Kajon_mense"
+            android:paddingStart="@dimen/parent_margin"
+            android:paddingEnd="@dimen/parent_margin"
+            android:text="@string/anthem_text" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_advert"
+        android:orientation="vertical">
+
+        <View style="@style/AppTheme.HorizontalViewDivider" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/parent_margin"
+            android:text="@string/advert" />
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="ca-app-pub-5169531562006723/6552139134" />
+    </LinearLayout>
+</LinearLayout>

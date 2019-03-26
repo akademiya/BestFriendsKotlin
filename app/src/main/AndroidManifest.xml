@@ -95,6 +95,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".FragmentMenseRu"
             android:screenOrientation="portrait"/>
+        <activity android:name=".AnthemView"
+            android:screenOrientation="portrait"/>
 
     </application>
 </manifest>

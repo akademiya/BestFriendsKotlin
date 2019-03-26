@@ -14,6 +14,7 @@
     <string name="author">작성자: Vadym Gryganskiy</string>
     <string name="email">이메일: vadym.adv@gmail.com</string>
     <string name="explanation">기도의 가치</string>
+    <string name="loading_mp3">MP3를 로드하는 동안 잠시 기다려주십시오</string>
 
     // App rater
     <string name="rate">"TF PRAYER"을 평가하다</string>
@@ -48,6 +49,7 @@
     <string name="tp_kido">아버지의 기도</string>
     <string name="tp_mKido">참 아버지의 기도</string>
     <string name="mense">가정 맹세</string>
+    <string name="anthem">축가</string>
     <string name="kido_list">기도 목록</string>
     <string name="communicate">접촉</string>
     <string name="share">몫</string>

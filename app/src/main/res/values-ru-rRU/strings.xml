@@ -13,6 +13,7 @@
     <string name="author">Автор: Vadym Gryganskiy</string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>
     <string name="explanation">Значение молитвы</string>
+    <string name="loading_mp3">Подождите, пока загрузится mp3</string>
 
     // App rater
     <string name="rate">Оценить "TF PRAYER"</string>
@@ -47,6 +48,7 @@
     <string name="tp_kido">Молитвы Отца</string>
     <string name="tp_mKido">Молитвы Истинного Отца</string>
     <string name="mense">가정 맹세</string>
+    <string name="anthem">Гимн</string>
     <string name="kido_list">Молитвенный список</string>
     <string name="communicate">Связаться</string>
     <string name="share">Поделиться</string>
