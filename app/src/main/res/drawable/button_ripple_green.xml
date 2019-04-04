@@ -3,7 +3,7 @@
 
     <item android:state_pressed="true">
         <shape android:shape="oval">
-            <solid android:color="@color/button_chronometer"/>
+            <solid android:color="#FFF"/>
             <corners android:radius="3dp"/>
         </shape>
     </item>
