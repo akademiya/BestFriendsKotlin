@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/kido1"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido2"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido3"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido4"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido5"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido6"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido7"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido8"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido9"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido10"
+        tools:title="@string/kido_counter" />
+
+
+    <item
+        android:id="@+id/kido11"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido12"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido13"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido14"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido15"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido16"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido17"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido18"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido19"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido20"
+        tools:title="@string/kido_counter" />
+
+
+    <item
+        android:id="@+id/kido21"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido22"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido23"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido24"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido25"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido26"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido27"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido28"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido29"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido30"
+        tools:title="@string/kido_counter" />
+
+
+    <item
+        android:id="@+id/kido31"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido32"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido33"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido34"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido35"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido36"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido37"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido38"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido39"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido40"
+        tools:title="@string/kido_counter" />
+
+
+    <item
+        android:id="@+id/kido41"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido42"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido43"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido44"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido45"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido46"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido47"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido48"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido49"
+        tools:title="@string/kido_counter" />
+    <item
+        android:id="@+id/kido50"
+        tools:title="@string/kido_counter" />
+</menu>

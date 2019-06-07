@@ -3,17 +3,18 @@
     <string name="app_start_name">TF PRAYER</string>
 
     <string name="advert">Реклама</string>
-    <string name="info_text">Привет. Меня зовут Вадим. \n\nПриложение рассчитано только для молитвенного списка. На главной странице всегда будут Истинные Родители. Меню "Молитвенный список" позволяет добавлять, редактировать и удалять позиции. Галочкой можно выделять тот пункт, за кого/что молитесь. Есть также хронометр, который отсчитывает время. По прошествии 3, 7, 12, 21, 40 мин прозвучит сигнал с сообщением, что истекло соответственно времени. \n\nМеню "Молитвы Отца" - это сборник молитв, которые есть в переводе на данное время. \n\nВсегда можно отписать мне по пожеланиям к приложению. Если вам понравилось приложение, я не откажусь от чашечки кофе.</string>
+    <string name="info_text">Привет. Меня зовут Вадим. \n\nНа главной странице всегда будут Истинные Родители. Меню "Молитвенный список" позволяет добавлять, редактировать и удалять позиции. В кружке счетчик, сколько раз вы называете имя того, за кого молитесь. Есть также хронометр, который отсчитывает время. По прошествии 3, 7, 12, 21, 40 мин прозвучит сигнал с сообщением, что истекло соответственно времени. \n\nМеню "Молитвы Отца" - это сборник молитв, которые есть в переводе на данное время. \n\nВсегда можно отписать мне по пожеланиям к приложению. Если вам понравилось приложение, можете сделать любое пожертвование, перейдя на сайт по ссылке ниже.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Политика конфиденциальности</a></string>
     <string name="coffee_gift">Перейти на сайт</string>
     <string name="about">О приложении</string>
     <string name="share_by">Поделиться:</string>
-    <string name="share_body">Рекомендую приложение "<a href="https://play.google.com/store/apps/details?id=me.vadym.adv.tfprayer">TF PRAYER</a>".</string> // add link on google play
+    <string name="share_body">Рекомендую приложение "<a href="https://play.google.com/store/apps/details?id=me.vadym.adv.tfprayer">TF PRAYER</a>".</string>
     <string name="empty_list">Список пустой</string>
     <string name="author">Автор: Vadym Gryganskiy</string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>
     <string name="explanation">Значение молитвы</string>
     <string name="loading_mp3">Подождите, пока загрузится mp3</string>
+    <string name="kido_counter">Молитва %s</string>
 
     // App rater
     <string name="rate">Оценить "TF PRAYER"</string>

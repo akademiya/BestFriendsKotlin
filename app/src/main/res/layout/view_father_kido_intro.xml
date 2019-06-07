@@ -26,5 +26,8 @@
         android:id="@+id/rv_list_father_kido_intro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbarSize="6dp"
+        android:scrollbarThumbVertical="@color/colorAccent"
+        android:scrollbars="vertical"
         tools:listitem="@layout/item_father_kido_intro" />
 </LinearLayout>

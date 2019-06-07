@@ -4,13 +4,20 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.LinearLayout
 import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
 import com.vadym.gvd.bestfriendskotlin.tracker
 
 class FatherKidoPochtitelnostyViewIntro : MainActivity() {
+
+    private lateinit var rv: RecyclerView
+    private val kido = ArrayList<KidoPochtitelnosty>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,19 +29,41 @@ class FatherKidoPochtitelnostyViewIntro : MainActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
+        toolbar.setNavigationOnClickListener { onBackPressed() }
 
         tracker().setScreenName("Kido Pochtitelnosty")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
         init()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.scroll_to_item_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val view: View = findViewById(R.id.action_down)
+
+        when (item.itemId) {
+            R.id.action_down -> {
+                kidoListPopupMenu(context = this, view = view, rv = rv, kidoSize = 35, positionHide = 35)
+                return true
+            }
+            R.id.action_up -> {
+                rv.scrollToPosition(0)
+                return true
+            }
+            else -> null
+        }
+
+        return onOptionsItemSelected(item)
+    }
+
     private fun init() {
-        val rv = findViewById<RecyclerView>(R.id.rv_list_father_kido_intro)
+        rv = findViewById(R.id.rv_list_father_kido_intro)
         rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
-        val kido = ArrayList<KidoPochtitelnosty>()
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_1), getString(R.string.pr_pochtitelnosty_1t)))
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_2), getString(R.string.pr_pochtitelnosty_2t)))
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_3), getString(R.string.pr_pochtitelnosty_3t)))

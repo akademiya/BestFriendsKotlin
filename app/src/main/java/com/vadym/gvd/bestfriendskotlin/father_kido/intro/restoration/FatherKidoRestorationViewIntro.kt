@@ -3,14 +3,21 @@ package com.vadym.gvd.bestfriendskotlin.father_kido.intro.restoration
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.LinearLayout
 import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
 import com.vadym.gvd.bestfriendskotlin.tracker
 import kotlinx.android.synthetic.main.view_father_kido_intro.*
 
 class FatherKidoRestorationViewIntro : MainActivity() {
+
+    private lateinit var rv: RecyclerView
+    private val kido = ArrayList<KidoRestoration>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,19 +27,41 @@ class FatherKidoRestorationViewIntro : MainActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
+        toolbar.setNavigationOnClickListener { onBackPressed() }
 
         tracker().setScreenName("Kido Restoration")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
         init()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.scroll_to_item_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val view: View = findViewById(R.id.action_down)
+
+        when (item.itemId) {
+            R.id.action_down -> {
+                kidoListPopupMenu(context = this, view = view, rv = rv, kidoSize = 36, positionHide = 36)
+                return true
+            }
+            R.id.action_up -> {
+                rv.scrollToPosition(0)
+                return true
+            }
+            else -> null
+        }
+
+        return onOptionsItemSelected(item)
+    }
+
     private fun init() {
-        val rv = findViewById<RecyclerView>(R.id.rv_list_father_kido_intro)
+        rv = findViewById(R.id.rv_list_father_kido_intro)
         rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
-        val kido = ArrayList<KidoRestoration>()
         kido.add(KidoRestoration(getString(R.string.pr_restoration_1), getString(R.string.pr_restoration_1t)))
         kido.add(KidoRestoration(getString(R.string.pr_restoration_2), getString(R.string.pr_restoration_2t)))
         kido.add(KidoRestoration(getString(R.string.pr_restoration_3), getString(R.string.pr_restoration_3t)))
