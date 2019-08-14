@@ -9,7 +9,7 @@
     <string name="coffee_gift">Site (ru)</string>
     <string name="about">About app</string>
     <string name="share_by">Share:</string>
-    <string name="share_body">I want to share "<a href="https://play.google.com/store/apps/details?id=me.vadym.adv.tfprayer">TF PRAYER</a>" application.</string>
+    <string name="share_body">I want to share "TF PRAYER" application.\n</string>
     <string name="empty_list">Empty list</string>
     <string name="author">Author: Vadym Gryganskiy</string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>

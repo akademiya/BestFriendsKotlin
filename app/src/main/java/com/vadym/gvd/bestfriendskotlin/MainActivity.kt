@@ -13,6 +13,7 @@ import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.net.URL
 
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -54,12 +55,12 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_kido_explanation -> startActivity(Intent(this, ExplanationView::class.java))
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
             R.id.nav_share -> {
-                val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
+                val sharingIntent = Intent(Intent.ACTION_SEND)
                 val shareBody = getString(R.string.share_body)
                 sharingIntent.apply {
                     type = "text/plain"
-                    putExtra(android.content.Intent.EXTRA_SUBJECT, "True Father Prayers")
-                    putExtra(android.content.Intent.EXTRA_TEXT, shareBody)
+                    putExtra(Intent.EXTRA_SUBJECT, "True Father Prayers")
+                    putExtra(Intent.EXTRA_TEXT, shareBody + URL("https", "play.google.com", "store/apps/details?id=me.vadym.adv.tfprayer"))
                 }
                 startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_by)))
             }
@@ -67,7 +68,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_send -> {
                 val uri = Uri.parse("mailto:vadym.adv@gmail.com")
                 val sendIntent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"))
-                sendIntent.setData(uri)
+                sendIntent.data = uri
                 startActivity(Intent.createChooser(sendIntent, "True Father Prayers"))
             }
         }
