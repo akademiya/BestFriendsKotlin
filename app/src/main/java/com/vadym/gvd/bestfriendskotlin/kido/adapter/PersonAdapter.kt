@@ -1,5 +1,6 @@
 package com.vadym.gvd.bestfriendskotlin.kido.adapter
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
@@ -8,6 +9,7 @@ import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -15,9 +17,11 @@ import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
 
+
 class PersonAdapter(private val personList: List<Person>,
-                    val context: Context,
-                    private val database: SqliteDatabase) : RecyclerView.Adapter<PersonAdapter.VH>() {
+                    private val context: Context,
+                    private val database: SqliteDatabase,
+                    private val onMoveItemTouch: (viewHolder: VH) -> Unit) : RecyclerView.Adapter<PersonAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_kido, parent, false)
@@ -25,6 +29,7 @@ class PersonAdapter(private val personList: List<Person>,
 
     override fun getItemCount(): Int { return personList.size }
 
+    @SuppressLint("ClickableViewAccessibility")
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onBindViewHolder(holder: VH, position: Int) {
         val singlePerson = personList[position]
@@ -32,10 +37,10 @@ class PersonAdapter(private val personList: List<Person>,
         holder.apply {
             personName?.text = singlePerson.personName
             personDescription?.text = singlePerson.personDescription
-            listView?.setOnLongClickListener {
+            listView?.setOnClickListener {
                 holder.listReview?.visibility = View.VISIBLE
+                holder.counter?.visibility = View.GONE
                 holder.personDescription?.setTextColor(Color.LTGRAY)
-                false
             }
 
             counter?.setBackgroundResource(R.drawable.ic_circle)
@@ -45,9 +50,22 @@ class PersonAdapter(private val personList: List<Person>,
                 notifyDataSetChanged()
             }
 
+            ivMoveItem?.setOnTouchListener { v, event ->
+                if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+                    holder.listReview?.background = context.getDrawable(R.drawable.button_green_bordered)
+                    onMoveItemTouch(holder)
+                }
+                return@setOnTouchListener false
+            }
+
             goBack?.setOnClickListener {
                 holder.listReview?.visibility = View.GONE
+                holder.counter?.visibility = View.VISIBLE
                 holder.personDescription?.setTextColor(Color.DKGRAY)
+                holder.listReview?.setBackgroundColor(context.resources.getColor(R.color.icon_pressed))
+                // FIXME исправить этот костыль
+                (context as Activity).finish()
+                context.startActivity(context.intent)
             }
             deleteItem?.setOnClickListener {
                 database.deletePerson(singlePerson.personId)
@@ -79,7 +97,7 @@ class PersonAdapter(private val personList: List<Person>,
         builder.setPositiveButton(R.string.edit_person) { _, _ ->
             val name = nameField.text.toString()
             val description = descriptionField.text.toString()
-            database.updatePerson(Person(person.personId, name, description))
+            database.updatePerson(Person(person.personId, name, description, person.personPosition))
 
             (context as Activity).finish()
             context.startActivity(context.intent)
@@ -99,5 +117,6 @@ class PersonAdapter(private val personList: List<Person>,
         val goBack = view?.findViewById<ImageView>(R.id.go_back)
         val deleteItem = view?.findViewById<ImageView>(R.id.delete_item)
         val editItem = view?.findViewById<ImageView>(R.id.edit_item)
+        val ivMoveItem = view?.findViewById<ImageView>(R.id.iv_move_item)
     }
 }

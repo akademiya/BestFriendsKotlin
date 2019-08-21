@@ -68,7 +68,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_kido_container"
-            tools:visibility="gone">
+            tools:visibility="visible">
 
             <ImageView
                 android:id="@+id/go_back"
@@ -96,12 +96,24 @@
                 android:id="@+id/delete_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/parent_margin"
+                android:layout_marginEnd="@dimen/margin8"
+                android:layout_toStartOf="@+id/iv_move_item"
                 android:background="@drawable/button_ripple_green"
                 android:padding="12dp"
                 android:src="@drawable/ic_delete" />
+
+            <ImageView
+                android:id="@+id/iv_move_item"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:focusedByDefault="false"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="@dimen/edge_margins"
+                android:background="@drawable/button_ripple_green"
+                android:padding="8dp"
+                android:src="@drawable/ic_menu_white" />
 
         </RelativeLayout>
     </FrameLayout>

@@ -10,7 +10,7 @@ import java.util.*
 class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val CREATE_PERSON_TABLE = ("CREATE TABLE $TABLE_PERSONS($KEY_ID INTEGER PRIMARY KEY,$KEY_PERSON_NAME TEXT,$KEY_PERSON_DESCRIPTION TEXT)")
+        val CREATE_PERSON_TABLE = ("CREATE TABLE $TABLE_PERSONS($KEY_ID INTEGER PRIMARY KEY,$KEY_PERSON_NAME TEXT,$KEY_PERSON_DESCRIPTION TEXT,$KEY_POSITION INTEGER)")
         db?.execSQL(CREATE_PERSON_TABLE)
     }
 
@@ -29,18 +29,20 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
                 val id = Integer.parseInt(cursor.getString(0))
                 val name = cursor.getString(1)
                 val description = cursor.getString(2)
-                storePersons.add(Person(id, name, description))
+                val position = Integer.parseInt(cursor.getString(3))
+                storePersons.add(Person(id, name, description, position))
 
             } while (cursor.moveToNext())
         }
         cursor.close()
-        return storePersons
+        return storePersons.sortedBy { it.personPosition }
     }
 
     fun addPerson(person: Person) {
         val values = ContentValues()
         values.put(KEY_PERSON_NAME, person.personName)
         values.put(KEY_PERSON_DESCRIPTION, person.personDescription)
+        values.put(KEY_POSITION, person.personPosition)
         val db = this.writableDatabase
 
         db.insert(TABLE_PERSONS, null, values)
@@ -52,6 +54,16 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
         values.put(KEY_PERSON_NAME, person.personName)
         values.put(KEY_PERSON_DESCRIPTION, person.personDescription)
         val db = this.readableDatabase
+        db.update(TABLE_PERSONS, values, "$KEY_ID=?", arrayOf(person.personId.toString()))
+    }
+
+    fun updateSortPosition(person: Person) {
+        val db = this.readableDatabase
+        val values = ContentValues()
+        val columns = arrayOf(KEY_ID, KEY_PERSON_NAME, KEY_PERSON_DESCRIPTION, KEY_POSITION)
+
+        values.put(KEY_POSITION, person.personPosition)
+        db.query(TABLE_PERSONS, columns, null, null, null, null, KEY_POSITION).close()
         db.update(TABLE_PERSONS, values, "$KEY_ID=?", arrayOf(person.personId.toString()))
     }
 
@@ -68,6 +80,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
         val KEY_ID = "_id"
         val KEY_PERSON_NAME = "personname"
         val KEY_PERSON_DESCRIPTION = "persondescription"
+        val KEY_POSITION = "position"
 
         private var instance: SqliteDatabase? = null
         fun getInstance(context: Context): SqliteDatabase {

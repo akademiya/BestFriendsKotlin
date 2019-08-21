@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.text.TextUtils
 import android.text.format.DateUtils
 import android.view.LayoutInflater
@@ -22,12 +23,15 @@ import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
 import com.vadym.gvd.bestfriendskotlin.tracker
 import kotlinx.android.synthetic.main.view_kido.*
+import java.util.*
+
 
 class PersonView : MainActivity() {
     private lateinit var allPerson: List<Person>
     private lateinit var listPersonEmpty: RelativeLayout
     private lateinit var database: SqliteDatabase
     private lateinit var adapter: PersonAdapter
+    private lateinit var itemTouchHelper: ItemTouchHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +57,10 @@ class PersonView : MainActivity() {
         fab.setOnClickListener { addTaskDialog() }
         listPersonEmpty = findViewById(R.id.list_kido_empty)
 
+        itemTouchHelper = ItemTouchHelper(touchHelperCallback()).apply {
+            attachToRecyclerView(rv_list_kido)
+        }
+
         rv_list_kido.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv_list_kido.setHasFixedSize(true)
 
@@ -61,7 +69,11 @@ class PersonView : MainActivity() {
 
         if (allPerson.isNotEmpty()) {
             rv_list_kido.visibility = View.VISIBLE
-            adapter = PersonAdapter(allPerson, this, database)
+            adapter = PersonAdapter(
+                    personList = allPerson.sortedBy { it.personPosition },
+                    context = this,
+                    database = database,
+                    onMoveItemTouch = { viewHolder -> onStartDrag(viewHolder) })
             rv_list_kido.adapter = adapter
         } else {
             rv_list_kido.visibility = View.GONE
@@ -88,7 +100,7 @@ class PersonView : MainActivity() {
             if (TextUtils.isEmpty(name)) {
                 Toast.makeText(this, R.string.something_wrong, Toast.LENGTH_SHORT).show()
             } else {
-                val newPerson = Person(name, description)
+                val newPerson = Person(name, description, allPerson.lastIndex + 1)
                 database.addPerson(newPerson)
 
                 finish()
@@ -165,4 +177,44 @@ class PersonView : MainActivity() {
         })
     }
 
+    private fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+        itemTouchHelper.startDrag(viewHolder)
+    }
+
+    private fun touchHelperCallback() = object : ItemTouchHelper.Callback() {
+        override fun getMovementFlags(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?): Int {
+            val dragFlags: Int = ItemTouchHelper.UP.or(ItemTouchHelper.DOWN)
+            val swipeFlags: Int = ItemTouchHelper.ACTION_STATE_DRAG
+            return makeMovementFlags(dragFlags, swipeFlags)
+        }
+
+        override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+            adapter.notifyItemMoved(viewHolder.adapterPosition, target.adapterPosition)
+            drop(viewHolder.adapterPosition, target.adapterPosition)
+            return true
+        }
+
+        override fun isLongPressDragEnabled(): Boolean {
+            return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
+    }
+
+    fun drop(from: Int, to: Int) {
+        if (from < to) {
+            for (i in from until to) {
+                Collections.swap(allPerson, i, i + 1)
+            }
+        } else {
+            for (i in from downTo to + 1) {
+                Collections.swap(allPerson, i, i - 1)
+            }
+        }
+
+        allPerson.forEachIndexed { index, current ->
+            current.personPosition = index
+            database.updateSortPosition(current)
+        }
+    }
 }
