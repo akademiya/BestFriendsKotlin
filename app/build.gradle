@@ -4,13 +4,13 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "me.vadym.adv.tfprayer"
         minSdkVersion 17
-        targetSdkVersion 27
-        versionCode 15
-        versionName "2.02"
+        targetSdkVersion 28
+        versionCode 17
+        versionName "2.03"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
