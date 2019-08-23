@@ -9,8 +9,8 @@ android {
         applicationId "me.vadym.adv.tfprayer"
         minSdkVersion 17
         targetSdkVersion 28
-        versionCode 17
-        versionName "2.03"
+        versionCode 18
+        versionName "2.04"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -39,31 +39,22 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'com.android.support:design:27.1.1'
-    implementation 'javax.inject:javax.inject:1'
-    implementation 'com.android.support:multidex:1.0.3'
-
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
     implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
     implementation 'com.android.support:support-annotations:28.0.0'
-    implementation 'me.grantland:autofittextview:0.2.1'
-    implementation 'com.google.dagger:dagger:2.19'
 
     implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'io.reactivex:rxjava:1.2.5'
 
-    implementation 'com.google.android.gms:play-services-analytics:16.0.6'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.android.gms:play-services-analytics:16.0.6'
     implementation 'com.google.android.gms:play-services-ads:17.1.2'
     implementation 'com.google.firebase:firebase-core:16.0.6'
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.7'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 
 //    adMob GDPR
-    implementation 'com.google.android.ads.consent:consent-library:1.0.6'
+    implementation 'com.google.android.ads.consent:consent-library:1.0.7'
 }
 
 apply plugin: 'kotlin-android-extensions'

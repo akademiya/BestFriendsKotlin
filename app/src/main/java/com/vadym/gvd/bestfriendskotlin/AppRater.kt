@@ -12,7 +12,6 @@ import android.widget.TextView
 
 open class AppRater {
     private val APP_PNAME = "me.vadym.adv.tfprayer"// Package Name
-
     private val DAYS_UNTIL_PROMPT = 1 //Min number of days
     private val LAUNCHES_UNTIL_PROMPT = 3 //Min number of launches
 
@@ -73,7 +72,7 @@ open class AppRater {
         val b2 = Button(mContext)
         b2.text = mContext.resources.getText(R.string.later_rate)
         b2.setTextColor(mContext.resources.getColor(R.color.white))
-        b2.setBackgroundColor(mContext.resources.getColor(R.color.light_gray))
+        b2.setBackgroundColor(mContext.resources.getColor(R.color.color_text))
         b2.setPadding(0, 30, 0, 30)
         b2.setOnClickListener {
             dialog.dismiss()
