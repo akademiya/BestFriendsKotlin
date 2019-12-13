@@ -14,9 +14,28 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
         db?.execSQL(CREATE_PERSON_TABLE)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL("DROP TABLE IF EXISTS $TABLE_PERSONS")
-        onCreate(db)
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        if (oldVersion < 2) {
+            if (!isFieldExist(TABLE_PERSONS, KEY_POSITION))
+                db.execSQL("ALTER TABLE $TABLE_PERSONS ADD COLUMN $KEY_POSITION INTEGER;")
+        } else {
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_PERSONS")
+            onCreate(db)
+        }
+    }
+
+    private fun isFieldExist(tableName: String, fieldName: String): Boolean {
+        var isExist = false
+        val db = this.writableDatabase
+        val res = db.rawQuery("PRAGMA table_info($tableName)", null)
+        res.moveToFirst()
+        do {
+            val currentColumn = res.getString(1)
+            if (currentColumn == fieldName) {
+                isExist = true
+            }
+        } while (res.moveToNext())
+        return isExist
     }
 
     fun listPerson(): List<Person> {
@@ -73,7 +92,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
     }
 
     companion object {
-        private val DATABASE_VERSION = 1
+        private val DATABASE_VERSION = 2
         private val DATABASE_NAME = "person"
         val TABLE_PERSONS = "persons"
 
