@@ -34,6 +34,9 @@
     <string name="something_wrong">Not write. Check your enter data</string>
     <string name="name">Name</string>
     <string name="description">Description</string>
+    <string name="add_new_condition">Add new condition</string>
+    <string name="add_condition">Add condition</string>
+    <string name="edit_condition">Edit condition</string>
 
     // Timer
     <string name="start">Start</string>
@@ -54,6 +57,7 @@
     <string name="mense">Family Pledge</string>
     <string name="mense_k">가정 맹세</string>
     <string name="anthem">Anthem</string>
+    <string name="menu_condition">Condition</string>
     <string name="anthem_chonilguk">Anthem of Cheon Il Guk</string>
     <string name="kido_list">Prayer list</string>
     <string name="communicate">Contact</string>
@@ -70,6 +74,15 @@
     <string name="agree">I agree with privacy policy</string>
     <string name="error_accept">You can accept privacy to continue</string>
     <string name="let_continue">Continue</string>
+
+    // Condition
+    <string name="toolbar_title">Indemnity conditions</string>
+    <string name="condition_title">Indemnity condition</string>
+    <string name="lider">Central figure:</string>
+    <string name="duration">Duration:</string>
+    <string name="condition">Condition:</string>
+    <string name="public_goal">Public goal:</string>
+    <string name="personal_goal">Personal goal:</string>
 
     // Kajon mense
     <string name="one"><b>一(일)</b> 천일국 주인 우리 가정​은 참사랑을 중심하고, 본향​땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>

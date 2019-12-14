@@ -28,12 +28,15 @@
     // Dialog
     <string name="add_new_person">Додати нову позицію</string>
     <string name="add_person">Додати</string>
-    <string name="edit_person">Редагувати дані</string>
+    <string name="edit_person">Редагувати</string>
     <string name="cancel">Відмінити</string>
     <string name="task_cancelled">Задача відмінена</string>
     <string name="something_wrong">Якісь поля пусті. Перевірте свої вхідні дані</string>
     <string name="name">Им’я</string>
     <string name="description">Ситуація</string>
+    <string name="add_new_condition">Додати нову умову</string>
+    <string name="add_condition">@string/add_person</string>
+    <string name="edit_condition">@string/edit_person</string>
 
     // Timer
     <string name="start">Почати</string>
@@ -53,6 +56,7 @@
     <string name="tp_mKido">Молитви Істинного Батька</string>
     <string name="mense">Обітниця сім’ї</string>
     <string name="anthem">Гімн</string>
+    <string name="menu_condition">Умови посвячення</string>
     <string name="kido_list">Молитвенний список</string>
     <string name="communicate">Зв’язатися</string>
     <string name="share">Поділитися</string>
@@ -60,6 +64,15 @@
     <string name="donation">Прочитати</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    // Condition
+    <string name="toolbar_title">Умови посвячення</string>
+    <string name="condition_title">Умова посвячення</string>
+    <string name="lider">Центральна особа:</string>
+    <string name="duration">Період:</string>
+    <string name="condition">Умова:</string>
+    <string name="public_goal">Ціль суспільна:</string>
+    <string name="personal_goal">Ціль особиста:</string>
 
     // TP kido books
     <string name="pr_nadezdy">Молитви надії (en)</string>

@@ -34,6 +34,9 @@
     <string name="something_wrong">쓸 수 없습니다. 입력 데이터 확인</string>
     <string name="name">이름</string>
     <string name="description">서술</string>
+    <string name="add_new_condition">Add new condition</string>
+    <string name="add_condition">@string/add_person</string>
+    <string name="edit_condition">@string/edit_person</string>
 
     // Timer
     <string name="start">시작</string>
@@ -53,6 +56,7 @@
     <string name="tp_mKido">참 아버지의 기도</string>
     <string name="mense">가정 맹세</string>
     <string name="anthem">축가</string>
+    <string name="menu_condition">Condition</string>
     <string name="kido_list">기도 목록</string>
     <string name="communicate">접촉</string>
     <string name="share">몫</string>
@@ -60,6 +64,15 @@
     <string name="donation">정보</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    // Condition
+    <string name="toolbar_title">Indemnity conditions</string>
+    <string name="condition_title">Indemnity condition</string>
+    <string name="lider">Central figure:</string>
+    <string name="duration">Duration:</string>
+    <string name="condition">Condition:</string>
+    <string name="public_goal">Public goal:</string>
+    <string name="personal_goal">Personal goal:</string>
 
     // TP kido books
     <string name="pr_nadezdy">소망편</string>

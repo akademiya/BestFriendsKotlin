@@ -27,12 +27,15 @@
     // Dialog
     <string name="add_new_person">Добавить новую позицию</string>
     <string name="add_person">Добавить</string>
-    <string name="edit_person">Редактировать данные</string>
+    <string name="edit_person">Редактировать</string>
     <string name="cancel">Отмена</string>
     <string name="task_cancelled">Задача отменена</string>
     <string name="something_wrong">Что-то пошло не так. Проверьте свои входные значения</string>
     <string name="name">Имя</string>
     <string name="description">Описание</string>
+    <string name="add_new_condition">Добавить новое условие</string>
+    <string name="add_condition">@string/add_person</string>
+    <string name="edit_condition">@string/edit_person</string>
 
     // Timer
     <string name="start">Старт</string>
@@ -52,6 +55,7 @@
     <string name="tp_mKido">Молитвы Истинного Отца</string>
     <string name="mense">가정 맹세</string>
     <string name="anthem">Гимн</string>
+    <string name="menu_condition">Условия посвящения</string>
     <string name="kido_list">Молитвенный список</string>
     <string name="communicate">Связаться</string>
     <string name="share">Поделиться</string>
@@ -59,6 +63,15 @@
     <string name="donation">Прочитать</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    // Condition
+    <string name="toolbar_title">Условия посвящения</string>
+    <string name="condition_title">Условие посвящения</string>
+    <string name="lider">Центральная личность:</string>
+    <string name="duration">Период:</string>
+    <string name="condition">Условие:</string>
+    <string name="public_goal">Цель общественная:</string>
+    <string name="personal_goal">Цель личная:</string>
 
     // TP kido books
     <string name="pr_nadezdy">Молитвы надежды</string>

@@ -68,6 +68,27 @@
 
 
     // Text Style
+    <style name="BaseText" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
+    </style>
+
+    <style name="ConditionItems" parent="BaseText">
+        <item name="android:textSize">@dimen/text_size_condition_item</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginTop">@dimen/parent_margin</item>
+        <item name="android:layout_marginStart">@dimen/parent_margin</item>
+    </style>
+
+    <style name="ConditionValue" parent="BaseText">
+        <item name="android:textSize">@dimen/text_size_condition_value</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginStart">@dimen/parent_margin</item>
+        <item name="android:layout_marginEnd">@dimen/parent_margin</item>
+    </style>
+
     <style name="TextStyle_Body2_Primary_Dark" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

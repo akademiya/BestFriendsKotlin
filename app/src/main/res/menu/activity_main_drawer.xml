@@ -30,6 +30,11 @@
             android:title="@string/explanation" />
 
         <item
+            android:id="@+id/nav_kido_condition"
+            android:icon="@drawable/ic_condition"
+            android:title="@string/menu_condition" />
+
+        <item
             android:id="@+id/nav_info"
             android:icon="@drawable/ic_notifications_active"
             android:iconTint="#FF0000"

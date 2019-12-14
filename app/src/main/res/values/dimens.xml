@@ -26,6 +26,8 @@
     <dimen name="margin_from_advert">79dp</dimen>
 
     // text size
+    <dimen name="text_size_condition_item">10sp</dimen>
+    <dimen name="text_size_condition_value">@dimen/text_size</dimen>
     <dimen name="text_size_admob_dialog">14sp</dimen>
     <dimen name="text_size">16sp</dimen>
     <dimen name="text_size_title_explanation">20sp</dimen>

@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import com.google.android.gms.analytics.HitBuilders
+import com.vadym.gvd.bestfriendskotlin.condition.Condition
+import com.vadym.gvd.bestfriendskotlin.condition.ConditionView
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -53,6 +55,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_kido -> startActivity(Intent(this, PersonView::class.java))
             R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java))
             R.id.nav_kido_explanation -> startActivity(Intent(this, ExplanationView::class.java))
+            R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java))
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
             R.id.nav_share -> {
                 val sharingIntent = Intent(Intent.ACTION_SEND)

@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/user/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_notifications_active_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/home/user/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_style_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,7 +33,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_notifications_active" />
+                            <entry key="outputName" value="ic_condition" />
                             <entry key="sourceFile" value="$PROJECT_DIR$/.." />
                           </map>
                         </option>

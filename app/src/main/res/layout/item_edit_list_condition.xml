@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin8"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/create_lider"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginEnd="@dimen/edge_margins"
+            android:layout_marginStart="@dimen/edge_margins"
+            android:ellipsize="end"
+            android:hint="@string/lider"
+            android:inputType="textCapWords"
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/create_duration"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_lider"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginEnd="@dimen/edge_margins"
+            android:layout_marginStart="@dimen/edge_margins"
+            android:hint="@string/duration"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/create_condition"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_duration"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginEnd="@dimen/edge_margins"
+            android:layout_marginStart="@dimen/edge_margins"
+            android:hint="@string/condition"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/create_public_goal"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_condition"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginEnd="@dimen/edge_margins"
+            android:layout_marginStart="@dimen/edge_margins"
+            android:hint="@string/public_goal"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/create_personal_goal"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_public_goal"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginEnd="@dimen/edge_margins"
+            android:layout_marginStart="@dimen/edge_margins"
+            android:hint="@string/personal_goal"
+            android:inputType="text" />
+
+        <View
+            style="@style/AppTheme.HorizontalViewDivider"
+            android:layout_below="@+id/create_personal_goal" />
+    </RelativeLayout>
+</LinearLayout>
