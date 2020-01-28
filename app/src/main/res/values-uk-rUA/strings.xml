@@ -73,6 +73,8 @@
     <string name="condition">Умова:</string>
     <string name="public_goal">Ціль суспільна:</string>
     <string name="personal_goal">Ціль особиста:</string>
+    <string name="leftover">Залишилось: </string>
+    <string name="duration_value">%s, починаючи з %s</string>
 
     // TP kido books
     <string name="pr_nadezdy">Молитви надії (en)</string>

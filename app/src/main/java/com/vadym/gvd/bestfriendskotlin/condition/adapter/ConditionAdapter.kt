@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -21,6 +22,9 @@ class ConditionAdapter(private val context: Context,
                        private val onMoveItemTouch: (holder: VH) -> Unit) : RecyclerView.Adapter<ConditionAdapter.VH>() {
 
 
+//    var decrementDuration = 0
+//    var leftover = 0
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_condition, parent, false)
     )
@@ -33,13 +37,17 @@ class ConditionAdapter(private val context: Context,
         holder.apply {
             lider?.text = singleCondition.lider
             conditionText?.text = singleCondition.condition
-            duration?.text = singleCondition.duration
+            val durationValue = context.resources.getQuantityString(R.plurals.days, singleCondition.duration?.toInt()!!, singleCondition.duration!!.toInt())
+            duration?.text = String.format(context.resources.getString(R.string.duration_value, durationValue, singleCondition.today))
             pubGoal?.text = singleCondition.pubGoal
             perGoal?.text = singleCondition.perGoal
             mainItem?.setOnClickListener {
                 contextualMenu.visibility = View.VISIBLE
+                title.setTextColor(Color.LTGRAY)
                 lider.setTextColor(Color.LTGRAY)
                 duration.setTextColor(Color.LTGRAY)
+//                textLeftover.setTextColor(Color.LTGRAY)
+//                durationLeftover.setTextColor(Color.LTGRAY)
                 conditionText.setTextColor(Color.LTGRAY)
                 pubGoal.setTextColor(Color.LTGRAY)
                 perGoal.setTextColor(Color.LTGRAY)
@@ -47,20 +55,23 @@ class ConditionAdapter(private val context: Context,
 
             goBack?.setOnClickListener {
                 contextualMenu?.visibility = View.GONE
+                title.setTextColor(Color.DKGRAY)
                 lider?.setTextColor(Color.DKGRAY)
                 duration.setTextColor(Color.DKGRAY)
+//                textLeftover.setTextColor(Color.DKGRAY)
+//                durationLeftover.setTextColor(Color.DKGRAY)
                 conditionText.setTextColor(Color.DKGRAY)
                 pubGoal.setTextColor(Color.DKGRAY)
                 perGoal.setTextColor(Color.DKGRAY)
                 contextualMenu?.setBackgroundColor(context.resources.getColor(R.color.icon_pressed))
-                // FIXME исправить этот костыль
+
                 (context as Activity).finish()
-                context.startActivity(context.intent)
+                val intent = context.intent
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                context.startActivity(intent)
             }
             deleteItem?.setOnClickListener {
-                database.deleteCondition(singleCondition.conditionId)
-                (context as Activity).finish()
-                context.startActivity(context.intent)
+                onDeleteIconClick(singleCondition, context as Activity)
             }
             editItem?.setOnClickListener { editTaskDialog(singleCondition) }
 
@@ -72,7 +83,37 @@ class ConditionAdapter(private val context: Context,
                 return@setOnTouchListener false
             }
 
+//            val intDuration = if (!singleCondition.duration.isNullOrBlank()) {
+//                singleCondition.duration?.toInt()
+//            } else 0
+//            decrementDuration = decrementDurationEachDay().takeIf { decrementDurationEachDay() != 0 } ?: singleCondition.duration?.toInt()!!
+//            val rr = decrementDurationEachDay()
+//            durationLeftover.text = context.resources.getQuantityString(R.plurals.days, rr, rr)
+//            when (intDuration?.minus(1)) {
+//                0 -> {
+//                    iconStatus.visibility = View.VISIBLE
+//                    iconStatus.setOnClickListener {
+//                        Toast.makeText(context, "Завтра последний день условия", Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//                -1 -> {
+//                    iconStatus.visibility = View.VISIBLE
+//                    iconStatus.setImageDrawable(context.resources.getDrawable(R.drawable.ic_delete))
+//                    iconStatus.setOnClickListener {
+//                        onDeleteIconClick(singleCondition, context as Activity)
+//                    }
+//                    title.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+//                }
+//                else -> iconStatus.visibility = View.GONE
+//            }
+
         }
+    }
+
+    private fun onDeleteIconClick(singleCondition: Condition, context: Activity) {
+        database.deleteCondition(singleCondition.conditionId)
+        context.finish()
+        context.startActivity(context.intent)
     }
 
     private fun editTaskDialog(condition: Condition) {
@@ -102,14 +143,20 @@ class ConditionAdapter(private val context: Context,
 
                 database.updateCondition(Condition(
                         conditionId = condition.conditionId,
-                        lider = lider.text.toString(),
-                        duration = duration.text.toString(),
-                        condition = conditionText.text.toString(),
-                        pubGoal = pubGoal.text.toString(),
-                        perGoal = perGoal.text.toString(),
+                        lider = liderFild,
+                        duration = durationFild,
+                        today = condition.today.toString(),
+                        condition = conditionFild,
+                        pubGoal = pubGoalFild,
+                        perGoal = perGoalFild,
                         conditionPosition = condition.conditionPosition))
-                (this@ConditionAdapter.context as Activity).finish()
-                this@ConditionAdapter.context.startActivity(this@ConditionAdapter.context.intent)
+                if (liderFild.isNotBlank() && durationFild.isNotBlank() && conditionFild.isNotBlank() && pubGoalFild.isNotBlank() && perGoalFild.isNotBlank()) {
+                    (this@ConditionAdapter.context as Activity).finish()
+                    this@ConditionAdapter.context.startActivity(this@ConditionAdapter.context.intent)
+                } else {
+                    Toast.makeText(context, R.string.task_cancelled, Toast.LENGTH_SHORT).show()
+                }
+
             }
             setNegativeButton(R.string.cancel) { _, _ -> Toast.makeText(context, R.string.task_cancelled, Toast.LENGTH_SHORT).show() }
             show()
@@ -117,15 +164,28 @@ class ConditionAdapter(private val context: Context,
 
     }
 
+//    private fun decrementDurationEachDay() : Long {
+////        var dp = decrementDuration
+////        val scheduler = Executors.newSingleThreadScheduledExecutor()
+////        scheduler.scheduleAtFixedRate({ dp-- }, 1000, 1, TimeUnit.SECONDS)
+//
+//        val dp = Observable.timer(1, TimeUnit.DAYS)
+//        return dp
+//    }
+
 
     class VH(view: View) : RecyclerView.ViewHolder(view) {
+        val title = view.findViewById<TextView>(R.id.tv_title)
         val lider = view.findViewById<TextView>(R.id.tv_lider_value)
         val duration = view.findViewById<TextView>(R.id.tv_duration_value)
+//        val textLeftover = view.findViewById<TextView>(R.id.tv_leftover)
+//        val durationLeftover = view.findViewById<TextView>(R.id.tv_duration_leftover)
         val conditionText = view.findViewById<TextView>(R.id.tv_condition_value)
         val pubGoal = view.findViewById<TextView>(R.id.tv_pub_goal_value)
         val perGoal = view.findViewById<TextView>(R.id.tv_per_goal_value)
         val mainItem = view.findViewById<LinearLayout>(R.id.main_item)
         val contextualMenu = view.findViewById<FrameLayout>(R.id.contextual_menu)
+//        val iconStatus = view.findViewById<ImageView>(R.id.ic_status)
 
         val goBack = view.findViewById<ImageView>(R.id.go_back)
         val deleteItem = view.findViewById<ImageView>(R.id.delete_item)

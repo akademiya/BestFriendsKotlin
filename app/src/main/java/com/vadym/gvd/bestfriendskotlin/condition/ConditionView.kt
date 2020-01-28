@@ -1,6 +1,7 @@
 package com.vadym.gvd.bestfriendskotlin.condition
 
 import android.app.AlertDialog
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -23,6 +24,7 @@ import com.vadym.gvd.bestfriendskotlin.condition.adapter.ConditionAdapter
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
 import com.vadym.gvd.bestfriendskotlin.tracker
 import kotlinx.android.synthetic.main.view_condition.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class ConditionView : MainActivity() {
@@ -129,6 +131,7 @@ class ConditionView : MainActivity() {
                     val newCondition = Condition(
                             lider = liderFild,
                             duration = durationFild,
+                            today = getToday(),
                             condition = conditionFild,
                             pubGoal = pubGoalFild,
                             perGoal = perGoalFild,
@@ -142,6 +145,19 @@ class ConditionView : MainActivity() {
             show()
         }
     }
+
+    private fun getToday() : String {
+        val deviceLocaleLanguage = Locale.getDefault().language
+        val deviceLocale= if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Locale.Builder().setLanguageTag(deviceLocaleLanguage).build()
+        } else {
+            Locale.getDefault()
+        }
+        val calendar = Calendar.getInstance(deviceLocale)
+        val dateFormat = SimpleDateFormat("dd MMMM yyyy", deviceLocale)
+        return dateFormat.format(calendar.time)
+    }
+
 
 
     private fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {

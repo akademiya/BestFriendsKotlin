@@ -66,13 +66,14 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     // Condition
-    <string name="toolbar_title">Indemnity conditions</string>
-    <string name="condition_title">Indemnity condition</string>
-    <string name="lider">Central figure:</string>
-    <string name="duration">Duration:</string>
-    <string name="condition">Condition:</string>
-    <string name="public_goal">Public goal:</string>
-    <string name="personal_goal">Personal goal:</string>
+    <string name="toolbar_title">면책 조건</string>
+    <string name="condition_title">면책 조건</string>
+    <string name="lider">중심 성격:</string>
+    <string name="duration">기간:</string>
+    <string name="condition">조건:</string>
+    <string name="public_goal">공공 목표:</string>
+    <string name="personal_goal">개인 목표:</string>
+    <string name="duration_value">%s, ‘%s’에서 시작</string>
 
     // TP kido books
     <string name="pr_nadezdy">소망편</string>

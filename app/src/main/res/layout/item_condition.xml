@@ -6,68 +6,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_title"
-        style="@style/TextTitle_Kido_Explanation"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/margin8"
-        android:text="@string/condition_title" />
-
-    <TextView
-        android:id="@+id/tv_lider"
-        style="@style/ConditionItems"
-        android:text="@string/lider" />
-
-    <TextView
-        android:id="@+id/tv_lider_value"
-        style="@style/ConditionValue"
-        tools:text="я сам" />
-
-    <TextView
-        android:id="@+id/tv_duration"
-        style="@style/ConditionItems"
-        android:text="@string/duration" />
-
-    <TextView
-        android:id="@+id/tv_duration_value"
-        style="@style/ConditionValue"
-        tools:text="от и до" />
-
-    <TextView
-        android:id="@+id/tv_condition"
-        style="@style/ConditionItems"
-        android:text="@string/condition" />
-
-    <TextView
-        android:id="@+id/tv_condition_value"
-        style="@style/ConditionValue"
-        tools:text="кидо dsflgkjsdfgklj dfgklsdjfgldfkjg lkdfjgdlfkgj ldkgjdflk gjdlfkgj ldfkgjdfl kjdlfkgj lkgjdflgkjdf lkjgfdlskgj ldkgj lkfdg fg" />
-
-    <TextView
-        android:id="@+id/tv_pub_goal"
-        style="@style/ConditionItems"
-        android:text="@string/public_goal" />
-
-    <TextView
-        android:id="@+id/tv_pub_goal_value"
-        style="@style/ConditionValue"
-        tools:text="победа" />
-
-    <TextView
-        android:id="@+id/tv_per_goal"
-        style="@style/ConditionItems"
-        android:text="@string/personal_goal" />
-
-    <TextView
-        android:id="@+id/tv_per_goal_value"
-        style="@style/ConditionValue"
-        android:layout_marginBottom="@dimen/parent_margin"
-        tools:text="изменения lskgjdslgjk dlgkjsdfglkj ldskfgj ldfkgj lkjgldfkgj lkdfjg lkjdglkdfj lgkjdfgl kjdg" />
-
-    <View
-        style="@style/AppTheme.HorizontalViewDivider" />
-
-
     <FrameLayout
         android:id="@+id/contextual_menu"
         android:layout_width="match_parent"
@@ -128,4 +66,101 @@
 
         </RelativeLayout>
     </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin8">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextTitle_Kido_Explanation"
+            android:layout_centerHorizontal="true"
+            android:text="@string/condition_title" />
+
+        <ImageView
+            android:id="@+id/ic_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/parent_margin"
+            android:layout_toEndOf="@+id/tv_title"
+            android:src="@drawable/ic_notifications"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_lider"
+        style="@style/ConditionItems"
+        android:text="@string/lider" />
+
+    <TextView
+        android:id="@+id/tv_lider_value"
+        style="@style/ConditionValue"
+        tools:text="я сам" />
+
+    <TextView
+        android:id="@+id/tv_duration"
+        style="@style/ConditionItems"
+        android:text="@string/duration" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_duration_value"
+            style="@style/ConditionValue"
+            tools:text="от и до" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_leftover"-->
+<!--            style="@style/BaseText"-->
+<!--            android:layout_marginStart="22dp"-->
+<!--            android:text="@string/leftover" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_duration_leftover"-->
+<!--            style="@style/ConditionValue"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            tools:text="7 days" />-->
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_condition"
+        style="@style/ConditionItems"
+        android:text="@string/condition" />
+
+    <TextView
+        android:id="@+id/tv_condition_value"
+        style="@style/ConditionValue"
+        tools:text="кидо dsflgkjsdfgklj dfgklsdjfgldfkjg lkdfjgdlfkgj ldkgjdflk gjdlfkgj ldfkgjdfl kjdlfkgj lkgjdflgkjdf lkjgfdlskgj ldkgj lkfdg fg" />
+
+    <TextView
+        android:id="@+id/tv_pub_goal"
+        style="@style/ConditionItems"
+        android:text="@string/public_goal" />
+
+    <TextView
+        android:id="@+id/tv_pub_goal_value"
+        style="@style/ConditionValue"
+        tools:text="победа" />
+
+    <TextView
+        android:id="@+id/tv_per_goal"
+        style="@style/ConditionItems"
+        android:text="@string/personal_goal" />
+
+    <TextView
+        android:id="@+id/tv_per_goal_value"
+        style="@style/ConditionValue"
+        android:layout_marginBottom="@dimen/parent_margin"
+        tools:text="изменения lskgjdslgjk dlgkjsdfglkj ldskfgj ldfkgj lkjgldfkgj lkdfjg lkjdglkdfj lgkjdfgl kjdg" />
+
+    <View
+        style="@style/AppTheme.HorizontalViewDivider" />
+
 </LinearLayout>

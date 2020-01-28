@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -34,7 +35,7 @@
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
             android:hint="@string/duration"
-            android:inputType="text" />
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/create_condition"
@@ -46,7 +47,7 @@
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
             android:hint="@string/condition"
-            android:inputType="text" />
+            android:inputType="textMultiLine" />
 
         <EditText
             android:id="@+id/create_public_goal"
@@ -58,7 +59,7 @@
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
             android:hint="@string/public_goal"
-            android:inputType="text" />
+            android:inputType="textMultiLine" />
 
         <EditText
             android:id="@+id/create_personal_goal"
@@ -70,7 +71,7 @@
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
             android:hint="@string/personal_goal"
-            android:inputType="text" />
+            android:inputType="textMultiLine" />
 
         <View
             style="@style/AppTheme.HorizontalViewDivider"

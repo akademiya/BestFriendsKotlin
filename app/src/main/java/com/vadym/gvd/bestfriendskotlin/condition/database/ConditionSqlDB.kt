@@ -13,6 +13,7 @@ class ConditionSqlDB(val context: Context) : SQLiteOpenHelper(context, DATABASE_
                 + "$KEY_ID INTEGER PRIMARY KEY,"
                 + "$KEY_LIDER TEXT,"
                 + "$KEY_DURATION TEXT,"
+                + "$KEY_TODAY TEXT,"
                 + "$KEY_CONDITION TEXT,"
                 + "$KEY_PUB_GOAL TEXT,"
                 + "$KEY_PER_GOAL TEXT,"
@@ -54,14 +55,16 @@ class ConditionSqlDB(val context: Context) : SQLiteOpenHelper(context, DATABASE_
                 val id = Integer.parseInt(cursor.getString(0))
                 val lider = cursor.getString(1)
                 val duration = cursor.getString(2)
-                val condition = cursor.getString(3)
-                val pubGoal = cursor.getString(4)
-                val perGoal = cursor.getString(5)
-                val position = Integer.parseInt(cursor.getString(6))
+                val today = cursor.getString(3)
+                val condition = cursor.getString(4)
+                val pubGoal = cursor.getString(5)
+                val perGoal = cursor.getString(6)
+                val position = Integer.parseInt(cursor.getString(7))
                 storeConditions.add(Condition(
                         conditionId = id,
                         lider = lider,
                         duration = duration,
+                        today = today,
                         condition = condition,
                         pubGoal = pubGoal,
                         perGoal = perGoal,
@@ -78,6 +81,7 @@ class ConditionSqlDB(val context: Context) : SQLiteOpenHelper(context, DATABASE_
         val values = ContentValues()
         values.put(KEY_LIDER, condition.lider)
         values.put(KEY_DURATION, condition.duration)
+        values.put(KEY_TODAY, condition.today)
         values.put(KEY_CONDITION, condition.condition)
         values.put(KEY_PUB_GOAL, condition.pubGoal)
         values.put(KEY_PER_GOAL, condition.perGoal)
@@ -123,6 +127,8 @@ class ConditionSqlDB(val context: Context) : SQLiteOpenHelper(context, DATABASE_
         val KEY_ID = "_id"
         val KEY_LIDER = "lider"
         val KEY_DURATION = "duration"
+        val KEY_TODAY = "from_day"
+        val KEY_LEFTOVER = "leftover"
         val KEY_CONDITION = "condition"
         val KEY_PUB_GOAL = "pub_goal"
         val KEY_PER_GOAL = "per_goal"
