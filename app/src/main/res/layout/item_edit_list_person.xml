@@ -34,7 +34,7 @@
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
             android:hint="@string/description"
-            android:inputType="text" />
+            android:inputType="textMultiLine" />
 
         <View
             style="@style/AppTheme.HorizontalViewDivider"
