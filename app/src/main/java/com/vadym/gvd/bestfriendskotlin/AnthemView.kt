@@ -3,10 +3,6 @@ package com.vadym.gvd.bestfriendskotlin
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Toast
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.analytics.HitBuilders
 import kotlinx.android.synthetic.main.view_anthem.*
 import java.io.IOException
@@ -25,7 +21,6 @@ class AnthemView : MainActivity() {
         cheonIlGukAnthem = MediaPlayer.create(this, R.raw.cheon_il_guk_anthem)
 
         toolbarButtonMenu(cheonIlGukAnthem)
-        admob()
         iv_stop.isEnabled = false
         iv_pause.isEnabled = false
 
@@ -71,17 +66,6 @@ class AnthemView : MainActivity() {
             cheonIlGukAnthem.stop()
             onBackPressed()
         }
-    }
-
-    private fun admob() {
-        MobileAds.initialize(this, "ca-app-pub-5169531562006723~5810328137")
-
-        val gAdView = AdView(this)
-        gAdView.adSize = AdSize.SMART_BANNER
-        gAdView.adUnitId = "ca-app-pub-5169531562006723/6552139134"
-
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
     }
 
     override fun onPause() {
