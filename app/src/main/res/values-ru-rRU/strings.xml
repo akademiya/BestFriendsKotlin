@@ -50,7 +50,6 @@
     // Drawer navigation
     <string name="home_page">Главная</string>
     <string name="tp_photo">Истинные Родители</string>
-    <string name="tp_mPhoto">Истинные Родители</string>
     <string name="tp_kido">Молитвы Отца</string>
     <string name="tp_mKido">Молитвы Истинного Отца</string>
     <string name="mense">가정 맹세</string>

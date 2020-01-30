@@ -51,11 +51,11 @@
     // drawer navigation
     <string name="home_page">메인</string>
     <string name="tp_photo">참 부모님</string>
-    <string name="tp_mPhoto">참 부모님</string>
     <string name="tp_kido">아버지의 기도</string>
     <string name="tp_mKido">참 아버지의 기도</string>
     <string name="mense">가정 맹세</string>
     <string name="anthem">축가</string>
+    <string name="anthem_chonilguk">천일국의 축가</string>
     <string name="menu_condition">Condition</string>
     <string name="kido_list">기도 목록</string>
     <string name="communicate">접촉</string>

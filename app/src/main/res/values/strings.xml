@@ -51,7 +51,6 @@
     // drawer navigation
     <string name="home_page">Main</string>
     <string name="tp_photo">True Parents</string>
-    <string name="tp_mPhoto">True Parents</string>
     <string name="tp_kido">Prayers of Father</string>
     <string name="tp_mKido">Prayers of True Father</string>
     <string name="mense">Family Pledge</string>
