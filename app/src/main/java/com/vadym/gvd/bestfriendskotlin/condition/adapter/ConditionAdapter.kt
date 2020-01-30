@@ -15,6 +15,7 @@ import android.widget.*
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.condition.Condition
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
+import com.vadym.gvd.bestfriendskotlin.restartActivity
 
 class ConditionAdapter(private val context: Context,
                        private val database: ConditionSqlDB,
@@ -65,10 +66,7 @@ class ConditionAdapter(private val context: Context,
                 perGoal.setTextColor(Color.DKGRAY)
                 contextualMenu?.setBackgroundColor(context.resources.getColor(R.color.icon_pressed))
 
-                (context as Activity).finish()
-                val intent = context.intent
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                context.startActivity(intent)
+                restartActivity(context)
             }
             deleteItem?.setOnClickListener {
                 onDeleteIconClick(singleCondition, context as Activity)
@@ -112,8 +110,7 @@ class ConditionAdapter(private val context: Context,
 
     private fun onDeleteIconClick(singleCondition: Condition, context: Activity) {
         database.deleteCondition(singleCondition.conditionId)
-        context.finish()
-        context.startActivity(context.intent)
+        restartActivity(context)
     }
 
     private fun editTaskDialog(condition: Condition) {

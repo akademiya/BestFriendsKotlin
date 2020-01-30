@@ -1,6 +1,8 @@
 package com.vadym.gvd.bestfriendskotlin
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.PopupMenu
@@ -81,4 +83,11 @@ fun kidoListPopupMenu(context: Context, view: View, rv: RecyclerView, kidoSize: 
         true
     }
     popupMenu.show()
+}
+
+fun restartActivity(context: Context) {
+    (context as Activity).finish()
+    val intent = context.intent
+    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+    context.startActivity(intent)
 }

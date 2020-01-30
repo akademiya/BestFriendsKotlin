@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.support.annotation.RequiresApi
@@ -16,6 +17,7 @@ import android.widget.*
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
+import com.vadym.gvd.bestfriendskotlin.restartActivity
 
 
 class PersonAdapter(private val personList: List<Person>,
@@ -63,14 +65,12 @@ class PersonAdapter(private val personList: List<Person>,
                 holder.counter?.visibility = View.VISIBLE
                 holder.personDescription?.setTextColor(Color.DKGRAY)
                 holder.listReview?.setBackgroundColor(context.resources.getColor(R.color.icon_pressed))
-                // FIXME исправить этот костыль
-                (context as Activity).finish()
-                context.startActivity(context.intent)
+
+                restartActivity(context)
             }
             deleteItem?.setOnClickListener {
                 database.deletePerson(singlePerson.personId)
-                (context as Activity).finish()
-                context.startActivity(context.intent)
+                restartActivity(context)
             }
             editItem?.setOnClickListener { editTaskDialog(singlePerson) }
 
@@ -99,8 +99,7 @@ class PersonAdapter(private val personList: List<Person>,
             val description = descriptionField.text.toString()
             database.updatePerson(Person(person.personId, name, description, person.personPosition))
 
-            (context as Activity).finish()
-            context.startActivity(context.intent)
+            restartActivity(context)
         }
 
         builder.setNegativeButton(R.string.cancel) { _, _ -> Toast.makeText(context, R.string.task_cancelled, Toast.LENGTH_SHORT).show() }
