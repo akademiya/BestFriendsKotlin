@@ -52,7 +52,7 @@ class PersonAdapter(private val personList: List<Person>,
                 notifyDataSetChanged()
             }
 
-            ivMoveItem?.setOnTouchListener { v, event ->
+            ivMoveItem?.setOnTouchListener { _, event ->
                 if (event.actionMasked == MotionEvent.ACTION_DOWN) {
                     holder.listReview?.background = context.getDrawable(R.drawable.button_green_bordered)
                     onMoveItemTouch(holder)

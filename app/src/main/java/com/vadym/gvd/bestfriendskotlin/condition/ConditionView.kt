@@ -154,7 +154,7 @@ class ConditionView : MainActivity() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         dateFrom.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 val monthPlus = monthOfYear + 1
                 val currentMonth = if (monthPlus.toString().length == 1) { "0$monthPlus" } else "$monthPlus"
                 val date = "$year$currentMonth$dayOfMonth"

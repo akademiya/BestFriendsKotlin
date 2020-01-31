@@ -73,7 +73,7 @@ class ConditionAdapter(private val context: Context,
             }
             editItem?.setOnClickListener { editTaskDialog(singleCondition) }
 
-            ivMoveItem?.setOnTouchListener { v, event ->
+            ivMoveItem?.setOnTouchListener { _, event ->
                 if (event.actionMasked == MotionEvent.ACTION_DOWN) {
                     contextualMenu?.background = context.getDrawable(R.drawable.button_green_bordered)
                     onMoveItemTouch(holder)

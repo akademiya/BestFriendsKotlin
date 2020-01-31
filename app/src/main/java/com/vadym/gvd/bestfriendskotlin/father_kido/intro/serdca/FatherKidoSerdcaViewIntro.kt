@@ -44,19 +44,17 @@ class FatherKidoSerdcaViewIntro : MainActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val view: View = findViewById(R.id.action_down)
 
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.action_down -> {
                 kidoListPopupMenu(context = this, view = view, rv = rv, kidoSize = 32, positionHide = 32)
-                return true
+                true
             }
-            R.id.action_up -> {
+            else -> {
                 rv.scrollToPosition(0)
-                return true
+                true
             }
-            else -> null
         }
 
-        return onOptionsItemSelected(item)
     }
 
     private fun init() {
