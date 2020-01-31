@@ -81,7 +81,7 @@ class FatherKidoView : MainActivity() {
         books.add(FatherKido(24, getString(R.string.b_chonilguk)))
         books.add(FatherKido(25, getString(R.string.b_penhwamesigi)))
 
-        val adapter = FatherKidoAdapter(books, { booksItem: FatherKido -> booksItemClicked(booksItem) })
+        val adapter = FatherKidoAdapter(books) { booksItem: FatherKido -> booksItemClicked(booksItem) }
         view_list_tpkido.adapter = adapter
     }
 

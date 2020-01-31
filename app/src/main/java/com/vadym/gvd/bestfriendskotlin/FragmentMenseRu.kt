@@ -20,7 +20,7 @@ class FragmentMenseRu : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
 
-        toolbar.setNavigationOnClickListener { _ -> startActivity(Intent(this, MainActivity::class.java)) }
+        toolbar.setNavigationOnClickListener { startActivity(Intent(this, MainActivity::class.java).noAnimation()) }
 
         tracker().setScreenName("Fragment Mense Ru")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
@@ -36,10 +36,10 @@ class FragmentMenseRu : MainActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
-            R.id.ko -> startActivity(Intent(this, MenseView::class.java))
-            R.id.en -> startActivity(Intent(this, FragmentMenseEn::class.java))
-            R.id.ua -> startActivity(Intent(this, FragmentMenseUa::class.java))
+        when (item.itemId) {
+            R.id.ko -> startActivity(Intent(this, MenseView::class.java).noAnimation())
+            R.id.en -> startActivity(Intent(this, FragmentMenseEn::class.java).noAnimation())
+            R.id.ua -> startActivity(Intent(this, FragmentMenseUa::class.java).noAnimation())
             R.id.ru -> doNothing()
         }
         return super.onOptionsItemSelected(item)

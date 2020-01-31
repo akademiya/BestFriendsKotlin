@@ -100,7 +100,7 @@ fun deviceLocale() : Locale {
 fun restartActivity(context: Context) {
     (context as Activity).finish()
     val intent = context.intent
-    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+    intent.noAnimation()
     context.startActivity(intent)
 }
 
@@ -111,4 +111,8 @@ fun String.formatterDate() : String {
 
 fun Date.formatterDate() : String {
     return SimpleDateFormat("dd MMMM yyyy", deviceLocale()).format(this)
+}
+
+fun Intent.noAnimation() : Intent {
+    return addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
 }

@@ -20,26 +20,25 @@ class MenseView : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
 
-        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
+        toolbar.setNavigationOnClickListener { onBackPressed() }
 
         tracker().setScreenName("Mense")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
     }
 
-    // TODO: app bar menu переход в activity по клику на item
+    /** app bar menu переход в activity по клику на item */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.language, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
+        when (item.itemId) {
             R.id.ko -> doNothing()
-            R.id.en -> startActivity(Intent(this, FragmentMenseEn::class.java))
-            R.id.ua -> startActivity(Intent(this, FragmentMenseUa::class.java))
-            R.id.ru -> startActivity(Intent(this, FragmentMenseRu::class.java))
+            R.id.en -> startActivity(Intent(this, FragmentMenseEn::class.java).noAnimation())
+            R.id.ua -> startActivity(Intent(this, FragmentMenseUa::class.java).noAnimation())
+            R.id.ru -> startActivity(Intent(this, FragmentMenseRu::class.java).noAnimation())
         }
         return super.onOptionsItemSelected(item)
     }
-    // TODO: end app bar menu переход в activity по клику на item
 }

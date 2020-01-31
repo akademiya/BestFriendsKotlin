@@ -19,6 +19,6 @@ class ExplanationView: MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
 
-        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
+        toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 }

@@ -21,6 +21,7 @@ import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
 import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
+import com.vadym.gvd.bestfriendskotlin.restartActivity
 import com.vadym.gvd.bestfriendskotlin.tracker
 import kotlinx.android.synthetic.main.view_kido.*
 import java.util.*
@@ -103,8 +104,7 @@ class PersonView : MainActivity() {
                 val newPerson = Person(name, description, allPerson.lastIndex + 1)
                 database.addPerson(newPerson)
 
-                finish()
-                startActivity(intent)
+                restartActivity(this)
             }
         }
 

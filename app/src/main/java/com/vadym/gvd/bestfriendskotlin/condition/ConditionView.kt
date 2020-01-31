@@ -138,8 +138,7 @@ class ConditionView : MainActivity() {
                             perGoal = perGoalFild,
                             conditionPosition = listCondition.lastIndex + 1)
                     database.addCondition(newCondition)
-                    finish()
-                    startActivity(intent)
+                    restartActivity(this@ConditionView)
                 }
             }
             setNegativeButton(R.string.cancel) { _, _ -> Toast.makeText(this@ConditionView, R.string.task_cancelled, Toast.LENGTH_SHORT).show() }

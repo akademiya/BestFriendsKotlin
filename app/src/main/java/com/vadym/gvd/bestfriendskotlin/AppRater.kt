@@ -11,87 +11,87 @@ import android.widget.TextView
 
 
 open class AppRater {
-    private val APP_PNAME = "me.vadym.adv.tfprayer"// Package Name
+    private val APP_NAME = "me.vadym.adv.tfprayer"// Package Name
     private val DAYS_UNTIL_PROMPT = 1 //Min number of days
     private val LAUNCHES_UNTIL_PROMPT = 3 //Min number of launches
 
-    fun app_launched(mContext: Context) {
-        val prefs = mContext.getSharedPreferences("apprater", 0)
-        if (prefs.getBoolean("dontshowagain", false)) {
+    fun appLaunched(context: Context) {
+        val prefs = context.getSharedPreferences("apprater", 0)
+        if (prefs.getBoolean("dontShowAgain", false)) {
             return
         }
 
         val editor = prefs.edit()
 
         // Increment launch counter
-        val launch_count = prefs.getLong("launch_count", 0) + 1
-        editor.putLong("launch_count", launch_count)
+        val launchCount = prefs.getLong("launch_count", 0) + 1
+        editor.putLong("launch_count", launchCount)
 
         // Get date of first launch
-        var date_firstLaunch: Long? = prefs.getLong("date_firstlaunch", 0)
-        if (date_firstLaunch == 0L) {
-            date_firstLaunch = System.currentTimeMillis()
-            editor.putLong("date_firstlaunch", date_firstLaunch)
+        var dateFirstLaunch: Long? = prefs.getLong("date_firstlaunch", 0)
+        if (dateFirstLaunch == 0L) {
+            dateFirstLaunch = System.currentTimeMillis()
+            editor.putLong("date_firstlaunch", dateFirstLaunch)
         }
 
         // Wait at least n days before opening
-        if (launch_count >= LAUNCHES_UNTIL_PROMPT) {
-            if (System.currentTimeMillis() >= date_firstLaunch!! + DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000) {
-                showRateDialog(mContext, editor)
+        if (launchCount >= LAUNCHES_UNTIL_PROMPT) {
+            if (System.currentTimeMillis() >= dateFirstLaunch!! + DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000) {
+                showRateDialog(context, editor)
             }
         }
 
         editor.commit()
     }
 
-    private fun showRateDialog(mContext: Context, editor: SharedPreferences.Editor?) {
-        val dialog = Dialog(mContext, 0)
-        dialog.setTitle(mContext.resources.getText(R.string.rate))
+    private fun showRateDialog(context: Context, editor: SharedPreferences.Editor?) {
+        val dialog = Dialog(context, 0)
+        dialog.setTitle(context.resources.getText(R.string.rate))
 
-        val ll = LinearLayout(mContext)
+        val ll = LinearLayout(context)
         ll.orientation = LinearLayout.VERTICAL
 
-        val tv = TextView(mContext)
-        tv.text = mContext.resources.getText(R.string.to_rate)
+        val tv = TextView(context)
+        tv.text = context.resources.getText(R.string.to_rate)
         tv.textSize = 16F
         tv.width = 640
         tv.setPadding(50, 30, 50, 30)
         ll.addView(tv)
 
-        val b1 = Button(mContext)
-        b1.text = mContext.resources.getText(R.string.rate)
-        b1.setTextColor(mContext.resources.getColor(R.color.white))
-        b1.setBackgroundColor(mContext.resources.getColor(R.color.primary))
-        b1.setPadding(0, 30, 0, 30)
-        b1.setOnClickListener {
-            mContext.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$APP_PNAME")))
+        val btnYes = Button(context)
+        btnYes.text = context.resources.getText(R.string.rate)
+        btnYes.setTextColor(context.resources.getColor(R.color.white))
+        btnYes.setBackgroundColor(context.resources.getColor(R.color.primary))
+        btnYes.setPadding(0, 30, 0, 30)
+        btnYes.setOnClickListener {
+            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$APP_NAME")))
             dialog.dismiss()
         }
-        ll.addView(b1)
+        ll.addView(btnYes)
 
-        val b2 = Button(mContext)
-        b2.text = mContext.resources.getText(R.string.later_rate)
-        b2.setTextColor(mContext.resources.getColor(R.color.white))
-        b2.setBackgroundColor(mContext.resources.getColor(R.color.color_text))
-        b2.setPadding(0, 30, 0, 30)
-        b2.setOnClickListener {
+        val btnLater = Button(context)
+        btnLater.text = context.resources.getText(R.string.later_rate)
+        btnLater.setTextColor(context.resources.getColor(R.color.white))
+        btnLater.setBackgroundColor(context.resources.getColor(R.color.color_text))
+        btnLater.setPadding(0, 30, 0, 30)
+        btnLater.setOnClickListener {
             dialog.dismiss()
         }
-        ll.addView(b2)
+        ll.addView(btnLater)
 
-        val b3 = Button(mContext)
-        b3.text = mContext.resources.getText(R.string.no_rate)
-        b3.setTextColor(mContext.resources.getColor(R.color.white))
-        b3.setBackgroundColor(mContext.resources.getColor(R.color.abc_tint_switch_track))
-        b3.setPadding(0, 30, 0, 30)
-        b3.setOnClickListener {
+        val btnNo = Button(context)
+        btnNo.text = context.resources.getText(R.string.no_rate)
+        btnNo.setTextColor(context.resources.getColor(R.color.white))
+        btnNo.setBackgroundColor(context.resources.getColor(R.color.abc_tint_switch_track))
+        btnNo.setPadding(0, 30, 0, 30)
+        btnNo.setOnClickListener {
             if (editor != null) {
-                editor.putBoolean("dontshowagain", true)
+                editor.putBoolean("dontShowAgain", true)
                 editor.commit()
             }
             dialog.dismiss()
         }
-        ll.addView(b3)
+        ll.addView(btnNo)
 
         dialog.setContentView(ll)
         dialog.show()

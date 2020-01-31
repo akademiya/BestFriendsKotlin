@@ -23,7 +23,7 @@ class InfoView : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
 
-        toolbar.setNavigationOnClickListener { _ -> onBackPressed() }
+        toolbar.setNavigationOnClickListener { onBackPressed() }
         private_policy.movementMethod = LinkMovementMethod.getInstance()
 
         coffee_gift.setOnClickListener {
@@ -32,9 +32,10 @@ class InfoView : MainActivity() {
                     .setCategory("Info screen")
                     .build())
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/tfprayer/main"))
+            browserIntent.noAnimation()
             startActivity(browserIntent)
         }
 
-        rater.app_launched(this)
+        rater.appLaunched(this)
     }
 }

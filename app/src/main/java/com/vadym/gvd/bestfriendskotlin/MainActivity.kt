@@ -50,17 +50,18 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_mense -> startActivity(Intent(this, MenseView::class.java))
-            R.id.nav_anthem -> startActivity(Intent(this, AnthemView::class.java))
-            R.id.nav_kido -> startActivity(Intent(this, PersonView::class.java))
-            R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java))
-            R.id.nav_kido_explanation -> startActivity(Intent(this, ExplanationView::class.java))
-            R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java))
+            R.id.nav_mense -> startActivity(Intent(this, MenseView::class.java).noAnimation())
+            R.id.nav_anthem -> startActivity(Intent(this, AnthemView::class.java).noAnimation())
+            R.id.nav_kido -> startActivity(Intent(this, PersonView::class.java).noAnimation())
+            R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java).noAnimation())
+            R.id.nav_kido_explanation -> startActivity(Intent(this, ExplanationView::class.java).noAnimation())
+            R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java).noAnimation())
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
             R.id.nav_share -> {
                 val sharingIntent = Intent(Intent.ACTION_SEND)
                 val shareBody = getString(R.string.share_body)
                 sharingIntent.apply {
+                    noAnimation()
                     type = "text/plain"
                     putExtra(Intent.EXTRA_SUBJECT, "True Father Prayers")
                     putExtra(Intent.EXTRA_TEXT, shareBody + URL("https", "play.google.com", "store/apps/details?id=me.vadym.adv.tfprayer"))
@@ -72,6 +73,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 val uri = Uri.parse("mailto:vadym.adv@gmail.com")
                 val sendIntent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"))
                 sendIntent.data = uri
+                sendIntent.noAnimation()
                 startActivity(Intent.createChooser(sendIntent, "True Father Prayers"))
             }
         }
