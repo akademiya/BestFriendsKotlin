@@ -3,9 +3,12 @@ package com.vadym.gvd.bestfriendskotlin
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.PopupMenu
+import java.text.SimpleDateFormat
+import java.util.*
 
 fun doNothing() {}
 
@@ -85,9 +88,27 @@ fun kidoListPopupMenu(context: Context, view: View, rv: RecyclerView, kidoSize: 
     popupMenu.show()
 }
 
+fun deviceLocale() : Locale {
+    val deviceLocaleLanguage = Locale.getDefault().language
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        Locale.Builder().setLanguageTag(deviceLocaleLanguage).build()
+    } else {
+        Locale.getDefault()
+    }
+}
+
 fun restartActivity(context: Context) {
     (context as Activity).finish()
     val intent = context.intent
     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
     context.startActivity(intent)
+}
+
+fun String.formatterDate() : String {
+    val result = SimpleDateFormat("yyyyMMdd", deviceLocale()).parse(this)
+    return SimpleDateFormat("dd MMMM yyyy", deviceLocale()).format(result)
+}
+
+fun Date.formatterDate() : String {
+    return SimpleDateFormat("dd MMMM yyyy", deviceLocale()).format(this)
 }

@@ -70,6 +70,7 @@
     <string name="condition_title">Умова посвячення</string>
     <string name="lider">Центральна особа:</string>
     <string name="duration">Період:</string>
+    <string name="date_from">Починаючи з</string>
     <string name="condition">Умова:</string>
     <string name="public_goal">Ціль суспільна:</string>
     <string name="personal_goal">Ціль особиста:</string>

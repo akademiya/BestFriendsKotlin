@@ -1,7 +1,7 @@
 package com.vadym.gvd.bestfriendskotlin.condition
 
 import android.app.AlertDialog
-import android.os.Build
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -9,22 +9,16 @@ import android.support.v7.widget.helper.ItemTouchHelper
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.Toast
+import android.widget.*
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.analytics.HitBuilders
-import com.vadym.gvd.bestfriendskotlin.MainActivity
-import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.*
 import com.vadym.gvd.bestfriendskotlin.condition.adapter.ConditionAdapter
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
-import com.vadym.gvd.bestfriendskotlin.tracker
 import kotlinx.android.synthetic.main.view_condition.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class ConditionView : MainActivity() {
@@ -106,9 +100,12 @@ class ConditionView : MainActivity() {
 
         val lider = subView.findViewById<EditText>(R.id.create_lider)
         val duration = subView.findViewById<EditText>(R.id.create_duration)
+        val dateFrom = subView.findViewById<Button>(R.id.create_date_from)
         val condition = subView.findViewById<EditText>(R.id.create_condition)
         val pubGoal = subView.findViewById<EditText>(R.id.create_public_goal)
         val perGoal = subView.findViewById<EditText>(R.id.create_personal_goal)
+        dateFrom.visibility = View.VISIBLE
+        datePickerDialog(dateFrom)
 
         AlertDialog.Builder(this).apply {
             setTitle(R.string.add_new_condition)
@@ -128,10 +125,14 @@ class ConditionView : MainActivity() {
                         || TextUtils.isEmpty(perGoalFild)) {
                     Toast.makeText(this@ConditionView, R.string.something_wrong, Toast.LENGTH_SHORT).show()
                 } else {
+                    val from = if (dateFrom.text == resources.getString(R.string.date_from)) {
+                        getToday()
+                    } else dateFrom.text.toString()
+
                     val newCondition = Condition(
                             lider = liderFild,
                             duration = durationFild,
-                            today = getToday(),
+                            today = from,
                             condition = conditionFild,
                             pubGoal = pubGoalFild,
                             perGoal = perGoalFild,
@@ -146,18 +147,27 @@ class ConditionView : MainActivity() {
         }
     }
 
-    private fun getToday() : String {
-        val deviceLocaleLanguage = Locale.getDefault().language
-        val deviceLocale= if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Locale.Builder().setLanguageTag(deviceLocaleLanguage).build()
-        } else {
-            Locale.getDefault()
+    private fun datePickerDialog(dateFrom: Button) {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        dateFrom.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                val monthPlus = monthOfYear + 1
+                val currentMonth = if (monthPlus.toString().length == 1) { "0$monthPlus" } else "$monthPlus"
+                val date = "$year$currentMonth$dayOfMonth"
+                dateFrom.text = date.formatterDate()
+            }, year, month, day)
+            datePickerDialog.show()
         }
-        val calendar = Calendar.getInstance(deviceLocale)
-        val dateFormat = SimpleDateFormat("dd MMMM yyyy", deviceLocale)
-        return dateFormat.format(calendar.time)
     }
 
+    private fun getToday() : String {
+        val calendar = Calendar.getInstance()
+        return calendar.time.formatterDate()
+    }
 
 
     private fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {

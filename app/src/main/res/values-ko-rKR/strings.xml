@@ -70,6 +70,7 @@
     <string name="condition_title">면책 조건</string>
     <string name="lider">중심 성격:</string>
     <string name="duration">기간:</string>
+    <string name="date_from">날짜</string>
     <string name="condition">조건:</string>
     <string name="public_goal">공공 목표:</string>
     <string name="personal_goal">개인 목표:</string>

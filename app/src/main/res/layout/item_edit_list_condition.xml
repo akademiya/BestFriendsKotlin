@@ -37,12 +37,25 @@
             android:hint="@string/duration"
             android:inputType="number" />
 
+        <Button
+            android:id="@+id/create_date_from"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_duration"
+            android:layout_marginStart="@dimen/edge_margins"
+            android:layout_marginEnd="@dimen/edge_margins"
+            android:layout_marginBottom="@dimen/margin8"
+            android:text="@string/date_from"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
         <EditText
             android:id="@+id/create_condition"
             style="@style/TextStyle_Body2_Primary_Dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/create_duration"
+            android:layout_below="@+id/create_date_from"
             android:layout_marginBottom="@dimen/margin8"
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"

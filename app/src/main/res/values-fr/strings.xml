@@ -79,6 +79,7 @@
     <string name="condition_title">Condition d\'indemnisation</string>
     <string name="lider">Figure centrale:</string>
     <string name="duration">Durée:</string>
+    <string name="date_from">Date de</string>
     <string name="condition">État:</string>
     <string name="public_goal">Objectif public:</string>
     <string name="personal_goal">Objectif personnel:</string>
