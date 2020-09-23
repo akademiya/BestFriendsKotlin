@@ -84,7 +84,7 @@
     <string name="public_goal">Public goal:</string>
     <string name="personal_goal">Personal goal:</string>
     <string name="leftover">Leftover: </string>
-    <string name="duration_value">%s, starting from %s</string>
+    <string name="duration_value" formatted="false">%s, starting from %s</string>
 
     // Kajon mense
     <string name="one"><b>一(일)</b> 천일국 주인 우리 가정​은 참사랑을 중심하고, 본향​땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>
