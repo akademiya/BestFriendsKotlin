@@ -96,6 +96,14 @@
         <item name="android:textSize">@dimen/text_size</item>
     </style>
 
+    <style name="TextStyle_Italic_Primary_Dark" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
     <style name="TextTitle_Kido_Explanation" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -130,6 +138,14 @@
 
     <style name="TextGdprVsMargin_Dialog" parent="GDPR_Consent_Dialog">
         <item name="android:layout_marginBottom">@dimen/margin8</item>
+    </style>
+
+    <style name="Separator" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_margin">@dimen/parent_margin</item>
+        <item name="android:text">@string/separator</item>
     </style>
 
     //Button Anthem

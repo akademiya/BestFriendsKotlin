@@ -10,6 +10,7 @@
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">개인 정책</a></string>
     <string name="coffee_gift">사이트 (ru)</string>
     <string name="about">응용 프로그램 정보</string>
+    <string name="experiences_prayer">내 삶의기도</string>
     <string name="share_by">몫:</string>
     <string name="share_body">I want to share "TF PRAYER" application.\n</string>
     <string name="empty_list">목록이 비어 있습니다</string>
@@ -18,6 +19,13 @@
     <string name="explanation">기도의 가치</string>
     <string name="loading_mp3">MP3를 로드하는 동안 잠시 기다려주십시오</string>
     <string name="kido_counter">기도 %s</string>
+
+    // Experiences
+    <string name="exp1">내가 만물복귀 팀의 주장이었을 때 나는 사람을 돕고 멘토링하는 방법을 찾아야했습니다. 그의 삶에서 일어나는 일과 반응 방법을 이해하십시오. 나 자신은 심리학자가 아니라 분석가가 아닙니다. 팀이 선교 사업을 떠난 후 모두를 위해기도했습니다. 한 사람을 위해기도하면서 나는 그에게 말해야 할 말과 그를 지원하는 방법을 분명히 이해하기 시작했습니다. 그러나이 깨달음을 기록하지 않으면 금방 잊어 버릴 수 있습니다. 그러므로 나는기도로 온 모든 것을 기록해야했다. 그 결과 우리는 마음 속에서 아주 잘 단합했고, 우리가 상태를 유지했던 때를 기억할 수 있습니다.</string>
+    <string name="exp1_autor">Vadym DG, 우크라이나</string>
+
+    <string name="exp2">저를위한기도의 삶은 가장 친한 부모님과 함께하는 진심의 집중입니다. 그분과 함께 나는 모든 것에 대해 편안하게 말할 수 있고 이해할 수 있습니다. 사람은 돌아 서서기도 할 시간을 찾고 인생에서 중요한 자리를 바치기 만하면됩니다. 이 주제에 대한 나의 감정입니다. 그리고 자신을 극복하고기도하기로 결정하면 영혼이 쉽고 쉬워지고 어렵지 않고 필요한 단어가 발견되며 말하는 것이 마음이 아니라 마음이라는 것이 밝혀졌습니다.\n\n하지만 아침, 저녁기도, 하루를 열고 닫을 때 가끔기도의 삶과 일상이 따로 따로 사는 것 같은 느낌이 듭니다. 아무리 아름다운 하늘 부모님에게 드리는 말씀과 약속이기도에 있어도 낮에는 어딘가에서 사라지고 다른 감정에 따라 계속 행동합니다. 그리고 저는 진정으로기도의 삶이 제 하루 속에 살기를 원합니다. 그러면 제 삶에 대한 태도가 완전히 달라지고 다른 상황과 어려움에 대한 제 반응이 달라집니다. 하나님과 함께라면 삶에는 의미와 다른 색이 있습니다. 하나는 원할 뿐이다.</string>
+    <string name="exp2_autor">Victoria, 우크라이나</string>
 
     // App rater
     <string name="rate">"TF PRAYER"을 평가하다</string>

@@ -99,6 +99,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".condition.ConditionView"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ExperiencesPrayerView"
+            android:screenOrientation="portrait"/>
 
     </application>
 </manifest>

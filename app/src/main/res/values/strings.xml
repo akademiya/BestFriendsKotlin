@@ -10,6 +10,7 @@
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Privacy policy</a></string>
     <string name="coffee_gift">Site (ru)</string>
     <string name="about">About app</string>
+    <string name="experiences_prayer">Prayer in my life</string>
     <string name="share_by">Share:</string>
     <string name="share_body">I want to share "TF PRAYER" application.\n</string>
     <string name="empty_list">Empty list</string>
@@ -18,6 +19,14 @@
     <string name="explanation">Value of prayer</string>
     <string name="loading_mp3">Wait a moment while loading the mp3</string>
     <string name="kido_counter">Prayer %s</string>
+
+    // Experiences
+    <string name="separator">* * * * *</string>
+    <string name="exp1">When I was the captain of the mmbk team, I needed to figure out how to help a person, mentor him. Understand what is happening in his life and how to react. By myself, I am not an analyst, not a psychologist. After the team left for a mission, I prayed for everyone. While praying for a person, I clearly began to understand what needs to be said to him, how to support him. But if I did not write down this realization, then very quickly I could forget about it. Therefore, I had to note everything that came in prayer. As a result, we united very well in our hearts and can still remember the times when we were together on condition.</string>
+    <string name="exp1_autor">Vadym DG, Ukraine</string>
+
+    <string name="exp2">The life of prayer for me is a concentrate of sincerity with my closest Parent. With Him I can speak at ease, about everything, understand. One has only to turn, find time for prayer, devote an important place in life. Such are my feelings on this topic. And it is worth overcoming yourself, deciding to pray, then it becomes easy, easy on the soul, and it turned out that it is not difficult, the necessary words are found and it is not the mind that speaks, but the heart.\n\nBut in the morning, evening prayer, when I open and close my day, sometimes I feel that the life of prayer and everyday life live on their own, separately. No matter how beautiful words and promises to Heavenly Parent are in prayer, during the day they disappear somewhere and I continue to behave, following different emotions. And I really want, I sincerely want the life of prayer to live inside my day, then my attitude to life would be completely different and my reaction to different situations and difficulties. With God, life has a meaning and other colors. One has only to want.</string>
+    <string name="exp2_autor">Victoria, Ukraine</string>
 
     // App rater
     <string name="rate">Rate "TF PRAYER"</string>

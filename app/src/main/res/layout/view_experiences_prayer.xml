@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:padding="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <TextView
+            style="@style/Toolbar.TitleText"
+            android:text="@string/experiences_prayer" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/exp2" />
+
+                <TextView
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_marginEnd="@dimen/parent_margin"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:layout_gravity="end"
+                    android:textStyle="italic"
+                    android:layout_marginBottom="@dimen/margin8"
+                    android:text="@string/exp2_autor" />
+
+                <TextView style="@style/Separator" />
+
+                <TextView
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/exp1" />
+
+                <TextView
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_marginEnd="@dimen/parent_margin"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:layout_gravity="end"
+                    android:textStyle="italic"
+                    android:layout_marginBottom="@dimen/margin8"
+                    android:text="@string/exp1_autor" />
+
+                <TextView style="@style/Separator" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textSize="16sp"
+                    android:layout_margin="16dp"
+                    android:textColor="#FF0000"
+                    android:text="@string/konkurs"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</LinearLayout>

@@ -10,6 +10,7 @@
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Privacy policy</a></string>
     <string name="coffee_gift">Site (ru)</string>
     <string name="about">À propos de l\'application</string>
+    <string name="experiences_prayer">La prière dans ma vie</string>
     <string name="share_by">Partager:</string>
     <string name="share_body">Je veux partager "TF PRAYER" application.\n</string>
     <string name="empty_list">Liste vide</string>
@@ -18,6 +19,13 @@
     <string name="explanation">Valeur de la prière</string>
     <string name="loading_mp3">Attendez un instant lors du chargement du mp3</string>
     <string name="kido_counter">Prière %s</string>
+
+    // Experiences
+    <string name="exp1">Quand j\'étais capitaine de l\'équipe mmbk, j\'avais besoin de trouver comment aider une personne, la guider. Comprenez ce qui se passe dans sa vie et comment réagir. Par moi-même, je ne suis ni analyste, ni psychologue. Après le départ de l\'équipe en mission, j\'ai prié pour tout le monde. En priant pour une personne, j\'ai clairement commencé à comprendre ce qu\'il fallait lui dire, comment le soutenir. Mais si je n\'écrivais pas cette réalisation, alors très vite je pourrais l\'oublier. Par conséquent, je devais noter tout ce qui venait dans la prière. En conséquence, nous nous sommes très bien unis dans nos cœurs et nous pouvons encore nous souvenir des moments où nous étions ensemble sous condition.</string>
+    <string name="exp1_autor">Vadym DG, Ukraine</string>
+
+    <string name="exp2">La vie de prière pour moi est un concentré de sincérité avec mon parent le plus proche. Avec Lui, je peux parler à l\'aise, de tout, comprendre. Il suffit de se tourner, de trouver du temps pour la prière, de consacrer une place importante dans la vie. Tels sont mes sentiments sur ce sujet. Et cela vaut la peine de se surmonter, de décider de prier, alors cela devient facile, facile pour l\'âme, et il s\'est avéré que ce n\'est pas difficile, les mots nécessaires sont trouvés et ce n\'est pas l\'esprit qui parle, mais le cœur.\n\nMais le matin, la prière du soir, quand j\'ouvre et ferme ma journée, j\'ai parfois l\'impression que la vie de prière et la vie quotidienne vivent seules, séparément. Peu importe la beauté des paroles et des promesses faites à notre parent céleste dans la prière, pendant la journée, elles disparaissent quelque part et je continue à me comporter en suivant différentes émotions. Et je veux vraiment, je veux sincèrement que la vie de prière vive à l\'intérieur de ma journée, alors mon attitude face à la vie serait complètement différente et ma réaction aux différentes situations et difficultés. Avec Dieu, la vie a un sens et d\'autres couleurs. Il suffit de vouloir.</string>
+    <string name="exp2_autor">Victoria, Ukraine</string>
 
     // App rater
     <string name="rate">Taux "TF PRAYER"</string>
