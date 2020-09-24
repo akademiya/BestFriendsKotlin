@@ -16,7 +16,7 @@ class KidoYongyeAdapter(private val booksList: ArrayList<KidoYongye>) : Recycler
 
     override fun onBindViewHolder(holder: VH, position: Int) { holder.bind(booksList[position]) }
 
-    class VH(view: View?) : RecyclerView.ViewHolder(view) {
+    class VH(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(books: KidoYongye) {
             itemView.let {
                 it.kido_title.text = books.textTitle

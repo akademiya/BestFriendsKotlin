@@ -107,15 +107,15 @@ class PersonAdapter(private val personList: List<Person>,
     }
 
 
-    class VH(view: View?) : RecyclerView.ViewHolder(view) {
-        val personName = view?.findViewById<TextView>(R.id.person_name)
-        val personDescription = view?.findViewById<TextView>(R.id.person_description)
-        val counter = view?.findViewById<TextView>(R.id.tv_counter)
-        val listReview = view?.findViewById<FrameLayout>(R.id.listReview)
-        val listView = view?.findViewById<RelativeLayout>(R.id.listView)
-        val goBack = view?.findViewById<ImageView>(R.id.go_back)
-        val deleteItem = view?.findViewById<ImageView>(R.id.delete_item)
-        val editItem = view?.findViewById<ImageView>(R.id.edit_item)
-        val ivMoveItem = view?.findViewById<ImageView>(R.id.iv_move_item)
+    class VH(view: View) : RecyclerView.ViewHolder(view) {
+        val personName = view.findViewById<TextView>(R.id.person_name)
+        val personDescription = view.findViewById<TextView>(R.id.person_description)
+        val counter = view.findViewById<TextView>(R.id.tv_counter)
+        val listReview = view.findViewById<FrameLayout>(R.id.listReview)
+        val listView = view.findViewById<RelativeLayout>(R.id.listView)
+        val goBack = view.findViewById<ImageView>(R.id.go_back)
+        val deleteItem = view.findViewById<ImageView>(R.id.delete_item)
+        val editItem = view.findViewById<ImageView>(R.id.edit_item)
+        val ivMoveItem = view.findViewById<ImageView>(R.id.iv_move_item)
     }
 }

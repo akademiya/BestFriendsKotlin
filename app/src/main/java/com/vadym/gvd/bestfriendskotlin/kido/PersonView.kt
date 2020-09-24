@@ -166,7 +166,7 @@ class PersonView : MainActivity() {
 
     private fun showOrHideFab() {
         rv_list_kido.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 if (dy > 0 && fab.visibility == View.VISIBLE) {
                     fab.hide()
@@ -182,7 +182,7 @@ class PersonView : MainActivity() {
     }
 
     private fun touchHelperCallback() = object : ItemTouchHelper.Callback() {
-        override fun getMovementFlags(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?): Int {
+        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
             val dragFlags: Int = ItemTouchHelper.UP.or(ItemTouchHelper.DOWN)
             val swipeFlags: Int = ItemTouchHelper.ACTION_STATE_DRAG
             return makeMovementFlags(dragFlags, swipeFlags)

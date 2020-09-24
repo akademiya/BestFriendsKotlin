@@ -18,7 +18,7 @@ class FatherKidoAdapter(private val booksList: ArrayList<FatherKido>,
 
     override fun onBindViewHolder(holder: VH, position: Int) { holder.bind(booksList[position], clickListener) }
 
-    class VH(view: View?) : RecyclerView.ViewHolder(view) {
+    class VH(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(books: FatherKido, clickListener: (FatherKido) -> Unit) {
             itemView.let {
                 it.name_book_kido.text = books.kidoBookName
