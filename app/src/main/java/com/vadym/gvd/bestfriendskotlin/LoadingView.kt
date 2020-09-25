@@ -1,53 +1,46 @@
 package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.method.LinkMovementMethod
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
-import android.widget.Toast
-import com.google.ads.consent.ConsentInfoUpdateListener
-import com.google.ads.consent.ConsentInformation
-import com.google.ads.consent.ConsentStatus
 
 class LoadingView : AppCompatActivity() {
 
+    private val DAYS_UNTIL_PROMPT = 90L //Min number of days
     private lateinit var alertDialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_loading)
-        checkConsentStatus()
-    }
 
-    private fun checkConsentStatus() {
-        val consentInformation = ConsentInformation.getInstance(this)
-        ConsentInformation.getInstance(this)
+        val prefs = getSharedPreferences("gdpr", 0)
+        val editor = prefs.edit()
 
-        val publisherIds = arrayOf("pub-5169531562006723") // enter your admob pub-id
-        consentInformation.requestConsentInfoUpdate(publisherIds, object : ConsentInfoUpdateListener {
-            override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-                if (ConsentInformation.getInstance(this@LoadingView).isRequestLocationInEeaOrUnknown) {
-                    if (consentStatus == ConsentStatus.UNKNOWN || consentStatus == ConsentStatus.NON_PERSONALIZED) {
-                        showMyConsentDialog()
-                    }
-                } else startUseApp()
+        // Get date of first launch
+        var dateFirstLaunch: Long = prefs.getLong("date_firstlaunch", 0)
+        if (dateFirstLaunch == 0L) {
+            dateFirstLaunch = System.currentTimeMillis()
+            editor.putLong("date_firstlaunch", dateFirstLaunch)
+            showMyConsentDialog(editor)
+        } else {
+            // Wait at least n days before opening
+            if (System.currentTimeMillis() >= dateFirstLaunch + DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000) {
+                showMyConsentDialog(editor)
+            } else {
+                editor.commit()
+                startUseApp()
             }
-
-            override fun onFailedToUpdateConsentInfo(errorDescription: String) {}
-        })
+        }
     }
 
-    private fun startUseApp() {
-        startActivity(Intent(this, MainActivity::class.java))
-    }
-
-    private fun showMyConsentDialog() {
+    private fun showMyConsentDialog(editor: SharedPreferences.Editor?) {
         val inflater = layoutInflater
         val consentDialog = inflater.inflate(R.layout.view_loading_consent, null)
         val alertDialogBuilder = AlertDialog.Builder(this@LoadingView).apply {
@@ -75,9 +68,16 @@ class LoadingView : AppCompatActivity() {
             }
         }
         iAgree.setOnClickListener {
-            ConsentInformation.getInstance(this@LoadingView).consentStatus = ConsentStatus.NON_PERSONALIZED
+            if (editor != null) {
+                editor.putLong("date_firstlaunch", System.currentTimeMillis())
+                editor.commit()
+            }
             alertDialog.cancel()
-            startActivity(Intent(this, MainActivity::class.java))
+            startUseApp()
         }
+    }
+
+    private fun startUseApp() {
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }

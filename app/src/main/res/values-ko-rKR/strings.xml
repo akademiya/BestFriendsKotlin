@@ -84,6 +84,14 @@
     <string name="personal_goal">개인 목표:</string>
     <string name="duration_value">%s, ‘%s’에서 시작</string>
 
+    // EU GDPR Consent texts
+    <string name="eu_consent_text">사용자 여러분!\n\nGoogle Analytics를 사용하여 애플리케이션과의 사용자 상호 작용에 대한 정보를 수집합니다. 이것은 프로젝트의 추가 개발에 기여합니다. 새로운 유럽 데이터 보호 규정 (GDPR)에 따라 정보 수집에 대한 귀하의 동의가 필요합니다.</string>
+    <string name="eu_consent_question">데이터 사용 약관을 읽고 동의하는 확인란을 선택하십시오.</string>
+    <string name="learn_more"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing"><b>데이터가 사용되는 방식</b> 에 대해 <b>개인 정보 보호 정책</b> 알아보기</a></string>
+    <string name="agree">개인 정보 보호 정책에 동의합니다</string>
+    <string name="error_accept">계속하려면 개인 정보 보호 정책에 동의해야합니다.</string>
+    <string name="let_continue">시작하다</string>
+
     // TP kido books
     <string name="pr_nadezdy">소망편</string>
     <string name="pr_pobedy">승리편</string>

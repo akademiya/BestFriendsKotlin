@@ -46,7 +46,6 @@ class FatherKidoView : MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido)
         toolbarButtonMenu()
-        admob()
         tracker().setScreenName("Father Kido")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
 
@@ -83,17 +82,6 @@ class FatherKidoView : MainActivity() {
 
         val adapter = FatherKidoAdapter(books) { booksItem: FatherKido -> booksItemClicked(booksItem) }
         view_list_tpkido.adapter = adapter
-    }
-
-    private fun admob() {
-        MobileAds.initialize(this, "ca-app-pub-5169531562006723~5810328137")
-
-        val gAdView = AdView(this)
-        gAdView.adSize = AdSize.SMART_BANNER
-        gAdView.adUnitId = "ca-app-pub-5169531562006723/6552139134"
-
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
     }
 
     private fun toolbarButtonMenu() {

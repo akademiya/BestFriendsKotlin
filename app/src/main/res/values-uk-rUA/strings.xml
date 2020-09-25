@@ -85,6 +85,14 @@
     <string name="leftover">Залишилось: </string>
     <string name="duration_value">%s, починаючи з %s</string>
 
+    // EU GDPR Consent texts
+    <string name="eu_consent_text">Шановний користувач!\n\nМи використовуємо Google Analytics для отримання інформації про взаємодію користувача з додатком. Це сприяє подальшому розвитку проекту. У відповідності до нового Європейського регламенту щодо захисту даних (GDPR) нам необхідно вашу згоду для збору інформації.</string>
+    <string name="eu_consent_question">Прочитайте умови використання ваших даних і поставте прапорець, щоб погодитися з ними.</string>
+    <string name="learn_more"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Дізнайтеся <b>Політику конфіденційності</b> та як <b>використовуються ваші дані</b></a></string>
+    <string name="agree">Я згоден з політикою конфіденційності</string>
+    <string name="error_accept">Потрібно прийняти Політику конфіденційності, щоб продовжити</string>
+    <string name="let_continue">Продовжити</string>
+
     // TP kido books
     <string name="pr_nadezdy">Молитви надії (en)</string>
     <string name="pr_pobedy">Молитви перемоги (en)</string>

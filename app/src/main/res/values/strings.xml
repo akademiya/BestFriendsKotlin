@@ -76,7 +76,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     // EU GDPR Consent texts
-    <string name="eu_consent_text">Dear user!\n\nWe use Google AdMob to show ads. Ads support our work, and enable further development of this app. In line with the new European Data Protection Regulation (GDPR), we need your consent to serve ads.</string>
+    <string name="eu_consent_text">Dear user!\n\nWe use Google Analytics to collect information about user interaction with the application. This contributes to the further development of the project. In accordance with the new European Data Protection Regulation (GDPR), we need your consent to collect information.</string>
     <string name="eu_consent_question">Read the terms of use of your data and check the box to agree with them.</string>
     <string name="learn_more"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Learn <b>Privacy Policy</b> how your <b>Data is Used</b></a></string>
     <string name="agree">I agree with privacy policy</string>

@@ -75,7 +75,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     // EU GDPR Consent texts
-    <string name="eu_consent_text">Cher utilisateur! \n\nNous utilisons Google AdMob pour diffuser des annonces. Les publicités soutiennent notre travail et permettent le développement de cette application. Conformément au nouveau règlement européen sur la protection des données (RGPD), nous avons besoin de votre consentement pour diffuser des annonces.</string>
+    <string name="eu_consent_text">Cher utilisateur! \n\nNous utilisons Google Analytics pour collecter des informations sur l\'interaction des utilisateurs avec l\'application. Cela contribue au développement ultérieur du projet. Conformément au nouveau règlement européen sur la protection des données (RGPD), nous avons besoin de votre consentement pour collecter des informations.</string>
     <string name="eu_consent_question">Lisez les conditions d\'utilisation de vos données et cochez la case pour les accepter.</string>
     <string name="learn_more"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Apprendre <b>Politique de confidentialité</b> comment votre <b>Les données sont utilisées</b></a></string>
     <string name="agree">J\'accepte la politique de confidentialité</string>
