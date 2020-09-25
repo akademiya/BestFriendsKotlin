@@ -33,7 +33,6 @@ class ConditionView : MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_condition)
         toolbarButtonMenu()
-        admob()
         showOrHideFab()
         tracker().setScreenName("Condition Screen")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
@@ -69,17 +68,6 @@ class ConditionView : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener { onBackPressed() }
-    }
-
-    private fun admob() {
-        MobileAds.initialize(this, "ca-app-pub-5169531562006723~5810328137")
-
-        val gAdView = AdView(this)
-        gAdView.adSize = AdSize.SMART_BANNER
-        gAdView.adUnitId = "ca-app-pub-5169531562006723/6552139134"
-
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
     }
 
     private fun showOrHideFab() {
