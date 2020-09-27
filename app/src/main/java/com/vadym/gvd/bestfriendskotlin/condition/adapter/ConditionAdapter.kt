@@ -37,8 +37,9 @@ class ConditionAdapter(private val context: Context,
             conditionText?.text = singleCondition.condition
             val durationValue = context.resources.getQuantityString(R.plurals.days, singleCondition.duration?.toInt()!!, singleCondition.duration!!.toInt())
             duration?.text = String.format(context.resources.getString(R.string.duration_value, durationValue, singleCondition.today))
-            pubGoal?.text = singleCondition.pubGoal
-            perGoal?.text = singleCondition.perGoal
+            pubGoal?.text = if (singleCondition.perGoal?.isNotEmpty()!!) {
+                (singleCondition.pubGoal + "\n" + singleCondition.perGoal)
+            } else (singleCondition.pubGoal + singleCondition.perGoal)
             mainItem?.setOnClickListener {
                 contextualMenu.visibility = View.VISIBLE
                 title.setTextColor(Color.LTGRAY)
@@ -46,7 +47,6 @@ class ConditionAdapter(private val context: Context,
                 duration.setTextColor(Color.LTGRAY)
                 conditionText.setTextColor(Color.LTGRAY)
                 pubGoal.setTextColor(Color.LTGRAY)
-                perGoal.setTextColor(Color.LTGRAY)
             }
 
             goBack?.setOnClickListener {
@@ -56,7 +56,6 @@ class ConditionAdapter(private val context: Context,
                 duration.setTextColor(Color.DKGRAY)
                 conditionText.setTextColor(Color.DKGRAY)
                 pubGoal.setTextColor(Color.DKGRAY)
-                perGoal.setTextColor(Color.DKGRAY)
                 contextualMenu?.setBackgroundColor(context.resources.getColor(R.color.icon_pressed))
 
                 restartActivity(context)
@@ -112,13 +111,11 @@ class ConditionAdapter(private val context: Context,
         val duration = subView.findViewById<EditText>(R.id.create_duration)
         val conditionText = subView.findViewById<EditText>(R.id.create_condition)
         val pubGoal = subView.findViewById<EditText>(R.id.create_public_goal)
-        val perGoal = subView.findViewById<EditText>(R.id.create_personal_goal)
 
         lider.setText(condition.lider)
         duration.setText(condition.duration)
         conditionText.setText(condition.condition)
         pubGoal.setText(condition.pubGoal)
-        perGoal.setText(condition.perGoal)
 
         AlertDialog.Builder(context).apply {
             setTitle(R.string.edit_condition)
@@ -129,7 +126,6 @@ class ConditionAdapter(private val context: Context,
                 val durationFild = duration.text.toString()
                 val conditionFild = conditionText.text.toString()
                 val pubGoalFild = pubGoal.text.toString()
-                val perGoalFild = perGoal.text.toString()
 
                 database.updateCondition(Condition(
                         conditionId = condition.conditionId,
@@ -138,9 +134,9 @@ class ConditionAdapter(private val context: Context,
                         today = condition.today.toString(),
                         condition = conditionFild,
                         pubGoal = pubGoalFild,
-                        perGoal = perGoalFild,
+                        perGoal = "",
                         conditionPosition = condition.conditionPosition))
-                if (liderFild.isNotBlank() && durationFild.isNotBlank() && conditionFild.isNotBlank() && pubGoalFild.isNotBlank() && perGoalFild.isNotBlank()) {
+                if (liderFild.isNotBlank() && durationFild.isNotBlank() && conditionFild.isNotBlank() && pubGoalFild.isNotBlank()) {
                     (this@ConditionAdapter.context as Activity).finish()
                     this@ConditionAdapter.context.startActivity(this@ConditionAdapter.context.intent)
                 } else {
@@ -170,7 +166,6 @@ class ConditionAdapter(private val context: Context,
         val duration = view.findViewById<TextView>(R.id.tv_duration_value)
         val conditionText = view.findViewById<TextView>(R.id.tv_condition_value)
         val pubGoal = view.findViewById<TextView>(R.id.tv_pub_goal_value)
-        val perGoal = view.findViewById<TextView>(R.id.tv_per_goal_value)
         val mainItem = view.findViewById<LinearLayout>(R.id.main_item)
         val contextualMenu = view.findViewById<FrameLayout>(R.id.contextual_menu)
 //        val iconStatus = view.findViewById<ImageView>(R.id.ic_status)

@@ -91,7 +91,6 @@ class ConditionView : MainActivity() {
         val dateFrom = subView.findViewById<Button>(R.id.create_date_from)
         val condition = subView.findViewById<EditText>(R.id.create_condition)
         val pubGoal = subView.findViewById<EditText>(R.id.create_public_goal)
-        val perGoal = subView.findViewById<EditText>(R.id.create_personal_goal)
         dateFrom.visibility = View.VISIBLE
         datePickerDialog(dateFrom)
 
@@ -104,13 +103,11 @@ class ConditionView : MainActivity() {
                 val durationFild = duration.text.toString()
                 val conditionFild = condition.text.toString()
                 val pubGoalFild = pubGoal.text.toString()
-                val perGoalFild = perGoal.text.toString()
 
                 if (TextUtils.isEmpty(liderFild)
                         || TextUtils.isEmpty(durationFild)
                         || TextUtils.isEmpty(conditionFild)
-                        || TextUtils.isEmpty(pubGoalFild)
-                        || TextUtils.isEmpty(perGoalFild)) {
+                        || TextUtils.isEmpty(pubGoalFild)) {
                     Toast.makeText(this@ConditionView, R.string.something_wrong, Toast.LENGTH_SHORT).show()
                 } else {
                     val from = if (dateFrom.text == resources.getString(R.string.date_from)) {
@@ -123,7 +120,7 @@ class ConditionView : MainActivity() {
                             today = from,
                             condition = conditionFild,
                             pubGoal = pubGoalFild,
-                            perGoal = perGoalFild,
+                            perGoal = "test2",
                             conditionPosition = listCondition.lastIndex + 1)
                     database.addCondition(newCondition)
                     restartActivity(this@ConditionView)
