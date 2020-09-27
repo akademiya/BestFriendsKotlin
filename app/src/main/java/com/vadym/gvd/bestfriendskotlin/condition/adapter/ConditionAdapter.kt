@@ -23,9 +23,6 @@ class ConditionAdapter(private val context: Context,
                        private val onMoveItemTouch: (holder: VH) -> Unit) : RecyclerView.Adapter<ConditionAdapter.VH>() {
 
 
-//    var decrementDuration = 0
-//    var leftover = 0
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_condition, parent, false)
     )
@@ -47,8 +44,6 @@ class ConditionAdapter(private val context: Context,
                 title.setTextColor(Color.LTGRAY)
                 lider.setTextColor(Color.LTGRAY)
                 duration.setTextColor(Color.LTGRAY)
-//                textLeftover.setTextColor(Color.LTGRAY)
-//                durationLeftover.setTextColor(Color.LTGRAY)
                 conditionText.setTextColor(Color.LTGRAY)
                 pubGoal.setTextColor(Color.LTGRAY)
                 perGoal.setTextColor(Color.LTGRAY)
@@ -59,8 +54,6 @@ class ConditionAdapter(private val context: Context,
                 title.setTextColor(Color.DKGRAY)
                 lider?.setTextColor(Color.DKGRAY)
                 duration.setTextColor(Color.DKGRAY)
-//                textLeftover.setTextColor(Color.DKGRAY)
-//                durationLeftover.setTextColor(Color.DKGRAY)
                 conditionText.setTextColor(Color.DKGRAY)
                 pubGoal.setTextColor(Color.DKGRAY)
                 perGoal.setTextColor(Color.DKGRAY)
@@ -175,8 +168,6 @@ class ConditionAdapter(private val context: Context,
         val title = view.findViewById<TextView>(R.id.tv_title)
         val lider = view.findViewById<TextView>(R.id.tv_lider_value)
         val duration = view.findViewById<TextView>(R.id.tv_duration_value)
-//        val textLeftover = view.findViewById<TextView>(R.id.tv_leftover)
-//        val durationLeftover = view.findViewById<TextView>(R.id.tv_duration_leftover)
         val conditionText = view.findViewById<TextView>(R.id.tv_condition_value)
         val pubGoal = view.findViewById<TextView>(R.id.tv_pub_goal_value)
         val perGoal = view.findViewById<TextView>(R.id.tv_per_goal_value)

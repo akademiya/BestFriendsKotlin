@@ -39,7 +39,7 @@
 
         <Button
             android:id="@+id/create_date_from"
-            style="@style/TextStyle_Body2_Primary_Dark"
+            style="@style/ButtonChronometer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/create_duration"
