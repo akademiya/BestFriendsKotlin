@@ -74,20 +74,8 @@
             android:hint="@string/public_goal"
             android:inputType="textMultiLine" />
 
-        <EditText
-            android:id="@+id/create_personal_goal"
-            style="@style/TextStyle_Body2_Primary_Dark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/create_public_goal"
-            android:layout_marginBottom="@dimen/margin8"
-            android:layout_marginEnd="@dimen/edge_margins"
-            android:layout_marginStart="@dimen/edge_margins"
-            android:hint="@string/personal_goal"
-            android:inputType="textMultiLine" />
-
         <View
             style="@style/AppTheme.HorizontalViewDivider"
-            android:layout_below="@+id/create_personal_goal" />
+            android:layout_below="@+id/create_public_goal" />
     </RelativeLayout>
 </LinearLayout>

@@ -106,28 +106,10 @@
         style="@style/ConditionItems"
         android:text="@string/duration" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tv_duration_value"
-            style="@style/ConditionValue"
-            tools:text="от и до" />
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_leftover"-->
-<!--            style="@style/BaseText"-->
-<!--            android:layout_marginStart="22dp"-->
-<!--            android:text="@string/leftover" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_duration_leftover"-->
-<!--            style="@style/ConditionValue"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            tools:text="7 days" />-->
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_duration_value"
+        style="@style/ConditionValue"
+        tools:text="от и до" />
 
     <TextView
         android:id="@+id/tv_condition"
@@ -147,18 +129,8 @@
     <TextView
         android:id="@+id/tv_pub_goal_value"
         style="@style/ConditionValue"
-        tools:text="победа" />
-
-    <TextView
-        android:id="@+id/tv_per_goal"
-        style="@style/ConditionItems"
-        android:text="@string/personal_goal" />
-
-    <TextView
-        android:id="@+id/tv_per_goal_value"
-        style="@style/ConditionValue"
         android:layout_marginBottom="@dimen/parent_margin"
-        tools:text="изменения lskgjdslgjk dlgkjsdfglkj ldskfgj ldfkgj lkjgldfkgj lkdfjg lkjdglkdfj lgkjdfgl kjdg" />
+        tools:text="победа" />
 
     <View
         style="@style/AppTheme.HorizontalViewDivider" />
