@@ -79,8 +79,7 @@
     <string name="duration">Период:</string>
     <string name="date_from">Начиная с</string>
     <string name="condition">Условие:</string>
-    <string name="public_goal">Цель общественная:</string>
-    <string name="personal_goal">Цель личная:</string>
+    <string name="public_goal">Цель условия:</string>
     <string name="leftover">Осталось: </string>
     <string name="duration_value" formatted="false">%s, начиная с %s</string>
 

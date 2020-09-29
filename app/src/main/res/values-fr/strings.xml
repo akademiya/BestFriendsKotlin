@@ -89,8 +89,7 @@
     <string name="duration">Durée:</string>
     <string name="date_from">Date de</string>
     <string name="condition">État:</string>
-    <string name="public_goal">Objectif public:</string>
-    <string name="personal_goal">Objectif personnel:</string>
+    <string name="public_goal">Objectif:</string>
     <string name="leftover">Laissé pour compte: </string>
     <string name="duration_value" formatted="false">%s, a partir de %s</string>
 

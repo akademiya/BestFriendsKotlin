@@ -80,8 +80,7 @@
     <string name="duration">기간:</string>
     <string name="date_from">날짜</string>
     <string name="condition">조건:</string>
-    <string name="public_goal">공공 목표:</string>
-    <string name="personal_goal">개인 목표:</string>
+    <string name="public_goal">목표:</string>
     <string name="duration_value">%s, ‘%s’에서 시작</string>
 
     // EU GDPR Consent texts
