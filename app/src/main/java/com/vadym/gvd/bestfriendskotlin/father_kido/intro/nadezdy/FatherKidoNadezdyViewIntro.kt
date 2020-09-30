@@ -1,9 +1,9 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.nadezdy
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -17,7 +17,7 @@ import com.vadym.gvd.bestfriendskotlin.tracker
 
 class FatherKidoNadezdyViewIntro : MainActivity() {
 
-    private lateinit var rv: RecyclerView
+    private lateinit var rv: androidx.recyclerview.widget.RecyclerView
     private val kido = ArrayList<KidoNadezdy>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +60,7 @@ class FatherKidoNadezdyViewIntro : MainActivity() {
 
     private fun init() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_1), getString(R.string.pr_nadezdy_1t)))

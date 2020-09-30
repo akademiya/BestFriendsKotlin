@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.PopupMenu
 import java.text.SimpleDateFormat
@@ -12,7 +12,7 @@ import java.util.*
 
 fun doNothing() {}
 
-fun kidoListPopupMenu(context: Context, view: View, rv: RecyclerView, kidoSize: Int, positionHide: Int?) {
+fun kidoListPopupMenu(context: Context, view: View, rv: androidx.recyclerview.widget.RecyclerView, kidoSize: Int, positionHide: Int?) {
     val popupMenu = PopupMenu(context, view)
     popupMenu.inflate(R.menu.kido_list_popup_menu)
 

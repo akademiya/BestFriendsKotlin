@@ -1,9 +1,9 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.pochtitelnosty
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -16,7 +16,7 @@ import com.vadym.gvd.bestfriendskotlin.tracker
 
 class FatherKidoPochtitelnostyViewIntro : MainActivity() {
 
-    private lateinit var rv: RecyclerView
+    private lateinit var rv: androidx.recyclerview.widget.RecyclerView
     private val kido = ArrayList<KidoPochtitelnosty>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +59,7 @@ class FatherKidoPochtitelnostyViewIntro : MainActivity() {
 
     private fun init() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         kido.add(KidoPochtitelnosty(getString(R.string.pr_pochtitelnosty_1), getString(R.string.pr_pochtitelnosty_1t)))

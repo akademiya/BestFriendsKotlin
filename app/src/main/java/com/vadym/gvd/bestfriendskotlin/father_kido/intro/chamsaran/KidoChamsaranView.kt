@@ -1,9 +1,9 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamsaran
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.Toolbar
 import android.widget.LinearLayout
 import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.MainActivity
@@ -30,8 +30,8 @@ class KidoChamsaranView : MainActivity() {
     }
 
     private fun init() {
-        val rv = findViewById<RecyclerView>(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        val rv = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_list_father_kido_intro)
+        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         val kido = ArrayList<KidoChamsaran>()

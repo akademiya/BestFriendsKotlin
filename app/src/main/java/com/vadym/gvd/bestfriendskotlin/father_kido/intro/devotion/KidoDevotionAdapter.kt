@@ -1,13 +1,13 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.devotion
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.vadym.gvd.bestfriendskotlin.R
 import kotlinx.android.synthetic.main.item_father_kido_intro.view.*
 
-class KidoDevotionAdapter(private val booksKido: ArrayList<KidoDevotion>) : RecyclerView.Adapter<KidoDevotionAdapter.VH>() {
+class KidoDevotionAdapter(private val booksKido: ArrayList<KidoDevotion>) : androidx.recyclerview.widget.RecyclerView.Adapter<KidoDevotionAdapter.VH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH (
         LayoutInflater.from(parent.context).inflate(R.layout.item_father_kido_intro, parent, false)
     )
@@ -18,7 +18,7 @@ class KidoDevotionAdapter(private val booksKido: ArrayList<KidoDevotion>) : Recy
         holder.bind(booksKido[position])
     }
 
-    class VH(view: View) : RecyclerView.ViewHolder(view) {
+    class VH(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         fun bind(books: KidoDevotion) {
             itemView.let {
                 it.kido_title.text = books.textTitle

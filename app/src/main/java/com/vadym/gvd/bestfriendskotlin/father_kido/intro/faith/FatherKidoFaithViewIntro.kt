@@ -1,7 +1,7 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.faith
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -12,11 +12,11 @@ import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
 import com.vadym.gvd.bestfriendskotlin.tracker
 import kotlinx.android.synthetic.main.view_father_kido_intro.*
-import android.support.v7.widget.RecyclerView as RecyclerView1
+import androidx.recyclerview.widget.RecyclerView as RecyclerView1
 
 class FatherKidoFaithViewIntro : MainActivity() {
 
-    private lateinit var rv: RecyclerView1
+    private lateinit var rv: androidx.recyclerview.widget.RecyclerView
     private val kido = ArrayList<KidoFaith>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +57,7 @@ class FatherKidoFaithViewIntro : MainActivity() {
 
     private fun init() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         kido.add(KidoFaith(getString(R.string.pr_faith_1), getString(R.string.pr_faith_1t)))

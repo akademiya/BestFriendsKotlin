@@ -1,8 +1,8 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.unification
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.view_father_kido_intro.*
 
 class FatherKidoUnificationViewIntro: MainActivity() {
 
-    private lateinit var rv: RecyclerView
+    private lateinit var rv: androidx.recyclerview.widget.RecyclerView
     private val kido = ArrayList<KidoUnification>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +57,7 @@ class FatherKidoUnificationViewIntro: MainActivity() {
 
     private fun init() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         kido.add(KidoUnification(getString(R.string.pr_unification_1), getString(R.string.pr_unification_1t)))

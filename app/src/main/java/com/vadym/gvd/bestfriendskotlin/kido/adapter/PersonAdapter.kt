@@ -7,8 +7,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import android.support.annotation.RequiresApi
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -23,7 +23,7 @@ import com.vadym.gvd.bestfriendskotlin.restartActivity
 class PersonAdapter(private val personList: List<Person>,
                     private val context: Context,
                     private val database: SqliteDatabase,
-                    private val onMoveItemTouch: (viewHolder: VH) -> Unit) : RecyclerView.Adapter<PersonAdapter.VH>() {
+                    private val onMoveItemTouch: (viewHolder: VH) -> Unit) : androidx.recyclerview.widget.RecyclerView.Adapter<PersonAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_kido, parent, false)
@@ -107,7 +107,7 @@ class PersonAdapter(private val personList: List<Person>,
     }
 
 
-    class VH(view: View) : RecyclerView.ViewHolder(view) {
+    class VH(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         val personName = view.findViewById<TextView>(R.id.person_name)
         val personDescription = view.findViewById<TextView>(R.id.person_description)
         val counter = view.findViewById<TextView>(R.id.tv_counter)

@@ -2,7 +2,7 @@ package com.vadym.gvd.bestfriendskotlin.father_kido
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
@@ -49,7 +49,7 @@ class FatherKidoView : MainActivity() {
         tracker().setScreenName("Father Kido")
         tracker().send(HitBuilders.ScreenViewBuilder().build())
 
-        view_list_tpkido.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        view_list_tpkido.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         view_list_tpkido.hasFixedSize()
 
         val books = ArrayList<FatherKido>()

@@ -4,9 +4,9 @@ import android.app.AlertDialog
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.SystemClock
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ItemTouchHelper
 import android.text.TextUtils
 import android.text.format.DateUtils
 import android.view.LayoutInflater
@@ -62,7 +62,7 @@ class PersonView : MainActivity() {
             attachToRecyclerView(rv_list_kido)
         }
 
-        rv_list_kido.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv_list_kido.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv_list_kido.setHasFixedSize(true)
 
         database = SqliteDatabase.getInstance(this)
@@ -165,8 +165,8 @@ class PersonView : MainActivity() {
     }
 
     private fun showOrHideFab() {
-        rv_list_kido.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+        rv_list_kido.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: androidx.recyclerview.widget.RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 if (dy > 0 && fab.visibility == View.VISIBLE) {
                     fab.hide()
@@ -177,18 +177,18 @@ class PersonView : MainActivity() {
         })
     }
 
-    private fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+    private fun onStartDrag(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder) {
         itemTouchHelper.startDrag(viewHolder)
     }
 
     private fun touchHelperCallback() = object : ItemTouchHelper.Callback() {
-        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
+        override fun getMovementFlags(recyclerView: androidx.recyclerview.widget.RecyclerView, viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder): Int {
             val dragFlags: Int = ItemTouchHelper.UP.or(ItemTouchHelper.DOWN)
             val swipeFlags: Int = ItemTouchHelper.ACTION_STATE_DRAG
             return makeMovementFlags(dragFlags, swipeFlags)
         }
 
-        override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+        override fun onMove(recyclerView: androidx.recyclerview.widget.RecyclerView, viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, target: androidx.recyclerview.widget.RecyclerView.ViewHolder): Boolean {
             adapter.notifyItemMoved(viewHolder.adapterPosition, target.adapterPosition)
             drop(viewHolder.adapterPosition, target.adapterPosition)
             return true
@@ -198,7 +198,7 @@ class PersonView : MainActivity() {
             return false
         }
 
-        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
+        override fun onSwiped(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, direction: Int) {}
     }
 
     fun drop(from: Int, to: Int) {
