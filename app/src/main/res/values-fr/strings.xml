@@ -8,7 +8,8 @@
     <string name="sorrow">Si après la mise à jour, vous ne voyez pas la page de la liste de prière, cela peut être résolu si vous allez dans les paramètres du téléphone - application - trouvez l\'application installée "TF Prayer" et cliquez sur "effacer les données". Je m\'excuse pour cet inconvénient.</string>
     <string name="info_text">Bonjour. Je suis Vadym. \n\nL\'application est conçue uniquement pour la liste de prière. Sur la page principale, il y aura toujours de vrais parents. Le menu "Liste de prière" vous permet d\'ajouter, de modifier et de supprimer des éléments. Dans le compteur circulaire, combien de fois appelez-vous le nom de la personne pour laquelle vous priez. Il y a aussi un chronomètre qui compte le temps. Après 3, 7, 12, 21, 40 minutes, un signal retentit avec un message qui a expiré en fonction de l\'heure. \n\nLe menu "La prière du père" est une collection de prières qui sont en cours de traduction en russe pour le moment. \n\nVous pouvez toujours me désinscrire selon les souhaits de l\'application. Si vous le souhaitez, vous pouvez exprimer votre gratitude en transférant l\'argent.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Privacy policy</a></string>
-    <string name="coffee_gift">Site (ru)</string>
+    <string name="site">Site (en)</string>
+    <string name="site_link">https://sites.google.com/view/tfprayer/main-en</string>
     <string name="about">À propos de l\'application</string>
     <string name="experiences_prayer">La prière dans ma vie</string>
     <string name="share_by">Partager:</string>

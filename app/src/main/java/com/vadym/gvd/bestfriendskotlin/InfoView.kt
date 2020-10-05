@@ -26,12 +26,12 @@ class InfoView : MainActivity() {
         toolbar.setNavigationOnClickListener { onBackPressed() }
         private_policy.movementMethod = LinkMovementMethod.getInstance()
 
-        coffee_gift.setOnClickListener {
+        site.setOnClickListener {
             tracker().send(HitBuilders.EventBuilder()
-                    .setAction("coffee_gift")
+                    .setAction("go-to-site")
                     .setCategory("Info screen")
                     .build())
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/tfprayer/main"))
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(resources.getString(R.string.site_link)))
             browserIntent.noAnimation()
             startActivity(browserIntent)
         }

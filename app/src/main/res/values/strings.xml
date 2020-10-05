@@ -8,7 +8,8 @@
     <string name="sorrow">If after the update you do not see the prayer list page, this can be fixed if you go to the settings of the phone - application - find the installed application "TF Prayer" and click "clear data". I apologize for this inconvenience.</string>
     <string name="info_text">Hello. I`m Vadym. \n\nThe application is designed only for the prayer list. On the main page there will always be True Parents. The "Prayer List" menu allows you to add, edit and delete items. In the circle counter, how many times do you call the name of the person you pray for. There is also a chronometer that counts the time. After 3, 7, 12, 21, 40 minutes, a signal will sound with a message that expired according to the time. \n\nThe "Father's Prayer" menu is a collection of prayers that are in translation to russian for the time being. \n\nYou can always unsubscribe to me according to the wishes of the application. If you want, you can express gratitude by transferring the money.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Privacy policy</a></string>
-    <string name="coffee_gift">Site (ru)</string>
+    <string name="site">Site</string>
+    <string name="site_link">https://sites.google.com/view/tfprayer/main-en</string>
     <string name="about">About app</string>
     <string name="experiences_prayer">Prayer in my life</string>
     <string name="share_by">Share:</string>
@@ -19,6 +20,7 @@
     <string name="explanation">Value of prayer</string>
     <string name="loading_mp3">Wait a moment while loading the mp3</string>
     <string name="kido_counter">Prayer %s</string>
+    <string name="facebook">Facebook</string>
 
     // Experiences
     <string name="separator">* * * * *</string>

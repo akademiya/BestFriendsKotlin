@@ -58,6 +58,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java).noAnimation())
             R.id.nav_experiences_prayer -> startActivity(Intent(this, ExperiencesPrayerView::class.java).noAnimation())
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
+            R.id.nav_facebook -> startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/groups/tfprayer")))
             R.id.nav_share -> {
                 val sharingIntent = Intent(Intent.ACTION_SEND)
                 val shareBody = getString(R.string.share_body)

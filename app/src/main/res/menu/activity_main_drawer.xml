@@ -40,6 +40,11 @@
             android:title="@string/experiences_prayer"/>
 
         <item
+            android:id="@+id/nav_facebook"
+            android:icon="@drawable/fb"
+            android:title="@string/facebook"/>
+
+        <item
             android:id="@+id/nav_info"
             android:icon="@drawable/ic_notifications_active"
             android:iconTint="#FF0000"
