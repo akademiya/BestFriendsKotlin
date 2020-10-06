@@ -96,7 +96,7 @@
     // TP kido books
     <string name="pr_nadezdy">Молитви надії</string>
     <string name="pr_pobedy">Молитви перемоги (en)</string>
-    <string name="pr_serdca">Молитви серця (en)</string>
+    <string name="pr_serdca">Молитви серця</string>
     <string name="pr_pochtitelnosty">Молитви шанобливості (en)</string>
     <string name="pr_voskresheniya">Молитви воскресіння</string>
     <string name="pr_zelaniya">Молитви бажання</string>
@@ -233,4 +233,37 @@
     <string name="pr_voskresheniya_33"> 33. Воскреси нас для життя згідно Твоєї волі</string>
     <string name="pr_voskresheniya_34"> 34. Відтворити нас Твоєї долонею життєдайної і володій нами</string>
     <string name="pr_voskresheniya_35"> 35. Пошли нам права сина</string>
+
+    <string name="pr_serdca_1">1. Почуйте голос свого серця</string>
+    <string name="pr_serdca_2">2. Допоможи нам зрозуміти Твоє Серце, Батько</string>
+    <string name="pr_serdca_3">3. Вшановуючи Твій скорботний шлях, ми схиляємося перед Тобою, Батько</string>
+    <string name="pr_serdca_4">4. Допоможи нам стати гідними лідерами і покласти на свої плечі тягар скорботи і страждання Небес</string>
+    <string name="pr_serdca_5">5. Хочемо стати справжніми синами і дочками, Утішитель Серця Батька нашого</string>
+    <string name="pr_serdca_6">6. Дозволь нам за допомогою Ісуса пізнати глибини Твого Серця</string>
+    <string name="pr_serdca_7">7. Дозволь нам свідчити про скорботному Серце Отця нашого</string>
+    <string name="pr_serdca_8">8. Нехай перейдуть до нас Твої скорботи, Батько</string>
+    <string name="pr_serdca_9">9. Батько, подаруй нам тягар Своїх турбот, подаруй нам Своє Серце</string>
+    <string name="pr_serdca_10">10. Якщо шлях веде в Небесний палац, ми підемо за ним навіть через море сліз</string>
+    <string name="pr_serdca_11">11. Давайте утішимо Небеса в їх тяжких історичних працях</string>
+    <string name="pr_serdca_12">12. Ми бажаємо стати Твоїми смиренними шанувальниками, які розуміють Твою скорботу</string>
+    <string name="pr_serdca_13">13. Скорботний Батько, дозволь нам втішити Тебе</string>
+    <string name="pr_serdca_14">14. Дозволь нам припасти до живого джерела Твого Серця</string>
+    <string name="pr_serdca_15">15. Дозволь нам спілкуватися з Твоїм одиноким Серцем</string>
+    <string name="pr_serdca_16">16. Дозволь нам спілкуватися з Твоїм Серцем</string>
+    <string name="pr_serdca_17">17. Дозволь нам встановити доленосні відносини з Твоїм Серцем</string>
+    <string name="pr_serdca_18">18. Допоможи нам стати справжніми синами і дочками, які вміють слізно співчувати Тобі</string>
+    <string name="pr_serdca_19">19. Дозволь нам відчути Твоє Серце</string>
+    <string name="pr_serdca_20">20. Обливаючись сльозами, ми жадаємо відчути Небесне Серце</string>
+    <string name="pr_serdca_21">21. Батько! У скорботних сльозах Ти пройшов довгий шлях</string>
+    <string name="pr_serdca_22">22. Ми щиро хочемо зрозуміти всі хитросплетіння скорботної історії</string>
+    <string name="pr_serdca_23">23. Відчуваючи сердечні муки, Ти розлучився зі Своїми дітьми</string>
+    <string name="pr_serdca_24">24. Навчи нас, членів Церкви Об\'єднання, як нам втішити Твоє Серце</string>
+    <string name="pr_serdca_25">25. Відшукай доленосні узи серця і заверши процес відновлення</string>
+    <string name="pr_serdca_26">26. Про Батько! На шляху Твого провидіння Ти страждав незмірно більше, ніж я</string>
+    <string name="pr_serdca_27">27. Прости нас, жалюгідних людей, що збунтувалися проти Тебе і обдурили Твоє довіру</string>
+    <string name="pr_serdca_28">28. Допоможи нам відчути любов Твого Серця</string>
+    <string name="pr_serdca_29">29. Все стало можливим завдяки Твоєї любові</string>
+    <string name="pr_serdca_30">30. Тепер, коли випробування закінчилися, ми зрозуміли, що нас вела Твоя любов</string>
+    <string name="pr_serdca_31">31. Батько, утоли печалі 6000-річної історії, затьмарений скорботою</string>
+    <string name="pr_serdca_32">32. Благослови цей день, як день повного і остаточного втамування історичного горя</string>
 </resources>
