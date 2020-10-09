@@ -2,7 +2,6 @@ package com.vadym.gvd.bestfriendskotlin.father_kido
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
@@ -19,10 +18,6 @@ import com.vadym.gvd.bestfriendskotlin.father_kido.intro.unification.FatherKidoU
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
 import com.vadym.gvd.bestfriendskotlin.tracker
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamingan.KidoChaminganView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamkajon.KidoChamkajonView

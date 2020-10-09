@@ -3,17 +3,11 @@ package com.vadym.gvd.bestfriendskotlin.condition
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.ItemTouchHelper
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.*
 import com.vadym.gvd.bestfriendskotlin.condition.adapter.ConditionAdapter
@@ -120,7 +114,7 @@ class ConditionView : MainActivity() {
                             today = from,
                             condition = conditionFild,
                             pubGoal = pubGoalFild,
-                            perGoal = "test2",
+                            perGoal = "",
                             conditionPosition = listCondition.lastIndex + 1)
                     database.addCondition(newCondition)
                     restartActivity(this@ConditionView)
