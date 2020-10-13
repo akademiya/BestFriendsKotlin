@@ -46,6 +46,11 @@
     <string name="add_condition">@string/add_person</string>
     <string name="edit_condition">@string/edit_person</string>
 
+    // Update app dialog
+    <string name="up_app_title">Вышла новая версия приложения. Можете обновить на странице Play Market</string>
+    <string name="update">Обновить "TF PRAYER"</string>
+    <string name="later_update">@string/later_rate</string>
+
     // Timer
     <string name="start">Старт</string>
     <string name="stop">Стоп</string>

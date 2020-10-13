@@ -47,6 +47,11 @@
     <string name="add_condition">@string/add_person</string>
     <string name="edit_condition">@string/edit_person</string>
 
+    // Update app dialog
+    <string name="up_app_title">새로운 버전의 애플리케이션이 출시되었습니다. Play 마켓 페이지에서 업데이트 할 수 있습니다</string>
+    <string name="update">"TF PRAYER" 업데이트</string>
+    <string name="later_update">@string/later_rate</string>
+
     // Timer
     <string name="start">시작</string>
     <string name="stop">중지</string>

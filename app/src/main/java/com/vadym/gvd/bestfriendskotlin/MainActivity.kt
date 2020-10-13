@@ -3,14 +3,13 @@ package com.vadym.gvd.bestfriendskotlin
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import com.google.android.material.navigation.NavigationView
-import androidx.core.view.GravityCompat
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import android.view.MenuItem
+import androidx.core.view.GravityCompat
 import com.google.android.gms.analytics.HitBuilders
-import com.vadym.gvd.bestfriendskotlin.condition.Condition
+import com.google.android.material.navigation.NavigationView
 import com.vadym.gvd.bestfriendskotlin.condition.ConditionView
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
@@ -35,6 +34,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        GetVersionCode(this).execute()
     }
 
     private fun analyticsTracker() {

@@ -47,6 +47,11 @@
     <string name="add_condition">Ajouter une condition</string>
     <string name="edit_condition">Modifier la condition</string>
 
+    // Update app dialog
+    <string name="up_app_title">Une nouvelle version de l\'application a été publiée. Vous pouvez mettre à jour sur la page Play Market</string>
+    <string name="update">Mettre à jour "TF PRAYER"</string>
+    <string name="later_update">@string/later_rate</string>
+
     // Timer
     <string name="start">Début</string>
     <string name="stop">Arrêtez</string>
