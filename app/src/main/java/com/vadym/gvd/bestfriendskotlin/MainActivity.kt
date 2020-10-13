@@ -1,5 +1,6 @@
 package com.vadym.gvd.bestfriendskotlin
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -59,7 +60,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java).noAnimation())
             R.id.nav_experiences_prayer -> startActivity(Intent(this, ExperiencesPrayerView::class.java).noAnimation())
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
-            R.id.nav_facebook -> startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/groups/tfprayer")))
+            R.id.nav_facebook -> startActivity(openFacebookIntent(this))
             R.id.nav_share -> {
                 val sharingIntent = Intent(Intent.ACTION_SEND)
                 val shareBody = getString(R.string.share_body)
@@ -83,6 +84,16 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    open fun openFacebookIntent(context: Context): Intent? {
+        val url = "https://www.facebook.com/groups/tfprayer"
+        return try {
+            context.packageManager.getPackageInfo("com.facebook.katana", 0)
+            Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=$url"))
+        } catch (e: Exception) {
+            Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        }
     }
 
     override fun onBackPressed() {
