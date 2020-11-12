@@ -4,6 +4,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.analytics.HitBuilders
 import kotlinx.android.synthetic.main.view_info.*
 
@@ -38,4 +41,26 @@ class InfoView : MainActivity() {
 
         rater.appLaunched(this)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.theme_mode, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.light -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                DarkModePreferences(this).darkMode = 0
+                delegate.applyDayNight()
+            }
+            R.id.dark -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                DarkModePreferences(this).darkMode = 1
+                delegate.applyDayNight()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

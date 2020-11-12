@@ -21,6 +21,10 @@
     <string name="loading_mp3">Attendez un instant lors du chargement du mp3</string>
     <string name="kido_counter">Prière %s</string>
 
+    // Theme
+    <string name="dark">Thème sombre</string>
+    <string name="light">Thème léger</string>
+
     // Experiences
     <string name="exp1">Quand j\'étais capitaine de l\'équipe mmbk, j\'avais besoin de trouver comment aider une personne, la guider. Comprenez ce qui se passe dans sa vie et comment réagir. Par moi-même, je ne suis ni analyste, ni psychologue. Après le départ de l\'équipe en mission, j\'ai prié pour tout le monde. En priant pour une personne, j\'ai clairement commencé à comprendre ce qu\'il fallait lui dire, comment le soutenir. Mais si je n\'écrivais pas cette réalisation, alors très vite je pourrais l\'oublier. Par conséquent, je devais noter tout ce qui venait dans la prière. En conséquence, nous nous sommes très bien unis dans nos cœurs et nous pouvons encore nous souvenir des moments où nous étions ensemble sous condition.</string>
     <string name="exp1_autor">Vadym DG, Ukraine</string>

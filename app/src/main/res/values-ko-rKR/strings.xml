@@ -21,6 +21,10 @@
     <string name="loading_mp3">MP3를 로드하는 동안 잠시 기다려주십시오</string>
     <string name="kido_counter">기도 %s</string>
 
+    // Theme
+    <string name="dark">다크 테마</string>
+    <string name="light">빛 테마</string>
+
     // Experiences
     <string name="exp1">내가 만물복귀 팀의 주장이었을 때 나는 사람을 돕고 멘토링하는 방법을 찾아야했습니다. 그의 삶에서 일어나는 일과 반응 방법을 이해하십시오. 나 자신은 심리학자가 아니라 분석가가 아닙니다. 팀이 선교 사업을 떠난 후 모두를 위해기도했습니다. 한 사람을 위해기도하면서 나는 그에게 말해야 할 말과 그를 지원하는 방법을 분명히 이해하기 시작했습니다. 그러나이 깨달음을 기록하지 않으면 금방 잊어 버릴 수 있습니다. 그러므로 나는기도로 온 모든 것을 기록해야했다. 그 결과 우리는 마음 속에서 아주 잘 단합했고, 우리가 상태를 유지했던 때를 기억할 수 있습니다.</string>
     <string name="exp1_autor">Vadym DG, 우크라이나</string>

@@ -22,6 +22,10 @@
     <string name="kido_counter">Prayer %s</string>
     <string name="facebook">Facebook</string>
 
+    // Theme
+    <string name="dark">Dark</string>
+    <string name="light">Light</string>
+
     // Experiences
     <string name="separator">* * * * *</string>
     <string name="exp1">When I was the captain of the mmbk team, I needed to figure out how to help a person, mentor him. Understand what is happening in his life and how to react. By myself, I am not an analyst, not a psychologist. After the team left for a mission, I prayed for everyone. While praying for a person, I clearly began to understand what needs to be said to him, how to support him. But if I did not write down this realization, then very quickly I could forget about it. Therefore, I had to note everything that came in prayer. As a result, we united very well in our hearts and can still remember the times when we were together on condition.</string>
