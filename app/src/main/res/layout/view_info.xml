@@ -84,6 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/parent_margin"
+            android:textColor="#fff"
             android:text="@string/site" />
     </RelativeLayout>
 </LinearLayout>

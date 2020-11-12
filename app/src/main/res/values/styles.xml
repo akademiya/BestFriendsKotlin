@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlNormal">@color/white</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -158,7 +158,7 @@
     // Button Chronometer
     <style name="ButtonChronometer" parent="Widget.AppCompat.Button.Borderless">
         <item name="android:background">@drawable/button_background_green</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">#fff</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">40dp</item>
