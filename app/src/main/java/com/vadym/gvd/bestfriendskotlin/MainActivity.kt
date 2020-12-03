@@ -37,7 +37,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        GetVersionCode(this).execute()
+//        GetVersionCode(this).execute()
     }
 
     private fun analyticsTracker() {
