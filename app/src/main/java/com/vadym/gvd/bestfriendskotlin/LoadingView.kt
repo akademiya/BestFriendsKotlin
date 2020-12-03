@@ -60,7 +60,7 @@ class LoadingView : AppCompatActivity() {
             if (isChecked) {
                 iAgree.isEnabled = true
                 cbAgree.text = resources.getString(R.string.agree)
-                cbAgree.setTextColor(Color.WHITE)
+                cbAgree.setTextColor(resources.getColor(R.color.cb_agree))
             } else {
                 iAgree.isEnabled = false
                 cbAgree.text = resources.getString(R.string.error_accept)
