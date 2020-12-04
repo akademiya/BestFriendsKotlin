@@ -2,9 +2,13 @@ package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -37,7 +41,9 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         nav_view.setNavigationItemSelectedListener(this)
 
-//        GetVersionCode(this).execute()
+        if (isNetworkAvailable(this)) {
+            GetVersionCode(this).execute()
+        }
     }
 
     private fun analyticsTracker() {
@@ -102,6 +108,22 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             drawer_layout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
+        }
+    }
+
+    private fun isNetworkAvailable (context: Context) : Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val n = cm.activeNetwork
+            if (n != null) {
+                val nc = cm.getNetworkCapabilities(n)
+                return nc!!.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) || nc.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+            }
+            return false
+        } else {
+            val netInfo = cm.activeNetworkInfo
+            return netInfo != null && netInfo.isConnectedOrConnecting
         }
     }
 }
