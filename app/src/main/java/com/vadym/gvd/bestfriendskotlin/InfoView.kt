@@ -40,6 +40,9 @@ class InfoView : MainActivity() {
         }
 
         rater.appLaunched(this)
+
+        val currentVersion: String = "v. " + packageManager.getPackageInfo(packageName, 0).versionName
+        version.text = currentVersion
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

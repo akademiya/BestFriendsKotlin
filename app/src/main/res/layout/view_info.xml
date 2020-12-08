@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -17,6 +18,15 @@
         <TextView
             style="@style/Toolbar.TitleText"
             android:text="@string/about" />
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="@dimen/margin24"
+            android:textColor="@color/white"
+            tools:text="v 3.25"/>
 
     </androidx.appcompat.widget.Toolbar>
 
