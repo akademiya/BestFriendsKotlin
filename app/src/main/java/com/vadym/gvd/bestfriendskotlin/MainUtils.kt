@@ -4,10 +4,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.PopupMenu
+import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.Year
 import java.util.*
 
 fun doNothing() {}
@@ -116,3 +118,15 @@ fun Date.formatterDate() : String {
 fun Intent.noAnimation() : Intent {
     return addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
 }
+
+//@RequiresApi(Build.VERSION_CODES.O)
+//fun String.formatCustomPeriod() : String {
+//    var y = 0
+//    var m = 0
+//    var d = 0
+//    var intoD = this.toInt()
+//    y = intoD / 365
+//    m = (intoD / 30.4167).toInt()
+//    d = (intoD - (30.4167 * m)).toInt()
+//    return "$y.$m.$d"
+//}

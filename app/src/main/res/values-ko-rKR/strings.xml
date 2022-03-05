@@ -114,6 +114,8 @@
     <string name="pr_restoration">복귀편</string>
     <string name="pr_devotion">헌신편</string>
     <string name="pr_unification">통일편</string>
+    <string name="b_hananim">제1장 하나님</string>
+    <string name="b_champumo">제2장 참부모</string>
 
     <string name="pr_nadezdy_1">아버지의 본연의 미를 드러내게 하소서</string>
     <string name="pr_nadezdy_2">아버지께 영광 돌리게 하소서</string>
@@ -226,6 +228,22 @@
     <string name="pr_voskresheniya_33">뜻과 일치하는 생활로 거듭나게 하소서</string>
     <string name="pr_voskresheniya_34">재창조의 손길로 주관하여 주시옵소서</string>
     <string name="pr_voskresheniya_35">아들의 권한을 허락하여 주시옵소서</string>
+
+    <string name="b_hananim_1">1. 승리의 깃발을 들고 아버지를 모시고 살 수 있게 하시옵소서 (57.3.6, p. 1455)</string>
+    <string name="b_hananim_2">2. 아버지의 뜻을 성취하게 하시옵소서 (56.10.7, p. 1457)</string>
+    <string name="b_hananim_3">3. 하늘의 심정을 책임질 줄 알게 하시옵소서 (59.3.15, p. 1459)</string>
+    <string name="b_hananim_4">4. 최후의 운명길에서 승리하게 하시옵소서 (69.7.27, p. 1461)</string>
+    <string name="b_hananim_5">5. 새롭게 결심하고 나아갈 수 있게 하시옵소서 (67.12.24, p. 1463)</string>
+    <string name="b_hananim_6">6. 정성을 다하는 무리가 되게 하시옵소서 (81.11.22, p. 1465)</string>
+    <string name="b_hananim_7">7. 승리의 해가 되게 하시옵소서 (84.1.1, p. 1467)</string>
+
+    <string name="b_champumo_1">1. 잠들어 있는 인류를 깨우치게 하시옵소서 (57.5.19, p. 1470)</string>
+    <string name="b_champumo_2">2. 당신이 원하는 그릇으로 만드시옵소서 (75.2.1, p. 1471)</string>
+    <string name="b_champumo_3">3. 주체성을 복귀할 수 있게 하시옵소서 (68.4.21, p. 1475)</string>
+    <string name="b_champumo_4">4. 다짐한 대로 실천하게 하시옵소서 (67.12.31, p. 1476)</string>
+    <string name="b_champumo_5">5. 새로운 부모의 전통을 세우게 하시옵소서 (80.4.15, p. 1479)</string>
+    <string name="b_champumo_6">6. 사랑하는 아들딸이 될 때까지 지켜 주시옵소서 (82.10.17, p. 1483)</string>
+    <string name="b_champumo_7">7. 참부모의 사랑권이 충만하게 하시옵소서 (90.7.8, p. 1485)</string>
 
 
     </resources>

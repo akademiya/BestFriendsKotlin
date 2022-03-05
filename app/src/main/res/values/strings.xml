@@ -34,6 +34,10 @@
     <string name="exp2">The life of prayer for me is a concentrate of sincerity with my closest Parent. With Him I can speak at ease, about everything, understand. One has only to turn, find time for prayer, devote an important place in life. Such are my feelings on this topic. And it is worth overcoming yourself, deciding to pray, then it becomes easy, easy on the soul, and it turned out that it is not difficult, the necessary words are found and it is not the mind that speaks, but the heart.\n\nBut in the morning, evening prayer, when I open and close my day, sometimes I feel that the life of prayer and everyday life live on their own, separately. No matter how beautiful words and promises to Heavenly Parent are in prayer, during the day they disappear somewhere and I continue to behave, following different emotions. And I really want, I sincerely want the life of prayer to live inside my day, then my attitude to life would be completely different and my reaction to different situations and difficulties. With God, life has a meaning and other colors. One has only to want.</string>
     <string name="exp2_autor">Victoria, Ukraine</string>
 
+    <string name="exp3">Я каждый день читаю ХДХ - Слово Отца. </string>
+    <string name="exp3_autor">Goncharuk</string>
+
+
     // App rater
     <string name="rate">Rate "TF PRAYER"</string>
     <string name="later_rate">Remind me later</string>
@@ -128,8 +132,8 @@
     <string name="pr_restoration">Prayers of Restoration</string>
     <string name="pr_devotion">Prayers of Devotion</string>
     <string name="pr_unification">Prayers of Unification</string>
-    <string name="b_hananim">제1장 하나님</string>
-    <string name="b_champumo">제2장 참부모</string>
+    <string name="b_hananim">Chapter 1. God</string>
+    <string name="b_champumo">Chapter 2. True Parents</string>
     <string name="b_chamsaran">제3장 참사랑</string>
     <string name="b_chamingan">제4장 참인간</string>
     <string name="b_chamkajon">제5장 참가정</string>
@@ -513,7 +517,7 @@
     <string name="pr_restoration_13">13. Please bless all humankind and the many spirit people from Children`s day on</string>
     <string name="pr_restoration_14">14. Please let the Unification movement resolve the grief of the history of troubles</string>
     <string name="pr_restoration_15">15. Please let us bear the fruit of the six-thousand-year history of restoration</string>
-    <string name="pr_restoration_16">16. Please let us become Abels who are able to make cain submit voluntarily</string>
+    <string name="pr_restoration_16">16. Please let us become Abel`s who are able to make cain submit voluntarily</string>
     <string name="pr_restoration_17">17. Please let us walk the public course of indemnity</string>
     <string name="pr_restoration_18">18. Please let us reflect on the shameful past as we welcome the day of all things</string>
     <string name="pr_restoration_19">19. Please let us live for You and for the future world</string>
@@ -571,21 +575,21 @@
     <string name="pr_unification_34">34. Please allow us to establish the world of the realm of heart of living for others</string>
     <string name="pr_unification_35">35. Please allow us to become partners of the love of Heaven</string>
 
-    <string name="b_hananim_1">1. 승리의 깃발을 들고 아버지를 모시고 살 수 있게 하시옵소서 (57.3.6, p. 1455)</string>
-    <string name="b_hananim_2">2. 아버지의 뜻을 성취하게 하시옵소서 (56.10.7, p. 1457)</string>
-    <string name="b_hananim_3">3. 하늘의 심정을 책임질 줄 알게 하시옵소서 (59.3.15, p. 1459)</string>
-    <string name="b_hananim_4">4. 최후의 운명길에서 승리하게 하시옵소서 (69.7.27, p. 1461)</string>
-    <string name="b_hananim_5">5. 새롭게 결심하고 나아갈 수 있게 하시옵소서 (67.12.24, p. 1463)</string>
-    <string name="b_hananim_6">6. 정성을 다하는 무리가 되게 하시옵소서 (81.11.22, p. 1465)</string>
-    <string name="b_hananim_7">7. 승리의 해가 되게 하시옵소서 (84.1.1, p. 1467)</string>
+    <string name="b_hananim_1">1. Raise the flag of victory so that I can live with you (57.3.6, p. 1455)</string>
+    <string name="b_hananim_2">2. Help me to fulfill your will (56.10.7, p. 1457)</string>
+    <string name="b_hananim_3">3. Help me to know how to take responsibility for the heart of heaven (59.3.15, p. 1459)</string>
+    <string name="b_hananim_4">4. Help me to win the final fateful road (69.7.27, p. 1461)</string>
+    <string name="b_hananim_5">5. Help me to make a new resolution and move forward (67.12.24, p. 1463)</string>
+    <string name="b_hananim_6">6. Please make it a group that does its best (81.11.22, p. 1465)</string>
+    <string name="b_hananim_7">7. May it be the year of victory (84.1.1, p. 1467)</string>
 
-    <string name="b_champumo_1">1. 잠들어 있는 인류를 깨우치게 하시옵소서 (57.5.19, p. 1470)</string>
-    <string name="b_champumo_2">2. 당신이 원하는 그릇으로 만드시옵소서 (75.2.1, p. 1471)</string>
-    <string name="b_champumo_3">3. 주체성을 복귀할 수 있게 하시옵소서 (68.4.21, p. 1475)</string>
-    <string name="b_champumo_4">4. 다짐한 대로 실천하게 하시옵소서 (67.12.31, p. 1476)</string>
-    <string name="b_champumo_5">5. 새로운 부모의 전통을 세우게 하시옵소서 (80.4.15, p. 1479)</string>
-    <string name="b_champumo_6">6. 사랑하는 아들딸이 될 때까지 지켜 주시옵소서 (82.10.17, p. 1483)</string>
-    <string name="b_champumo_7">7. 참부모의 사랑권이 충만하게 하시옵소서 (90.7.8, p. 1485)</string>
+    <string name="b_champumo_1">1. Awaken the sleeping mankind (57.5.19, p. 1470)</string>
+    <string name="b_champumo_2">2. Please make it into the vessel you want (75.2.1, p. 1471)</string>
+    <string name="b_champumo_3">3. Help us to restore our identity (68.4.21, p. 1475)</string>
+    <string name="b_champumo_4">4. Let me put my promise into practice (67.12.31, p. 1476)</string>
+    <string name="b_champumo_5">5. Help us establish a new parental tradition (80.4.15, p. 1479)</string>
+    <string name="b_champumo_6">6. Please protect me until we become beloved sons and daughters (82.10.17, p. 1483)</string>
+    <string name="b_champumo_7">7. May True Parents\' right to love be full (90.7.8, p. 1485)</string>
 
     <string name="b_chamsaran_1">1. 당신의 심정을 선포하게 하시옵소서 (60.11.27, p. 1486)</string>
     <string name="b_chamsaran_2">2. 통일의 세계를 이루도록 그 길을 재촉하시옵소서 (66.12.18, p. 1489)</string>
