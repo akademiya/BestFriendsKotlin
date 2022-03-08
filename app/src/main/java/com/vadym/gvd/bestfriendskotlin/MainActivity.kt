@@ -19,6 +19,7 @@ import com.vadym.gvd.bestfriendskotlin.condition.ConditionView
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.FileReader
 import java.net.URL
 
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -60,6 +61,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_mense -> startActivity(Intent(this, MenseView::class.java).noAnimation())
+            R.id.nav_bp -> TODO()
             R.id.nav_anthem -> startActivity(Intent(this, AnthemView::class.java).noAnimation())
             R.id.nav_kido -> startActivity(Intent(this, PersonView::class.java).noAnimation())
             R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java).noAnimation())
