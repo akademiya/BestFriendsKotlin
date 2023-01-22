@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.AsyncTask
+import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -23,6 +24,7 @@ class GetVersionCode(val view: AppCompatActivity) : AsyncTask<Void, String, Stri
 
     override fun doInBackground(vararg params: Void?): String {
         var newVersion: String? = null
+        var currVer = ""
 
         try {
             val document: Document? = Jsoup.connect("https://play.google.com/store/apps/details?id=" + view.packageName + "&hl=en")
@@ -32,6 +34,7 @@ class GetVersionCode(val view: AppCompatActivity) : AsyncTask<Void, String, Stri
                     .get()
             if (document != null) {
                 val element: Elements = document.getElementsContainingOwnText("Current Version")
+                currVer = element.text()
                 for (ele in element) {
                     if (ele.siblingElements() != null) {
                         val sibElemets: Elements = ele.siblingElements()
@@ -44,7 +47,8 @@ class GetVersionCode(val view: AppCompatActivity) : AsyncTask<Void, String, Stri
         } catch (e: IOException) {
             e.printStackTrace()
         }
-        return newVersion!!
+        Log.i("VerrAppTF", "newVersion = $newVersion, currVer = $currVer")
+        return newVersion ?: currVer
     }
 
     override fun onPostExecute(onlineVersion: String?) {
@@ -77,7 +81,7 @@ class GetVersionCode(val view: AppCompatActivity) : AsyncTask<Void, String, Stri
             if (System.currentTimeMillis() >= dateFirstLaunch + DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000) {
                 showUpdateDialog(context, editor)
             } else {
-                editor.commit()
+                editor.apply()
             }
         }
     }
