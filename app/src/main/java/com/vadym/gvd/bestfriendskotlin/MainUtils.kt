@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.view.View
+import android.view.WindowManager
 import android.widget.PopupMenu
 import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
@@ -117,6 +118,10 @@ fun Date.formatterDate() : String {
 
 fun Intent.noAnimation() : Intent {
     return addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+}
+
+fun screenOn(context: Context) {
+    (context as Activity).window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 }
 
 //@RequiresApi(Build.VERSION_CODES.O)
