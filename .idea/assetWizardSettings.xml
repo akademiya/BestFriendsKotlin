@@ -79,8 +79,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="$PROJECT_DIR$/../Рабочий стол/tf prayer/tf-big.jpg" />
-                                                <entry key="scalingPercent" value="73" />
+                                                <entry key="imagePath" value="$PROJECT_DIR$/../Pictures/tf/tf.jpg" />
+                                                <entry key="scalingPercent" value="71" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -112,6 +112,9 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="e7e7e7" />
+                                      <entry key="outputName" value="ic_tf_launcher" />
                                       <entry key="previewDensity" value="HIGH" />
                                     </map>
                                   </option>
