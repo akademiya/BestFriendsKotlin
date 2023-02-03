@@ -19,13 +19,13 @@
         android:innerRadius="0dp"
         android:shape="ring"
         android:thicknessRatio="1.9"
-        app:cardCornerRadius="33dp">
+        app:cardCornerRadius="55dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/tf100" />
+            android:src="@drawable/tf100" />
     </androidx.cardview.widget.CardView>
 
     <TextView

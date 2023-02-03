@@ -39,10 +39,11 @@ class PersonAdapter(private val personList: List<Person>,
         holder.apply {
             personName?.text = singlePerson.personName
             personDescription?.text = singlePerson.personDescription
-            listView?.setOnClickListener {
+            listView?.setOnLongClickListener {
                 holder.listReview?.visibility = View.VISIBLE
                 holder.counter?.visibility = View.GONE
                 holder.personDescription?.setTextColor(Color.LTGRAY)
+                true
             }
 
             counter?.setBackgroundResource(R.drawable.ic_circle)
