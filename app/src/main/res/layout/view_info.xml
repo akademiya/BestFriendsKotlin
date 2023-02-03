@@ -84,6 +84,25 @@
                     android:focusable="true"
                     android:text="@string/privacy_policy"
                     android:textColor="@color/colorPrimaryDark" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="center"
+                    android:src="@drawable/tf1"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="center"
+                    android:src="@drawable/tf2"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tf5"/>
+
             </LinearLayout>
         </ScrollView>
 
