@@ -36,7 +36,7 @@
 
         <item
             android:id="@+id/nav_experiences_prayer"
-            android:icon="@drawable/pr"
+            android:icon="@drawable/pray"
             android:title="@string/experiences_prayer"/>
 
         <item
