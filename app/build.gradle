@@ -9,8 +9,8 @@ android {
         applicationId "me.vadym.adv.tfprayer"
         minSdkVersion 19
         targetSdkVersion 33
-        versionCode 25
-        versionName "3.05"
+        versionCode 26
+        versionName "3.06"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         multiDexEnabled true
     }
