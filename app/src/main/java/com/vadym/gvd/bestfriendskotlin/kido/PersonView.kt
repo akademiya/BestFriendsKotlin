@@ -1,20 +1,24 @@
 package com.vadym.gvd.bestfriendskotlin.kido
 
+
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.app.AlertDialog
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.database.CursorWindow
+import android.graphics.Bitmap
 import android.media.MediaPlayer
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.ItemTouchHelper
+import android.provider.MediaStore
 import android.text.TextUtils
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.Toast
+import android.widget.*
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
@@ -24,6 +28,9 @@ import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
 import com.vadym.gvd.bestfriendskotlin.restartActivity
 import com.vadym.gvd.bestfriendskotlin.tracker
 import kotlinx.android.synthetic.main.view_kido.*
+import java.io.ByteArrayOutputStream
+import java.io.IOException
+import java.lang.reflect.Field
 import java.util.*
 
 
@@ -33,6 +40,12 @@ class PersonView : MainActivity() {
     private lateinit var database: SqliteDatabase
     private lateinit var adapter: PersonAdapter
     private lateinit var itemTouchHelper: ItemTouchHelper
+    private val IMAGE_PICK_CODE = 1000
+    private val PERMISSION_CODE = 1001
+    private var addingPersonPhoto: ImageView? = null
+    private var imgUri: Uri? = null
+    private var imgBitmap: Bitmap? = null
+    private var imgByte: ByteArray? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +68,14 @@ class PersonView : MainActivity() {
     }
 
     private fun initializ() {
+        try {
+            val field: Field = CursorWindow::class.java.getDeclaredField("sCursorWindowSize")
+            field.isAccessible = true
+            field.set(null, 100 * 1024 * 1024)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
         fab.setOnClickListener { addTaskDialog() }
         listPersonEmpty = findViewById(R.id.list_kido_empty)
 
@@ -88,11 +109,28 @@ class PersonView : MainActivity() {
 
         val nameField = subView.findViewById<EditText>(R.id.create_person_name)
         val descriptionFiled = subView.findViewById<EditText>(R.id.create_person_description)
+        addingPersonPhoto = subView.findViewById<ImageView>(R.id.choose_person_img)
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.add_new_person)
         builder.setView(subView)
         builder.create()
+
+        addingPersonPhoto?.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(READ_EXTERNAL_STORAGE) ==
+                    PackageManager.PERMISSION_DENIED
+                ) {
+                    val permissions = arrayOf(READ_EXTERNAL_STORAGE)
+                    requestPermissions(permissions, PERMISSION_CODE)
+                } else {
+                    val intent = Intent(Intent.ACTION_PICK)
+                    intent.type = "image/*"
+                    startActivityForResult(intent, IMAGE_PICK_CODE)
+                }
+            }
+        }
+
 
         builder.setPositiveButton(R.string.add_person) { _, _ ->
             val name = nameField.text.toString()
@@ -101,7 +139,15 @@ class PersonView : MainActivity() {
             if (TextUtils.isEmpty(name)) {
                 Toast.makeText(this, R.string.something_wrong, Toast.LENGTH_SHORT).show()
             } else {
-                val newPerson = Person(name, description, allPerson.lastIndex + 1)
+//                imgByte = if (imgByte == null) {
+//                    val bm = BitmapFactory.decodeResource(resources, R.drawable.ic_person)
+//                    val size = bm.rowBytes * bm.height
+//                    val byteBuffer = ByteBuffer.allocate(size)
+//                    bm.copyPixelsToBuffer(byteBuffer)
+//                    byteBuffer.array()
+//                } else imgByte
+
+                val newPerson = Person(name, description, imgByte, allPerson.lastIndex + 1)
                 database.addPerson(newPerson)
 
                 restartActivity(this)
@@ -110,6 +156,31 @@ class PersonView : MainActivity() {
 
         builder.setNegativeButton(R.string.cancel) { _, _ -> Toast.makeText(this, R.string.task_cancelled, Toast.LENGTH_SHORT).show() }
         builder.show()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE && data != null) {
+            val contentURI = data.data
+            imgUri = contentURI
+
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
+                val bytes = ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bytes)
+                addingPersonPhoto?.setImageBitmap(bitmap)
+                imgBitmap = bitmap
+
+                val iStream = contentURI?.let { contentResolver.openInputStream(it) }
+                imgByte = iStream?.readBytes()
+
+            } catch (e: IOException) {
+                e.printStackTrace()
+                Toast.makeText(this@PersonView, "Photo can`t saved. Please, sent screenshot to author about problem with upload person photo", Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
 
     private fun chronometer() {

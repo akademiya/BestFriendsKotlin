@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -36,8 +37,30 @@
             android:hint="@string/description"
             android:inputType="textMultiLine" />
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_choose_person_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/create_person_description"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginStart="@dimen/edge_margins"
+            android:layout_marginTop="10dp"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9"
+            app:cardCornerRadius="55dp">
+
+            <ImageView
+                android:id="@+id/choose_person_img"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:background="@color/light_gray"
+                android:src="@drawable/ic_person" />
+        </androidx.cardview.widget.CardView>
+
         <View
             style="@style/AppTheme.HorizontalViewDivider"
-            android:layout_below="@+id/create_person_description" />
+            android:layout_below="@+id/cv_choose_person_img" />
     </RelativeLayout>
 </LinearLayout>

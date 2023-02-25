@@ -1,19 +1,18 @@
 package com.vadym.gvd.bestfriendskotlin.kido.adapter
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
@@ -23,7 +22,7 @@ import com.vadym.gvd.bestfriendskotlin.restartActivity
 class PersonAdapter(private val personList: List<Person>,
                     private val context: Context,
                     private val database: SqliteDatabase,
-                    private val onMoveItemTouch: (viewHolder: VH) -> Unit) : androidx.recyclerview.widget.RecyclerView.Adapter<PersonAdapter.VH>() {
+                    private val onMoveItemTouch: (viewHolder: VH) -> Unit) : RecyclerView.Adapter<PersonAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_kido, parent, false)
@@ -39,9 +38,12 @@ class PersonAdapter(private val personList: List<Person>,
         holder.apply {
             personName?.text = singlePerson.personName
             personDescription?.text = singlePerson.personDescription
+            personPhoto?.setImageBitmap(singlePerson.personPhoto)
+
             listView?.setOnLongClickListener {
                 holder.listReview?.visibility = View.VISIBLE
                 holder.counter?.visibility = View.GONE
+                holder.personPhotoPlace?.visibility = View.GONE
                 holder.personDescription?.setTextColor(Color.LTGRAY)
                 true
             }
@@ -64,6 +66,7 @@ class PersonAdapter(private val personList: List<Person>,
             goBack?.setOnClickListener {
                 holder.listReview?.visibility = View.GONE
                 holder.counter?.visibility = View.VISIBLE
+                holder.personPhotoPlace?.visibility = View.VISIBLE
                 holder.personDescription?.setTextColor(Color.DKGRAY)
                 holder.listReview?.setBackgroundColor(context.resources.getColor(R.color.icon_pressed))
 
@@ -88,8 +91,10 @@ class PersonAdapter(private val personList: List<Person>,
 
         val nameField = subView.findViewById<EditText>(R.id.create_person_name)
         val descriptionField = subView.findViewById<EditText>(R.id.create_person_description)
+        val im = subView.findViewById<ImageView>(R.id.choose_person_img)
         nameField.setText(person.personName)
         descriptionField.setText(person.personDescription)
+        im.setImageBitmap(person.personPhoto)
 
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.edit_person)
@@ -98,7 +103,7 @@ class PersonAdapter(private val personList: List<Person>,
         builder.setPositiveButton(R.string.edit_person) { _, _ ->
             val name = nameField.text.toString()
             val description = descriptionField.text.toString()
-            database.updatePerson(Person(person.personId, name, description, person.personPosition))
+            database.updatePerson(Person(person.personId, name, description, person.personPhoto, person.personPosition))
 
             restartActivity(context)
         }
@@ -108,9 +113,11 @@ class PersonAdapter(private val personList: List<Person>,
     }
 
 
-    class VH(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
+    class VH(view: View) : RecyclerView.ViewHolder(view) {
         val personName = view.findViewById<TextView>(R.id.person_name)
         val personDescription = view.findViewById<TextView>(R.id.person_description)
+        val personPhoto = view.findViewById<ImageView>(R.id.img_person)
+        val personPhotoPlace = view.findViewById<CardView>(R.id.view_img_person)
         val counter = view.findViewById<TextView>(R.id.tv_counter)
         val listReview = view.findViewById<FrameLayout>(R.id.listReview)
         val listView = view.findViewById<RelativeLayout>(R.id.listView)

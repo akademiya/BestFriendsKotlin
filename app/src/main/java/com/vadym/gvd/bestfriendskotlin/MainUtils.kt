@@ -3,14 +3,16 @@ package com.vadym.gvd.bestfriendskotlin
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.view.View
 import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.PopupMenu
-import androidx.annotation.RequiresApi
+import java.io.ByteArrayOutputStream
+import java.nio.ByteBuffer
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.Year
 import java.util.*
 
 fun doNothing() {}
@@ -122,6 +124,21 @@ fun Intent.noAnimation() : Intent {
 
 fun screenOn(context: Context) {
     (context as Activity).window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+}
+
+fun ImageView.setIcPersonPhoto() {
+    this.setImageResource(R.drawable.ic_person)
+}
+
+fun Bitmap.toByteAr () : ByteArray {
+    val size = this.rowBytes * this.height
+    val byteBuffer = ByteBuffer.allocate(size)
+    this.copyPixelsToBuffer(byteBuffer)
+    return byteBuffer.array()
+}
+
+fun ByteArray.toImgBitmap () : Bitmap {
+    return BitmapFactory.decodeByteArray(this, 0, this.size)
 }
 
 //@RequiresApi(Build.VERSION_CODES.O)
