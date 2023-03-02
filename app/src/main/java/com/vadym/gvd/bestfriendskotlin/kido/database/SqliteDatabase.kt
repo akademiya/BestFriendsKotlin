@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.graphics.BitmapFactory
 import com.vadym.gvd.bestfriendskotlin.kido.Person
+import com.vadym.gvd.bestfriendskotlin.toByteAr
 
 class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -75,7 +76,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
         val values = ContentValues()
         values.put(KEY_PERSON_NAME, person.personName)
         values.put(KEY_PERSON_DESCRIPTION, person.personDescription)
-        values.put(KEY_IMG, person.personPhotoByte)
+        values.put(KEY_IMG, person.personPhoto?.toByteAr())
         val db = this.readableDatabase
         db.update(TABLE_PERSONS, values, "$KEY_ID=?", arrayOf(person.personId.toString()))
     }
@@ -83,7 +84,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
     fun updateSortPosition(person: Person) {
         val db = this.readableDatabase
         val values = ContentValues()
-        val columns = arrayOf(KEY_ID, KEY_PERSON_NAME, KEY_PERSON_DESCRIPTION, KEY_POSITION)
+        val columns = arrayOf(KEY_ID, KEY_PERSON_NAME, KEY_PERSON_DESCRIPTION, KEY_POSITION, KEY_IMG)
 
         values.put(KEY_POSITION, person.personPosition)
         db.query(TABLE_PERSONS, columns, null, null, null, null, KEY_POSITION).close()

@@ -1,22 +1,32 @@
 package com.vadym.gvd.bestfriendskotlin.kido.adapter
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Build
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.app.ActivityCompat.startActivity
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
 import com.vadym.gvd.bestfriendskotlin.restartActivity
+import java.io.ByteArrayOutputStream
+import java.io.IOException
 
 
 class PersonAdapter(private val personList: List<Person>,
@@ -38,7 +48,12 @@ class PersonAdapter(private val personList: List<Person>,
         holder.apply {
             personName?.text = singlePerson.personName
             personDescription?.text = singlePerson.personDescription
-            personPhoto?.setImageBitmap(singlePerson.personPhoto)
+            if (singlePerson.personPhoto != null) {
+                personPhoto?.setImageBitmap(singlePerson.personPhoto)
+            } else {
+                personPhoto.setImageDrawable(context.getDrawable(R.drawable.ic_person))
+            }
+
 
             listView?.setOnLongClickListener {
                 holder.listReview?.visibility = View.VISIBLE
@@ -88,6 +103,7 @@ class PersonAdapter(private val personList: List<Person>,
     private fun editTaskDialog(person: Person) {
         val inflater = LayoutInflater.from(context)
         val subView = inflater.inflate(R.layout.item_edit_list_person, null)
+        val editPhoto = subView.findViewById<ImageView>(R.id.choose_person_img)
 
         val nameField = subView.findViewById<EditText>(R.id.create_person_name)
         val descriptionField = subView.findViewById<EditText>(R.id.create_person_description)
@@ -100,6 +116,13 @@ class PersonAdapter(private val personList: List<Person>,
         builder.setTitle(R.string.edit_person)
         builder.setView(subView)
         builder.create()
+
+        editPhoto?.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivity(context, intent, null)
+        }
+
         builder.setPositiveButton(R.string.edit_person) { _, _ ->
             val name = nameField.text.toString()
             val description = descriptionField.text.toString()

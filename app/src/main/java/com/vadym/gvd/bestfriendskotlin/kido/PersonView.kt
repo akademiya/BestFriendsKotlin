@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.CursorWindow
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
@@ -18,19 +19,19 @@ import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.google.android.gms.analytics.HitBuilders
-import com.vadym.gvd.bestfriendskotlin.MainActivity
-import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.*
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
 import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
-import com.vadym.gvd.bestfriendskotlin.restartActivity
-import com.vadym.gvd.bestfriendskotlin.tracker
 import kotlinx.android.synthetic.main.view_kido.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.lang.reflect.Field
+import java.nio.ByteBuffer
 import java.util.*
 
 
@@ -139,13 +140,7 @@ class PersonView : MainActivity() {
             if (TextUtils.isEmpty(name)) {
                 Toast.makeText(this, R.string.something_wrong, Toast.LENGTH_SHORT).show()
             } else {
-//                imgByte = if (imgByte == null) {
-//                    val bm = BitmapFactory.decodeResource(resources, R.drawable.ic_person)
-//                    val size = bm.rowBytes * bm.height
-//                    val byteBuffer = ByteBuffer.allocate(size)
-//                    bm.copyPixelsToBuffer(byteBuffer)
-//                    byteBuffer.array()
-//                } else imgByte
+                imgByte = imgByte ?: ContextCompat.getDrawable(baseContext, R.drawable.ic_person)!!.toBitmap().toByteAr()
 
                 val newPerson = Person(name, description, imgByte, allPerson.lastIndex + 1)
                 database.addPerson(newPerson)

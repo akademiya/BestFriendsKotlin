@@ -10,6 +10,8 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.PopupMenu
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
 import java.text.SimpleDateFormat
@@ -124,10 +126,6 @@ fun Intent.noAnimation() : Intent {
 
 fun screenOn(context: Context) {
     (context as Activity).window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-}
-
-fun ImageView.setIcPersonPhoto() {
-    this.setImageResource(R.drawable.ic_person)
 }
 
 fun Bitmap.toByteAr () : ByteArray {
