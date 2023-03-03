@@ -27,6 +27,22 @@
                 tools:text="fdkjsgsnkdfg jkdfgnsdkjgn dfgn sdkjgnsdfk jgnsdfgn sdn"
                 android:text="@string/kido_list" />
 
+            <EditText
+                android:id="@+id/user_time"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:digits="0123456789"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:hint="@string/min"
+                android:inputType="datetime"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textColorHint="@color/disable_light"
+                android:textSize="25sp" />
+
             <TextView
                 android:id="@+id/chronometer"
                 android:layout_width="100dp"
@@ -34,6 +50,7 @@
                 android:layout_alignParentEnd="true"
                 android:gravity="center"
                 android:textColor="@color/white"
+                android:visibility="invisible"
                 android:textSize="25sp" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -51,14 +68,15 @@
             <Button
                 android:id="@+id/start"
                 style="@style/ButtonChronometer"
+                android:layout_marginEnd="10dp"
                 android:text="@string/start" />
 
-            <Button
-                android:id="@+id/stop"
-                style="@style/ButtonChronometer"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:text="@string/stop" />
+<!--            <Button-->
+<!--                android:id="@+id/stop"-->
+<!--                style="@style/ButtonChronometer"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:text="@string/stop" />-->
 
             <Button
                 android:id="@+id/reset"

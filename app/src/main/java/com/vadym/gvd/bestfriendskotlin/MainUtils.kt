@@ -109,6 +109,8 @@ fun restartActivity(context: Context) {
     val intent = context.intent
     intent.noAnimation()
     context.startActivity(intent)
+    context.finish()
+    context.overridePendingTransition(0, 0)
 }
 
 fun String.formatterDate() : String {

@@ -3,6 +3,7 @@ package com.vadym.gvd.bestfriendskotlin.kido
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.CursorWindow
@@ -18,7 +19,9 @@ import android.text.TextUtils
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -32,7 +35,10 @@ import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.lang.reflect.Field
 import java.nio.ByteBuffer
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class PersonView : MainActivity() {
@@ -179,12 +185,23 @@ class PersonView : MainActivity() {
     }
 
     private fun chronometer() {
-        val mp = MediaPlayer.create(this, R.raw.ton)
+        val mp = MediaPlayer.create(this, R.raw.tongil)
+        val userTime = findViewById<EditText>(R.id.user_time)
+        var millisecondsUserTime = 0L
+
         chronometer.text = DateUtils.formatElapsedTime(0)
 
         start.setOnClickListener {
+            millisecondsUserTime = if (userTime.text.toString().isEmpty()) 0 else userTime.text.toString().toLong()
+            millisecondsUserTime = TimeUnit.MINUTES.toMillis(millisecondsUserTime)
+            userTime.visibility = View.GONE
+            chronometer.visibility = View.VISIBLE
             Chronometer.base = SystemClock.elapsedRealtime()
             Chronometer.start()
+            userTime.isFocused.let {
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(userTime.windowToken , 0)
+            }
         }
 
         Chronometer.setOnTick {
@@ -192,41 +209,47 @@ class PersonView : MainActivity() {
             val elapsedMillis = now - Chronometer.base
 
             chronometer.text = DateUtils.formatElapsedTime(elapsedMillis / 1000)
-            if (elapsedMillis < Chronometer.nextBeep)
+            if (elapsedMillis < nextBeep)
                 return@setOnTick
 
             when {
-                elapsedMillis >= 2400000 -> {
-                    Toast.makeText(this, resources.getString(R.string.min_40), Toast.LENGTH_SHORT).show()
-                    mp.start()
-                }
-                elapsedMillis >= 1260000 -> {
-                    Toast.makeText(this, resources.getString(R.string.min_21), Toast.LENGTH_SHORT).show()
-                    mp.start()
-                    nextBeep = 2400000
-                }
-                elapsedMillis >= 720000 -> {
-                    Toast.makeText(this, resources.getString(R.string.min_12), Toast.LENGTH_SHORT).show()
-                    mp.start()
-                    nextBeep = 1260000
-                }
-                elapsedMillis >= 420000 -> {
-                    Toast.makeText(this, resources.getString(R.string.min_7), Toast.LENGTH_SHORT).show()
-                    mp.start()
-                    nextBeep = 720000
-                }
-                elapsedMillis >= 180000 -> {
-                    Toast.makeText(this, resources.getString(R.string.min_3), Toast.LENGTH_SHORT).show()
-                    mp.start()
-                    nextBeep = 420000
-                }
+                elapsedMillis >= millisecondsUserTime -> { mp.start() }
+//                elapsedMillis >= 2400000 -> {
+//                    Toast.makeText(this, resources.getString(R.string.min_40), Toast.LENGTH_SHORT).show()
+//                    mp.start()
+//                }
+//                elapsedMillis >= 1260000 -> {
+//                    Toast.makeText(this, resources.getString(R.string.min_21), Toast.LENGTH_SHORT).show()
+//                    mp.start()
+//                    nextBeep = 2400000
+//                }
+//                elapsedMillis >= 720000 -> {
+//                    Toast.makeText(this, resources.getString(R.string.min_12), Toast.LENGTH_SHORT).show()
+//                    mp.start()
+//                    nextBeep = 1260000
+//                }
+//                elapsedMillis >= 420000 -> {
+//                    Toast.makeText(this, resources.getString(R.string.min_7), Toast.LENGTH_SHORT).show()
+//                    mp.start()
+//                    nextBeep = 720000
+//                }
+//                elapsedMillis >= 180000 -> {
+//                    Toast.makeText(this, resources.getString(R.string.min_3), Toast.LENGTH_SHORT).show()
+//                    mp.start()
+//                    nextBeep = 420000
+//                }
             }
         }
 
-        stop.setOnClickListener { Chronometer.stop() }
         reset.setOnClickListener {
             Chronometer.stop()
+            mp.stop()
+            mp.reset()
+            userTime.text.clear()
+            userTime.visibility = View.VISIBLE
+            chronometer.visibility = View.GONE
             chronometer.text = DateUtils.formatElapsedTime(0)
+            restartActivity(this)
         }
     }
 
