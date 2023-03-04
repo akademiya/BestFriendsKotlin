@@ -27,31 +27,45 @@
                 tools:text="fdkjsgsnkdfg jkdfgnsdkjgn dfgn sdkjgnsdfk jgnsdfgn sdn"
                 android:text="@string/kido_list" />
 
-            <EditText
-                android:id="@+id/user_time"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:digits="0123456789"
-                android:ellipsize="end"
-                android:gravity="center"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:hint="@string/min"
-                android:inputType="datetime"
-                android:maxLength="2"
-                android:maxLines="1"
-                android:textColor="@color/white"
-                android:textColorHint="@color/disable_light"
-                android:textSize="25sp" />
+                android:textColorHint="@color/yellow"
+                tools:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_time"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:digits="0123456789"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:inputType="datetime"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:paddingBottom="14dp"
+                    android:textColor="@color/white"
+                    android:textSize="21sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/chronometer"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:textColor="@color/white"
+                android:textSize="21sp"
+                android:paddingStart="4dp"
+                android:paddingTop="2dp"
                 android:visibility="invisible"
-                android:textSize="25sp" />
+                tools:visibility="invisible"
+                tools:text="00:00" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
