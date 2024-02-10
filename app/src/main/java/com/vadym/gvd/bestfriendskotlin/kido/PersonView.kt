@@ -160,6 +160,7 @@ class PersonView : MainActivity() {
         stop.setOnClickListener {
             Chronometer.stop()
             chronometer.text = DateUtils.formatElapsedTime(0)
+            mp.stop()
         }
     }
 

@@ -58,7 +58,6 @@
     // Timer
     <string name="start">Старт</string>
     <string name="stop">Стоп</string>
-    <string name="reset">Сброс</string>
     <string name="min_3">Прошло 3 минуты</string>
     <string name="min_7">Прошло 7 минут</string>
     <string name="min_12">Прошло 12 минут</string>
