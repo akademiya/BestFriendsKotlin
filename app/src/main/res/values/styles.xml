@@ -157,7 +157,7 @@
 
     // Button Chronometer
     <style name="ButtonChronometer" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:background">@drawable/button_background_green</item>
+        <item name="android:background">@color/button_chronometer</item>
         <item name="android:textColor">#fff</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>

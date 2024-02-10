@@ -15,8 +15,8 @@
     <color name="black_effective">#2a2a2a</color>
     <color name="divider_color">#1E000000</color>
 
-    <color name="button_chronometer">#1AA195</color>
-    <color name="button_chronometer_pressed">#008678</color>
+    <color name="button_chronometer">#621AA1</color>
+    <color name="button_chronometer_pressed">#501187</color>
 
     <color name="icon_pressed">#EEEEEE</color> <!--Gray 200-->
     <color name="primary">#4CAF50</color> <!--Green 500-->
