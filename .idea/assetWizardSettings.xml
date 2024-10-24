@@ -314,7 +314,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/user/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_notifications_none_black_24dp.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Android/Sdk/icons/material/materialicons/photo_camera/baseline_photo_camera_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -324,7 +324,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_notifications" />
+                            <entry key="outputName" value="ic_take_photo" />
                             <entry key="sourceFile" value="$PROJECT_DIR$/.." />
                           </map>
                         </option>

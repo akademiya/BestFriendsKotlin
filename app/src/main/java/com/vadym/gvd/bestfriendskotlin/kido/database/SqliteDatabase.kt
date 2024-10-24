@@ -4,20 +4,24 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.graphics.BitmapFactory
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import java.util.*
 
 class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val CREATE_PERSON_TABLE = ("CREATE TABLE $TABLE_PERSONS($KEY_ID INTEGER PRIMARY KEY,$KEY_PERSON_NAME TEXT,$KEY_PERSON_DESCRIPTION TEXT,$KEY_POSITION INTEGER)")
+        val CREATE_PERSON_TABLE = ("CREATE TABLE $TABLE_PERSONS($KEY_ID INTEGER PRIMARY KEY,$KEY_PERSON_NAME TEXT,$KEY_PERSON_DESCRIPTION TEXT,$KEY_POSITION INTEGER, $KEY_PERSON_PHOTO TEXT)")
         db?.execSQL(CREATE_PERSON_TABLE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        if (oldVersion < 2) {
-            if (!isFieldExist(TABLE_PERSONS, KEY_POSITION))
+        if (oldVersion < 1) {
+            if (!isFieldExist(TABLE_PERSONS, KEY_POSITION)) {
                 db.execSQL("ALTER TABLE $TABLE_PERSONS ADD COLUMN $KEY_POSITION INTEGER;")
+            } else if (!isFieldExist(TABLE_PERSONS, KEY_PERSON_PHOTO)) {
+                db.execSQL("ALTER TABLE $TABLE_PERSONS ADD COLUMN $KEY_PERSON_PHOTO TEXT;")
+            }
         } else {
             db.execSQL("DROP TABLE IF EXISTS $TABLE_PERSONS")
             onCreate(db)
@@ -49,7 +53,8 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
                 val name = cursor.getString(1)
                 val description = cursor.getString(2)
                 val position = Integer.parseInt(cursor.getString(3))
-                storePersons.add(Person(id, name, description, position))
+                val personPhoto = cursor.getString(4)
+                storePersons.add(Person(id, name, description, personPhoto, position))
 
             } while (cursor.moveToNext())
         }
@@ -62,6 +67,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
         values.put(KEY_PERSON_NAME, person.personName)
         values.put(KEY_PERSON_DESCRIPTION, person.personDescription)
         values.put(KEY_POSITION, person.personPosition)
+        values.put(KEY_PERSON_PHOTO, person.personPhoto)
         val db = this.writableDatabase
 
         db.insert(TABLE_PERSONS, null, values)
@@ -72,6 +78,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
         val values = ContentValues()
         values.put(KEY_PERSON_NAME, person.personName)
         values.put(KEY_PERSON_DESCRIPTION, person.personDescription)
+        values.put(KEY_PERSON_PHOTO, person.personPhoto)
         val db = this.readableDatabase
         db.update(TABLE_PERSONS, values, "$KEY_ID=?", arrayOf(person.personId.toString()))
     }
@@ -94,12 +101,13 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
     companion object {
         private val DATABASE_VERSION = 2
         private val DATABASE_NAME = "person"
-        val TABLE_PERSONS = "persons"
+        const val TABLE_PERSONS = "persons"
 
-        val KEY_ID = "_id"
-        val KEY_PERSON_NAME = "personname"
-        val KEY_PERSON_DESCRIPTION = "persondescription"
-        val KEY_POSITION = "position"
+        const val KEY_ID = "_id"
+        const val KEY_PERSON_NAME = "personname"
+        const val KEY_PERSON_DESCRIPTION = "persondescription"
+        const val KEY_POSITION = "position"
+        const val KEY_PERSON_PHOTO = "personphoto"
 
         private var instance: SqliteDatabase? = null
         fun getInstance(context: Context): SqliteDatabase {

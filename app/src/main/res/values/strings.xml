@@ -53,6 +53,8 @@
     <string name="something_wrong">Not write. Check your enter data</string>
     <string name="name">Name</string>
     <string name="description">Description</string>
+    <string name="select_photo">Select photo</string>
+    <string name="upload_img_description">Upload person photo</string>
     <string name="add_new_condition">Add new condition</string>
     <string name="add_condition">Add condition</string>
     <string name="edit_condition">Edit condition</string>

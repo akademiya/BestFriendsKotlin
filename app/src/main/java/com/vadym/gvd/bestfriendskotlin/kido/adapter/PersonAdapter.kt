@@ -6,6 +6,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,8 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.cardview.widget.CardView
+import com.bumptech.glide.Glide
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
@@ -23,7 +26,7 @@ import com.vadym.gvd.bestfriendskotlin.restartActivity
 class PersonAdapter(private val personList: List<Person>,
                     private val context: Context,
                     private val database: SqliteDatabase,
-                    private val onMoveItemTouch: (viewHolder: VH) -> Unit) : androidx.recyclerview.widget.RecyclerView.Adapter<PersonAdapter.VH>() {
+                    private val onMoveItemTouch: (viewHolder: VH) -> Unit) : RecyclerView.Adapter<PersonAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_kido, parent, false)
@@ -40,11 +43,19 @@ class PersonAdapter(private val personList: List<Person>,
             personName?.text = singlePerson.personName
             personDescription?.text = singlePerson.personDescription
             listView?.setOnLongClickListener {
+                holder.cvImg.visibility = View.GONE
                 holder.listReview?.visibility = View.VISIBLE
                 holder.counter?.visibility = View.GONE
                 holder.personDescription?.setTextColor(Color.LTGRAY)
                 true
             }
+
+            val im = Uri.parse(singlePerson.personPhoto)
+            Glide.with(context)
+                .load(im)
+                .circleCrop()
+                .error(R.drawable.ic_person)
+                .into(uploadPhoto)
 
             counter?.setBackgroundResource(R.drawable.ic_circle)
             counter?.text = singlePerson.counter.toString()
@@ -62,6 +73,7 @@ class PersonAdapter(private val personList: List<Person>,
             }
 
             goBack?.setOnClickListener {
+                holder.cvImg.visibility = View.VISIBLE
                 holder.listReview?.visibility = View.GONE
                 holder.counter?.visibility = View.VISIBLE
                 holder.personDescription?.setTextColor(Color.DKGRAY)
@@ -98,7 +110,7 @@ class PersonAdapter(private val personList: List<Person>,
         builder.setPositiveButton(R.string.edit_person) { _, _ ->
             val name = nameField.text.toString()
             val description = descriptionField.text.toString()
-            database.updatePerson(Person(person.personId, name, description, person.personPosition))
+            database.updatePerson(Person(person.personId, name, description, person.personPhoto, person.personPosition))
 
             restartActivity(context)
         }
@@ -108,9 +120,11 @@ class PersonAdapter(private val personList: List<Person>,
     }
 
 
-    class VH(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
+    class VH(view: View) : RecyclerView.ViewHolder(view) {
         val personName = view.findViewById<TextView>(R.id.person_name)
         val personDescription = view.findViewById<TextView>(R.id.person_description)
+        val uploadPhoto = view.findViewById<ImageView>(R.id.person_img)
+        val cvImg = view.findViewById<CardView>(R.id.cv_person_img)
         val counter = view.findViewById<TextView>(R.id.tv_counter)
         val listReview = view.findViewById<FrameLayout>(R.id.listReview)
         val listView = view.findViewById<RelativeLayout>(R.id.listView)
