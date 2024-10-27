@@ -1,18 +1,15 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.faith
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
-import com.google.android.gms.analytics.HitBuilders
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
-import com.vadym.gvd.bestfriendskotlin.tracker
-import kotlinx.android.synthetic.main.view_father_kido_intro.*
-import androidx.recyclerview.widget.RecyclerView as RecyclerView1
 
 class FatherKidoFaithViewIntro : MainActivity() {
 
@@ -22,6 +19,7 @@ class FatherKidoFaithViewIntro : MainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido_intro)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -29,8 +27,6 @@ class FatherKidoFaithViewIntro : MainActivity() {
         }
         toolbar.setNavigationOnClickListener { onBackPressed() }
 
-        tracker().setScreenName("Kido Faith")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
         init()
     }
 
@@ -57,7 +53,7 @@ class FatherKidoFaithViewIntro : MainActivity() {
 
     private fun init() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         kido.add(KidoFaith(getString(R.string.pr_faith_1), getString(R.string.pr_faith_1t)))

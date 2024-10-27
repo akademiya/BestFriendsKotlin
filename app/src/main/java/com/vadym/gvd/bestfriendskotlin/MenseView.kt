@@ -21,9 +21,6 @@ class MenseView : MainActivity() {
         }
 
         toolbar.setNavigationOnClickListener { onBackPressed() }
-
-        tracker().setScreenName("Mense")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
     }
 
     /** app bar menu переход в activity по клику на item */

@@ -22,6 +22,7 @@ class GetVersionCode(val view: AppCompatActivity) : AsyncTask<Void, String, Stri
     private val APP_NAME = "me.vadym.adv.tfprayer"
     private val DAYS_UNTIL_PROMPT = 1F //Min number of days
 
+    @Deprecated("Deprecated in Java")
     override fun doInBackground(vararg params: Void?): String {
         var newVersion: String? = null
         var currVer = ""
@@ -51,12 +52,13 @@ class GetVersionCode(val view: AppCompatActivity) : AsyncTask<Void, String, Stri
         return newVersion ?: currVer
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onPostExecute(onlineVersion: String?) {
         super.onPostExecute(onlineVersion)
         val currentVersion: String
         try {
             currentVersion = view.packageManager.getPackageInfo(view.packageName, 0).versionName
-            if (onlineVersion != null && onlineVersion.isNotEmpty()) {
+            if (!onlineVersion.isNullOrEmpty()) {
                 if (currentVersion.toFloat() < onlineVersion.toFloat()) {
                     appLaunched(view)
                 }

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -20,7 +19,7 @@ import com.vadym.gvd.bestfriendskotlin.restartActivity
 class ConditionAdapter(private val context: Context,
                        private val database: ConditionSqlDB,
                        private val conditionList: List<Condition>,
-                       private val onMoveItemTouch: (holder: VH) -> Unit) : androidx.recyclerview.widget.RecyclerView.Adapter<ConditionAdapter.VH>() {
+                       private val onMoveItemTouch: (holder: VH) -> Unit) : RecyclerView.Adapter<ConditionAdapter.VH>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
@@ -160,7 +159,7 @@ class ConditionAdapter(private val context: Context,
 //    }
 
 
-    class VH(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
+    class VH(view: View) : RecyclerView.ViewHolder(view) {
         val title = view.findViewById<TextView>(R.id.tv_title)
         val lider = view.findViewById<TextView>(R.id.tv_lider_value)
         val duration = view.findViewById<TextView>(R.id.tv_duration_value)

@@ -1,23 +1,21 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.nadezdy
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
-import com.google.android.gms.analytics.HitBuilders
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
-import com.vadym.gvd.bestfriendskotlin.tracker
 
 
 class FatherKidoNadezdyViewIntro : MainActivity() {
 
-    private lateinit var rv: androidx.recyclerview.widget.RecyclerView
+    private lateinit var rv: RecyclerView
     private val kido = ArrayList<KidoNadezdy>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +30,6 @@ class FatherKidoNadezdyViewIntro : MainActivity() {
         }
         toolbar.setNavigationOnClickListener { onBackPressed() }
 
-        tracker().setScreenName("Kido Nadezdy")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
         init()
     }
 
@@ -60,7 +56,7 @@ class FatherKidoNadezdyViewIntro : MainActivity() {
 
     private fun init() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         kido.add(KidoNadezdy(getString(R.string.pr_nadezdy_1), getString(R.string.pr_nadezdy_1t)))

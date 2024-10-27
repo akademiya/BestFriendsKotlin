@@ -1,14 +1,12 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.mesia
 
 import android.os.Bundle
+import android.widget.LinearLayout
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.appcompat.widget.Toolbar
-import android.widget.LinearLayout
-import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
-import com.vadym.gvd.bestfriendskotlin.tracker
 
 class KidoMesiaView : MainActivity() {
 
@@ -24,14 +22,12 @@ class KidoMesiaView : MainActivity() {
         }
         toolbar.setNavigationOnClickListener { onBackPressed() }
 
-        tracker().setScreenName("Kido Mesia")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
         init()
     }
 
     private fun init() {
-        val rv = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        val rv = findViewById<RecyclerView>(R.id.rv_list_father_kido_intro)
+        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         val kido = ArrayList<KidoMesia>()

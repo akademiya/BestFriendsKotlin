@@ -22,11 +22,6 @@ class FragmentMenseUa : MainActivity() {
 
         toolbar.setNavigationOnClickListener { startActivity(Intent(this, MainActivity::class.java).noAnimation()) }
 
-        tracker().setScreenName("Fragment Mense Ua")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
-        tracker().send(HitBuilders.EventBuilder()
-                .setCategory("Fragment Mense Ua")
-                .build())
     }
 
     /** app bar menu переход в activity по клику на item */

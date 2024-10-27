@@ -8,15 +8,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
-import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
-import com.vadym.gvd.bestfriendskotlin.tracker
 
 class FatherKidoVoskresheniyaViewIntro : MainActivity()  {
 
-    private lateinit var rv: androidx.recyclerview.widget.RecyclerView
+    private lateinit var rv: RecyclerView
     private val kido = ArrayList<KidoVoskresheniya>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +29,6 @@ class FatherKidoVoskresheniyaViewIntro : MainActivity()  {
         }
         toolbar.setNavigationOnClickListener { onBackPressed() }
 
-        tracker().setScreenName("Kido Voskresheniya")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
         init()
     }
 
@@ -59,7 +55,7 @@ class FatherKidoVoskresheniyaViewIntro : MainActivity()  {
 
     private fun init() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         kido.add(KidoVoskresheniya(getString(R.string.pr_voskresheniya_1), getString(R.string.pr_voskresheniya_1t)))

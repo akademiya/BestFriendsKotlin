@@ -14,15 +14,18 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.gms.analytics.HitBuilders
 import com.google.android.material.navigation.NavigationView
 import com.vadym.gvd.bestfriendskotlin.condition.ConditionView
+import com.vadym.gvd.bestfriendskotlin.databinding.ActivityMainBinding
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
-import kotlinx.android.synthetic.main.activity_main.*
 import java.net.URL
 
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private lateinit var drawer: DrawerLayout
+    private lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,28 +34,26 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         screenOn(this)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        analyticsTracker()
+        drawer = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.nav_view)
+
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        val toggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
 
-        drawer_layout.addDrawerListener(toggle)
+        drawer.addDrawerListener(toggle)
         toggle.syncState()
 
-        nav_view.setNavigationItemSelectedListener(this)
+        navigationView.setNavigationItemSelectedListener(this)
 
         if (isNetworkAvailable(this)) {
             GetVersionCode(this).execute()
         }
     }
 
-    private fun analyticsTracker() {
-        tracker().setScreenName("MainActivity")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
@@ -92,7 +93,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             }
         }
 
-        drawer_layout.closeDrawer(GravityCompat.START)
+        drawer.closeDrawer(GravityCompat.START)
         return true
     }
 
@@ -107,8 +108,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }

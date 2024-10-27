@@ -7,21 +7,20 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
-import com.google.android.gms.analytics.HitBuilders
+import androidx.appcompat.widget.Toolbar
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
-import com.vadym.gvd.bestfriendskotlin.tracker
-import kotlinx.android.synthetic.main.view_father_kido_intro.*
 
 class FatherKidoUnificationViewIntro: MainActivity() {
 
-    private lateinit var rv: androidx.recyclerview.widget.RecyclerView
+    private lateinit var rv: RecyclerView
     private val kido = ArrayList<KidoUnification>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido_intro)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -29,8 +28,6 @@ class FatherKidoUnificationViewIntro: MainActivity() {
         }
         toolbar.setNavigationOnClickListener { onBackPressed() }
 
-        tracker().setScreenName("Kido Unification")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
         init()
     }
 
@@ -57,7 +54,7 @@ class FatherKidoUnificationViewIntro: MainActivity() {
 
     private fun init() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         rv.hasFixedSize()
 
         kido.add(KidoUnification(getString(R.string.pr_unification_1), getString(R.string.pr_unification_1t)))

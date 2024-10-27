@@ -6,14 +6,24 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.google.android.gms.analytics.HitBuilders
-import com.vadym.gvd.bestfriendskotlin.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.vadym.gvd.bestfriendskotlin.MainActivity
+import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.condition.adapter.ConditionAdapter
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
-import kotlinx.android.synthetic.main.view_condition.*
-import java.util.*
+import com.vadym.gvd.bestfriendskotlin.formatterDate
+import com.vadym.gvd.bestfriendskotlin.restartActivity
+import java.util.Calendar
+import java.util.Collections
 
 class ConditionView : MainActivity() {
 
@@ -22,40 +32,43 @@ class ConditionView : MainActivity() {
     private lateinit var database: ConditionSqlDB
     private lateinit var adapter: ConditionAdapter
     private lateinit var itemTouchHelper: ItemTouchHelper
+    private lateinit var viewListCondition: RecyclerView
+    private lateinit var fab: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_condition)
+        viewListCondition = findViewById(R.id.view_list_condition)
+        fab = findViewById(R.id.fab)
         toolbarButtonMenu()
         showOrHideFab()
-        tracker().setScreenName("Condition Screen")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
 
         fab.setOnClickListener { addTaskDialog() }
         emptyPage = findViewById(R.id.list_condition_empty)
 
         itemTouchHelper = ItemTouchHelper(touchHelperCallback()).apply {
-            attachToRecyclerView(view_list_condition)
+            attachToRecyclerView(viewListCondition)
         }
 
-        view_list_condition.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        view_list_condition.setHasFixedSize(true)
+        viewListCondition.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        viewListCondition.setHasFixedSize(true)
         database = ConditionSqlDB.getInstance(this)
         listCondition = database.listConditions()
 
         if (listCondition.isNotEmpty()) {
-            view_list_condition.visibility = View.VISIBLE
+            viewListCondition.visibility = View.VISIBLE
             adapter = ConditionAdapter(this, database, listCondition) {
                 onStartDrag(it)
             }
-            view_list_condition.adapter = adapter
+            viewListCondition.adapter = adapter
         } else {
-            view_list_condition.visibility = View.GONE
+            viewListCondition.visibility = View.GONE
             emptyPage.visibility = View.VISIBLE
         }
     }
 
     private fun toolbarButtonMenu() {
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -65,8 +78,8 @@ class ConditionView : MainActivity() {
     }
 
     private fun showOrHideFab() {
-        view_list_condition.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: androidx.recyclerview.widget.RecyclerView, dx: Int, dy: Int) {
+        viewListCondition.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 if (dy > 0 && fab.visibility == View.VISIBLE) {
                     fab.hide()
@@ -148,18 +161,18 @@ class ConditionView : MainActivity() {
     }
 
 
-    private fun onStartDrag(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder) {
+    private fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
         itemTouchHelper.startDrag(viewHolder)
     }
 
     private fun touchHelperCallback() = object : ItemTouchHelper.Callback() {
-        override fun getMovementFlags(recyclerView: androidx.recyclerview.widget.RecyclerView, viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder): Int {
+        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
             val dragFlags: Int = ItemTouchHelper.UP.or(ItemTouchHelper.DOWN)
             val swipeFlags: Int = ItemTouchHelper.ACTION_STATE_DRAG
             return makeMovementFlags(dragFlags, swipeFlags)
         }
 
-        override fun onMove(recyclerView: androidx.recyclerview.widget.RecyclerView, viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, target: androidx.recyclerview.widget.RecyclerView.ViewHolder): Boolean {
+        override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
             adapter.notifyItemMoved(viewHolder.adapterPosition, target.adapterPosition)
             drop(viewHolder.adapterPosition, target.adapterPosition)
             return true
@@ -169,7 +182,7 @@ class ConditionView : MainActivity() {
             return false
         }
 
-        override fun onSwiped(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, direction: Int) {}
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
     }
 
     fun drop(from: Int, to: Int) {

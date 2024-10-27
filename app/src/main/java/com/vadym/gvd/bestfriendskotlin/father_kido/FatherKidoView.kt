@@ -3,6 +3,8 @@ package com.vadym.gvd.bestfriendskotlin.father_kido
 import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.devotion.FatherKidoDevotionViewIntro
@@ -17,8 +19,6 @@ import com.vadym.gvd.bestfriendskotlin.father_kido.intro.serdca.FatherKidoSerdca
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.unification.FatherKidoUnificationViewIntro
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
-import com.vadym.gvd.bestfriendskotlin.tracker
-import com.google.android.gms.analytics.HitBuilders
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamingan.KidoChaminganView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamkajon.KidoChamkajonView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chammanmul.KidoChammanmulView
@@ -32,7 +32,6 @@ import com.vadym.gvd.bestfriendskotlin.father_kido.intro.penhwamesigi.KidoPenhwa
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.penhwasasan.KidoPenhwasasanView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.suren.KidoSurenView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.yongye.KidoYongyeView
-import kotlinx.android.synthetic.main.view_father_kido.*
 
 
 class FatherKidoView : MainActivity() {
@@ -41,11 +40,10 @@ class FatherKidoView : MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido)
         toolbarButtonMenu()
-        tracker().setScreenName("Father Kido")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
 
-        view_list_tpkido.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        view_list_tpkido.hasFixedSize()
+        val viewListKido = findViewById<RecyclerView>(R.id.view_list_tpkido)
+        viewListKido.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        viewListKido.hasFixedSize()
 
         val books = ArrayList<FatherKido>()
         books.add(FatherKido(1, getString(R.string.pr_nadezdy)))
@@ -76,10 +74,11 @@ class FatherKidoView : MainActivity() {
         books.add(FatherKido(25, getString(R.string.b_penhwamesigi)))
 
         val adapter = FatherKidoAdapter(books) { booksItem: FatherKido -> booksItemClicked(booksItem) }
-        view_list_tpkido.adapter = adapter
+        viewListKido.adapter = adapter
     }
 
     private fun toolbarButtonMenu() {
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -89,12 +88,6 @@ class FatherKidoView : MainActivity() {
     }
 
     private fun booksItemClicked(booksItem: FatherKido) {
-
-        tracker().send(HitBuilders.EventBuilder()
-                .setCategory("Father Kido")
-                .setAction(booksItem.booksID.toString())
-                .build())
-
         when(booksItem.booksID) {
             1 -> startActivity(Intent(this, FatherKidoNadezdyViewIntro::class.java))
             2 -> startActivity(Intent(this, FatherKidoZelaniyaViewIntro::class.java))

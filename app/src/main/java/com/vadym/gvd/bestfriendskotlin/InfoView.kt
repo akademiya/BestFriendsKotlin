@@ -6,20 +6,28 @@ import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.analytics.HitBuilders
-import kotlinx.android.synthetic.main.view_info.*
 
 
 class InfoView : MainActivity() {
     private val rater = object : AppRater(){}
+    private lateinit var privacyPolicy: TextView
+    private lateinit var site: Button
+    private lateinit var version: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_info)
-        tracker().setScreenName("Info")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
 
+        privacyPolicy = findViewById(R.id.private_policy)
+        site = findViewById(R.id.site)
+        version = findViewById(R.id.version)
+
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -27,13 +35,9 @@ class InfoView : MainActivity() {
         }
 
         toolbar.setNavigationOnClickListener { onBackPressed() }
-        private_policy.movementMethod = LinkMovementMethod.getInstance()
+        privacyPolicy.movementMethod = LinkMovementMethod.getInstance()
 
         site.setOnClickListener {
-            tracker().send(HitBuilders.EventBuilder()
-                    .setAction("go-to-site")
-                    .setCategory("Info screen")
-                    .build())
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(resources.getString(R.string.site_link)))
             browserIntent.noAnimation()
             startActivity(browserIntent)

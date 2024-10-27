@@ -4,27 +4,27 @@ import android.app.AlertDialog
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.SystemClock
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.ItemTouchHelper
 import android.text.TextUtils
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toast
-import com.google.android.gms.analytics.HitBuilders
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
 import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
 import com.vadym.gvd.bestfriendskotlin.restartActivity
-import com.vadym.gvd.bestfriendskotlin.tracker
-import kotlinx.android.synthetic.main.view_kido.*
-import java.util.*
+import java.util.Collections
 
 
 class PersonView : MainActivity() {
@@ -34,18 +34,29 @@ class PersonView : MainActivity() {
     private lateinit var adapter: PersonAdapter
     private lateinit var itemTouchHelper: ItemTouchHelper
 
+    private lateinit var fab: FloatingActionButton
+    private lateinit var start: Button
+    private lateinit var stop: Button
+    private lateinit var listKido: RecyclerView
+    private lateinit var chronometer: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kido)
+        fab = findViewById(R.id.fab)
+        start = findViewById(R.id.start)
+        stop = findViewById(R.id.stop)
+        listKido = findViewById(R.id.rv_list_kido)
+        chronometer = findViewById(R.id.chronometer)
+
         toolbarButtonMenu()
         initializ()
         showOrHideFab()
         chronometer()
-        tracker().setScreenName("Kido for Person")
-        tracker().send(HitBuilders.ScreenViewBuilder().build())
     }
 
     private fun toolbarButtonMenu() {
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -59,25 +70,25 @@ class PersonView : MainActivity() {
         listPersonEmpty = findViewById(R.id.list_kido_empty)
 
         itemTouchHelper = ItemTouchHelper(touchHelperCallback()).apply {
-            attachToRecyclerView(rv_list_kido)
+            attachToRecyclerView(listKido)
         }
 
-        rv_list_kido.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        rv_list_kido.setHasFixedSize(true)
+        listKido.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        listKido.setHasFixedSize(true)
 
         database = SqliteDatabase.getInstance(this)
         allPerson = database.listPerson()
 
         if (allPerson.isNotEmpty()) {
-            rv_list_kido.visibility = View.VISIBLE
+            listKido.visibility = View.VISIBLE
             adapter = PersonAdapter(
                     personList = allPerson.sortedBy { it.personPosition },
                     context = this,
                     database = database,
                     onMoveItemTouch = { viewHolder -> onStartDrag(viewHolder) })
-            rv_list_kido.adapter = adapter
+            listKido.adapter = adapter
         } else {
-            rv_list_kido.visibility = View.GONE
+            listKido.visibility = View.GONE
             listPersonEmpty.visibility = View.VISIBLE
         }
     }
@@ -165,8 +176,8 @@ class PersonView : MainActivity() {
     }
 
     private fun showOrHideFab() {
-        rv_list_kido.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: androidx.recyclerview.widget.RecyclerView, dx: Int, dy: Int) {
+        listKido.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 if (dy > 0 && fab.visibility == View.VISIBLE) {
                     fab.hide()
@@ -177,18 +188,18 @@ class PersonView : MainActivity() {
         })
     }
 
-    private fun onStartDrag(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder) {
+    private fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
         itemTouchHelper.startDrag(viewHolder)
     }
 
     private fun touchHelperCallback() = object : ItemTouchHelper.Callback() {
-        override fun getMovementFlags(recyclerView: androidx.recyclerview.widget.RecyclerView, viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder): Int {
+        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
             val dragFlags: Int = ItemTouchHelper.UP.or(ItemTouchHelper.DOWN)
             val swipeFlags: Int = ItemTouchHelper.ACTION_STATE_DRAG
             return makeMovementFlags(dragFlags, swipeFlags)
         }
 
-        override fun onMove(recyclerView: androidx.recyclerview.widget.RecyclerView, viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, target: androidx.recyclerview.widget.RecyclerView.ViewHolder): Boolean {
+        override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
             adapter.notifyItemMoved(viewHolder.adapterPosition, target.adapterPosition)
             drop(viewHolder.adapterPosition, target.adapterPosition)
             return true
@@ -198,7 +209,7 @@ class PersonView : MainActivity() {
             return false
         }
 
-        override fun onSwiped(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, direction: Int) {}
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
     }
 
     fun drop(from: Int, to: Int) {
