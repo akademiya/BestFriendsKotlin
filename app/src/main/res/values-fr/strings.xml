@@ -85,7 +85,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     // EU GDPR Consent texts
-    <string name="eu_consent_text">Cher utilisateur! \n\nNous utilisons Google Analytics pour collecter des informations sur l\'interaction des utilisateurs avec l\'application. Cela contribue au développement ultérieur du projet. Conformément au nouveau règlement européen sur la protection des données (RGPD), nous avons besoin de votre consentement pour collecter des informations.</string>
+    <string name="eu_consent_text">Cher utilisateur! \n\nNous utilisons la Play Console pour publier l\'application et collecter des informations sur l\'interaction des utilisateurs avec l\'application. Cela contribue au développement ultérieur du projet. Conformément au nouveau règlement européen sur la protection des données (RGPD), nous avons besoin de votre consentement pour collecter des informations.</string>
     <string name="eu_consent_question">Lisez les conditions d\'utilisation de vos données et cochez la case pour les accepter.</string>
     <string name="learn_more"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Apprendre <b>Politique de confidentialité</b> comment votre <b>Les données sont utilisées</b></a></string>
     <string name="agree">J\'accepte la politique de confidentialité</string>
@@ -104,13 +104,13 @@
     <string name="duration_value" formatted="false">%s, a partir de %s</string>
 
     // Kajon mense
-    <string name="one"><b>一(일)</b> 천일국 주인 우리 가정​은 참사랑을 중심하고, 본향​땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>
+    <string name="one"><b>一(일)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 본향땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>
     <string name="two"><b>二(이)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님과 참부모님을 모시어, 천주의 대표적 가정이 되며 중심적 가정이 되어, 가정에서는 천주에서는 효자, 국가에서는 충신 세계에서는 성인, 성자의 가정의 도리를 완성할 것을 맹세하나이다.</string>
     <string name="three"><b>三(삼)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 사대심정권과 삼대왕권과 황족권을 완성할 것을 맹세하나이다.</string>
     <string name="four"><b>四(사)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님의 창조이상인 천주 대가족을 형성하여,자유와 평화와 통일과 행복의 세계를 완성할 것을 맹세하나이다.</string>
     <string name="five"><b>五(오)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 매일 주체적 천상세계와 대상적 지상세계의 통일을 향해 전진적 발전을 촉진화할 것을 맹세하나이다.</string>
     <string name="six"><b>六(육)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님과 참부모님의 대신가정으로서, 천운을 움직이는 가정이 되어, 하늘의 축복을 주변에 연결시키는 가정을 완성할 것을 맹세하나이다.</string>
     <string name="seven"><b>七(칠)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 본연의 혈통과 연결된 위하는 생활을 통하여 심정문화세계를 완성할 것을 맹세하나이다.</string>
-    <string name="eight"><b>八(팔)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 천일국시대를 맞이하여 절대신앙, 절대사랑, 절대복종으로 신인애 일체 이상을 이루어 지상천국과 천상천국의 해방권​과 석방권을​ 완성할 것을 맹세하나이다.</string>
+    <string name="eight"><b>八(팔)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 천일국시대를 맞이하여 절대신앙, 절대사랑, 절대복종으로 신인애 일체 이상을 이루어 지상천국과 천상천국의 해방권과 석방권을 완성할 것을 맹세하나이다.</string>
 
 </resources>
