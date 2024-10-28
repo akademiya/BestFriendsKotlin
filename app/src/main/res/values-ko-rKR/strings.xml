@@ -86,7 +86,7 @@
     // Condition
     <string name="toolbar_title">면책 조건</string>
     <string name="condition_title">면책 조건</string>
-    <string name="lider">중심 성격:</string>
+    <string name="lider">중심 성격 (날):</string>
     <string name="duration">기간:</string>
     <string name="date_from">날짜</string>
     <string name="condition">조건:</string>

@@ -86,7 +86,7 @@
     <string name="toolbar_title">Условия посвящения</string>
     <string name="condition_title">Условие посвящения</string>
     <string name="lider">Центральная личность:</string>
-    <string name="duration">Период:</string>
+    <string name="duration">Период (дней):</string>
     <string name="date_from">Начиная с</string>
     <string name="condition">Условие:</string>
     <string name="public_goal">Цель условия:</string>
