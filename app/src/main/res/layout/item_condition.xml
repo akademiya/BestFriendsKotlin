@@ -86,7 +86,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/parent_margin"
             android:layout_toEndOf="@+id/tv_title"
-            android:src="@drawable/ic_notifications"
+            android:src="@drawable/ic_time_off"
             android:visibility="gone"
             tools:visibility="visible" />
     </RelativeLayout>
@@ -110,6 +110,16 @@
         android:id="@+id/tv_duration_value"
         style="@style/ConditionValue"
         tools:text="от и до" />
+
+    <TextView
+        android:id="@+id/tv_to"
+        style="@style/ConditionItems"
+        android:text="@string/date_to" />
+
+    <TextView
+        android:id="@+id/tv_to_value"
+        style="@style/ConditionValue"
+        tools:text="10 april 2024" />
 
     <TextView
         android:id="@+id/tv_condition"

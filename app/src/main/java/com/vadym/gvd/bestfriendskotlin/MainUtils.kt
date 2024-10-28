@@ -10,7 +10,7 @@ import android.widget.PopupMenu
 import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.Year
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 fun doNothing() {}
@@ -93,11 +93,7 @@ fun kidoListPopupMenu(context: Context, view: View, rv: androidx.recyclerview.wi
 
 fun deviceLocale() : Locale {
     val deviceLocaleLanguage = Locale.getDefault().language
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        Locale.Builder().setLanguageTag(deviceLocaleLanguage).build()
-    } else {
-        Locale.getDefault()
-    }
+    return Locale.Builder().setLanguageTag(deviceLocaleLanguage).build()
 }
 
 fun restartActivity(context: Context) {
@@ -109,7 +105,12 @@ fun restartActivity(context: Context) {
 
 fun String.formatterDate() : String {
     val result = SimpleDateFormat("yyyyMMdd", deviceLocale()).parse(this)
-    return SimpleDateFormat("dd MMMM yyyy", deviceLocale()).format(result)
+    return SimpleDateFormat("dd MMMM yyyy", deviceLocale()).format(result!!)
+}
+
+fun LocalDate.formatterDate() : String {
+    val result = DateTimeFormatter.ofPattern("dd MMMM yyyy", deviceLocale())
+    return format(result)
 }
 
 fun Date.formatterDate() : String {

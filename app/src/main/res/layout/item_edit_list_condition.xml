@@ -34,7 +34,7 @@
             android:layout_marginBottom="@dimen/margin8"
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
-            android:hint="@string/duration"
+            android:hint="@string/duration_days"
             android:inputType="number" />
 
         <Button

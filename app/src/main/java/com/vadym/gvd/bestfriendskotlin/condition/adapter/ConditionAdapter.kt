@@ -5,16 +5,26 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.condition.Condition
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
+import com.vadym.gvd.bestfriendskotlin.deviceLocale
+import com.vadym.gvd.bestfriendskotlin.formatterDate
 import com.vadym.gvd.bestfriendskotlin.restartActivity
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class ConditionAdapter(private val context: Context,
                        private val database: ConditionSqlDB,
@@ -35,7 +45,11 @@ class ConditionAdapter(private val context: Context,
             lider?.text = singleCondition.lider
             conditionText?.text = singleCondition.condition
             val durationValue = context.resources.getQuantityString(R.plurals.days, singleCondition.duration?.toInt()!!, singleCondition.duration!!.toInt())
-            duration?.text = String.format(context.resources.getString(R.string.duration_value, durationValue, singleCondition.today))
+            duration.text = String.format(deviceLocale(), context.resources.getString(R.string.duration_value, durationValue, singleCondition.today))
+
+            endCondition.text = calculateEndDate(singleCondition.today.toString(),
+                singleCondition.duration!!
+            )
             pubGoal?.text = if (singleCondition.perGoal?.isNotEmpty()!!) {
                 (singleCondition.pubGoal + "\n" + singleCondition.perGoal)
             } else (singleCondition.pubGoal + singleCondition.perGoal)
@@ -44,6 +58,7 @@ class ConditionAdapter(private val context: Context,
                 title.setTextColor(Color.LTGRAY)
                 lider.setTextColor(Color.LTGRAY)
                 duration.setTextColor(Color.LTGRAY)
+                endCondition.setTextColor(Color.LTGRAY)
                 conditionText.setTextColor(Color.LTGRAY)
                 pubGoal.setTextColor(Color.LTGRAY)
             }
@@ -53,6 +68,7 @@ class ConditionAdapter(private val context: Context,
                 title.setTextColor(Color.DKGRAY)
                 lider?.setTextColor(Color.DKGRAY)
                 duration.setTextColor(Color.DKGRAY)
+                endCondition.setTextColor(Color.DKGRAY)
                 conditionText.setTextColor(Color.DKGRAY)
                 pubGoal.setTextColor(Color.DKGRAY)
                 contextualMenu?.setBackgroundColor(context.resources.getColor(R.color.icon_pressed))
@@ -72,29 +88,10 @@ class ConditionAdapter(private val context: Context,
                 return@setOnTouchListener false
             }
 
-//            val intDuration = if (!singleCondition.duration.isNullOrBlank()) {
-//                singleCondition.duration?.toInt()
-//            } else 0
-//            decrementDuration = decrementDurationEachDay().takeIf { decrementDurationEachDay() != 0 } ?: singleCondition.duration?.toInt()!!
-//            val rr = decrementDurationEachDay()
-//            durationLeftover.text = context.resources.getQuantityString(R.plurals.days, rr, rr)
-//            when (intDuration?.minus(1)) {
-//                0 -> {
-//                    iconStatus.visibility = View.VISIBLE
-//                    iconStatus.setOnClickListener {
-//                        Toast.makeText(context, "Завтра последний день условия", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//                -1 -> {
-//                    iconStatus.visibility = View.VISIBLE
-//                    iconStatus.setImageDrawable(context.resources.getDrawable(R.drawable.ic_delete))
-//                    iconStatus.setOnClickListener {
-//                        onDeleteIconClick(singleCondition, context as Activity)
-//                    }
-//                    title.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-//                }
-//                else -> iconStatus.visibility = View.GONE
-//            }
+
+            if (stringToDate(singleCondition.today.toString()).isEqual(LocalDate.now())) {
+                endOfCondition(this)
+            }
 
         }
     }
@@ -149,25 +146,34 @@ class ConditionAdapter(private val context: Context,
 
     }
 
-//    private fun decrementDurationEachDay() : Long {
-////        var dp = decrementDuration
-////        val scheduler = Executors.newSingleThreadScheduledExecutor()
-////        scheduler.scheduleAtFixedRate({ dp-- }, 1000, 1, TimeUnit.SECONDS)
-//
-//        val dp = Observable.timer(1, TimeUnit.DAYS)
-//        return dp
-//    }
+    private fun calculateEndDate(startDate: String, daysToAdd: String): String {
+        return stringToDate(startDate).plusDays(daysToAdd.toLong()-1).formatterDate()
+    }
+    private fun stringToDate(dateString: String): LocalDate {
+        val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ENGLISH)
+        return LocalDate.parse(dateString, formatter)
+    }
+
+    private fun endOfCondition(holder: VH) {
+        holder.iconStatus.visibility = View.VISIBLE
+        holder.lider.setTextColor(Color.LTGRAY)
+        holder.duration.setTextColor(Color.LTGRAY)
+        holder.endCondition.setTextColor(Color.LTGRAY)
+        holder.conditionText.setTextColor(Color.LTGRAY)
+        holder.pubGoal.setTextColor(Color.LTGRAY)
+    }
 
 
     class VH(view: View) : RecyclerView.ViewHolder(view) {
         val title = view.findViewById<TextView>(R.id.tv_title)
         val lider = view.findViewById<TextView>(R.id.tv_lider_value)
         val duration = view.findViewById<TextView>(R.id.tv_duration_value)
+        val endCondition = view.findViewById<TextView>(R.id.tv_to_value)
         val conditionText = view.findViewById<TextView>(R.id.tv_condition_value)
         val pubGoal = view.findViewById<TextView>(R.id.tv_pub_goal_value)
         val mainItem = view.findViewById<LinearLayout>(R.id.main_item)
         val contextualMenu = view.findViewById<FrameLayout>(R.id.contextual_menu)
-//        val iconStatus = view.findViewById<ImageView>(R.id.ic_status)
+        val iconStatus = view.findViewById<ImageView>(R.id.ic_status)
 
         val goBack = view.findViewById<ImageView>(R.id.go_back)
         val deleteItem = view.findViewById<ImageView>(R.id.delete_item)

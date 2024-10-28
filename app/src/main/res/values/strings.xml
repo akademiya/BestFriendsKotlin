@@ -102,8 +102,10 @@
     <string name="toolbar_title">Indemnity conditions</string>
     <string name="condition_title">Indemnity condition</string>
     <string name="lider">Central figure:</string>
-    <string name="duration">Duration (days):</string>
+    <string name="duration">Duration:</string>
+    <string name="duration_days">Duration (days):</string>
     <string name="date_from">Date from</string>
+    <string name="date_to">End of condition:</string>
     <string name="condition">Condition:</string>
     <string name="public_goal">Goal:</string>
     <string name="leftover">Leftover: </string>
