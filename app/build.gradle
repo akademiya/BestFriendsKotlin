@@ -7,7 +7,7 @@ android {
     compileSdkVersion 34
     defaultConfig {
         applicationId "me.vadym.adv.tfprayer"
-        minSdkVersion 21
+        minSdkVersion 29
         targetSdkVersion 34
         versionCode 28
         versionName "3.07"
