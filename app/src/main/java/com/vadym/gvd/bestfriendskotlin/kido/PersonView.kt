@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -17,7 +18,9 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.vadym.gvd.bestfriendskotlin.Admob
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
@@ -53,6 +56,9 @@ class PersonView : MainActivity() {
         initializ()
         showOrHideFab()
         chronometer()
+
+        val adContainer: AdView = findViewById(R.id.adView)
+        Admob.initializeAdmob(this, adContainer)
     }
 
     private fun toolbarButtonMenu() {
