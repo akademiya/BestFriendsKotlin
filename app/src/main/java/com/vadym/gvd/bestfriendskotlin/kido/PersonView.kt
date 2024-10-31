@@ -51,14 +51,22 @@ class PersonView : MainActivity() {
         stop = findViewById(R.id.stop)
         listKido = findViewById(R.id.rv_list_kido)
         chronometer = findViewById(R.id.chronometer)
+        val adContainer: AdView = findViewById(R.id.adView)
+        val adDivider: View = findViewById(R.id.adDivider)
 
         toolbarButtonMenu()
         initializ()
         showOrHideFab()
         chronometer()
 
-        val adContainer: AdView = findViewById(R.id.adView)
-        Admob.initializeAdmob(this, adContainer)
+        if (isNetworkAvailable(this)) {
+            adContainer.visibility = View.VISIBLE
+            adDivider.visibility = View.VISIBLE
+            Admob.initializeAdmob(this, adContainer)
+        } else {
+            adContainer.visibility = View.GONE
+            adDivider.visibility = View.GONE
+        }
     }
 
     private fun toolbarButtonMenu() {
