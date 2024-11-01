@@ -50,12 +50,33 @@ class InfoView : MainActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.theme_mode, menu)
+        menuInflater.inflate(R.menu.language, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
+            R.id.ko -> {
+                setLocale(this, "ko")
+                recreate()
+            }
+            R.id.en -> {
+                setLocale(this, "en")
+                recreate()
+            }
+            R.id.ua -> {
+                setLocale(this, "uk")
+                recreate()
+            }
+            R.id.fr -> {
+                setLocale(this, "fr")
+                recreate()
+            }
+            R.id.ru -> {
+                setLocale(this, "ru")
+                recreate()
+            }
+
             R.id.light -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 DarkModePreferences(this).darkMode = 0
@@ -69,5 +90,6 @@ class InfoView : MainActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 
 }

@@ -2,6 +2,8 @@ package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
@@ -22,10 +24,12 @@ import com.vadym.gvd.bestfriendskotlin.databinding.ActivityMainBinding
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
 import java.net.URL
+import java.util.Locale
 
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawer: DrawerLayout
     private lateinit var navigationView: NavigationView
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +56,10 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         if (isNetworkAvailable(this)) {
             GetVersionCode(this).execute()
         }
+
+        sharedPreferences = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "en") ?: "en"
+        setLocale(this, languageCode)
     }
 
 
@@ -129,5 +137,18 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             val netInfo = cm.activeNetworkInfo
             return netInfo != null && netInfo.isConnectedOrConnecting
         }
+    }
+
+    fun setLocale(context: Context, languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+
+        val config = Configuration(context.resources.configuration)
+        config.setLocale(locale)
+
+        context.resources.updateConfiguration(config, context.resources.displayMetrics)
+
+        sharedPreferences.edit().putString("language", languageCode).apply()
+//        recreate()
     }
 }

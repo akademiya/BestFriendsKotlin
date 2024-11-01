@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:title="ko"
-        android:id="@+id/ko"/>
+        <item android:title="----- SELECT LANGUAGE -----"/>
+        <item
+            android:id="@+id/ko"
+            android:title="ko - 한국어" />
 
-    <item
-        android:title="en"
-        android:id="@+id/en"/>
+        <item
+            android:id="@+id/en"
+            android:title="en - English" />
 
-    <item
-        android:title="ua"
-        android:id="@+id/ua"/>
+        <item
+            android:id="@+id/ua"
+            android:title="ua - Українська" />
 
-    <item
-        android:title="ru"
-        android:id="@+id/ru"/>
+        <item
+            android:id="@+id/fr"
+            android:title="fr - Français" />
+
+        <item
+            android:id="@+id/ru"
+            android:title="ru - Русский" />
+
+
+
+        <item android:title="----- THEME MODE -----"/>
+        <item
+            android:id="@+id/light"
+            android:title="@string/light" />
+
+        <item
+            android:id="@+id/dark"
+            android:title="@string/dark" />
+
 
 </menu>
