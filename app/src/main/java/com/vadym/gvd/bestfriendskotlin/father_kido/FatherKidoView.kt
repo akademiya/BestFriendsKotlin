@@ -2,9 +2,12 @@ package com.vadym.gvd.bestfriendskotlin.father_kido
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdView
+import com.vadym.gvd.bestfriendskotlin.Admob
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.devotion.FatherKidoDevotionViewIntro
@@ -41,6 +44,8 @@ class FatherKidoView : MainActivity() {
         setContentView(R.layout.view_father_kido)
         toolbarButtonMenu()
 
+        val adContainer: AdView = findViewById(R.id.adView)
+        val adDivider: View = findViewById(R.id.adDivider)
         val viewListKido = findViewById<RecyclerView>(R.id.view_list_tpkido)
         viewListKido.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         viewListKido.hasFixedSize()
@@ -75,6 +80,17 @@ class FatherKidoView : MainActivity() {
 
         val adapter = FatherKidoAdapter(books) { booksItem: FatherKido -> booksItemClicked(booksItem) }
         viewListKido.adapter = adapter
+
+
+
+        if (isNetworkAvailable(this)) {
+            adContainer.visibility = View.VISIBLE
+            adDivider.visibility = View.VISIBLE
+            Admob.initializeAdmob(this, adContainer)
+        } else {
+            adContainer.visibility = View.GONE
+            adDivider.visibility = View.GONE
+        }
     }
 
     private fun toolbarButtonMenu() {

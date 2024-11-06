@@ -22,15 +22,23 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <RelativeLayout
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-5169531562006723/9232760325" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/view_list_tpkido"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_father_kido" />
+    <View
+        android:id="@+id/adDivider"
+        style="@style/AppTheme.HorizontalViewDivider"
+        android:layout_marginTop="5dp" />
 
-    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_list_tpkido"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_father_kido" />
+
 </LinearLayout>

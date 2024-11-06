@@ -73,5 +73,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:21.1.1'
     implementation 'org.jsoup:jsoup:1.13.1'
 
+    implementation 'com.google.android.gms:play-services-ads:23.5.0'
+
 }
 
