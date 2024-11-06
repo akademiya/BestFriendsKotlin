@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.gms.ads.AdView
 import com.google.android.gms.analytics.HitBuilders
 
 
@@ -26,6 +28,7 @@ class InfoView : MainActivity() {
         privacyPolicy = findViewById(R.id.private_policy)
         site = findViewById(R.id.site)
         version = findViewById(R.id.version)
+        val adContainer: AdView = findViewById(R.id.adView)
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -47,6 +50,14 @@ class InfoView : MainActivity() {
 
         val currentVersion: String = "v. " + packageManager.getPackageInfo(packageName, 0).versionName
         version.text = currentVersion
+
+
+        if (isNetworkAvailable(this)) {
+            adContainer.visibility = View.VISIBLE
+            Admob.initializeAdmob(this, adContainer)
+        } else {
+            adContainer.visibility = View.GONE
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
