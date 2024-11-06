@@ -8,3 +8,15 @@
 /build
 /captures
 .externalNativeBuild
+/app/.idea/.gitignore
+/.idea/deploymentTargetSelector.xml
+/.idea/caches/deviceStreaming.xml
+/app/.idea/caches/deviceStreaming.xml
+/app/.idea/gradle.xml
+/.idea/kotlinc.xml
+/app/local.properties
+/app/.idea/migrations.xml
+/app/.idea/misc.xml
+/.idea/runConfigurations.xml
+/app/.idea/runConfigurations.xml
+/app/.idea/vcs.xml
