@@ -6,14 +6,14 @@
     <string name="advert">광고</string>
     <string name="konkurs">형제 자매 여러분, 읽기는 간단하다고 생각합니다. 그러나 여러분의 생생한 경험, 기도가 여러분의 삶에서 어떻게 작용하는지, 또는 한때 기도가 어떻게 도움이 되었는지는 매우 흥미롭고 다른 사람들에게 격려가 됩니다. 귀하의 경험을 우편으로 보내주시면 기꺼이 게시하겠습니다(다른 언어로의 번역을 통한 번역).</string>
     <string name="sorrow">업데이트 후기도 목록 페이지가 보이지 않으면 전화-응용 프로그램-설치된 응용 프로그램 "TF기도"를 찾아 "데이터 지우기"를 클릭하면이 문제가 해결 될 수 있습니다. 불편을 드려 죄송합니다</string>
-    <string name="info_text">안녕하세요. 나는 바딤이다. \n\n신청서는기도 목록 용으로 만 설계되었습니다. 메인 페이지에는 항상 참 부모님이 있습니다. "기도 목록"메뉴를 사용하여 항목을 추가, 편집 및 삭제할 수 있습니다. 당신은 당신이기도하는 대상 / 항목을 선택할 수 있습니다. 시간을 세는 크로노 미터도 있습니다. 3 분, 7 분, 12 분, 21 분, 40 분 후, 신호는 시간에 따라 만료 된 메시지와 함께 울립니다. \n\n"아버지의기도"메뉴는 당분간 러시아어로 번역 된기도 모음입니다. \n\n신청서에 따라 언제든지 탈퇴 할 수 있습니다. 원한다면 돈을 이체함으로써 감사를 표현할 수 있습니다.</string>
+    <string name="info_text">안녕하세요. 나는 바딤이다. \n\n신청서는기도 목록 용으로 만 설계되었습니다. 메인 페이지에는 항상 참 부모님이 있습니다. "기도 목록"메뉴를 사용하여 항목을 추가, 편집 및 삭제할 수 있습니다. 당신은 당신이기도하는 대상 / 항목을 선택할 수 있습니다. 시간을 세는 크로노 미터도 있습니다. 3 분, 7 분, 12 분, 21 분, 40 분 후, 신호는 시간에 따라 만료 된 메시지와 함께 울립니다. \n\n"아버지의기도"메뉴는 당분간 러시아어로 번역 된기도 모음입니다. \n\n앱에 대한 제안이 있으시면 저에게 알려주세요. 반드시 참고하겠습니다.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">개인 정책</a></string>
     <string name="site">사이트 (en)</string>
     <string name="site_link">https://sites.google.com/view/tfprayer/main-en</string>
     <string name="about">응용 프로그램 정보</string>
     <string name="experiences_prayer">내 삶의기도</string>
     <string name="share_by">몫:</string>
-    <string name="share_body">I want to share "TF PRAYER" application.\n</string>
+    <string name="share_body">"TF PRAYER" 애플리케이션을 공유하고 싶습니다.\n</string>
     <string name="empty_list">목록이 비어 있습니다</string>
     <string name="author">작성자: Vadym Gryganskiy</string>
     <string name="email">이메일: vadym.adv@gmail.com</string>
@@ -47,7 +47,7 @@
     <string name="something_wrong">쓸 수 없습니다. 입력 데이터 확인</string>
     <string name="name">이름</string>
     <string name="description">서술</string>
-    <string name="add_new_condition">Add new condition</string>
+    <string name="add_new_condition">새로운 조건 추가</string>
     <string name="add_condition">@string/add_person</string>
     <string name="edit_condition">@string/edit_person</string>
 
@@ -74,7 +74,7 @@
     <string name="mense">가정 맹세</string>
     <string name="anthem">축가</string>
     <string name="anthem_chonilguk">천일국의 축가</string>
-    <string name="menu_condition">Condition</string>
+    <string name="menu_condition">구속의 조건</string>
     <string name="kido_list">기도 목록</string>
     <string name="communicate">접촉</string>
     <string name="share">몫</string>
@@ -100,6 +100,16 @@
     <string name="agree">개인 정보 보호 정책에 동의합니다</string>
     <string name="error_accept">계속하려면 개인 정보 보호 정책에 동의해야합니다.</string>
     <string name="let_continue">시작하다</string>
+
+    // Kajon mense
+    <string name="one"><b>一(일)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 본향땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>
+    <string name="two"><b>二(이)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님과 참부모님을 모시어, 천주의 대표적 가정이 되며 중심적 가정이 되어, 가정에서는 천주에서는 효자, 국가에서는 충신 세계에서는 성인, 성자의 가정의 도리를 완성할 것을 맹세하나이다.</string>
+    <string name="three"><b>三(삼)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 사대심정권과 삼대왕권과 황족권을 완성할 것을 맹세하나이다.</string>
+    <string name="four"><b>四(사)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님의 창조이상인 천주 대가족을 형성하여,자유와 평화와 통일과 행복의 세계를 완성할 것을 맹세하나이다.</string>
+    <string name="five"><b>五(오)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 매일 주체적 천상세계와 대상적 지상세계의 통일을 향해 전진적 발전을 촉진화할 것을 맹세하나이다.</string>
+    <string name="six"><b>六(육)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님과 참부모님의 대신가정으로서, 천운을 움직이는 가정이 되어, 하늘의 축복을 주변에 연결시키는 가정을 완성할 것을 맹세하나이다.</string>
+    <string name="seven"><b>七(칠)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 본연의 혈통과 연결된 위하는 생활을 통하여 심정문화세계를 완성할 것을 맹세하나이다.</string>
+    <string name="eight"><b>八(팔)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 천일국시대를 맞이하여 절대신앙, 절대사랑, 절대복종으로 신인애 일체 이상을 이루어 지상천국과 천상천국의 해방권과 석방권을 완성할 것을 맹세하나이다.</string>
 
     // TP kido books
     <string name="pr_nadezdy">소망편</string>

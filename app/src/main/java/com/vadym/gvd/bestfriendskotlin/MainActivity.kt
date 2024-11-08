@@ -2,37 +2,32 @@ package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.gms.analytics.HitBuilders
 import com.google.android.material.navigation.NavigationView
 import com.vadym.gvd.bestfriendskotlin.condition.ConditionView
-import com.vadym.gvd.bestfriendskotlin.databinding.ActivityMainBinding
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
 import java.net.URL
 import java.util.Locale
 
+
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawer: DrawerLayout
     private lateinit var navigationView: NavigationView
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadLocal()
         setContentView(R.layout.activity_main)
         CheckTheme.checkTheme(this, delegate)
         screenOn(this)
@@ -57,9 +52,20 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             GetVersionCode(this).execute()
         }
 
-        sharedPreferences = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
-        val languageCode = sharedPreferences.getString("language", "en") ?: "en"
+
+    }
+
+    private fun loadLocal() {
+        val sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "") ?: "en"
         setLocale(this, languageCode)
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        val sharedPreferences = newBase.getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "") ?: "en"
+        val localeUpdatedContext = setLocale(newBase, languageCode)
+        super.attachBaseContext(localeUpdatedContext)
     }
 
 
@@ -135,16 +141,20 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }
     }
 
-    fun setLocale(context: Context, languageCode: String) {
+    fun setLocale(context: Context, languageCode: String) : Context {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
-
-        val config = Configuration(context.resources.configuration)
+        val config = context.resources.configuration
         config.setLocale(locale)
 
         context.resources.updateConfiguration(config, context.resources.displayMetrics)
 
+        val sharedPreferences = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         sharedPreferences.edit().putString("language", languageCode).apply()
-//        recreate()
+
+        return context.createConfigurationContext(config)
     }
+
+
+
 }

@@ -6,7 +6,7 @@
     <string name="advert">Advertising</string>
     <string name="konkurs">Brothers and sisters, I think the reading is simple, but your lived experience, how prayer works in your life, or how prayer once helped, is extremely interesting and encouraging to others. If you write me your experience by mail, I will be happy to publish it (translation through translate to other languages)</string>
     <string name="sorrow">If after the update you do not see the prayer list page, this can be fixed if you go to the settings of the phone - application - find the installed application "TF Prayer" and click "clear data". I apologize for this inconvenience.</string>
-    <string name="info_text">Hello. I`m Vadym. \n\nThe application is designed only for the prayer list. On the main page there will always be True Parents. The "Prayer List" menu allows you to add, edit and delete items. In the circle counter, how many times do you call the name of the person you pray for. There is also a chronometer that counts the time. After 3, 7, 12, 21, 40 minutes, a signal will sound with a message that expired according to the time. \n\nThe "Father's Prayer" menu is a collection of prayers that are in translation to russian for the time being. \n\nYou can always unsubscribe to me according to the wishes of the application. If you want, you can express gratitude by transferring the money.</string>
+    <string name="info_text">Hello. I`m Vadym. \n\nThe application is designed only for the prayer list. On the main page there will always be True Parents. The "Prayer List" menu allows you to add, edit and delete items. In the circle counter, how many times do you call the name of the person you pray for. There is also a chronometer that counts the time. After 3, 7, 12, 21, 40 minutes, a signal will sound with a message that expired according to the time. \n\nThe "Father's Prayer" menu is a collection of prayers that are in translation to russian for the time being. \n\nIf there are any suggestions regarding the app, please write to me. I will definitely take them into consideration.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Privacy policy</a></string>
     <string name="site">Site</string>
     <string name="site_link">https://sites.google.com/view/tfprayer/main-en</string>
@@ -78,7 +78,7 @@
     <string name="tp_kido">Prayers of Father</string>
     <string name="tp_mKido">Prayers of True Father</string>
     <string name="mense">Family Pledge</string>
-    <string name="mense_k">가정 맹세</string>
+<!--    <string name="mense_k">가정 맹세</string>-->
     <string name="anthem">Anthem</string>
     <string name="menu_condition">Condition</string>
     <string name="anthem_chonilguk">Anthem of Cheon Il Guk</string>
@@ -110,14 +110,14 @@
     <string name="duration_value" formatted="false">%s, starting from %s</string>
 
     // Kajon mense
-    <string name="one"><b>一(일)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 본향땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>
-    <string name="two"><b>二(이)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님과 참부모님을 모시어, 천주의 대표적 가정이 되며 중심적 가정이 되어, 가정에서는 천주에서는 효자, 국가에서는 충신 세계에서는 성인, 성자의 가정의 도리를 완성할 것을 맹세하나이다.</string>
-    <string name="three"><b>三(삼)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 사대심정권과 삼대왕권과 황족권을 완성할 것을 맹세하나이다.</string>
-    <string name="four"><b>四(사)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님의 창조이상인 천주 대가족을 형성하여,자유와 평화와 통일과 행복의 세계를 완성할 것을 맹세하나이다.</string>
-    <string name="five"><b>五(오)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 매일 주체적 천상세계와 대상적 지상세계의 통일을 향해 전진적 발전을 촉진화할 것을 맹세하나이다.</string>
-    <string name="six"><b>六(육)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님과 참부모님의 대신가정으로서, 천운을 움직이는 가정이 되어, 하늘의 축복을 주변에 연결시키는 가정을 완성할 것을 맹세하나이다.</string>
-    <string name="seven"><b>七(칠)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 본연의 혈통과 연결된 위하는 생활을 통하여 심정문화세계를 완성할 것을 맹세하나이다.</string>
-    <string name="eight"><b>八(팔)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 천일국시대를 맞이하여 절대신앙, 절대사랑, 절대복종으로 신인애 일체 이상을 이루어 지상천국과 천상천국의 해방권과 석방권을 완성할 것을 맹세하나이다.</string>
+    <string name="one"><b>1.</b> Our family, the owner of Cheon Il Guk, pledges to seek our original homeland and build the Kingdom of God on earth and in heaven, the original ideal of creation, by centering on true love.</string>
+    <string name="two"><b>2.</b> Our family, the owner of Cheon Il Guk, pledges to represent and become central to heaven and earth by attending the Heavenly Parent and True Parents; we pledge to perfect the dutiful family way of filial sons and daughters in our family, patriots in our nation, saints in the world, and divine sons and daughters in heaven and on earth, by centering on true love.</string>
+    <string name="three"><b>3.</b> Our family, the owner of Cheon Il Guk, pledges to perfect the Four Great Realms of Heart, the Three Great Kingships and the Realm of the Royal Family, by centering on true love.</string>
+    <string name="four"><b>4.</b> Our family, the owner of Cheon Il Guk, pledges to build the universal family encompassing heaven and earth, which is the Heavenly Parent\'s ideal of creation, and perfect the world of freedom, peace, unity and happiness, by centering on true love.</string>
+    <string name="five"><b>5.</b> Our family, the owner of Cheon Il Guk, pledges to strive every day to advance the unification of the spirit world and the physical world as subject and object partners, by centering on true love.</string>
+    <string name="six"><b>6.</b> Our family, the owner of Cheon Il Guk, pledges to become a family that moves heavenly fortune by embodying the Heavenly Parent and True Parents, and to perfect a family that conveys Heaven\'s blessing to our community, by centering on true love.</string>
+    <string name="seven"><b>7.</b> Our family, the owner of Cheon Il Guk, pledges, through living for the sake of others, to perfect the world based on the culture of heart, which is rooted in the original lineage, by centering on true love.</string>
+    <string name="eight"><b>8.</b> Our family, the owner of Cheon Il Guk, pledges, having entered the Era of Cheon Il Guk, to achieve the ideal of God and human beings united in love through absolute faith, absolute love and absolute obedience, and to perfect the realm of liberation and complete freedom in the Kingdom of God on earth and in heaven, by centering on true love.</string>
 
     // TP kido books
     <string name="pr_nadezdy">Prayers of Hope</string>

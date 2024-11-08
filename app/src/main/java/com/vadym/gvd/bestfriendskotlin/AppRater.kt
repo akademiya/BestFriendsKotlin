@@ -82,7 +82,7 @@ open class AppRater {
         val btnNo = Button(context)
         btnNo.text = context.resources.getText(R.string.no_rate)
         btnNo.setTextColor(context.resources.getColor(R.color.white))
-        btnNo.setBackgroundColor(context.resources.getColor(R.color.light_gray))
+        btnNo.setBackgroundColor(context.resources.getColor(R.color.colorAccent))
         btnNo.setPadding(0, 30, 0, 30)
         btnNo.setOnClickListener {
             if (editor != null) {

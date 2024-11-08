@@ -2,16 +2,15 @@ package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import com.google.android.gms.analytics.HitBuilders
+import androidx.appcompat.widget.Toolbar
 
-class FragmentMenseEn : MainActivity() {
+class FragmentMenseKo : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_mense_en)
+        setContentView(R.layout.fragment_mense_ko)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)

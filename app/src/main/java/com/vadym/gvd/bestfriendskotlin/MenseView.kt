@@ -2,10 +2,9 @@ package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import com.google.android.gms.analytics.HitBuilders
+import androidx.appcompat.widget.Toolbar
 
 class MenseView : MainActivity() {
 
@@ -25,13 +24,13 @@ class MenseView : MainActivity() {
 
     /** app bar menu переход в activity по клику на item */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.language, menu)
+        menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.ko -> doNothing()
+            R.id.ko -> startActivity(Intent(this, FragmentMenseKo::class.java).noAnimation())
             R.id.en -> startActivity(Intent(this, FragmentMenseEn::class.java).noAnimation())
             R.id.ua -> startActivity(Intent(this, FragmentMenseUa::class.java).noAnimation())
             R.id.ru -> startActivity(Intent(this, FragmentMenseRu::class.java).noAnimation())

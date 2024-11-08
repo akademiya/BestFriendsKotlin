@@ -123,15 +123,3 @@ fun Intent.noAnimation() : Intent {
 fun screenOn(context: Context) {
     (context as Activity).window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 }
-
-//@RequiresApi(Build.VERSION_CODES.O)
-//fun String.formatCustomPeriod() : String {
-//    var y = 0
-//    var m = 0
-//    var d = 0
-//    var intoD = this.toInt()
-//    y = intoD / 365
-//    m = (intoD / 30.4167).toInt()
-//    d = (intoD - (30.4167 * m)).toInt()
-//    return "$y.$m.$d"
-//}

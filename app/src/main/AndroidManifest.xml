@@ -87,6 +87,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".MenseView"
             android:screenOrientation="portrait"/>
+        <activity android:name=".FragmentMenseKo"
+            android:screenOrientation="portrait"/>
         <activity android:name=".FragmentMenseEn"
             android:screenOrientation="portrait"/>
         <activity android:name=".FragmentMenseUa"

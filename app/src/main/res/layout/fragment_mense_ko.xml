@@ -38,41 +38,41 @@
                 android:layout_marginBottom="@dimen/margin8"
                 android:layout_marginTop="@dimen/parent_margin"
                 android:gravity="center_horizontal"
-                android:text="@string/mense"
+                android:text="@string/mense_ko"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
             <TextView
                 style="@style/Kajon_mense"
-                android:text="@string/one" />
+                android:text="@string/one_ko" />
 
             <TextView
                 style="@style/Kajon_mense"
-                android:text="@string/two" />
+                android:text="@string/two_ko" />
 
             <TextView
                 style="@style/Kajon_mense"
-                android:text="@string/three" />
+                android:text="@string/three_ko" />
 
             <TextView
                 style="@style/Kajon_mense"
-                android:text="@string/four" />
+                android:text="@string/four_ko" />
 
             <TextView
                 style="@style/Kajon_mense"
-                android:text="@string/five" />
+                android:text="@string/five_ko" />
 
             <TextView
                 style="@style/Kajon_mense"
-                android:text="@string/six" />
+                android:text="@string/six_ko" />
 
             <TextView
                 style="@style/Kajon_mense"
-                android:text="@string/seven" />
+                android:text="@string/seven_ko" />
 
             <TextView
                 style="@style/Kajon_mense"
-                android:text="@string/eight" />
+                android:text="@string/eight_ko" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

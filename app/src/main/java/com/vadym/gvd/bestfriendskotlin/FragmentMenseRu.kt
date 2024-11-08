@@ -25,16 +25,16 @@ class FragmentMenseRu : MainActivity() {
 
     /** app bar menu переход в activity по клику на item */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.language, menu)
+        menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.ko -> startActivity(Intent(this, MenseView::class.java).noAnimation())
+            R.id.ko -> startActivity(Intent(this, FragmentMenseKo::class.java).noAnimation())
             R.id.en -> startActivity(Intent(this, FragmentMenseEn::class.java).noAnimation())
             R.id.ua -> startActivity(Intent(this, FragmentMenseUa::class.java).noAnimation())
-            R.id.ru -> doNothing()
+            R.id.ru -> startActivity(Intent(this, FragmentMenseRu::class.java).noAnimation())
         }
         return super.onOptionsItemSelected(item)
     }

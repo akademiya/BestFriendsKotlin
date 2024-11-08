@@ -9,10 +9,8 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.ads.AdView
-import com.google.android.gms.analytics.HitBuilders
 
 
 class InfoView : MainActivity() {
@@ -67,39 +65,26 @@ class InfoView : MainActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.ko -> {
-                setLocale(this, "ko")
-                recreate()
-            }
-            R.id.en -> {
-                setLocale(this, "en")
-                recreate()
-            }
-            R.id.ua -> {
-                setLocale(this, "uk")
-                recreate()
-            }
-            R.id.fr -> {
-                setLocale(this, "fr")
-                recreate()
-            }
-            R.id.ru -> {
-                setLocale(this, "ru")
-                recreate()
-            }
-
-            R.id.light -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                DarkModePreferences(this).darkMode = 0
-                delegate.applyDayNight()
-            }
-            R.id.dark -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                DarkModePreferences(this).darkMode = 1
-                delegate.applyDayNight()
-            }
+            R.id.ko -> setAppLanguage("ko")
+            R.id.en -> setAppLanguage("en")
+            R.id.ua -> setAppLanguage("uk")
+            R.id.fr -> setAppLanguage("fr")
+            R.id.ru -> setAppLanguage("ru")
+            R.id.light -> setDarkMode(AppCompatDelegate.MODE_NIGHT_NO)
+            R.id.dark -> setDarkMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setAppLanguage(languageCode: String) {
+        setLocale(this, languageCode)
+        startActivity(Intent(this, MainActivity::class.java))
+    }
+
+    private fun setDarkMode(mode: Int) {
+        AppCompatDelegate.setDefaultNightMode(mode)
+        DarkModePreferences(this).darkMode = if (mode == AppCompatDelegate.MODE_NIGHT_YES) 1 else 0
+        delegate.applyDayNight()
     }
 
 
