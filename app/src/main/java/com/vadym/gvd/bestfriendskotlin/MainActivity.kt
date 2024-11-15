@@ -81,6 +81,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_anthem -> startActivity(Intent(this, AnthemView::class.java).noAnimation())
             R.id.nav_kido -> startActivity(Intent(this, PersonView::class.java).noAnimation())
             R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java).noAnimation())
+            R.id.nav_phrase_day -> startActivity(Intent(this, PhraseForDay::class.java).noAnimation())
             R.id.nav_kido_explanation -> startActivity(Intent(this, ExplanationView::class.java).noAnimation())
             R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java).noAnimation())
 //            R.id.nav_experiences_prayer -> startActivity(Intent(this, ExperiencesPrayerView::class.java).noAnimation())

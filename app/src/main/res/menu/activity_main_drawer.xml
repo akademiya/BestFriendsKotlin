@@ -25,6 +25,11 @@
             android:title="@string/tp_kido" />
 
         <item
+            android:id="@+id/nav_phrase_day"
+            android:icon="@drawable/ic_cookie"
+            android:title="@string/phrase_day" />
+
+        <item
             android:id="@+id/nav_kido_explanation"
             android:icon="@drawable/ic_explanation"
             android:title="@string/explanation" />

@@ -314,7 +314,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/user/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_notifications_none_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/cookie/baseline_cookie_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -324,8 +324,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_notifications" />
-                            <entry key="sourceFile" value="$PROJECT_DIR$/.." />
+                            <entry key="outputName" value="ic_cookie" />
+                            <entry key="sourceFile" value="C:\Users\vadym" />
                           </map>
                         </option>
                       </PersistentState>

@@ -83,6 +83,8 @@
     <string name="menu_condition">Condition</string>
     <string name="anthem_chonilguk">Anthem of Cheon Il Guk</string>
     <string name="kido_list">Prayer list</string>
+    <string name="phrase_day">Phrase for the day</string>
+    <string name="pre_text_phrase">open</string>
     <string name="communicate">Contact</string>
     <string name="share">Share</string>
     <string name="send">Write to the author</string>
@@ -679,5 +681,126 @@
     <string name="b_penhwamesigi_6">6. 2005년 원단 기도 (2005.1.1, p. 1636)</string>
     <string name="b_penhwamesigi_7">7. 2007년 원단 축도 (2007.1.1, p. 1641)</string>
     <string name="b_penhwamesigi_8">8. 참아버님 최후의 기도 다 이루었다! (12.8.13, p. 1646)</string>
+
+    //Phrases
+    <string name="f1">You are stronger than you think</string>
+    <string name="f2">Today is a new beginning</string>
+    <string name="f3">Embrace the journey</string>
+    <string name="f4">Never give up</string>
+    <string name="f5">Stay positive, work hard, make it happen</string>
+    <string name="f6">Be patient with yourself. Growth takes time and effort</string>
+    <string name="f7">Life becomes lighter when you learn to forgive, starting with yourself</string>
+    <string name="f8">Empathy is the bridge that connects hearts and souls</string>
+    <string name="f9">Every experience holds a lesson. Trust that nothing is wasted</string>
+
+    <string name="f10">Remember, your thoughts shape your reality. Choose them wisely</string>
+    <string name="f11">Strength lies in the willingness to begin, regardless of fear</string>
+    <string name="f12">Peace comes not from the absence of challenges, but from the presence of inner strength</string>
+    <string name="f13">Awaken each day with gratitude, and life will reveal its hidden wonders</string>
+    <string name="f14">Change begins the moment you accept yourself as you are</string>
+    <string name="f15">Trust that every journey holds meaning, even when the destination is unclear</string>
+    <string name="f16">Your potential is only as limited as the fears you let define you</string>
+    <string name="f17">Be present, for the moment you live now is a gift that will not come again</string>
+    <string name="f18">In silence, you will find answers that words cannot reveal</string>
+    <string name="f19">Kindness is the simplest form of generosity. Offer it freely</string>
+
+    <string name="f20">Let go of what you cannot control and free yourself to embrace joy</string>
+    <string name="f21">True strength lies in gentleness. It is powerful yet compassionate</string>
+    <string name="f22">Setbacks are lessons, reminding you to align with your true path</string>
+    <string name="f23">Courage is not the absence of fear but the mastery of it</string>
+    <string name="f24">The peace you seek is within. Quiet your mind, and you shall find it</string>
+    <string name="f25">Gratitude turns what we have into enough</string>
+    <string name="f26">Focus on progress, not perfection. Every step forward counts</string>
+    <string name="f27">You cannot control the waves, but you can learn to ride them</string>
+    <string name="f28">With every breath, you have the power to begin anew</string>
+    <string name="f29">Sometimes, the journey is the reward. Cherish each step</string>
+
+    <string name="f30">Happiness is found in the simplicity of being, not in having</string>
+    <string name="f31">True joy is in the journey, not in the destination</string>
+    <string name="f32">When you are at peace with yourself, the world around you reflects it</string>
+    <string name="f33">True happiness is not dependent on external circumstances. It comes from within</string>
+    <string name="f34">What you give to others, you give to yourself</string>
+    <string name="f35">The world becomes brighter when you choose to see the beauty in it</string>
+    <string name="f36">Kindness is the language the heart speaks, and everyone understands</string>
+    <string name="f37">Trust that you are exactly where you need to be in this moment</string>
+    <string name="f38">Celebrate small victories. They lead to great achievements</string>
+    <string name="f39">Every thought is a seed. Plant those that nourish your spirit</string>
+
+    <string name="f40">See obstacles as opportunities. They reveal your true strength</string>
+    <string name="f41">The greatest growth happens outside of your comfort zone</string>
+    <string name="f42">Be the light you wish to see in the world. It starts with you</string>
+    <string name="f43">Your spirit is as vast as the universe. Nurture it with love</string>
+    <string name="f44">Patience brings understanding, and understanding brings peace</string>
+    <string name="f45">Life\’s most profound lessons often come in silence</string>
+    <string name="f46">To find peace, seek to understand, not to control</string>
+    <string name="f47">Gratitude is a magnet for miracles. Practice it daily</string>
+    <string name="f48">Love and kindness are the two wings that uplift the soul</string>
+    <string name="f49">Every moment is a chance to create anew. Make it meaningful</string>
+
+    <string name="f50">Seek simplicity in a complex world, and you will find clarity</string>
+    <string name="f51">Embrace your uniqueness, for it is your greatest gift</string>
+    <string name="f52">Life is a mirror. What you give is reflected back to you</string>
+    <string name="f53">Be patient. Every seed you plant today will bloom in time</string>
+    <string name="f54">Your inner peace cannot be disturbed unless you allow it</string>
+    <string name="f55">The universe speaks through silence. Listen deeply</string>
+    <string name="f56">What you focus on grows. Nurture positivity in your life</string>
+    <string name="f57">The mind is like water. It becomes clear when still</string>
+    <string name="f58">Courage is the ability to face the unknown with an open heart</string>
+    <string name="f59">Love without attachment. Give without expectation</string>
+
+    <string name="f60">Release the past, embrace the present, and trust the future</string>
+    <string name="f61">True wisdom comes from the heart, not the intellect</string>
+    <string name="f62">Every soul you meet is a mirror of yourself</string>
+    <string name="f63">Success is found in being true to who you are</string>
+    <string name="f64">A compassionate heart can change the world</string>
+    <string name="f65">To live fully, you must let go of fear</string>
+    <string name="f66">Focus on what you can control and let go of the rest</string>
+    <string name="f67">Growth happens when you step out of your comfort zone</string>
+    <string name="f68">Be like water: adapt, flow, and embrace change</string>
+    <string name="f69">The more you give, the more you receive</string>
+
+    <string name="f70">Success is not defined by what you have, but by who you are</string>
+    <string name="f71">Faith is not the absence of doubt but the presence of hope</string>
+    <string name="f72">You don\’t need to have all the answers to move forward</string>
+    <string name="f73">Let love be the foundation of every choice you make</string>
+    <string name="f74">The only limits are the ones you place on yourself</string>
+    <string name="f75">God\’s love is like an ocean, endless and all-encompassing</string>
+    <string name="f76">To love another person is to see the face of God</string>
+    <string name="f77">Where there is love, there is God</string>
+    <string name="f78">Love is the bridge between you and everything</string>
+    <string name="f79">Seek God in the silence of your heart, for there, He dwells</string>
+
+    <string name="f80">True love is selfless, patient, and kind, reflecting the divine</string>
+    <string name="f81">Let your actions be guided by love, for love is the highest path</string>
+    <string name="f82">God whispers through the gentle moments of our lives</string>
+    <string name="f83">To know God, first know the love within yourself</string>
+    <string name="f84">The light of God shines brightest in hearts filled with love</string>
+    <string name="f85">Love is a sacred gift from God, meant to be shared freely</string>
+    <string name="f86">Faith in God brings peace to the restless heart</string>
+    <string name="f87">God is not found in the noise but in the quiet presence of love</string>
+    <string name="f88">When you love deeply, you reflect a piece of God\’s own heart</string>
+    <string name="f89">A heart filled with love is a temple where God resides</string>
+
+    <string name="f90">God\’s grace flows like a river. Let it wash over you</string>
+    <string name="f91">Love without expectation. In this, you walk with God</string>
+    <string name="f92">Faith is trust in God\’s love, even when you cannot see the way</string>
+    <string name="f93">The path to God is through acts of kindness and compassion</string>
+    <string name="f94">God\’s presence is felt most in moments of forgiveness</string>
+    <string name="f95">Love is not merely a feeling. It is a way of being</string>
+    <string name="f96">A life lived in love is a life close to the Divine</string>
+    <string name="f97">Inner peace begins when you choose not to allow others to control your emotions</string>
+    <string name="f98">Compassion for others begins with kindness to oneself</string>
+    <string name="f99">The greatest gift you can give the world is a heart full of love</string>
+
+    <string name="f100">Selflessness is the doorway to true peace</string>
+    <string name="f101">Seek to understand before seeking to be understood</string>
+    <string name="f102">Your heart is a mirror of your soul. Let it reflect love and kindness</string>
+    <string name="f103">In every breath, there is a chance to find peace, to return to love</string>
+    <string name="f104">True happiness is not in external things but in inner freedom</string>
+    <string name="f105">To conquer oneself is a greater victory than to conquer thousands</string>
+    <string name="f106">Hatred does not cease by hatred but by love. This is the eternal rule</string>
+    <string name="f107">When you realize how perfect everything is, you will tilt your head back and laugh at the sky</string>
+    <string name="f108">Every experience, good or bad, is an opportunity for growth</string>
+    <string name="f109">Love and compassion are necessities, not luxuries. Without them, humanity cannot survive</string>
 
 </resources>
