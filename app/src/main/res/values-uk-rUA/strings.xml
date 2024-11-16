@@ -122,7 +122,7 @@
     <string name="pr_voskresheniya">Молитви воскресіння</string>
     <string name="pr_zelaniya">Молитви бажання</string>
     <string name="pr_reshimosty">Молитви рішучості</string>
-    <string name="pr_faith">Молитви віри (en)</string>
+    <string name="pr_faith">Молитви віри (укр, en)</string>
     <string name="pr_loyalty">Молитви відданості і синівської шанобливості (en)</string>
     <string name="pr_restoration">Молитви відновлення (en)</string>
     <string name="pr_devotion">Молитви відданості (en)</string>
@@ -387,6 +387,18 @@
     <string name="pr_reshimosty_29">29. Сподоби нас йти по шляху служіння людству</string>
     <string name="pr_reshimosty_30">30. Допоможи нам стати людьми, готовими відправитися в загальний похід по шляху Божої волі</string>
     <string name="pr_reshimosty_31">31. Допоможи мені самозабутньо виправити Небесний шлях</string>
+
+    <string name="pr_faith_1">1. Дозвольте нам відчути серце Ісуса Христа</string>
+    <string name="pr_faith_2">2. Дозвольте нам стати людьми, які представляють Ісуса</string>
+    <string name="pr_faith_3">3. Дозвольте нам втілити цінність життя Христа</string>
+    <string name="pr_faith_4">4. Ми відчуємо серце Ісуса і підемо шляхом Голгофи</string>
+    <string name="pr_faith_5">5. Дозвольте нам почути голос доброго пастиря</string>
+    <string name="pr_faith_6">6. Дозвольте нам глибоко відчути серце Христа</string>
+    <string name="pr_faith_7">7. Дозвольте нам глибоко відчути страждаюче серце Небес</string>
+    <string name="pr_faith_8">8. Дозвольте цьому дню стати днем, який вирішить скорботу Ісуса</string>
+    <string name="pr_faith_9">9. Дозвольте нам зрозуміти серце Ісуса цього дня</string>
+    <string name="pr_faith_10">10. Дозвольте нам осягнути скорботне становище Ісуса, якого відкинули</string>
+
 
 
     //Phrases
