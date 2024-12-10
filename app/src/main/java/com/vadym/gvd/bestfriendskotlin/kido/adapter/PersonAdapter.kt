@@ -14,6 +14,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.cardview.widget.CardView
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
@@ -39,9 +40,11 @@ class PersonAdapter(private val personList: List<Person>,
         holder.apply {
             personName?.text = singlePerson.personName
             personDescription?.text = singlePerson.personDescription
+            personPhoto.setImageBitmap(singlePerson.personPhoto)
             listView?.setOnLongClickListener {
                 holder.listReview?.visibility = View.VISIBLE
                 holder.counter?.visibility = View.GONE
+                holder.cardImg.visibility = View.GONE
                 holder.personDescription?.setTextColor(Color.LTGRAY)
                 true
             }
@@ -64,6 +67,7 @@ class PersonAdapter(private val personList: List<Person>,
             goBack?.setOnClickListener {
                 holder.listReview?.visibility = View.GONE
                 holder.counter?.visibility = View.VISIBLE
+                holder.cardImg.visibility = View.VISIBLE
                 holder.personDescription?.setTextColor(Color.DKGRAY)
                 holder.listReview?.setBackgroundColor(context.resources.getColor(R.color.icon_pressed))
 
@@ -88,8 +92,13 @@ class PersonAdapter(private val personList: List<Person>,
 
         val nameField = subView.findViewById<EditText>(R.id.create_person_name)
         val descriptionField = subView.findViewById<EditText>(R.id.create_person_description)
+        val imgField = subView.findViewById<ImageView>(R.id.upload_img_person)
+        val btn = subView.findViewById<Button>(R.id.btn_select_photo)
         nameField.setText(person.personName)
         descriptionField.setText(person.personDescription)
+        imgField.setImageBitmap(person.personPhoto)
+        btn.visibility = View.GONE
+
 
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.edit_person)
@@ -98,7 +107,7 @@ class PersonAdapter(private val personList: List<Person>,
         builder.setPositiveButton(R.string.edit_person) { _, _ ->
             val name = nameField.text.toString()
             val description = descriptionField.text.toString()
-            database.updatePerson(Person(person.personId, name, description, person.personPosition))
+            database.updatePerson(Person(person.personId, name, description, person.personPhoto, person.personPosition))
 
             restartActivity(context)
         }
@@ -111,6 +120,7 @@ class PersonAdapter(private val personList: List<Person>,
     class VH(view: View) : RecyclerView.ViewHolder(view) {
         val personName = view.findViewById<TextView>(R.id.person_name)
         val personDescription = view.findViewById<TextView>(R.id.person_description)
+        val personPhoto = view.findViewById<ImageView>(R.id.person_img)
         val counter = view.findViewById<TextView>(R.id.tv_counter)
         val listReview = view.findViewById<FrameLayout>(R.id.listReview)
         val listView = view.findViewById<RelativeLayout>(R.id.listView)
@@ -118,5 +128,6 @@ class PersonAdapter(private val personList: List<Person>,
         val deleteItem = view.findViewById<ImageView>(R.id.delete_item)
         val editItem = view.findViewById<ImageView>(R.id.edit_item)
         val ivMoveItem = view.findViewById<ImageView>(R.id.iv_move_item)
+        val cardImg = view.findViewById<CardView>(R.id.cv_person_img)
     }
 }

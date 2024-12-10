@@ -11,11 +11,34 @@
         android:layout_marginTop="@dimen/margin8"
         android:background="@color/white">
 
+        <ImageView
+            android:id="@+id/upload_img_person"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/upload_img_description"
+            android:src="@drawable/ic_person" />
+
+        <Button
+            android:id="@+id/btn_select_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@+id/upload_img_person"
+            android:background="@color/purple_200"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:drawablePadding="12dp"
+            android:textColor="@color/text_take_photo_button"
+            android:drawableStart="@drawable/ic_take_photo"
+            android:text="@string/select_photo" />
+
         <EditText
             android:id="@+id/create_person_name"
             style="@style/TextStyle_Body2_Primary_Dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/upload_img_person"
             android:layout_marginBottom="@dimen/margin8"
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"

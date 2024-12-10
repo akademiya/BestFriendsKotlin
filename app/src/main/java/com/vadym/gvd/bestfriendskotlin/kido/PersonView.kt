@@ -1,9 +1,19 @@
 package com.vadym.gvd.bestfriendskotlin.kido
 
+import android.app.Activity
 import android.app.AlertDialog
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.os.SystemClock
+import android.provider.MediaStore
 import android.text.TextUtils
 import android.text.format.DateUtils
 import android.view.LayoutInflater
@@ -11,11 +21,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdView
@@ -31,6 +44,8 @@ import java.util.Collections
 
 
 class PersonView : MainActivity() {
+    private val PERMISSION_REQUEST_CODE = 101
+    private val PICK_IMAGE_REQUEST_CODE = 102
     private lateinit var allPerson: List<Person>
     private lateinit var listPersonEmpty: RelativeLayout
     private lateinit var database: SqliteDatabase
@@ -42,6 +57,9 @@ class PersonView : MainActivity() {
     private lateinit var stop: Button
     private lateinit var listKido: RecyclerView
     private lateinit var chronometer: TextView
+
+    private lateinit var uploadPhoto: ImageView
+    private var isImgSelected = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,6 +131,16 @@ class PersonView : MainActivity() {
 
         val nameField = subView.findViewById<EditText>(R.id.create_person_name)
         val descriptionFiled = subView.findViewById<EditText>(R.id.create_person_description)
+        val buttonSelectPhoto = subView.findViewById<Button>(R.id.btn_select_photo)
+        uploadPhoto = subView.findViewById(R.id.upload_img_person)
+
+        buttonSelectPhoto.setOnClickListener {
+            if (checkPermission()) {
+                openGallery()
+            } else {
+                requestPermission()
+            }
+        }
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.add_new_person)
@@ -122,11 +150,16 @@ class PersonView : MainActivity() {
         builder.setPositiveButton(R.string.add_person) { _, _ ->
             val name = nameField.text.toString()
             val description = descriptionFiled.text.toString()
+            val personPhoto = if (::uploadPhoto.isInitialized && isImgSelected) {
+                imageViewToBitmap(uploadPhoto)
+            } else {
+                drawableToBitmap(resources.getDrawable(R.drawable.empty_person))
+            }
 
             if (TextUtils.isEmpty(name)) {
                 Toast.makeText(this, R.string.something_wrong, Toast.LENGTH_SHORT).show()
             } else {
-                val newPerson = Person(name, description, allPerson.lastIndex + 1)
+                val newPerson = Person(name, description, personPhoto, allPerson.lastIndex + 1)
                 database.addPerson(newPerson)
 
                 restartActivity(this)
@@ -136,6 +169,52 @@ class PersonView : MainActivity() {
         builder.setNegativeButton(R.string.cancel) { _, _ -> Toast.makeText(this, R.string.task_cancelled, Toast.LENGTH_SHORT).show() }
         builder.show()
     }
+
+    private fun checkPermission(): Boolean {
+        return ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestPermission() {
+        ActivityCompat.requestPermissions(this,
+            arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_REQUEST_CODE
+        )
+    }
+
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+            val selectedImageUri: Uri? = data.data
+            if (selectedImageUri != null) {
+                uploadPhoto.setImageURI(selectedImageUri)
+                isImgSelected = true
+            }
+        }
+    }
+
+    fun imageViewToBitmap(imageView: ImageView): Bitmap {
+        return (imageView.drawable as BitmapDrawable).bitmap
+    }
+
+    fun drawableToBitmap(drawable: Drawable): Bitmap {
+        if (drawable is BitmapDrawable) {
+            return drawable.bitmap
+        }
+
+        val width = drawable.intrinsicWidth.takeIf { it > 0 } ?: 100 // Default width
+        val height = drawable.intrinsicHeight.takeIf { it > 0 } ?: 100 // Default height
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+        return bitmap
+    }
+
 
     private fun chronometer() {
         val mp = MediaPlayer.create(this, R.raw.ton)
