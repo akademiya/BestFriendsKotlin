@@ -1,11 +1,11 @@
 package com.vadym.gvd.bestfriendskotlin.kido
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
@@ -18,11 +18,9 @@ import android.text.TextUtils
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -97,7 +95,10 @@ class PersonView : MainActivity(), PersonAdapterListener {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { onBackPressed() }
+        toolbar.setNavigationOnClickListener {
+            @Suppress("DEPRECATION")
+            onBackPressed()
+        }
     }
 
     private fun initializ() {
@@ -108,7 +109,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
             attachToRecyclerView(listKido)
         }
 
-        listKido.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        listKido.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         listKido.setHasFixedSize(true)
 
         database = SqliteDatabase.getInstance(this)
@@ -129,6 +130,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun addTaskDialog() {
         val inflater = LayoutInflater.from(this)
         val subView = inflater.inflate(R.layout.item_edit_list_person, null)
@@ -154,6 +156,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
         builder.setPositiveButton(R.string.add_person) { _, _ ->
             val name = nameField.text.toString()
             val description = descriptionFiled.text.toString()
+            @Suppress("DEPRECATION")
             val personPhoto = if (::uploadPhoto.isInitialized && isImgSelected) {
                 imageViewToBitmap(uploadPhoto)
             } else {
@@ -188,6 +191,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
         selectedPerson = person
         isImgEdit = true
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        @Suppress("DEPRECATION")
         startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
     }
 
@@ -197,10 +201,13 @@ class PersonView : MainActivity(), PersonAdapterListener {
 
     private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        @Suppress("DEPRECATION")
         startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        @Suppress("DEPRECATION")
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == PICK_IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
@@ -210,8 +217,8 @@ class PersonView : MainActivity(), PersonAdapterListener {
                     uploadPhoto.setImageURI(selectedImageUri)
                     isImgSelected = true
                 } else {
+                    @Suppress("DEPRECATION")
                     val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
-                    selectedPerson.personPhoto = bitmap
                     onPhotoUpdated(selectedPerson, bitmap)
                     isImgEdit = false
                 }
@@ -252,7 +259,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
             val elapsedMillis = now - Chronometer.base
 
             chronometer.text = DateUtils.formatElapsedTime(elapsedMillis / 1000)
-            if (elapsedMillis < Chronometer.nextBeep)
+            if (elapsedMillis < nextBeep)
                 return@setOnTick
 
             when {
@@ -307,6 +314,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
         itemTouchHelper.startDrag(viewHolder)
     }
 
+    @Suppress("DEPRECATION")
     private fun touchHelperCallback() = object : ItemTouchHelper.Callback() {
         override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
             val dragFlags: Int = ItemTouchHelper.UP.or(ItemTouchHelper.DOWN)

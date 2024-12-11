@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -113,7 +114,7 @@ class PersonAdapter(private val personList: List<Person>,
         builder.setPositiveButton(R.string.edit_person) { _, _ ->
             val name = nameField.text.toString()
             val description = descriptionField.text.toString()
-            database.updatePerson(Person(person.personId, name, description, person.personPhoto, person.personPosition))
+            database.updatePerson(Person(person.personId, name, description, imageViewToBitmap(imgField), person.personPosition))
 
             restartActivity(context)
         }
@@ -125,10 +126,14 @@ class PersonAdapter(private val personList: List<Person>,
     fun updatePersonPhoto(person: Person, newBitmap: Bitmap) {
         val position = personList.indexOf(person)
         if (position != -1) {
-            person.personPhoto = newBitmap
             imgField.setImageBitmap(newBitmap)
-            notifyItemChanged(position)
+//            person.personPhoto = newBitmap
+//            notifyItemChanged(position)
         }
+    }
+
+    private fun imageViewToBitmap(imageView: ImageView): Bitmap {
+        return (imageView.drawable as BitmapDrawable).bitmap
     }
 
 
