@@ -34,7 +34,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
         val res = db.rawQuery("PRAGMA table_info($tableName)", null)
         res.moveToFirst()
         do {
-            val currentColumn = res.getString(1)
+            val currentColumn = res.getString(3)
             if (currentColumn == fieldName) {
                 isExist = true
             }
@@ -117,7 +117,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
         val KEY_ID = "_id"
         val KEY_PERSON_NAME = "personname"
         val KEY_PERSON_DESCRIPTION = "persondescription"
-        val KEY_PERSON_PHOTO = "porsonphoto"
+        val KEY_PERSON_PHOTO = "personphoto"
         val KEY_POSITION = "position"
 
         private var instance: SqliteDatabase? = null

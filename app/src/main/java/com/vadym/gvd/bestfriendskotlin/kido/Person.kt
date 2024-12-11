@@ -6,7 +6,6 @@ class Person {
     var personId: Int = 0
     var personName: String? = null
     var personDescription: String? = null
-//    var personPhoto: String? = null
     var personPhoto: Bitmap? = null
     var personPosition: Int = 0
     var counter: Int = 0

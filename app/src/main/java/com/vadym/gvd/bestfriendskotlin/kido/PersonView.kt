@@ -38,12 +38,13 @@ import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
 import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapter
+import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapterListener
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
 import com.vadym.gvd.bestfriendskotlin.restartActivity
 import java.util.Collections
 
 
-class PersonView : MainActivity() {
+class PersonView : MainActivity(), PersonAdapterListener {
     private val PERMISSION_REQUEST_CODE = 101
     private val PICK_IMAGE_REQUEST_CODE = 102
     private lateinit var allPerson: List<Person>
@@ -60,6 +61,8 @@ class PersonView : MainActivity() {
 
     private lateinit var uploadPhoto: ImageView
     private var isImgSelected = false
+    private var isImgEdit = false
+    private lateinit var selectedPerson: Person
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,7 +120,8 @@ class PersonView : MainActivity() {
                     personList = allPerson.sortedBy { it.personPosition },
                     context = this,
                     database = database,
-                    onMoveItemTouch = { viewHolder -> onStartDrag(viewHolder) })
+                    onMoveItemTouch = { viewHolder -> onStartDrag(viewHolder) },
+                listener = this)
             listKido.adapter = adapter
         } else {
             listKido.visibility = View.GONE
@@ -180,6 +184,17 @@ class PersonView : MainActivity() {
         )
     }
 
+    override fun onSelectPhoto(person: Person) {
+        selectedPerson = person
+        isImgEdit = true
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
+    }
+
+    override fun onPhotoUpdated(person: Person, newBitmap: Bitmap) {
+        adapter.updatePersonPhoto(person, newBitmap)
+    }
+
     private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
@@ -191,17 +206,24 @@ class PersonView : MainActivity() {
         if (requestCode == PICK_IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
             val selectedImageUri: Uri? = data.data
             if (selectedImageUri != null) {
-                uploadPhoto.setImageURI(selectedImageUri)
-                isImgSelected = true
+                if (!isImgEdit) {
+                    uploadPhoto.setImageURI(selectedImageUri)
+                    isImgSelected = true
+                } else {
+                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
+                    selectedPerson.personPhoto = bitmap
+                    onPhotoUpdated(selectedPerson, bitmap)
+                    isImgEdit = false
+                }
             }
         }
     }
 
-    fun imageViewToBitmap(imageView: ImageView): Bitmap {
+    private fun imageViewToBitmap(imageView: ImageView): Bitmap {
         return (imageView.drawable as BitmapDrawable).bitmap
     }
 
-    fun drawableToBitmap(drawable: Drawable): Bitmap {
+    private fun drawableToBitmap(drawable: Drawable): Bitmap {
         if (drawable is BitmapDrawable) {
             return drawable.bitmap
         }

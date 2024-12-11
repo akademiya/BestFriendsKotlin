@@ -1,20 +1,23 @@
 package com.vadym.gvd.bestfriendskotlin.kido.adapter
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.Color
-import android.os.Build
-import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
@@ -24,7 +27,10 @@ import com.vadym.gvd.bestfriendskotlin.restartActivity
 class PersonAdapter(private val personList: List<Person>,
                     private val context: Context,
                     private val database: SqliteDatabase,
-                    private val onMoveItemTouch: (viewHolder: VH) -> Unit) : RecyclerView.Adapter<PersonAdapter.VH>() {
+                    private val onMoveItemTouch: (viewHolder: VH) -> Unit,
+                    private val listener: PersonAdapterListener) : RecyclerView.Adapter<PersonAdapter.VH>() {
+
+    lateinit var imgField: ImageView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH(
             LayoutInflater.from(parent.context).inflate(R.layout.item_kido, parent, false)
@@ -32,8 +38,7 @@ class PersonAdapter(private val personList: List<Person>,
 
     override fun getItemCount(): Int { return personList.size }
 
-    @SuppressLint("ClickableViewAccessibility")
-    @RequiresApi(Build.VERSION_CODES.M)
+    @SuppressLint("ClickableViewAccessibility", "SetTextI18n", "NotifyDataSetChanged")
     override fun onBindViewHolder(holder: VH, position: Int) {
         val singlePerson = personList[position]
 
@@ -92,13 +97,14 @@ class PersonAdapter(private val personList: List<Person>,
 
         val nameField = subView.findViewById<EditText>(R.id.create_person_name)
         val descriptionField = subView.findViewById<EditText>(R.id.create_person_description)
-        val imgField = subView.findViewById<ImageView>(R.id.upload_img_person)
+        imgField = subView.findViewById<ImageView>(R.id.upload_img_person)
         val btn = subView.findViewById<Button>(R.id.btn_select_photo)
         nameField.setText(person.personName)
         descriptionField.setText(person.personDescription)
         imgField.setImageBitmap(person.personPhoto)
-        btn.visibility = View.GONE
-
+        btn.setOnClickListener {
+            listener.onSelectPhoto(person)
+        }
 
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.edit_person)
@@ -116,6 +122,16 @@ class PersonAdapter(private val personList: List<Person>,
         builder.show()
     }
 
+    fun updatePersonPhoto(person: Person, newBitmap: Bitmap) {
+        val position = personList.indexOf(person)
+        if (position != -1) {
+            person.personPhoto = newBitmap
+            imgField.setImageBitmap(newBitmap)
+            notifyItemChanged(position)
+        }
+    }
+
+
 
     class VH(view: View) : RecyclerView.ViewHolder(view) {
         val personName = view.findViewById<TextView>(R.id.person_name)
@@ -130,4 +146,10 @@ class PersonAdapter(private val personList: List<Person>,
         val ivMoveItem = view.findViewById<ImageView>(R.id.iv_move_item)
         val cardImg = view.findViewById<CardView>(R.id.cv_person_img)
     }
+
+}
+
+interface PersonAdapterListener {
+    fun onSelectPhoto(person: Person)
+    fun onPhotoUpdated(person: Person, newBitmap: Bitmap)
 }
