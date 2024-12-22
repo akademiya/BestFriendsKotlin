@@ -1,5 +1,6 @@
 package com.vadym.gvd.bestfriendskotlin.kido.database
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -8,9 +9,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.vadym.gvd.bestfriendskotlin.kido.Person
 import java.io.ByteArrayOutputStream
-import java.util.*
 
-class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class SqliteDatabase private constructor(private val context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_PERSON_TABLE = ("CREATE TABLE $TABLE_PERSONS($KEY_ID INTEGER PRIMARY KEY,$KEY_PERSON_NAME TEXT,$KEY_PERSON_DESCRIPTION TEXT,$KEY_PERSON_PHOTO BLOB,$KEY_POSITION INTEGER)")
@@ -20,7 +20,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         if (oldVersion < DATABASE_VERSION) {
             if (!isFieldExist(TABLE_PERSONS, KEY_PERSON_PHOTO)) {
-                db.execSQL("ALTER TABLE $TABLE_PERSONS ADD COLUMN $KEY_PERSON_PHOTO BLOB;")
+                db.execSQL("ALTER TABLE $TABLE_PERSONS ADD COLUMN $KEY_PERSON_PHOTO BLOB DEFAULT NULL;")
             }
         } else {
             db.execSQL("DROP TABLE IF EXISTS $TABLE_PERSONS")
@@ -28,13 +28,14 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
         }
     }
 
+    @SuppressLint("Recycle")
     private fun isFieldExist(tableName: String, fieldName: String): Boolean {
         var isExist = false
         val db = this.writableDatabase
         val res = db.rawQuery("PRAGMA table_info($tableName)", null)
         res.moveToFirst()
         do {
-            val currentColumn = res.getString(3)
+            val currentColumn = res.getString(1)
             if (currentColumn == fieldName) {
                 isExist = true
             }
@@ -110,7 +111,7 @@ class SqliteDatabase private constructor(context: Context) : SQLiteOpenHelper(co
 
 
     companion object {
-        private val DATABASE_VERSION = 2
+        private val DATABASE_VERSION = 3
         private val DATABASE_NAME = "person"
         val TABLE_PERSONS = "persons"
 

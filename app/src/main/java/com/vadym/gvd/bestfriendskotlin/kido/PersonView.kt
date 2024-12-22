@@ -3,6 +3,7 @@ package com.vadym.gvd.bestfriendskotlin.kido
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -39,6 +40,7 @@ import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapterListener
 import com.vadym.gvd.bestfriendskotlin.kido.database.SqliteDatabase
 import com.vadym.gvd.bestfriendskotlin.restartActivity
+import java.io.File
 import java.util.Collections
 
 
@@ -113,7 +115,13 @@ class PersonView : MainActivity(), PersonAdapterListener {
         listKido.setHasFixedSize(true)
 
         database = SqliteDatabase.getInstance(this)
-        allPerson = database.listPerson()
+        allPerson = try {
+            database.listPerson()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            clearStorageAppDialog()
+            emptyList<Person>()
+        }
 
         if (allPerson.isNotEmpty()) {
             listKido.visibility = View.VISIBLE
@@ -350,5 +358,28 @@ class PersonView : MainActivity(), PersonAdapterListener {
             current.personPosition = index
             database.updateSortPosition(current)
         }
+    }
+
+
+    private fun clearStorageAppDialog() {
+        val inflater = LayoutInflater.from(this)
+        val subView = inflater.inflate(R.layout.view_message, null)
+
+        val nameField = subView.findViewById<TextView>(R.id.dialog_message)
+        nameField.setText(R.string.technical_message)
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.clear_storage_app)
+        builder.setView(subView)
+        builder.create()
+        builder.setPositiveButton(R.string.clear_storage_app_button) { _, _ ->
+            val intent = Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                data = Uri.parse("package:${packageName}")
+            }
+            startActivity(intent)
+        }
+
+        builder.setNegativeButton(R.string.cancel) { _, _ -> Toast.makeText(this, R.string.task_cancelled, Toast.LENGTH_SHORT).show() }
+        builder.show()
     }
 }
