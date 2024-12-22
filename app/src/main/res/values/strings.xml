@@ -60,10 +60,10 @@
     <string name="edit_condition">Edit condition</string>
     <string name="clear_storage_app">Technical issue</string>
     <string name="clear_storage_app_button">Clear storage</string>
-    <string name="technical_message">If you have problems loading the list, please go to app settings -> Storage and cache -> Clear storage.
+    <string name="technical_message">If you have problems loading the list, please go to <b>app settings -> Storage and cache -> Clear storage</b>.
         \n\nThis will delete the old database.
-        \n\nI apologize for this inconvenience.\n\n
-        The list will need to be created in a new way, but it will already contain a photo.</string>
+        \n\nI apologize for this inconvenience.
+        \n\nThe list will need to be created in a new way, but it will already contain a photo.</string>
 
     // Update app dialog
     <string name="up_app_title">A new version of the application has been released. You can update on the Play Market page</string>

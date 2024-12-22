@@ -50,6 +50,12 @@
     <string name="add_new_condition">새로운 조건 추가</string>
     <string name="add_condition">@string/add_person</string>
     <string name="edit_condition">@string/edit_person</string>
+    <string name="clear_storage_app">기술적인 문제</string>
+    <string name="clear_storage_app_button">저장소 비우기</string>
+    <string name="technical_message">목록을 로드하는 데 문제가 있는 <b>경우 앱 설정 -> 데이터 및 캐시 -> 데이터 지우기로 이동하세요</b>.
+        \n\n그러면 이전 데이터베이스가 삭제됩니다.
+        \n\n불편을 끼쳐드려 죄송합니다.
+        \n\n목록은 새로운 방식으로 생성해야 하지만 이미 사진이 포함되어 있습니다.</string>
 
     // Update app dialog
     <string name="up_app_title">새로운 버전의 애플리케이션이 출시되었습니다. Play 마켓 페이지에서 업데이트 할 수 있습니다</string>

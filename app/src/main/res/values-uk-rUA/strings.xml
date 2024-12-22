@@ -50,6 +50,12 @@
     <string name="add_new_condition">Додати нову умову</string>
     <string name="add_condition">@string/add_person</string>
     <string name="edit_condition">@string/edit_person</string>
+    <string name="clear_storage_app">Технічне питання</string>
+    <string name="clear_storage_app_button">Очистити пам\'ять</string>
+    <string name="technical_message">Якщо у Вас виникають проблеми із завантаженням списку, будь ласка, перейдіть до <b>налаштувань додатка -> Пам\'ять і кеш -> Очистити сховище</b>.
+        \n\nЦе видалить стару базу даних.
+        \n\nПрошу вибачення за цю незручність.
+        \n\nСписок необхідно буде по-новому створити, але він вже буде містити фото.</string>
 
     // Update app dialog
     <string name="up_app_title">У мене є оновлення. Качайте на сторінці Play Market</string>

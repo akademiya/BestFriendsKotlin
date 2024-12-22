@@ -50,6 +50,12 @@
     <string name="add_new_condition">Ajouter une nouvelle condition</string>
     <string name="add_condition">Ajouter une condition</string>
     <string name="edit_condition">Modifier la condition</string>
+    <string name="clear_storage_app">Problème technique</string>
+    <string name="clear_storage_app_button">Effacer le stockage</string>
+    <string name="technical_message">Si vous rencontrez des problèmes pour charger la liste, veuillez accéder aux paramètres de <b>l\'application -> effacer les données et le cache -> effacer les données</b>.
+        \n\nCela supprimera l\'ancienne base de données.
+        \n\nJe m\'excuse pour cet inconvénient.
+        \n\nLa liste devra être créée d\'une nouvelle manière, mais elle contiendra déjà une photo.</string>
 
     // Update app dialog
     <string name="up_app_title">Une nouvelle version de l\'application a été publiée. Vous pouvez mettre à jour sur la page Play Market</string>

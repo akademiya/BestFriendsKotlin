@@ -49,6 +49,12 @@
     <string name="add_new_condition">Добавить новое условие</string>
     <string name="add_condition">@string/add_person</string>
     <string name="edit_condition">@string/edit_person</string>
+    <string name="clear_storage_app">Техническая проблема</string>
+    <string name="clear_storage_app_button">Очистить хранилище</string>
+    <string name="technical_message">Если у Вас возникли проблемы с загрузкой списка, пожалуйста, перейдите к <b>настройкам приложения -> данные и кеш -> очистить хранилище</b>.
+        \n\nЭто удалит старую базу данных.
+        \n\nПрошу прощения за это неудобство.
+        \n\nСписок нужно будет по-новому сделать, но он уже будет содержать фото.</string>
 
     // Update app dialog
     <string name="up_app_title">Вышла новая версия приложения. Можете обновить на странице Play Market</string>
