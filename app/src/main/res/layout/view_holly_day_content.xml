@@ -20,7 +20,7 @@
             android:layout_marginEnd="100dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Holly Days"
+            android:text="@string/holly_days"
             tools:text="Holly Days" />
 
     </androidx.appcompat.widget.Toolbar>
