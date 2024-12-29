@@ -18,6 +18,7 @@
     <string name="author">Author: Vadym Gryganskiy</string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>
     <string name="explanation">Value of prayer</string>
+    <string name="holly_days">Holly Days</string>
     <string name="loading_mp3">Wait a moment while loading the mp3</string>
     <string name="kido_counter">Prayer %s</string>
     <string name="facebook">Facebook</string>
@@ -128,6 +129,25 @@
     <string name="six"><b>6.</b> Our family, the owner of Cheon Il Guk, pledges to become a family that moves heavenly fortune by embodying the Heavenly Parent and True Parents, and to perfect a family that conveys Heaven\'s blessing to our community, by centering on true love.</string>
     <string name="seven"><b>7.</b> Our family, the owner of Cheon Il Guk, pledges, through living for the sake of others, to perfect the world based on the culture of heart, which is rooted in the original lineage, by centering on true love.</string>
     <string name="eight"><b>8.</b> Our family, the owner of Cheon Il Guk, pledges, having entered the Era of Cheon Il Guk, to achieve the ideal of God and human beings united in love through absolute faith, absolute love and absolute obedience, and to perfect the realm of liberation and complete freedom in the Kingdom of God on earth and in heaven, by centering on true love.</string>
+
+    // Holly days
+    <string name="day1_title">День Істинних Батьків</string>
+    <string name="day2_title">День Істинних Дітей</string>
+    <string name="day3_title">День Істинного Творіння</string>
+    <string name="day4_title">День Істинного Бога</string>
+    <string name="day5_title">День народження Істинних Батьків</string>
+    <string name="day6_title">День заснування єдиної вселенської країни</string>
+    <string name="day7_title">День проголошення вічного Благословення Бога</string>
+    <string name="day8_title">День проголошення сфери Вселенської суботи для Батьків Небес та Землі</string>
+    <string name="day1_description">Our family, the owner of Cheon Il Guk, pledges to seek our original homeland and build the Kingdom of God on earth and in heaven, the original ideal of creation, by centering on true love.</string>
+    <string name="day2_description">Дуже багато тексту Істинних Дітей</string>
+    <string name="day3_description">Дуже багато тексту Істинного Творіння</string>
+    <string name="day4_description">Дуже багато тексту Істинного Бога</string>
+    <string name="day5_description">Дуже багато тексту Істинних Батьків</string>
+    <string name="day6_description">Дуже багато тексту вселенської країни</string>
+    <string name="day7_description">Дуже багато тексту вічного Благословення Бога</string>
+    <string name="day8_description">Дуже багато тексту сфери Вселенської суботи для Батьків Небес та Землі</string>
+
 
     // TP kido books
     <string name="pr_nadezdy">Prayers of Hope</string>

@@ -83,6 +83,7 @@
     <string name="menu_condition">Умови посвячення</string>
     <string name="kido_list">Молитовний список</string>
     <string name="phrase_day">Фраза на день</string>
+    <string name="holly_days">Святі дні</string>
     <string name="pre_text_phrase">жмяк</string>
     <string name="communicate">Зв’язатися</string>
     <string name="share">Поділитися</string>
@@ -119,6 +120,24 @@
     <string name="six"><b>6.</b> Ми, сім’я, як господарі Чонільґук, присягаємось: керуючись істинною любов’ю, стати сім’єю, яка, представляючи Небесного Батька та Істинних Батьків, рухає небесну удачу і передає благословення Небес іншим.</string>
     <string name="seven"><b>7.</b> Ми, сім’я, як господарі Чонільґук, присягаємось: керуючись істинною любов’ю, жити заради інших, щоб таким чином заснувати світ культури шімджон, пов’язаний з первісним родоводом.</string>
     <string name="eight"><b>8.</b> Ми, сім’я, як господарі Чонільґук, присягаємось: керуючись істинною любов’ю, на порозі епохи Чонільґук, створити сферу звільнення та повної свободи в Царстві Небесному на землі та небесах, втіливши ідеал єдності в любові між Богом і людьми завдяки абсолютній вірі, абсолютній любові й абсолютній покорі.</string>
+
+    // Holly days
+    <string name="day1_title">День Істинних Батьків</string>
+    <string name="day2_title">День Істинних Дітей</string>
+    <string name="day3_title">День Істинного Творіння</string>
+    <string name="day4_title">День Істинного Бога</string>
+    <string name="day5_title">День народження Істинних Батьків</string>
+    <string name="day6_title">День заснування єдиної вселенської країни</string>
+    <string name="day7_title">День проголошення вічного Благословення Бога</string>
+    <string name="day8_title">День проголошення сфери Вселенської суботи для Батьків Небес та Землі</string>
+    <string name="day1_description">Our family, the owner of Cheon Il Guk, pledges to seek our original homeland and build the Kingdom of God on earth and in heaven, the original ideal of creation, by centering on true love.</string>
+    <string name="day2_description">Дуже багато тексту Істинних Дітей</string>
+    <string name="day3_description">Дуже багато тексту Істинного Творіння</string>
+    <string name="day4_description">Дуже багато тексту Істинного Бога</string>
+    <string name="day5_description">Дуже багато тексту Істинних Батьків</string>
+    <string name="day6_description">Дуже багато тексту вселенської країни</string>
+    <string name="day7_description">Дуже багато тексту вічного Благословення Бога</string>
+    <string name="day8_description">Дуже багато тексту сфери Вселенської суботи для Батьків Небес та Землі</string>
 
     // TP kido books
     <string name="pr_nadezdy">Молитви надії</string>

@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.vadym.gvd.bestfriendskotlin.condition.ConditionView
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
+import com.vadym.gvd.bestfriendskotlin.holly_days.HollyDaysView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
 import java.net.URL
 import java.util.Locale
@@ -83,6 +84,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java).noAnimation())
             R.id.nav_phrase_day -> startActivity(Intent(this, PhraseForDay::class.java).noAnimation())
             R.id.nav_kido_explanation -> startActivity(Intent(this, ExplanationView::class.java).noAnimation())
+            R.id.nav_holly_days -> startActivity(Intent(this, HollyDaysView::class.java).noAnimation())
             R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java).noAnimation())
 //            R.id.nav_experiences_prayer -> startActivity(Intent(this, ExperiencesPrayerView::class.java).noAnimation())
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))

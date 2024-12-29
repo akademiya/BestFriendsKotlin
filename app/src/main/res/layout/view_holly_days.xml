@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:padding="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <TextView
+            style="@style/Toolbar.TitleText"
+            android:layout_marginEnd="100dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Holly Days"
+            tools:text="Holly Days" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adViewHollyDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-5169531562006723/1080905154" />
+
+    <View
+        android:id="@+id/adDivider"
+        style="@style/AppTheme.HorizontalViewDivider"
+        android:layout_marginTop="5dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/list_days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_kido_container"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/holly_day_title1"
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_marginStart="@dimen/edge_margins"
+                    android:layout_marginEnd="@dimen/edge_margins"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="День Істинних Батьків" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_kido_container"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/holly_day_title2"
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_marginStart="@dimen/edge_margins"
+                    android:layout_marginEnd="@dimen/edge_margins"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="День Істинних Дітей" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_kido_container"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/holly_day_title3"
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_marginStart="@dimen/edge_margins"
+                    android:layout_marginEnd="@dimen/edge_margins"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="День Істинного Творіння" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_kido_container"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/holly_day_title4"
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_marginStart="@dimen/edge_margins"
+                    android:layout_marginEnd="@dimen/edge_margins"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="День Істинного Бога" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_kido_container"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/holly_day_title5"
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_marginStart="@dimen/edge_margins"
+                    android:layout_marginEnd="@dimen/edge_margins"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="День народження Істинних Батьків" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card6"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_kido_container"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/holly_day_title6"
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_marginStart="@dimen/edge_margins"
+                    android:layout_marginEnd="@dimen/edge_margins"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="День заснування єдиної вселенської країни" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card7"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_kido_container"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/holly_day_title7"
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_marginStart="@dimen/edge_margins"
+                    android:layout_marginEnd="@dimen/edge_margins"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="День проголошення вічного Благословення Бога" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card8"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_kido_container"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/holly_day_title8"
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_marginStart="@dimen/edge_margins"
+                    android:layout_marginEnd="@dimen/edge_margins"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="День проголошення сфери Вселенської суботи для Батьків Небес та Землі" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
