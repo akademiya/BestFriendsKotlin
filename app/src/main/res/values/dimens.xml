@@ -34,6 +34,7 @@
     <dimen name="text_size_mense">20sp</dimen>
     <dimen name="text_size_big">22sp</dimen>
     <dimen name="text_size_phrase">26sp</dimen>
+    <dimen name="text_size_name_of_calendar">10sp</dimen>
 
     // button chronometer
     <dimen name="switch_height">48dp</dimen>

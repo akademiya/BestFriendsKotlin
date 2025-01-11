@@ -83,6 +83,26 @@ class HollyDaysView : MainActivity() {
                         sharedPreferences.edit().putInt("card", 8).apply()
                     }
 
+                    R.id.card9 -> {
+                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        sharedPreferences.edit().putInt("card", 9).apply()
+                    }
+
+                    R.id.card10 -> {
+                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        sharedPreferences.edit().putInt("card", 10).apply()
+                    }
+
+                    R.id.card11 -> {
+                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        sharedPreferences.edit().putInt("card", 11).apply()
+                    }
+
+                    R.id.card12 -> {
+                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        sharedPreferences.edit().putInt("card", 12).apply()
+                    }
+
                     else -> Toast.makeText(this, "Unknown item clicked", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -98,6 +118,7 @@ class HollyDaysView : MainActivity() {
             adDivider.visibility = View.GONE
         }
 
+        /** Don`t remove this method */
 //        createListAndSave(storage)
     }
 
@@ -114,7 +135,7 @@ class HollyDaysView : MainActivity() {
         }
 
         toolbar.setOnClickListener {
-            if (count == 4) {
+            if (count == 7) {
                 updateCelebrationHollyDayDialog()
                 count = 0
             } else count++
@@ -133,7 +154,11 @@ class HollyDaysView : MainActivity() {
             subView.findViewById(R.id.day5),
             subView.findViewById(R.id.day6),
             subView.findViewById(R.id.day7),
-            subView.findViewById(R.id.day8)
+            subView.findViewById(R.id.day8),
+            subView.findViewById(R.id.day9),
+            subView.findViewById(R.id.day10),
+            subView.findViewById(R.id.day11),
+            subView.findViewById(R.id.day12)
         )
 
         editTexts.forEachIndexed { index, editText ->
@@ -167,54 +192,73 @@ class HollyDaysView : MainActivity() {
         }
     }
 
+
+    /** Коли потрібно глобально очистити БД, та закачати нові дані звідси */
     private fun createListAndSave(storage: FirebaseStorage) {
         val listDays = mutableListOf(
             HollyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day1_title),
-                day = "16/03/13 (13/04/2025)"
+                day = "16/03/13 13/04/2025"
             ),
             HollyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day2_title),
-                day = "01/10/13 (20/11/2025)"
+                day = "01/05/13 20/11/2025"
             ),
             HollyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day3_title),
-                day = "01/05/13 (27/05/2025)"
+                day = "01/07/13 23/08/2025"
             ),
             HollyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day4_title),
-                day = "01/05/13 (27/05/2025)"
+                day = "07/07/13 29/08/2025"
             ),
             HollyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day5_title),
-                day = "01/05/13 (27/05/2025)"
+                day = "01/10/13 20/11/2025"
             ),
             HollyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day6_title),
-                day = "01/05/13 (27/05/2025)"
+                day = "03/10/13 22/11/2025"
             ),
             HollyDayEntity(
                 id = "id",
-                title = resources.getString(R.string.day7_title),
-                day = "01/05/13 (27/05/2025)"
+                title = resources.getString(R.string.day9_title),
+                day = "01/01/13 29/01/2025"
             ),
             HollyDayEntity(
                 id = "id",
-                title = resources.getString(R.string.day8_title),
-                day = "01/05/13 (27/05/2025)"
+                title = resources.getString(R.string.day10_title),
+                day = "06/01/13 03/02/2025"
+            ),
+            HollyDayEntity(
+                id = "id",
+                title = resources.getString(R.string.day11_title),
+                day = "13/01/13 10/02/2025"
+            ),
+            HollyDayEntity(
+                id = "id",
+                title = resources.getString(R.string.day12_title),
+                day = "01/05/13 27/05/2025"
+            ),
+            HollyDayEntity(
+                id = "id",
+                title = resources.getString(R.string.day13_title),
+                day = "13/06/13 07/07/2025"
+            ),
+            HollyDayEntity(
+                id = "id",
+                title = resources.getString(R.string.day14_title),
+                day = "17/07/13 08/09/2025"
             )
         )
 
         storage.saveDaysToFirebase(listDays)
     }
-
-
-
 
 }

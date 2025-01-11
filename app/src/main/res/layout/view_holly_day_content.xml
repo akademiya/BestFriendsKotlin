@@ -58,25 +58,53 @@
                 android:textStyle="bold"
                 tools:text="title of holly day" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/day_of_celebrate" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin8">
+                android:layout_marginTop="@dimen/margin8">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/day_of_celebrate" />
+                    android:textSize="@dimen/text_size_name_of_calendar"
+                    android:text="@string/heavenly_calendar" />
 
                 <TextView
-                    android:id="@+id/day_of_celebrate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_name_of_calendar"
+                    android:gravity="end"
+                    android:text="@string/gregorian_calendar" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin8">
+
+                <TextView
+                    android:id="@+id/heavenly_day_of_celebrate"
                     style="@style/TextStyle_Body2_Primary_Dark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/heavenly_day_color"
+                    android:textStyle="bold"
+                    tools:text="16/03/13" />
+
+                <TextView
+                    android:id="@+id/gregorian_day_of_celebrate"
+                    style="@style/TextStyle_Body2_Primary_Dark"
+                    android:layout_width="match_parent"
+                    android:gravity="end"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/primary"
                     android:textStyle="bold"
-                    tools:text="16/03/13 (13/04/2025)" />
+                    tools:text="13/04/2025" />
             </LinearLayout>
 
             <TextView

@@ -36,7 +36,7 @@
 
         <item
             android:id="@+id/nav_holly_days"
-            android:icon="@drawable/ic_hollyday"
+            android:icon="@drawable/ic_liliya"
             android:title="@string/holly_days" />
 
         <item

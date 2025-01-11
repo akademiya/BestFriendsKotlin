@@ -19,7 +19,8 @@ class ContentHollyDay : MainActivity() {
         val storage = FirebaseStorage(this)
         val sharedPreferences = getSharedPreferences("HollyDays", MODE_PRIVATE)
         val dayTitle = findViewById<TextView>(R.id.day_title)
-        val celebrateDay = findViewById<TextView>(R.id.day_of_celebrate)
+        val celebrateHeavenlyDay = findViewById<TextView>(R.id.heavenly_day_of_celebrate)
+        val celebrateGregorianDay = findViewById<TextView>(R.id.gregorian_day_of_celebrate)
         val dayDescription = findViewById<TextView>(R.id.day_description)
 
         val adContainer: AdView = findViewById(R.id.adViewHollyDayContent)
@@ -38,55 +39,116 @@ class ContentHollyDay : MainActivity() {
         storage.listHollyDaysFromFB { listDays ->
             when (fromView) {
                 1 -> {
-                    celebrateDay.text = listDays.getOrNull(0)?.day ?: "No data available"
+                    val separateDays = splitDays(listDays.getOrNull(0)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
                     dayTitle.text = resources.getString(R.string.day1_title)
                     dayDescription.text = resources.getString(R.string.day1_description)
                 }
 
                 2 -> {
-                    celebrateDay.text = listDays.getOrNull(1)?.day ?: "No data available"
+                    val separateDays = splitDays(listDays.getOrNull(1)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
                     dayTitle.text = resources.getString(R.string.day2_title)
                     dayDescription.text = resources.getString(R.string.day2_description)
                 }
 
                 3 -> {
-                    celebrateDay.text = listDays.getOrNull(2)?.day ?: "No data available"
+                    val separateDays = splitDays(listDays.getOrNull(2)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
                     dayTitle.text = resources.getString(R.string.day3_title)
                     dayDescription.text = resources.getString(R.string.day3_description)
                 }
 
                 4 -> {
-                    celebrateDay.text = listDays.getOrNull(3)?.day ?: "No data available"
+                    val separateDays = splitDays(listDays.getOrNull(3)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
                     dayTitle.text = resources.getString(R.string.day4_title)
                     dayDescription.text = resources.getString(R.string.day4_description)
                 }
 
                 5 -> {
-                    celebrateDay.text = listDays.getOrNull(4)?.day ?: "No data available"
+                    val separateDays = splitDays(listDays.getOrNull(4)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
                     dayTitle.text = resources.getString(R.string.day5_title)
                     dayDescription.text = resources.getString(R.string.day5_description)
                 }
 
                 6 -> {
-                    celebrateDay.text = listDays.getOrNull(5)?.day ?: "No data available"
+                    val separateDays = splitDays(listDays.getOrNull(5)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
                     dayTitle.text = resources.getString(R.string.day6_title)
                     dayDescription.text = resources.getString(R.string.day6_description)
                 }
 
                 7 -> {
-                    celebrateDay.text = listDays.getOrNull(6)?.day ?: "No data available"
-                    dayTitle.text = resources.getString(R.string.day7_title)
+                    val separateDays = splitDays(listDays.getOrNull(6)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
+                    dayTitle.text = resources.getString(R.string.day9_title)
                     dayDescription.text = resources.getString(R.string.day7_description)
                 }
 
                 8 -> {
-                    celebrateDay.text = listDays.getOrNull(7)?.day ?: "No data available"
-                    dayTitle.text = resources.getString(R.string.day8_title)
+                    val separateDays = splitDays(listDays.getOrNull(7)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
+                    dayTitle.text = resources.getString(R.string.day10_title)
+                    dayDescription.text = resources.getString(R.string.day8_description)
+                }
+
+                9 -> {
+                    val separateDays = splitDays(listDays.getOrNull(8)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
+                    dayTitle.text = resources.getString(R.string.day11_title)
+                    dayDescription.text = resources.getString(R.string.day8_description)
+                }
+
+                10 -> {
+                    val separateDays = splitDays(listDays.getOrNull(9)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
+                    dayTitle.text = resources.getString(R.string.day12_title)
+                    dayDescription.text = resources.getString(R.string.day8_description)
+                }
+
+                11 -> {
+                    val separateDays = splitDays(listDays.getOrNull(10)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
+                    dayTitle.text = resources.getString(R.string.day13_title)
+                    dayDescription.text = resources.getString(R.string.day8_description)
+                }
+
+                12 -> {
+                    val separateDays = splitDays(listDays.getOrNull(11)?.day?: "No data available")
+                    val (heavenlyDay, gregorianDay) = separateDays
+                    celebrateHeavenlyDay.text = heavenlyDay
+                    celebrateGregorianDay.text = gregorianDay
+                    dayTitle.text = resources.getString(R.string.day14_title)
                     dayDescription.text = resources.getString(R.string.day8_description)
                 }
 
                 else -> {
-                    celebrateDay.text = "No data available"
+                    celebrateHeavenlyDay.text = "No data available"
+                    celebrateGregorianDay.text = "No data available"
                     dayTitle.text = resources.getString(R.string.day1_title)
                     dayDescription.text = resources.getString(R.string.day1_description)
                 }
@@ -105,6 +167,17 @@ class ContentHollyDay : MainActivity() {
         toolbar.setNavigationOnClickListener {
             @Suppress("DEPRECATION")
             onBackPressed()
+        }
+    }
+
+    private fun splitDays(day: String): Pair<String, String> {
+        val parts = day.split(" ")
+        return if (parts.size == 2) {
+            val heavenlyDay = parts[0]
+            val gregorianDay = parts[1]
+            heavenlyDay to gregorianDay
+        } else {
+            "0" to "0"
         }
     }
 }
