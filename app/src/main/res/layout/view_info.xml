@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -23,10 +23,10 @@
             android:id="@+id/version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="end"
             android:layout_marginEnd="@dimen/margin24"
+            android:gravity="end"
             android:textColor="@color/white"
-            tools:text="v 3.25"/>
+            tools:text="v 3.25" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -48,31 +48,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="center"
                     android:layout_marginBottom="@dimen/margin12"
-                    android:src="@drawable/tf1"/>
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:layout_marginStart="16dp"-->
-<!--                    android:layout_marginEnd="16dp"-->
-<!--                    android:textColor="#FF0000"-->
-<!--                    android:text="@string/sorrow"-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:layout_marginBottom="8dp"-->
-<!--                    android:layout_height="wrap_content"/>-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:layout_marginStart="16dp"-->
-<!--                    android:layout_marginEnd="16dp"-->
-<!--                    android:textColor="#FF0000"-->
-<!--                    android:text="@string/konkurs"-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:layout_marginBottom="8dp"-->
-<!--                    android:layout_height="wrap_content"/>-->
+                    android:scaleType="center"
+                    android:src="@drawable/tf1" />
 
                 <com.google.android.gms.ads.AdView
                     android:id="@+id/adView"
@@ -81,6 +59,18 @@
                     android:layout_marginVertical="12dp"
                     app:adSize="BANNER"
                     app:adUnitId="ca-app-pub-5169531562006723/6198698608" />
+
+                <TextView
+                    android:id="@+id/info_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    tools:text="@string/konkurs"
+                    android:textColor="#FF0000"
+                    android:textSize="16sp" />
 
                 <TextView
                     style="@style/TextStyle_Body2_Primary_Dark"
@@ -110,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/parent_margin"
-            android:textColor="#fff"
-            android:text="@string/site" />
+            android:text="@string/site"
+            android:textColor="#fff" />
     </RelativeLayout>
 </LinearLayout>
