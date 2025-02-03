@@ -20,18 +20,18 @@
             android:layout_marginEnd="100dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@string/holly_days"
+            android:text="@string/traditions"
             tools:text="Holly Days" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adViewHollyDayContent"
+        android:id="@+id/adViewTraditionsContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-5169531562006723/1080905154" />
+        app:adUnitId="ca-app-pub-5169531562006723/4374003085" />
 
     <View
         android:id="@+id/adDivider"
@@ -49,7 +49,7 @@
             android:paddingHorizontal="@dimen/edge_margins">
 
             <TextView
-                android:id="@+id/day_title"
+                android:id="@+id/tradition_title"
                 style="@style/TextStyle_Body2_Primary_Dark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,56 +59,7 @@
                 tools:text="title of holly day" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/day_of_celebrate" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin8">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_size_name_of_calendar"
-                    android:text="@string/heavenly_calendar" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_size_name_of_calendar"
-                    android:gravity="end"
-                    android:text="@string/gregorian_calendar" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin8">
-
-                <TextView
-                    android:id="@+id/heavenly_day_of_celebrate"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/heavenly_day_color"
-                    android:textStyle="bold"
-                    tools:text="16/03/13" />
-
-                <TextView
-                    android:id="@+id/gregorian_day_of_celebrate"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:gravity="end"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/primary"
-                    android:textStyle="bold"
-                    tools:text="13/04/2025" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/day_description"
+                android:id="@+id/tradition_description"
                 style="@style/TextStyle_Body2_Primary_Dark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,6 +69,13 @@
 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 " />
+
+            <ImageView
+                android:id="@+id/traditions_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/tr_vine" />
         </LinearLayout>
     </ScrollView>
 

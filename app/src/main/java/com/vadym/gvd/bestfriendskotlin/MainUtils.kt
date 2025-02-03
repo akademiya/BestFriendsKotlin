@@ -3,14 +3,17 @@ package com.vadym.gvd.bestfriendskotlin
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Build
+import android.text.Html
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.StyleSpan
 import android.view.View
 import android.view.WindowManager
 import android.widget.PopupMenu
-import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.Year
 import java.util.*
 
 fun doNothing() {}
@@ -122,4 +125,8 @@ fun Intent.noAnimation() : Intent {
 
 fun screenOn(context: Context) {
     (context as Activity).window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+}
+
+fun String.toHtml() : Spanned {
+    return Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
 }

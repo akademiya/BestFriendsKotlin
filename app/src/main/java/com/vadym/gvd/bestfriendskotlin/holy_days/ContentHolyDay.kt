@@ -1,4 +1,4 @@
-package com.vadym.gvd.bestfriendskotlin.holly_days
+package com.vadym.gvd.bestfriendskotlin.holy_days
 
 import android.os.Bundle
 import android.view.View
@@ -10,11 +10,11 @@ import com.vadym.gvd.bestfriendskotlin.FirebaseStorage
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 
-class ContentHollyDay : MainActivity() {
+class ContentHolyDay : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.view_holly_day_content)
+        setContentView(R.layout.view_holy_day_content)
         toolbarButtonMenu()
         val storage = FirebaseStorage(this)
         val sharedPreferences = getSharedPreferences("HollyDays", MODE_PRIVATE)

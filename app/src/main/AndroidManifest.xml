@@ -102,10 +102,15 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".PhraseForDay"
             android:screenOrientation="portrait"/>
-        <activity android:name=".holly_days.HollyDaysView"
+        <activity android:name=".holy_days.HolyDaysView"
             android:screenOrientation="portrait"/>
-        <activity android:name=".holly_days.ContentHollyDay"
+        <activity android:name=".holy_days.ContentHolyDay"
             android:screenOrientation="portrait"/>
+        <activity android:name=".traditions.TraditionsView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".traditions.GeneralViewContent"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ExerciseView" />
 
     </application>
 </manifest>

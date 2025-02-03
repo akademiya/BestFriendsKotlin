@@ -16,8 +16,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.vadym.gvd.bestfriendskotlin.condition.ConditionView
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
-import com.vadym.gvd.bestfriendskotlin.holly_days.HollyDaysView
+import com.vadym.gvd.bestfriendskotlin.holy_days.HolyDaysView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
+import com.vadym.gvd.bestfriendskotlin.traditions.TraditionsView
 import java.net.URL
 import java.util.Locale
 
@@ -47,6 +48,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         drawer.addDrawerListener(toggle)
         toggle.syncState()
 
+        navigationView.menu.findItem(R.id.nav_hdh).isVisible = isUserFromUkraine()
         navigationView.setNavigationItemSelectedListener(this)
 
         if (isNetworkAvailable(this)) {
@@ -84,10 +86,13 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_father_kido -> startActivity(Intent(this, FatherKidoView::class.java).noAnimation())
             R.id.nav_phrase_day -> startActivity(Intent(this, PhraseForDay::class.java).noAnimation())
             R.id.nav_kido_explanation -> startActivity(Intent(this, ExplanationView::class.java).noAnimation())
-            R.id.nav_holly_days -> startActivity(Intent(this, HollyDaysView::class.java).noAnimation())
+            R.id.nav_holly_days -> startActivity(Intent(this, HolyDaysView::class.java).noAnimation())
             R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java).noAnimation())
+            R.id.nav_traditions -> startActivity(Intent(this, TraditionsView::class.java).noAnimation())
 //            R.id.nav_experiences_prayer -> startActivity(Intent(this, ExperiencesPrayerView::class.java).noAnimation())
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
+            R.id.nav_hdh -> startActivity(openHDHApp(this))
+            R.id.nav_exercise -> startActivity(Intent(this, ExerciseView::class.java))
             R.id.nav_facebook -> startActivity(openFacebookIntent(this))
             R.id.nav_share -> {
                 val sharingIntent = Intent(Intent.ACTION_SEND)
@@ -112,6 +117,31 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         drawer.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun isUserFromUkraine(): Boolean {
+        val userCountry = Locale.getDefault().language
+        return userCountry.equals("uk", ignoreCase = true)
+    }
+
+    open fun openHDHApp(context: Context): Intent? {
+        val packageName = "com.vadym.hdhmeeting"
+        return try {
+            // Check if the app is installed
+            context.packageManager.getPackageInfo(packageName, 0)
+
+            // Create an intent to open the app
+            Intent(Intent.ACTION_MAIN).apply {
+                addCategory(Intent.CATEGORY_LAUNCHER)
+                `package` = packageName
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        } catch (e: Exception) {
+            // If the app is not installed, open its Play Store page
+            Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        }
     }
 
     open fun openFacebookIntent(context: Context): Intent? {

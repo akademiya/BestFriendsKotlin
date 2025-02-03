@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">True Parents</string>
-    <string name="app_start_name">TF PRAYER</string>
+    <string name="app_start_name">Assistant CIG</string> //TF PRAYER
 
     <string name="advert">Advertising</string>
     <string name="konkurs">Brothers and sisters, I think the reading is simple, but your lived experience, how prayer works in your life, or how prayer once helped, is extremely interesting and encouraging to others. If you write me your experience by mail, I will be happy to publish it (translation through translate to other languages)</string>
@@ -18,7 +18,7 @@
     <string name="author">Author: Vadym DG</string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>
     <string name="explanation">Value of prayer</string>
-    <string name="holly_days">Holly Days</string>
+    <string name="holy_days">Holy Days</string>
     <string name="title_major_holidays">8 Major Holidays</string>
     <string name="title_important_events">Important Events</string>
     <string name="day_of_celebrate">Day of celebration (D/M/Y):</string>
@@ -27,6 +27,7 @@
     <string name="loading_mp3">Wait a moment while loading the mp3</string>
     <string name="kido_counter">Prayer %s</string>
     <string name="facebook">Facebook</string>
+    <string name="youtube_video_id">6_QzQ5KRDw8</string>
 
     // Theme
     <string name="dark">Dark</string>
@@ -93,6 +94,7 @@
     <string name="tp_mKido">Prayers of True Father</string>
     <string name="mense">Family Pledge</string>
 <!--    <string name="mense_k">가정 맹세</string>-->
+    <string name="traditions">Traditions</string>
     <string name="anthem">Anthem</string>
     <string name="menu_condition">Condition</string>
     <string name="anthem_chonilguk">Anthem of Cheon Il Guk</string>
@@ -100,6 +102,8 @@
     <string name="phrase_day">Phrase for the day</string>
     <string name="pre_text_phrase">open</string>
     <string name="communicate">Contact</string>
+    <string name="hdh_app">HDH</string>
+    <string name="nav_exercise">TF Exercise</string>
     <string name="share">Share</string>
     <string name="send">Write to the author</string>
     <string name="donation">Read</string>
@@ -135,7 +139,7 @@
     <string name="seven"><b>7.</b> Our family, the owner of Cheon Il Guk, pledges, through living for the sake of others, to perfect the world based on the culture of heart, which is rooted in the original lineage, by centering on true love.</string>
     <string name="eight"><b>8.</b> Our family, the owner of Cheon Il Guk, pledges, having entered the Era of Cheon Il Guk, to achieve the ideal of God and human beings united in love through absolute faith, absolute love and absolute obedience, and to perfect the realm of liberation and complete freedom in the Kingdom of God on earth and in heaven, by centering on true love.</string>
 
-    // Holly days
+    // Holy days
     <string name="day1_title">Anniversary of True Parents\' Holy Wedding\nHeavenly Parent\'s Day\nTrue Parents\' Day</string>
     <string name="day2_title">Day of All True Things</string>
     <string name="day3_title">Chil Il Jeol (7.1 Jeol)</string>
@@ -219,6 +223,72 @@
 
     <string name="day7_description">....</string>
     <string name="day8_description">....</string>
+
+
+    // Traditions
+    <string name="anshiil">An Shi Il</string>
+    <string name="hdh">HDH</string>
+    <string name="pledge">Family Pledge</string>
+    <string name="candle">Candle of CIG</string>
+    <string name="salt">Holy salt</string>
+    <string name="vine">Holy vine</string>
+    <string name="clothes">Holy clothes</string>
+    <string name="sunday_service">Sunday service</string>
+    <string name="desyatyna">Tithe</string>
+    <string name="days8">Ceremony 8 days</string>
+    <string name="birthday">Birthdays</string>
+    <string name="songhwa">Songhwa ceremony</string>
+    <string name="life_service">life of service</string>
+    <string name="photo_of_tp">TP photo</string>
+    <string name="prayer_2g">2 generation prayer</string>
+    <string name="prayer_tradition">Prayer</string>
+
+    <string name="anshiil_description">On May 5, 2004, at Cheonghae Garden in Yeosu, South Jeolla Province, True Parents
+proclaimed Ssang Hab Shib Seung Il (Day of the Victory of the Number 10 Combining Two 5s)
+and declared the end of the Era Before the Coming of Heaven and the arrival of the Era After the
+Coming of Heaven. True Father explained that Ssang Hab Shib Seung Il is the day when God
+transformed heaven and earth, top and bottom, front and back, and left and right, causing His
+light to shine brightly throughout time and space and causing the evil world of darkness to
+dissipate. The Era After the Coming of Heaven signifies the passing away of the age of indemnity
+and the advent of the world as it was at the time of the Creation.
+\n\nAlso, on <b>April 19</b>, prior to the proclamation of Ssang Hab Shib Seung Il, <b>True Parents founded
+An Shi Il</b>, the Day of Secure Settlement and Attendance.
+\n\nBeginning on May 5, 2004, the calendar will change from the seven-day cycle marked by the Sabbath
+to the eight-day cycle marked by An Shi Il. God has never owned the days of the calendar, nor could He
+own His spring. He could never become the owner of the four seasons - spring, summer, fall and winter.
+With the celebration of the Ssang Hab Shib Seung Il on May 5, now for the first time in history we are
+ushering in the Era After the Coming of Heaven. Now God can hold Satan\'s world of the Era Before the
+Coming of Heaven in His left hand and the Era After the Coming of Heaven in His right hand and turn
+them around in a circle, thereby bringing all into His realm of victory. This is why I named that day The
+Day of the Victory of the Number 10 Combining Two 5s. The two 5s becoming 10 set up the realm of
+victory. (450-177, 2004/05/21)
+\n\nHeavenly Father, I set the date of An Shi Il after entering May 2004. As May 21 was the third An Shi
+Il, after those on May 5 and 13, we are now welcoming a new era, the Era After the Coming of Heaven.
+Centering on a new world of victory and centering on God\'s true love - the ideal realm of oneness and its
+values - we are now standing before the responsibility that we are called upon to accomplish for the
+entire universe.
+\n\nIn the name of True Parents, representing the whole, I established Ssang Hab Shib Seung Il and its realm,
+in which are included all the dates represented by all combinations of digits below the number 10, the 4
+seasons, the 4 years, the 8 years and the numbers 9 and 10. Now, Father, ushering in a new era in history
+and welcoming spring, summer, fall and winter, You are the owner. Everything is now arranged so that
+You can reign over all things with Your new days, seasons and years, based on the renewed number 10,
+which can expand 100 times, 1,000 times and 10,000 times, and on and on. I hope and desire that based
+on the establishment of An Shi Il, everything will make steady progress from this day forth by Your Will.
+(450-158, 2004/05/21)</string>
+    <string name="hdh_description">HDH</string>
+    <string name="pledge_description">Family Pledge</string>
+    <string name="candle_description">Candle of CIG</string>
+    <string name="salt_description">Holy salt</string>
+    <string name="vine_description">Holy vine</string>
+    <string name="clothes_description">Holy clothes</string>
+    <string name="sunday_service_description">Sunday service</string>
+    <string name="desyatyna_description">Tithe</string>
+    <string name="days8_description">Ceremony 8 days</string>
+    <string name="birthday_description">Celebration of the Happy Birthday</string>
+    <string name="songhwa_description">Songhwa ceremony</string>
+    <string name="life_service_description">life of service</string>
+    <string name="photo_of_tp_description">TP photo</string>
+    <string name="prayer_2g_description">2 generation prayer</string>
 
 
     // TP kido books

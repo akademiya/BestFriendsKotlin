@@ -1,6 +1,6 @@
-package com.vadym.gvd.bestfriendskotlin.holly_days
+package com.vadym.gvd.bestfriendskotlin.holy_days
 
-class HollyDayEntity {
+class HolyDayEntity {
     var id: String? = null
     var title: String? = null
     var day: String? = null

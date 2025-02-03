@@ -1,4 +1,4 @@
-package com.vadym.gvd.bestfriendskotlin.holly_days
+package com.vadym.gvd.bestfriendskotlin.holy_days
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -18,15 +18,15 @@ import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.noAnimation
 
-class HollyDaysView : MainActivity() {
+class HolyDaysView : MainActivity() {
 
     private var count = 0
-    private val listDays: MutableList<HollyDayEntity> = mutableListOf()
+    private val listDays: MutableList<HolyDayEntity> = mutableListOf()
     private val storage = FirebaseStorage(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.view_holly_days)
+        setContentView(R.layout.view_holy_days)
         toolbarButtonMenu()
         val sharedPreferences = getSharedPreferences("HollyDays", MODE_PRIVATE)
 
@@ -44,62 +44,62 @@ class HollyDaysView : MainActivity() {
             child.setOnClickListener { view ->
                 when (view.id) {
                     R.id.card1 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 1).apply()
                     }
 
                     R.id.card2 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 2).apply()
                     }
 
                     R.id.card3 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 3).apply()
                     }
 
                     R.id.card4 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 4).apply()
                     }
 
                     R.id.card5 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 5).apply()
                     }
 
                     R.id.card6 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 6).apply()
                     }
 
                     R.id.card7 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 7).apply()
                     }
 
                     R.id.card8 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 8).apply()
                     }
 
                     R.id.card9 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 9).apply()
                     }
 
                     R.id.card10 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 10).apply()
                     }
 
                     R.id.card11 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 11).apply()
                     }
 
                     R.id.card12 -> {
-                        startActivity(Intent(this, ContentHollyDay::class.java).noAnimation())
+                        startActivity(Intent(this, ContentHolyDay::class.java).noAnimation())
                         sharedPreferences.edit().putInt("card", 12).apply()
                     }
 
@@ -186,7 +186,7 @@ class HollyDaysView : MainActivity() {
         builder.show()
     }
 
-    private fun updateValueOfDay(storage: FirebaseStorage, list: List<HollyDayEntity>) {
+    private fun updateValueOfDay(storage: FirebaseStorage, list: List<HolyDayEntity>) {
         for (item in list) {
             storage.updateValueOfDay(item.id.toString(), item.day.toString())
         }
@@ -196,62 +196,62 @@ class HollyDaysView : MainActivity() {
     /** Коли потрібно глобально очистити БД, та закачати нові дані звідси */
     private fun createListAndSave(storage: FirebaseStorage) {
         val listDays = mutableListOf(
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day1_title),
                 day = "16/03/13 13/04/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day2_title),
                 day = "01/05/13 20/11/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day3_title),
                 day = "01/07/13 23/08/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day4_title),
                 day = "07/07/13 29/08/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day5_title),
                 day = "01/10/13 20/11/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day6_title),
                 day = "03/10/13 22/11/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day9_title),
                 day = "01/01/13 29/01/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day10_title),
                 day = "06/01/13 03/02/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day11_title),
                 day = "13/01/13 10/02/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day12_title),
                 day = "01/05/13 27/05/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day13_title),
                 day = "13/06/13 07/07/2025"
             ),
-            HollyDayEntity(
+            HolyDayEntity(
                 id = "id",
                 title = resources.getString(R.string.day14_title),
                 day = "17/07/13 08/09/2025"

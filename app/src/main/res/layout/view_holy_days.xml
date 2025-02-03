@@ -20,7 +20,7 @@
             android:layout_marginEnd="100dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@string/holly_days" />
+            android:text="@string/holy_days" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -71,7 +71,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:paddingVertical="5dp"
                     android:text="@string/day1_title" />
@@ -93,9 +92,7 @@
                     android:layout_height="@dimen/item_kido_container"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:maxLines="1"
                     android:text="@string/day2_title" />
 
             </androidx.cardview.widget.CardView>
@@ -115,9 +112,7 @@
                     android:layout_height="@dimen/item_kido_container"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:maxLines="1"
                     android:text="@string/day3_title" />
 
             </androidx.cardview.widget.CardView>
@@ -137,9 +132,7 @@
                     android:layout_height="@dimen/item_kido_container"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:maxLines="1"
                     android:text="@string/day4_title" />
 
             </androidx.cardview.widget.CardView>
@@ -159,9 +152,7 @@
                     android:layout_height="@dimen/item_kido_container"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:maxLines="1"
                     android:text="@string/day5_title" />
 
             </androidx.cardview.widget.CardView>
@@ -178,12 +169,10 @@
                     android:id="@+id/holly_day_title6"
                     style="@style/TextStyle_Body2_Primary_Dark"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:maxLines="1"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/day6_title" />
 
             </androidx.cardview.widget.CardView>
@@ -212,9 +201,7 @@
                     android:layout_height="@dimen/item_kido_container"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:maxLines="1"
                     android:text="@string/day9_title" />
 
             </androidx.cardview.widget.CardView>
@@ -234,9 +221,7 @@
                     android:layout_height="@dimen/item_kido_container"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:maxLines="1"
                     android:text="@string/day10_title" />
 
             </androidx.cardview.widget.CardView>
@@ -256,9 +241,7 @@
                     android:layout_height="@dimen/item_kido_container"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:maxLines="1"
                     android:text="@string/day11_title" />
 
             </androidx.cardview.widget.CardView>
@@ -278,9 +261,7 @@
                     android:layout_height="@dimen/item_kido_container"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:maxLines="1"
                     android:text="@string/day12_title" />
 
             </androidx.cardview.widget.CardView>
@@ -300,9 +281,7 @@
                     android:layout_height="@dimen/item_kido_container"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:maxLines="1"
                     android:text="@string/day13_title" />
 
             </androidx.cardview.widget.CardView>
@@ -319,12 +298,10 @@
                     android:id="@+id/holly_day_title12"
                     style="@style/TextStyle_Body2_Primary_Dark"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:maxLines="1"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/day14_title" />
 
             </androidx.cardview.widget.CardView>
