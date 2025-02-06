@@ -45,6 +45,11 @@
             android:title="@string/holy_days" />
 
         <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_calendar"
+            android:title="@string/h_calendar" />
+
+        <item
             android:id="@+id/nav_kido_condition"
             android:icon="@drawable/ic_condition"
             android:title="@string/menu_condition" />

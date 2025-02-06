@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">참 부모님</string>
-    <string name="app_start_name">TF PRAYER</string>
+    <string name="app_start_name">CHEON IL GUK</string>
 
     <string name="advert">광고</string>
     <string name="konkurs">형제 자매 여러분, 읽기는 간단하다고 생각합니다. 그러나 여러분의 생생한 경험, 기도가 여러분의 삶에서 어떻게 작용하는지, 또는 한때 기도가 어떻게 도움이 되었는지는 매우 흥미롭고 다른 사람들에게 격려가 됩니다. 귀하의 경험을 우편으로 보내주시면 기꺼이 게시하겠습니다(다른 언어로의 번역을 통한 번역).</string>
@@ -73,13 +73,16 @@
     <string name="min_21">21 분 경과</string>
     <string name="min_40">40 분 경과</string>
 
-    // drawer navigation
+    // Drawer navigation
     <string name="home_page">메인</string>
     <string name="tp_photo">참 부모님</string>
     <string name="tp_kido">아버지의 기도</string>
     <string name="tp_mKido">참 아버지의 기도</string>
     <string name="mense">가정 맹세</string>
     <string name="anthem">축가</string>
+    <string name="h_calendar">하늘 달력</string>
+    <string name="h_calendar_prev">천상의 날짜:</string>
+    <string name="heavenly_date">오늘 천일국 %1$s년 %2$s월 %3$s일</string>
     <string name="anthem_chonilguk">천일국의 축가</string>
     <string name="menu_condition">구속의 조건</string>
     <string name="kido_list">기도 목록</string>
@@ -91,6 +94,20 @@
     <string name="donation">정보</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    // Heavenly Calendar
+    <string name="sun">일</string>
+    <string name="mon">월</string>
+    <string name="tue">화</string>
+    <string name="wed">수</string>
+    <string name="thu">목</string>
+    <string name="fri">금</string>
+    <string name="sat">토</string>
+
+    <string name="ordinal_one">%d</string>
+    <string name="ordinal_two">%d</string>
+    <string name="ordinal_few">%d</string>
+    <string name="ordinal_other">%d</string>
 
     // Condition
     <string name="toolbar_title">면책 조건</string>

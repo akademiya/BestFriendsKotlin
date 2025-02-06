@@ -72,13 +72,15 @@
     <string name="min_21">Cela fait 21 minutes</string>
     <string name="min_40">Cela fait 40 minutes</string>
 
-    // drawer navigation
+    // Drawer navigation
     <string name="home_page">Principale</string>
     <string name="tp_photo">Vrais Parents</string>
     <string name="tp_kido">Prières du Père</string>
     <string name="tp_mKido">Prières du Vrai Père</string>
     <string name="mense">Engagement Familial</string>
     <string name="anthem">Hymne</string>
+    <string name="h_calendar">Calendrier céleste</string>
+    <string name="heavenly_date">Date céleste : <b>Aujourd\'hui Cheon Il Guk %1$s an %2$s mois %3$s jour</b></string>
     <string name="anthem_chonilguk">Hymne de Cheon Il Guk</string>
     <string name="menu_condition">État</string>
     <string name="kido_list">Liste de prière</string>
@@ -90,6 +92,15 @@
     <string name="donation">Lis</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Heavenly Calendar -->
+    <string name="sun">Dim</string>
+    <string name="mon">Lun</string>
+    <string name="tue">Mar</string>
+    <string name="wed">Mer</string>
+    <string name="thu">Jeu</string>
+    <string name="fri">Ven</string>
+    <string name="sat">Sam</string>
 
     // EU GDPR Consent texts
     <string name="eu_consent_text">Cher utilisateur! \n\nNous utilisons la Play Console pour publier l\'application et collecter des informations sur l\'interaction des utilisateurs avec l\'application. Cela contribue au développement ultérieur du projet. Conformément au nouveau règlement européen sur la protection des données (RGPD), nous avons besoin de votre consentement pour collecter des informations.</string>

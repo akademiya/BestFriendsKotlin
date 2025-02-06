@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.vadym.gvd.bestfriendskotlin.calendar.HeavenlyCalendarView
 import com.vadym.gvd.bestfriendskotlin.condition.ConditionView
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
 import com.vadym.gvd.bestfriendskotlin.holy_days.HolyDaysView
@@ -24,7 +25,7 @@ import java.util.Locale
 
 
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private lateinit var drawer: DrawerLayout
+    lateinit var drawer: DrawerLayout
     private lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,6 +90,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_holly_days -> startActivity(Intent(this, HolyDaysView::class.java).noAnimation())
             R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java).noAnimation())
             R.id.nav_traditions -> startActivity(Intent(this, TraditionsView::class.java).noAnimation())
+            R.id.nav_calendar -> startActivity(Intent(this, HeavenlyCalendarView::class.java).noAnimation())
 //            R.id.nav_experiences_prayer -> startActivity(Intent(this, ExperiencesPrayerView::class.java).noAnimation())
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
             R.id.nav_hdh -> startActivity(openHDHApp(this))

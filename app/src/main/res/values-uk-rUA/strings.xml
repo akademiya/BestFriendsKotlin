@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Істинні Батьки</string>
-    <string name="app_start_name">CHON IL GUK</string>
+    <string name="app_start_name">CHEON IL GUK</string>
 
     <string name="advert">Реклама</string>
     <string name="konkurs">Брати і сестри, я думаю, що читати хоч і простий, але ваш живий досвід, як працює молитва у вашому житті, чи як молитва одного разу допомогла - це надзвичайно цікаво та підбадьорює інших. Якщо ви напишите мені свій досвід на пошту, я з радістю опублікую його (переклад через translate на інші мови).</string>
@@ -90,6 +90,10 @@
     <string name="anthem">Гімн</string>
     <string name="anthem_chonilguk">Гімн Чонільгук</string>
     <string name="traditions">Традиції</string>
+    <string name="h_calendar">Небесний календар</string>
+    <string name="calendar_toolbar">Календар ЧонІльГук</string>
+    <string name="h_calendar_prev">Небесна дата:</string>
+    <string name="heavenly_date">Сьогодні %1$s рік Чон Іль Гук %2$s місяць %3$s день</string>
     <string name="menu_condition">Умови посвячення</string>
     <string name="kido_list">Молитовний список</string>
     <string name="phrase_day">Фраза на день</string>
@@ -103,6 +107,20 @@
     <string name="donation">Прочитати</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    // Heavenly Calendar
+    <string name="sun">Нд</string>
+    <string name="mon">Пн</string>
+    <string name="tue">Вт</string>
+    <string name="wed">Ср</string>
+    <string name="thu">Чт</string>
+    <string name="fri">Пт</string>
+    <string name="sat">Сб</string>
+
+    <string name="ordinal_one">%d-й</string>
+    <string name="ordinal_two">%d-й</string>
+    <string name="ordinal_few">%d-й</string>
+    <string name="ordinal_other">%d-й</string>
 
     // Condition
     <string name="toolbar_title">Умови посвячення</string>

@@ -4,4 +4,11 @@
         <item quantity="one">%d day</item>
         <item quantity="other">%d days</item>
     </plurals>
+
+    <plurals name="ordinal">
+        <item quantity="one">%dst</item>  <!-- 1st -->
+        <item quantity="two">%dnd</item>  <!-- 2nd -->
+        <item quantity="few">%drd</item>  <!-- 3rd -->
+        <item quantity="other">%dth</item>  <!-- 4th, 5th, etc. -->
+    </plurals>
 </resources>

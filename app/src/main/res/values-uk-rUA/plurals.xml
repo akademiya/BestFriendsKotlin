@@ -6,4 +6,11 @@
         <item quantity="many">%d днів</item>
         <item quantity="other">%d днів</item>
     </plurals>
+
+    <plurals name="ordinal">
+        <item quantity="one">%d-й</item>
+        <item quantity="few">%d-й</item>
+        <item quantity="many">%d-й</item>
+        <item quantity="other">%d-й</item>
+    </plurals>
 </resources>

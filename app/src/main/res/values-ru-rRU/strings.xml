@@ -78,6 +78,8 @@
     <string name="tp_mKido">Молитвы Истинного Отца</string>
     <string name="mense">Обет семьи</string>
     <string name="anthem">Гимн</string>
+    <string name="h_calendar">Небесный календарь</string>
+    <string name="heavenly_date">Небесная дата: сегодня <b>%1$s год Чон Иль Гук  %2$s месяц %3$s день</b></string>
     <string name="anthem_chonilguk">Гимн Чонильгук</string>
     <string name="menu_condition">Условия посвящения</string>
     <string name="kido_list">Молитвенный список</string>
@@ -89,6 +91,15 @@
     <string name="donation">Прочитать</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    // Heavenly Calendar
+    <string name="sun">Нд</string>
+    <string name="mon">Пн</string>
+    <string name="tue">Вт</string>
+    <string name="wed">Ср</string>
+    <string name="thu">Чт</string>
+    <string name="fri">Пт</string>
+    <string name="sat">Сб</string>
 
     // Condition
     <string name="toolbar_title">Условия посвящения</string>
