@@ -13,10 +13,10 @@ import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.github.fj.koreanlunarcalendar.KoreanLunarCalendarUtils
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import java.text.SimpleDateFormat
-import java.time.Month
 import java.util.Calendar
 import java.util.Locale
 
@@ -86,11 +86,12 @@ class HeavenlyCalendarView: MainActivity() {
         lunarCalendar.set(ChineseCalendar.MONTH, month)
         lunarCalendar.set(ChineseCalendar.DAY_OF_MONTH, 1)
 
-        heavenlyMonth = lunarCalendar.time.month.toString()
-        heavenlyDay = lunarCalendar.time.day.toString()
+        val lunarDate = KoreanLunarCalendarUtils.getLunarDateOf(todayYear, todayMonth + 1, todayDay)
+
+        heavenlyMonth = lunarDate.lunMonth.toString()
+        heavenlyDay = lunarDate.lunDay.toString()
 
         val dateFormat = SimpleDateFormat("d", Locale.getDefault())
-        val lunarFormat = SimpleDateFormat("M-d", Locale.getDefault())
 
         calendarDays.clear()
 
@@ -103,7 +104,14 @@ class HeavenlyCalendarView: MainActivity() {
 
         while (currentCalendar.get(Calendar.MONTH) == month) {
             val gregorianDay = dateFormat.format(currentCalendar.time)
-            val lunarDay = "(${lunarFormat.format(lunarCalendar.time)})"
+
+            val lunarDate = KoreanLunarCalendarUtils.getLunarDateOf(
+                currentCalendar.get(Calendar.YEAR),
+                currentCalendar.get(Calendar.MONTH) + 1,
+                currentCalendar.get(Calendar.DAY_OF_MONTH)
+            )
+
+            val lunarDay = "(${lunarDate.lunMonth}-${lunarDate.lunDay})"
 
             val isToday = (currentCalendar.get(Calendar.DAY_OF_MONTH) == todayDay &&
                     currentCalendar.get(Calendar.MONTH) == todayMonth &&
