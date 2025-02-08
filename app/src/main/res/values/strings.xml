@@ -142,11 +142,12 @@
     <string name="condition_title">Indemnity condition</string>
     <string name="lider">Central figure:</string>
     <string name="duration">Duration (days):</string>
+    <string name="duration_simple">Duration:</string>
     <string name="date_from">Date from</string>
     <string name="condition">Condition:</string>
     <string name="public_goal">Goal:</string>
     <string name="leftover">Leftover: </string>
-    <string name="duration_value" formatted="false">%s, starting from %s</string>
+    <string name="duration_value" formatted="false">%s, from %s to %s</string>
 
     // Kajon mense
     <string name="one"><b>1.</b> Our family, the owner of Cheon Il Guk, pledges to seek our original homeland and build the Kingdom of God on earth and in heaven, the original ideal of creation, by centering on true love.</string>

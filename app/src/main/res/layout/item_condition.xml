@@ -57,39 +57,23 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
-                android:focusedByDefault="false"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="@dimen/edge_margins"
                 android:background="@drawable/button_ripple_green"
+                android:focusedByDefault="false"
                 android:padding="8dp"
                 android:src="@drawable/ic_menu_white" />
 
         </RelativeLayout>
     </FrameLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/TextTitle_Kido_Explanation"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/margin8">
-
-        <TextView
-            android:id="@+id/tv_title"
-            style="@style/TextTitle_Kido_Explanation"
-            android:layout_centerHorizontal="true"
-            android:text="@string/condition_title" />
-
-        <ImageView
-            android:id="@+id/ic_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/parent_margin"
-            android:layout_toEndOf="@+id/tv_title"
-            android:src="@drawable/ic_notifications"
-            android:visibility="gone"
-            tools:visibility="visible" />
-    </RelativeLayout>
+        android:layout_marginTop="@dimen/margin8"
+        android:text="@string/condition_title" />
 
     <TextView
         android:id="@+id/tv_lider"
@@ -104,7 +88,7 @@
     <TextView
         android:id="@+id/tv_duration"
         style="@style/ConditionItems"
-        android:text="@string/duration" />
+        android:text="@string/duration_simple" />
 
     <TextView
         android:id="@+id/tv_duration_value"
@@ -132,7 +116,6 @@
         android:layout_marginBottom="@dimen/parent_margin"
         tools:text="победа" />
 
-    <View
-        style="@style/AppTheme.HorizontalViewDivider" />
+    <View style="@style/AppTheme.HorizontalViewDivider" />
 
 </LinearLayout>

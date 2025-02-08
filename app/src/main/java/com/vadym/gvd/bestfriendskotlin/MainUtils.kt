@@ -14,6 +14,8 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.PopupMenu
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 fun doNothing() {}
@@ -112,11 +114,11 @@ fun restartActivity(context: Context) {
 
 fun String.formatterDate() : String {
     val result = SimpleDateFormat("yyyyMMdd", deviceLocale()).parse(this)
-    return SimpleDateFormat("dd MMMM yyyy", deviceLocale()).format(result)
+    return SimpleDateFormat("dd.MM.yyyy", deviceLocale()).format(result)
 }
 
 fun Date.formatterDate() : String {
-    return SimpleDateFormat("dd MMMM yyyy", deviceLocale()).format(this)
+    return SimpleDateFormat("dd.MM.yyyy", deviceLocale()).format(this)
 }
 
 fun Intent.noAnimation() : Intent {

@@ -22,8 +22,10 @@ import com.vadym.gvd.bestfriendskotlin.condition.adapter.ConditionAdapter
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
 import com.vadym.gvd.bestfriendskotlin.formatterDate
 import com.vadym.gvd.bestfriendskotlin.restartActivity
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Collections
+import java.util.Locale
 
 class ConditionView : MainActivity() {
 
@@ -145,7 +147,7 @@ class ConditionView : MainActivity() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         dateFrom.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+            val datePickerDialog = DatePickerDialog(this, { _, year, monthOfYear, dayOfMonth ->
                 val monthPlus = monthOfYear + 1
                 val currentMonth = if (monthPlus.toString().length == 1) { "0$monthPlus" } else "$monthPlus"
                 val date = "$year$currentMonth$dayOfMonth"
