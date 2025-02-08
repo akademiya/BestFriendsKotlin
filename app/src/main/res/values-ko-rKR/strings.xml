@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">참 부모님</string>
-    <string name="app_start_name">CHEON IL GUK</string>
+    <string name="app_start_name">TRUE LIFE</string>
 
     <string name="advert">광고</string>
     <string name="konkurs">형제 자매 여러분, 읽기는 간단하다고 생각합니다. 그러나 여러분의 생생한 경험, 기도가 여러분의 삶에서 어떻게 작용하는지, 또는 한때 기도가 어떻게 도움이 되었는지는 매우 흥미롭고 다른 사람들에게 격려가 됩니다. 귀하의 경험을 우편으로 보내주시면 기꺼이 게시하겠습니다(다른 언어로의 번역을 통한 번역).</string>
@@ -13,13 +13,14 @@
     <string name="about">응용 프로그램 정보</string>
     <string name="experiences_prayer">내 삶의기도</string>
     <string name="share_by">몫:</string>
-    <string name="share_body">"TF PRAYER" 애플리케이션을 공유하고 싶습니다.\n</string>
+    <string name="share_body">"TRUE LIFE" 애플리케이션을 공유하고 싶습니다.\n</string>
     <string name="empty_list">목록이 비어 있습니다</string>
-    <string name="author">작성자: Vadym DG</string>
+    <string name="author">\"우주주관 바라기 전에 자아를 주관하라\"</string>
     <string name="email">이메일: vadym.adv@gmail.com</string>
     <string name="explanation">기도의 가치</string>
     <string name="loading_mp3">MP3를 로드하는 동안 잠시 기다려주십시오</string>
     <string name="kido_counter">기도 %s</string>
+    <string name="holy_days">성일</string>
 
     // Theme
     <string name="dark">다크 테마</string>
@@ -33,10 +34,10 @@
     <string name="exp2_autor">Victoria, 우크라이나</string>
 
     // App rater
-    <string name="rate">"TF PRAYER"을 평가하다</string>
+    <string name="rate">"TRUE LIFE"을 평가하다</string>
     <string name="later_rate">나중에 상기시켜 줘</string>
     <string name="no_rate">아니요, 고마워요</string>
-    <string name="to_rate">TF PRAYER 앱을 평가 해보십시오. 지원해 주셔서 감사합니다!</string>
+    <string name="to_rate">"TRUE LIFE" 앱을 평가 해보십시오. 지원해 주셔서 감사합니다!</string>
 
     // Dialog
     <string name="add_new_person">새 사람 추가</string>
@@ -60,7 +61,7 @@
 
     // Update app dialog
     <string name="up_app_title">새로운 버전의 애플리케이션이 출시되었습니다. Play 마켓 페이지에서 업데이트 할 수 있습니다</string>
-    <string name="update">"TF PRAYER" 업데이트</string>
+    <string name="update">"TRUE LIFE" 업데이트</string>
     <string name="later_update">@string/later_rate</string>
 
     // Timer
@@ -81,6 +82,7 @@
     <string name="mense">가정 맹세</string>
     <string name="anthem">축가</string>
     <string name="h_calendar">하늘 달력</string>
+    <string name="calendar_toolbar">천일국의 달력</string>
     <string name="h_calendar_prev">천상의 날짜:</string>
     <string name="heavenly_date">오늘 천일국 %1$s년 %2$s월 %3$s일</string>
     <string name="anthem_chonilguk">천일국의 축가</string>
@@ -88,6 +90,8 @@
     <string name="kido_list">기도 목록</string>
     <string name="phrase_day">오늘의 문구</string>
     <string name="pre_text_phrase">열다</string>
+    <string name="traditions">전통</string>
+    <string name="nav_exercise">참아버님 운동</string>
     <string name="communicate">접촉</string>
     <string name="share">몫</string>
     <string name="send">저자에 쓰기</string>

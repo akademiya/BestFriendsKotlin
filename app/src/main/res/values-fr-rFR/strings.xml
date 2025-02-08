@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Vrais Parents</string>
-    <string name="app_start_name">TF PRAYER</string>
+    <string name="app_start_name">TRUE LIFE</string>
 
     <string name="advert">La publicité</string>
     <string name="konkurs">Frères et sœurs, je pense que la lecture est simple, mais votre expérience vécue, comment la prière fonctionne dans votre vie, ou comment la prière a autrefois aidé, est extrêmement intéressante et encourageante pour les autres. Si vous m\'écrivez votre expérience par mail, je me ferai un plaisir de la publier (traduction par traduction dans d\'autres langues)</string>
-    <string name="sorrow">Si après la mise à jour, vous ne voyez pas la page de la liste de prière, cela peut être résolu si vous allez dans les paramètres du téléphone - application - trouvez l\'application installée "TF Prayer" et cliquez sur "effacer les données". Je m\'excuse pour cet inconvénient.</string>
+    <string name="sorrow">Si après la mise à jour, vous ne voyez pas la page de la liste de prière, cela peut être résolu si vous allez dans les paramètres du téléphone - application - trouvez l\'application installée "TRUE LIFE" et cliquez sur "effacer les données". Je m\'excuse pour cet inconvénient.</string>
     <string name="info_text">Bonjour. Je suis Vadym. \n\nL\'application est conçue uniquement pour la liste de prière. Sur la page principale, il y aura toujours de vrais parents. Le menu "Liste de prière" vous permet d\'ajouter, de modifier et de supprimer des éléments. Dans le compteur circulaire, combien de fois appelez-vous le nom de la personne pour laquelle vous priez. Il y a aussi un chronomètre qui compte le temps. Après 3, 7, 12, 21, 40 minutes, un signal retentit avec un message qui a expiré en fonction de l\'heure. \n\nLe menu "La prière du père" est une collection de prières qui sont en cours de traduction en russe pour le moment. \n\nS\'il y a des suggestions concernant l\'application, veuillez me les écrire. Je les prendrai en compte.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Privacy policy</a></string>
     <string name="site">Site (en)</string>
@@ -13,9 +13,9 @@
     <string name="about">À propos</string>
     <string name="experiences_prayer">La prière dans ma vie</string>
     <string name="share_by">Partager:</string>
-    <string name="share_body">Je veux partager "TF PRAYER" application.\n</string>
+    <string name="share_body">Je veux partager "TRUE LIFE" application.\n</string>
     <string name="empty_list">Liste vide</string>
-    <string name="author">Auteure: Vadym DG</string>
+    <string name="author">\"Avant de maîtriser l’Univers, apprenez à vous maîtriser\"</string>
     <string name="email">Email: vadym.adv@gmail.com</string>
     <string name="explanation">Valeur de la prière</string>
     <string name="loading_mp3">Attendez un instant lors du chargement du mp3</string>
@@ -33,10 +33,10 @@
     <string name="exp2_autor">Victoria, Ukraine</string>
 
     // App rater
-    <string name="rate">Taux "TF PRAYER"</string>
+    <string name="rate">Taux "TRUE LIFE"</string>
     <string name="later_rate">Rappelle-moi plus tard</string>
     <string name="no_rate">Non merci</string>
-    <string name="to_rate">Prenez un moment pour noter l\'application TF PRAYER. Merci pour le soutien!</string>
+    <string name="to_rate">Prenez un moment pour noter l\'application "TRUE LIFE". Merci pour le soutien!</string>
 
     // Dialog
     <string name="add_new_person">Ajouter une nouvelle personne</string>
@@ -59,7 +59,7 @@
 
     // Update app dialog
     <string name="up_app_title">Une nouvelle version de l\'application a été publiée. Vous pouvez mettre à jour sur la page Play Market</string>
-    <string name="update">Mettre à jour "TF PRAYER"</string>
+    <string name="update">Mettre à jour "TRUE LIFE"</string>
     <string name="later_update">@string/later_rate</string>
 
     // Timer
@@ -80,12 +80,17 @@
     <string name="mense">Engagement Familial</string>
     <string name="anthem">Hymne</string>
     <string name="h_calendar">Calendrier céleste</string>
-    <string name="heavenly_date">Date céleste : <b>Aujourd\'hui Cheon Il Guk %1$s an %2$s mois %3$s jour</b></string>
+    <string name="calendar_toolbar">Calendrier Cheon Il Guk</string>
+    <string name="h_calendar_prev">Date céleste :</string>
+    <string name="heavenly_date">Aujourd\'hui Cheon Il Guk %1$s an %2$s mois %3$s jour</string>
     <string name="anthem_chonilguk">Hymne de Cheon Il Guk</string>
     <string name="menu_condition">État</string>
     <string name="kido_list">Liste de prière</string>
     <string name="phrase_day">Phrase du jour</string>
     <string name="pre_text_phrase">ouvert</string>
+    <string name="traditions">Traditions</string>
+    <string name="holy_days">Jours saints</string>
+    <string name="nav_exercise">Exercice VP</string>
     <string name="communicate">Contact</string>
     <string name="share">Partager</string>
     <string name="send">Ecrivez à l\'auteur</string>
@@ -101,6 +106,11 @@
     <string name="thu">Jeu</string>
     <string name="fri">Ven</string>
     <string name="sat">Sam</string>
+
+    <string name="ordinal_one">%der</string>
+    <string name="ordinal_two">%dème</string>
+    <string name="ordinal_few">%dème</string>
+    <string name="ordinal_other">%dème</string>
 
     // EU GDPR Consent texts
     <string name="eu_consent_text">Cher utilisateur! \n\nNous utilisons la Play Console pour publier l\'application et collecter des informations sur l\'interaction des utilisateurs avec l\'application. Cela contribue au développement ultérieur du projet. Conformément au nouveau règlement européen sur la protection des données (RGPD), nous avons besoin de votre consentement pour collecter des informations.</string>

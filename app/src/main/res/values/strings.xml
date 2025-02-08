@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">True Parents</string>
-    <string name="app_start_name">CHEON IL GUK</string> //TF PRAYER
+    <string name="app_start_name">TRUE LIFE</string> //TF PRAYER
 
     <string name="advert">Advertising</string>
     <string name="konkurs">Brothers and sisters, I think the reading is simple, but your lived experience, how prayer works in your life, or how prayer once helped, is extremely interesting and encouraging to others. If you write me your experience by mail, I will be happy to publish it (translation through translate to other languages)</string>
-    <string name="sorrow">If after the update you do not see the prayer list page, this can be fixed if you go to the settings of the phone - application - find the installed application "TF Prayer" and click "clear data". I apologize for this inconvenience.</string>
+    <string name="sorrow">If after the update you do not see the prayer list page, this can be fixed if you go to the settings of the phone - application - find the installed application "TRUE LIFE" and click "clear data". I apologize for this inconvenience.</string>
     <string name="info_text">Hello. I`m Vadym. \n\nThe application is designed only for the prayer list. On the main page there will always be True Parents. The "Prayer List" menu allows you to add, edit and delete items. In the circle counter, how many times do you call the name of the person you pray for. There is also a chronometer that counts the time. After 3, 7, 12, 21, 40 minutes, a signal will sound with a message that expired according to the time. \n\nThe "Father's Prayer" menu is a collection of prayers that are in translation to russian for the time being. \n\nIf there are any suggestions regarding the app, please write to me. I will definitely take them into consideration.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Privacy policy</a></string>
     <string name="site">Site</string>
@@ -13,9 +13,9 @@
     <string name="about">About app</string>
     <string name="experiences_prayer">Prayer in my life</string>
     <string name="share_by">Share:</string>
-    <string name="share_body">I want to share "TF PRAYER" application.\n</string>
+    <string name="share_body">I want to share "TRUE LIFE" application.\n</string>
     <string name="empty_list">Empty list</string>
-    <string name="author">Author: Vadym DG</string>
+    <string name="author">\"Learn to master yourself before you master the Universe\"</string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>
     <string name="explanation">Value of prayer</string>
     <string name="holy_days">Holy Days</string>
@@ -46,10 +46,10 @@
 
 
     // App rater
-    <string name="rate">Rate "TF PRAYER"</string>
+    <string name="rate">Rate "TRUE LIFE"</string>
     <string name="later_rate">Remind me later</string>
     <string name="no_rate">No, thanks</string>
-    <string name="to_rate">Take a moment to rate the TF PRAYER app. Thanks for the support!</string>
+    <string name="to_rate">Take a moment to rate the "TRUE LIFE" app. Thanks for the support!</string>
 
     // Dialog
     <string name="add_new_person">Add new person</string>
@@ -74,7 +74,7 @@
 
     // Update app dialog
     <string name="up_app_title">A new version of the application has been released. You can update on the Play Market page</string>
-    <string name="update">Update "TF PRAYER"</string>
+    <string name="update">Update "TRUE LIFE"</string>
     <string name="later_update">@string/later_rate</string>
 
     // Timer
@@ -96,9 +96,6 @@
 <!--    <string name="mense_k">가정 맹세</string>-->
     <string name="traditions">Traditions</string>
     <string name="h_calendar">Heavenly Calendar</string>
-    <string name="calendar_toolbar">Calendar of CIG</string>
-    <string name="h_calendar_prev">Heavenly date:</string>
-    <string name="heavenly_date">Today %1$s year of Cheon Il Guk %2$s month %3$s day</string>
     <string name="anthem">Anthem</string>
     <string name="menu_condition">Condition</string>
     <string name="anthem_chonilguk">Anthem of Cheon Il Guk</string>
@@ -127,6 +124,10 @@
     <string name="ordinal_two">%dnd</string>
     <string name="ordinal_few">%drd</string>
     <string name="ordinal_other">%dth</string>
+
+    <string name="calendar_toolbar">Calendar of CIG</string>
+    <string name="h_calendar_prev">Heavenly date:</string>
+    <string name="heavenly_date">Today %1$s year of Cheon Il Guk %2$s month %3$s day</string>
 
     // EU GDPR Consent texts
     <string name="eu_consent_text">Dear user!\n\nWe use the Play Console to publish the app and collect information about user interaction with the app. In accordance with the new European Data Protection Regulation (GDPR), we need your consent to collect information.</string>

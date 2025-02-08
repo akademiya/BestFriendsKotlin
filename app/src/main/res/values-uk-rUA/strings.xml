@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Істинні Батьки</string>
-    <string name="app_start_name">CHEON IL GUK</string>
+    <string name="app_start_name">TRUE LIFE</string>
 
     <string name="advert">Реклама</string>
     <string name="konkurs">Брати і сестри, я думаю, що читати хоч і простий, але ваш живий досвід, як працює молитва у вашому житті, чи як молитва одного разу допомогла - це надзвичайно цікаво та підбадьорює інших. Якщо ви напишите мені свій досвід на пошту, я з радістю опублікую його (переклад через translate на інші мови).</string>
-    <string name="sorrow">Якщо після оновлення додатка у вас не відображається сторінка молитовного списку, це можна виправити, якщо зайти в налаштування телефону - додатки - знайти встановлений додаток "TF Prayer" і натиснути "очистити дані". Прошу пробачити за цю незручність.</string>
+    <string name="sorrow">Якщо після оновлення додатка у вас не відображається сторінка молитовного списку, це можна виправити, якщо зайти в налаштування телефону - додатки - знайти встановлений додаток "TRUE LIFE" і натиснути "очистити дані". Прошу пробачити за цю незручність.</string>
     <string name="info_text">Вітання. Я Вадим - розрозбник даного додатка.
         \n\nПочатково додаток розрахований для молитовного списку. На головній сторінці завжди будуть Істинні Батьки.
-        \n\nЗараз додаток стає помічником кожному господарю Чон Іль Гук.
+        \n\nЗараз додаток стає помічником кожному господарю ЧонІльГук.
         \n\nВ додатку ще плануються зміни, будуть додаватись нові функції. Якщо є якісь пропозиції, напишіть мені. Я обов’язково  візьму до уваги.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Політика конфіденційності</a></string>
     <string name="site">Перейти на сайт</string>
@@ -16,7 +16,7 @@
     <string name="about">Про додаток</string>
     <string name="experiences_prayer">Молитва в моєму житті</string>
     <string name="share_by">Поділитися:</string>
-    <string name="share_body">Рекомендую доддаток "TP PRAYER".\n</string>
+    <string name="share_body">Рекомендую доддаток "TRUE LIFE".\n</string>
     <string name="empty_list">Список пустий</string>
     <string name="author"><i>\"Перш, ніж володіти Всесвітом, навчись володіти собою\"</i></string>
     <string name="email">E-mail: vadym.adv@gmail.com</string>
@@ -42,10 +42,10 @@
     <string name="exp2_autor">Вікторія</string>
 
     // App rater
-    <string name="rate">Оцінити "TF PRAYER"</string>
+    <string name="rate">Оцінити "TRUE LIFE"</string>
     <string name="later_rate">Нагадати пізніше</string>
     <string name="no_rate">Ні, дякую</string>
-    <string name="to_rate">Виділіть хвилинку, щоб оцінити додаток "TF PRAYER". Дякую за підтримку!</string>
+    <string name="to_rate">Виділіть хвилинку, щоб оцінити додаток "TRUE LIFE". Дякую за підтримку!</string>
 
     // Dialog
     <string name="add_new_person">Додати нову позицію</string>
@@ -68,7 +68,7 @@
 
     // Update app dialog
     <string name="up_app_title">У мене є оновлення. Качайте на сторінці Play Market</string>
-    <string name="update">Оновити "TF PRAYER"</string>
+    <string name="update">Оновити "TRUE LIFE"</string>
     <string name="later_update">@string/later_rate</string>
 
     // Timer
@@ -93,7 +93,7 @@
     <string name="h_calendar">Небесний календар</string>
     <string name="calendar_toolbar">Календар ЧонІльГук</string>
     <string name="h_calendar_prev">Небесна дата:</string>
-    <string name="heavenly_date">Сьогодні %1$s рік Чон Іль Гук %2$s місяць %3$s день</string>
+    <string name="heavenly_date">Сьогодні %1$s рік ЧонІльГук %2$s місяць %3$s день</string>
     <string name="menu_condition">Умови посвячення</string>
     <string name="kido_list">Молитовний список</string>
     <string name="phrase_day">Фраза на день</string>
@@ -272,7 +272,7 @@
 </string>
 
     // Traditions
-    <string name="anshiil">Ан Ші Іль</string>
+    <string name="anshiil">АнШіІль</string>
     <string name="hdh">ХДХ</string>
     <string name="pledge">Обітниця Сім’ї</string>
     <string name="candle">Свічка ЧІГ</string>

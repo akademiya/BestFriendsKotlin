@@ -2,6 +2,7 @@ package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
@@ -25,7 +26,7 @@ import java.util.Locale
 
 
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    lateinit var drawer: DrawerLayout
+    private lateinit var drawer: DrawerLayout
     private lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,7 +94,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_calendar -> startActivity(Intent(this, HeavenlyCalendarView::class.java).noAnimation())
 //            R.id.nav_experiences_prayer -> startActivity(Intent(this, ExperiencesPrayerView::class.java).noAnimation())
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
-            R.id.nav_hdh -> startActivity(openHDHApp(this))
+            R.id.nav_hdh -> openHDHApp()
             R.id.nav_exercise -> startActivity(Intent(this, ExerciseView::class.java))
             R.id.nav_facebook -> startActivity(openFacebookIntent(this))
             R.id.nav_share -> {
@@ -126,23 +127,40 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         return userCountry.equals("uk", ignoreCase = true)
     }
 
-    open fun openHDHApp(context: Context): Intent? {
+    open fun openHDHApp() {
         val packageName = "com.vadym.hdhmeeting"
-        return try {
-            // Check if the app is installed
-            context.packageManager.getPackageInfo(packageName, 0)
+        val intent = packageManager.getLaunchIntentForPackage(packageName)
+        if (intent != null && isAppInstalled(packageName)) {
+            startActivity(intent)
+        } else {
+            val playStoreIntent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName"))
+            startActivity(playStoreIntent)
+        }
 
-            // Create an intent to open the app
-            Intent(Intent.ACTION_MAIN).apply {
-                addCategory(Intent.CATEGORY_LAUNCHER)
-                `package` = packageName
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            }
-        } catch (e: Exception) {
-            // If the app is not installed, open its Play Store page
-            Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            }
+//        return try {
+//            // Check if the app is installed
+//            context.packageManager.getPackageInfo(packageName, 0)
+//
+//            // Create an intent to open the app
+//            Intent(Intent.ACTION_MAIN).apply {
+//                addCategory(Intent.CATEGORY_LAUNCHER)
+//                `package` = packageName
+//                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+//            }
+//        } catch (e: Exception) {
+//            // If the app is not installed, open its Play Store page
+//            Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")).apply {
+//                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+//            }
+//        }
+    }
+
+    private fun isAppInstalled(packageName: String): Boolean {
+        return try {
+            packageManager.getPackageInfo(packageName, 0)
+            true
+        } catch (e: PackageManager.NameNotFoundException) {
+            false
         }
     }
 

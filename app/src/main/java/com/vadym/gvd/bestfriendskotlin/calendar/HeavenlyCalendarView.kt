@@ -10,7 +10,6 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.fj.koreanlunarcalendar.KoreanLunarCalendarUtils
@@ -181,7 +180,6 @@ class HeavenlyCalendarView: MainActivity() {
         }
     }
 
-
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "Heavenly Calendar Notifications"
@@ -200,8 +198,9 @@ class HeavenlyCalendarView: MainActivity() {
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.YEAR, 0)
         val year = calendar.get(Calendar.YEAR) - 2012
+        val anshiilText = if(isAnshiilDay(calendar)) { ", " + getString(R.string.anshiil) } else ""
 
-        return getString(R.string.heavenly_date, getOrdinal(year), getOrdinal(month.toInt()), getOrdinal(day.toInt()))
+        return getString(R.string.heavenly_date, getOrdinal(year), getOrdinal(month.toInt()), getOrdinal(day.toInt())) + anshiilText
     }
 
     private fun getOrdinal(number: Int): String {
@@ -213,15 +212,6 @@ class HeavenlyCalendarView: MainActivity() {
                 3 -> getString(R.string.ordinal_few, number)  // 3rd
                 else -> getString(R.string.ordinal_other, number)  // 4th, 5th, etc.
             }
-        }
-    }
-
-
-    private fun handleDrawer() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START)
-        } else {
-            drawer.openDrawer(GravityCompat.START)
         }
     }
 
