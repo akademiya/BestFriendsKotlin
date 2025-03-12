@@ -28,6 +28,7 @@
     <color name="calendar_day_border">#FFA500</color>
     <color name="calendar_day_bg">#3D000000</color> <!--24% of black-->
     <color name="calendar_prev_day">#4CAF50</color> <!--Green 500-->
+    <color name="tradition_custom_ripple_color">#FFD600</color>
 
     <color name="heavenly_day_color">#501187</color>
 </resources>

@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        app:adSize="BANNER"
+        app:adSize="SMART_BANNER"
         app:adUnitId="ca-app-pub-5169531562006723/2425925775" />
 
     <View
@@ -38,17 +38,10 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="@dimen/parent_margin" />
 
-    <GridView
-        android:id="@+id/gv_traditions"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_traditions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/parent_margin"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:gravity="center"
-        android:horizontalSpacing="8dp"
-        android:numColumns="2"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="26dp"
+        android:layout_marginHorizontal="8dp"
         tools:listitem="@layout/grid_item" />
 </LinearLayout>

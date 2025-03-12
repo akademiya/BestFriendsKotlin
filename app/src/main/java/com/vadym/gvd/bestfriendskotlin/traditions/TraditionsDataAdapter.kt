@@ -1,40 +1,31 @@
 package com.vadym.gvd.bestfriendskotlin.traditions
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.TextView
+import android.widget.Button
+import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.R
 
 
-class TraditionsDataAdapter(
-    private val context: Context,
-    private val traditionsList: List<String>
-) : BaseAdapter() {
+class TraditionsDataAdapter(private val traditions: List<String>,
+                            private val itemClickListener: (Int) -> Unit) :
+    RecyclerView.Adapter<TraditionsDataAdapter.TraditionViewHolder>() {
 
-    override fun getCount(): Int {
-        return traditionsList.size
+    class TraditionViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val button: Button = view.findViewById(R.id.btn_tradition)
     }
 
-    override fun getItem(position: Int): Any {
-        return traditionsList[position]
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TraditionViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.grid_item, parent, false)
+        return TraditionViewHolder(view)
     }
 
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
+    override fun onBindViewHolder(holder: TraditionViewHolder, position: Int) {
+        holder.button.text = traditions[position]
+        holder.button.setOnClickListener { itemClickListener(position) }
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view: View = convertView ?: LayoutInflater.from(context).inflate(
-            R.layout.grid_item, parent, false
-        )
-
-        val textView: TextView = view.findViewById(R.id.item_text)
-        textView.text = traditionsList[position]
-
-        return view
-    }
-
+    override fun getItemCount(): Int = traditions.size
 }

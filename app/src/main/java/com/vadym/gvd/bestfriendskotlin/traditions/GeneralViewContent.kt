@@ -39,7 +39,7 @@ class GeneralViewContent : MainActivity() {
             0 -> traditionDescription.text = getString(R.string.sunday_service_description)
             1 -> traditionDescription.text = getString(R.string.hdh_description).toHtml()
             2 -> traditionDescription.text = getString(R.string.pledge_description).toHtml()
-            3 -> traditionDescription.text = getString(R.string.anshiil_description)
+            3 -> traditionDescription.text = getString(R.string.anshiil_description).toHtml()
             4 -> {
                 traditionDescription.text = getString(R.string.salt_description).toHtml()
                 traditionsImage.setImageDrawable(getDrawable(R.drawable.tr_salt))
@@ -48,7 +48,7 @@ class GeneralViewContent : MainActivity() {
                 traditionDescription.text = getString(R.string.vine_description).toHtml()
                 traditionsImage.setImageDrawable(getDrawable(R.drawable.tr_vine))
             }
-            6 -> traditionDescription.text = getString(R.string.candle_description)
+            6 -> traditionDescription.text = getString(R.string.candle_description).toHtml()
             7 -> traditionDescription.text = getString(R.string.clothes_description)
             8 -> traditionDescription.text = getString(R.string.photo_of_tp_description)
             9 -> traditionDescription.text = getString(R.string.days8_description)

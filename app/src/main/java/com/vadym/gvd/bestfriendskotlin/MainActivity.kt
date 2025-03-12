@@ -51,6 +51,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         toggle.syncState()
 
         navigationView.menu.findItem(R.id.nav_hdh).isVisible = isUserFromUkraine()
+        navigationView.menu.findItem(R.id.nav_ua_sj).isVisible = isUserFromUkraine()
+        navigationView.menu.findItem(R.id.nav_birthday).isVisible = isUserFromUkraine()
         navigationView.setNavigationItemSelectedListener(this)
 
         if (isNetworkAvailable(this)) {
@@ -92,6 +94,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_kido_condition -> startActivity(Intent(this, ConditionView::class.java).noAnimation())
             R.id.nav_traditions -> startActivity(Intent(this, TraditionsView::class.java).noAnimation())
             R.id.nav_calendar -> startActivity(Intent(this, HeavenlyCalendarView::class.java).noAnimation())
+            R.id.nav_ua_sj -> startActivity(Intent(openUAShimjeong()).noAnimation())
+            R.id.nav_birthday -> openBirthdayApp()
 //            R.id.nav_experiences_prayer -> startActivity(Intent(this, ExperiencesPrayerView::class.java).noAnimation())
             R.id.nav_info -> startActivity(Intent(this, InfoView::class.java))
             R.id.nav_hdh -> openHDHApp()
@@ -153,6 +157,23 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 //                flags = Intent.FLAG_ACTIVITY_NEW_TASK
 //            }
 //        }
+    }
+
+    private fun openUAShimjeong(): Intent {
+        val packageName = "mattermost"
+        val url = "https://umua.org/hpwords/channels/town-square"
+        return packageManager.getLaunchIntentForPackage(packageName) ?: Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    }
+
+    private fun openBirthdayApp() {
+        val packageName = "com.vadym.birthday"
+        val url = "https://sites.google.com/view/birthday-app/main"
+        val intent = packageManager.getLaunchIntentForPackage(packageName)
+        if (intent != null && isAppInstalled(packageName)) {
+            startActivity(intent)
+        } else {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        }
     }
 
     private fun isAppInstalled(packageName: String): Boolean {

@@ -96,6 +96,7 @@
 <!--    <string name="mense_k">가정 맹세</string>-->
     <string name="traditions">Traditions</string>
     <string name="h_calendar">Heavenly Calendar</string>
+    <string name="uasj_app">UA Shimjeong</string>
     <string name="anthem">Anthem</string>
     <string name="menu_condition">Condition</string>
     <string name="anthem_chonilguk">Anthem of Cheon Il Guk</string>
@@ -104,6 +105,7 @@
     <string name="pre_text_phrase">open</string>
     <string name="communicate">Contact</string>
     <string name="hdh_app">HDH</string>
+    <string name="birthday_app">UA Birthdays</string>
     <string name="nav_exercise">TF Exercise</string>
     <string name="share">Share</string>
     <string name="send">Write to the author</string>

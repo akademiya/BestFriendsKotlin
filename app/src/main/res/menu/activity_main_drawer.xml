@@ -10,9 +10,29 @@
             android:title="@string/mense" />
 
         <item
-            android:id="@+id/nav_anthem"
-            android:icon="@drawable/ic_play"
-            android:title="@string/anthem"/>
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_calendar"
+            android:title="@string/h_calendar" />
+
+        <item
+            android:id="@+id/nav_ua_sj"
+            android:icon="@drawable/ic_uasj"
+            android:title="@string/uasj_app" />
+
+        <item
+            android:id="@+id/nav_hdh"
+            android:icon="@drawable/ic_hdh"
+            android:title="@string/hdh_app"/>
+
+        <item
+            android:id="@+id/nav_birthday"
+            android:icon="@drawable/home_cake"
+            android:title="@string/birthday_app"/>
+
+        <item
+            android:id="@+id/nav_exercise"
+            android:icon="@drawable/ic_exercise"
+            android:title="@string/nav_exercise"/>
 
         <item
             android:id="@+id/nav_kido"
@@ -20,14 +40,24 @@
             android:title="@string/kido_list" />
 
         <item
-            android:id="@+id/nav_father_kido"
-            android:icon="@drawable/books"
-            android:title="@string/tp_kido" />
+            android:id="@+id/nav_kido_condition"
+            android:icon="@drawable/ic_condition"
+            android:title="@string/menu_condition" />
 
         <item
             android:id="@+id/nav_phrase_day"
             android:icon="@drawable/ic_cookie"
             android:title="@string/phrase_day" />
+
+        <item
+            android:id="@+id/nav_anthem"
+            android:icon="@drawable/ic_play"
+            android:title="@string/anthem"/>
+
+        <item
+            android:id="@+id/nav_father_kido"
+            android:icon="@drawable/books"
+            android:title="@string/tp_kido" />
 
         <item
             android:id="@+id/nav_kido_explanation"
@@ -44,30 +74,10 @@
             android:icon="@drawable/ic_liliya"
             android:title="@string/holy_days" />
 
-        <item
-            android:id="@+id/nav_calendar"
-            android:icon="@drawable/ic_calendar"
-            android:title="@string/h_calendar" />
-
-        <item
-            android:id="@+id/nav_kido_condition"
-            android:icon="@drawable/ic_condition"
-            android:title="@string/menu_condition" />
-
 <!--        <item-->
 <!--            android:id="@+id/nav_experiences_prayer"-->
 <!--            android:icon="@drawable/pray"-->
 <!--            android:title="@string/experiences_prayer"/>-->
-
-        <item
-            android:id="@+id/nav_hdh"
-            android:icon="@drawable/ic_hdh"
-            android:title="@string/hdh_app"/>
-
-        <item
-            android:id="@+id/nav_exercise"
-            android:icon="@drawable/ic_exercise"
-            android:title="@string/nav_exercise"/>
 
         <item
             android:id="@+id/nav_facebook"

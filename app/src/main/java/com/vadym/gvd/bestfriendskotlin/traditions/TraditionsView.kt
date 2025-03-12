@@ -3,9 +3,9 @@ package com.vadym.gvd.bestfriendskotlin.traditions
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.GridView
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdView
 import com.vadym.gvd.bestfriendskotlin.Admob
 import com.vadym.gvd.bestfriendskotlin.ExplanationView
@@ -51,12 +51,9 @@ class TraditionsView : MainActivity() {
             getString(R.string.prayer_tradition)
         )
 
-        val gridView: GridView = findViewById(R.id.gv_traditions)
-        val gridAdapter = TraditionsDataAdapter(this, traditions)
-        gridView.adapter = gridAdapter
 
-
-        gridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+        val rvTraditions: RecyclerView = findViewById(R.id.rv_traditions)
+        val adapter = TraditionsDataAdapter(traditions) { position ->
             if (position == traditions.lastIndex) {
                 startActivity(Intent(this, ExplanationView::class.java).noAnimation())
             } else {
@@ -67,6 +64,10 @@ class TraditionsView : MainActivity() {
                 startActivity(intent)
             }
         }
+        rvTraditions.layoutManager = GridLayoutManager(this, 2)
+        rvTraditions.adapter = adapter
+
+        rvTraditions.setOnClickListener {  }
     }
 
     private fun toolbarButtonMenu() {
