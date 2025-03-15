@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.vadym.gvd.bestfriendskotlin.FirebaseStorage
 import com.vadym.gvd.bestfriendskotlin.R
 
-class CalendarAdapter (private val days: List<HeavenlyCalendarView.CalendarDay>) :
+class CalendarAdapter (private val days: List<HeavenlyCalendarView.CalendarDay>,
+                       private val itemClickListener: (Boolean, Int) -> Unit) :
     RecyclerView.Adapter<CalendarAdapter.ViewHolder>() {
 
     private var selectedPosition: Int = -1
@@ -25,24 +27,28 @@ class CalendarAdapter (private val days: List<HeavenlyCalendarView.CalendarDay>)
         holder.gregorianText.text = day.gregorian
         holder.lunarText.text = day.lunar
 
-        if (day.isToday) {
-            holder.itemView.setBackgroundResource(R.drawable.current_day_bg)
-            holder.lunarText.visibility = View.GONE
+        if (day.isImportantDay && day.isToday) {
+            holder.itemView.setBackgroundResource(R.drawable.today_important_day_bg)
+        } else if (day.isImportantDay) {
+            holder.itemView.setBackgroundResource(R.drawable.important_day_bg)
+        } else if (day.isAnshiil && day.isToday) {
+            holder.itemView.setBackgroundResource(R.drawable.today_anshiil_day_bg)
         } else if (day.isAnshiil) {
             holder.itemView.setBackgroundResource(R.drawable.anshiil_day_bg)
-        } else if (selectedPosition == position && day.gregorian.isNotEmpty()) {
-            val border = GradientDrawable()
-            border.setStroke(4, holder.itemView.resources.getColor(R.color.accent_darker))
-            border.cornerRadius = 6F
-            border.setColor(holder.itemView.resources.getColor(R.color.calendar_day_bg))
-            holder.itemView.background = border
+        } else if (day.isToday) {
+            holder.itemView.setBackgroundResource(R.drawable.current_day_bg)
+            holder.lunarText.visibility = View.GONE
         } else {
             holder.itemView.setBackgroundColor(Color.TRANSPARENT)
             holder.lunarText.visibility = View.VISIBLE
         }
 
+        if (day.isImportantDay) {
+
+        }
         holder.itemView.setOnClickListener {
-            selectedPosition = position
+//            selectedPosition = position
+            itemClickListener(day.isImportantDay, position)
             notifyDataSetChanged()
         }
     }

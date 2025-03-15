@@ -33,17 +33,6 @@
     <string name="dark">Dark</string>
     <string name="light">Light</string>
 
-    // Experiences
-    <string name="separator">* * * * *</string>
-    <string name="exp1">When I was the captain of the mmbk team, I needed to figure out how to help a person, mentor him. Understand what is happening in his life and how to react. By myself, I am not an analyst, not a psychologist. After the team left for a mission, I prayed for everyone. While praying for a person, I clearly began to understand what needs to be said to him, how to support him. But if I did not write down this realization, then very quickly I could forget about it. Therefore, I had to note everything that came in prayer. As a result, we united very well in our hearts and can still remember the times when we were together on condition.</string>
-    <string name="exp1_autor">Vadym DG, Ukraine</string>
-
-    <string name="exp2">The life of prayer for me is a concentrate of sincerity with my closest Parent. With Him I can speak at ease, about everything, understand. One has only to turn, find time for prayer, devote an important place in life. Such are my feelings on this topic. And it is worth overcoming yourself, deciding to pray, then it becomes easy, easy on the soul, and it turned out that it is not difficult, the necessary words are found and it is not the mind that speaks, but the heart.\n\nBut in the morning, evening prayer, when I open and close my day, sometimes I feel that the life of prayer and everyday life live on their own, separately. No matter how beautiful words and promises to Heavenly Parent are in prayer, during the day they disappear somewhere and I continue to behave, following different emotions. And I really want, I sincerely want the life of prayer to live inside my day, then my attitude to life would be completely different and my reaction to different situations and difficulties. With God, life has a meaning and other colors. One has only to want.</string>
-    <string name="exp2_autor">Victoria, Ukraine</string>
-
-    <string name="exp3">Я каждый день читаю ХДХ - Слово Отца. </string>
-    <string name="exp3_autor">Goncharuk</string>
-
 
     // App rater
     <string name="rate">Rate "TRUE LIFE"</string>
@@ -129,6 +118,7 @@
 
     <string name="calendar_toolbar">Calendar of CIG</string>
     <string name="h_calendar_prev">Heavenly date:</string>
+    <string name="h_important_prev">Important date:</string>
     <string name="heavenly_date">Today %1$s year of Cheon Il Guk %2$s month %3$s day</string>
 
     // EU GDPR Consent texts
@@ -169,12 +159,12 @@
     <string name="day5_title">True Children\'s Day</string>
     <string name="day6_title">Foundation Day for the Nation of Heaven and Earth</string>
 
-    <string name="day9_title">Beginning of year of CIG</string>
-    <string name="day10_title">True Parents\' Birthday</string>
-    <string name="day11_title">Foundation Day / Coronation Ceremony for the Kingship of God</string>
-    <string name="day12_title">Anniversary of the Founding of the Unification Church</string>
-    <string name="day13_title">Entrance into Cheon Jeong Gung and the Coronation of the King and Queen of Peace</string>
-    <string name="day14_title">Ascension of the True Parent of Heaven, Earth and Humankind</string>
+    <string name="day7_title">Beginning of year of CIG</string>
+    <string name="day8_title">True Parents\' Birthday</string>
+    <string name="day9_title">Foundation Day / Coronation Ceremony for the Kingship of God</string>
+    <string name="day10_title">Anniversary of the Founding of the Unification Church</string>
+    <string name="day11_title">Entrance into Cheon Jeong Gung and the Coronation of the King and Queen of Peace</string>
+    <string name="day12_title">Ascension of the True Parent of Heaven, Earth and Humankind</string>
 
     <string name="day1_description">For 6,000 years God had been seeking the heavenly family and the restored foundation of His love on earth. The establishment of Parents Day signified that God had finally established His first son and daughter as the True Parents of humankind. Fallen humanity should rejoice because through the establishment of Parents Day it is finally possible for humanity to attend the True Parents.
 \n\nFather is the first person in history ever able to proclaim Parents Day. Based on the victory of installing Parents Day, Father and Mother were able to build on earth the eternal family unit.

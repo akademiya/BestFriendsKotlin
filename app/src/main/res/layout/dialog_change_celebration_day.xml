@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/parent_margin"
             android:ellipsize="end"
-            android:hint="@string/day9_title"
+            android:hint="@string/day7_title"
             android:inputType="phone"
             android:maxLines="1" />
 
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/parent_margin"
             android:ellipsize="end"
-            android:hint="@string/day10_title"
+            android:hint="@string/day8_title"
             android:inputType="phone"
             android:maxLines="1" />
 
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/parent_margin"
             android:ellipsize="end"
-            android:hint="@string/day11_title"
+            android:hint="@string/day9_title"
             android:inputType="phone"
             android:maxLines="1" />
 
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/parent_margin"
             android:ellipsize="end"
-            android:hint="@string/day12_title"
+            android:hint="@string/day10_title"
             android:inputType="phone"
             android:maxLines="1" />
 
@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/parent_margin"
             android:ellipsize="end"
-            android:hint="@string/day13_title"
+            android:hint="@string/day11_title"
             android:inputType="phone"
             android:maxLines="1" />
 
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/parent_margin"
             android:ellipsize="end"
-            android:hint="@string/day14_title"
+            android:hint="@string/day12_title"
             android:inputType="phone"
             android:maxLines="1" />
 

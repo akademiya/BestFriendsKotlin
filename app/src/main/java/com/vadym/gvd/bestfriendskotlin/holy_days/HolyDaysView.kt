@@ -228,32 +228,32 @@ class HolyDaysView : MainActivity() {
             ),
             HolyDayEntity(
                 id = "id",
-                title = resources.getString(R.string.day9_title),
+                title = resources.getString(R.string.day7_title),
                 day = "01/01/13 29/01/2025"
             ),
             HolyDayEntity(
                 id = "id",
-                title = resources.getString(R.string.day10_title),
+                title = resources.getString(R.string.day8_title),
                 day = "06/01/13 03/02/2025"
             ),
             HolyDayEntity(
                 id = "id",
-                title = resources.getString(R.string.day11_title),
+                title = resources.getString(R.string.day9_title),
                 day = "13/01/13 10/02/2025"
             ),
             HolyDayEntity(
                 id = "id",
-                title = resources.getString(R.string.day12_title),
+                title = resources.getString(R.string.day10_title),
                 day = "01/05/13 27/05/2025"
             ),
             HolyDayEntity(
                 id = "id",
-                title = resources.getString(R.string.day13_title),
+                title = resources.getString(R.string.day11_title),
                 day = "13/06/13 07/07/2025"
             ),
             HolyDayEntity(
                 id = "id",
-                title = resources.getString(R.string.day14_title),
+                title = resources.getString(R.string.day12_title),
                 day = "17/07/13 08/09/2025"
             )
         )

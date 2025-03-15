@@ -97,7 +97,7 @@ class ContentHolyDay : MainActivity() {
                     val (heavenlyDay, gregorianDay) = separateDays
                     celebrateHeavenlyDay.text = heavenlyDay
                     celebrateGregorianDay.text = gregorianDay
-                    dayTitle.text = resources.getString(R.string.day9_title)
+                    dayTitle.text = resources.getString(R.string.day7_title)
                     dayDescription.text = resources.getString(R.string.day7_description)
                 }
 
@@ -106,7 +106,7 @@ class ContentHolyDay : MainActivity() {
                     val (heavenlyDay, gregorianDay) = separateDays
                     celebrateHeavenlyDay.text = heavenlyDay
                     celebrateGregorianDay.text = gregorianDay
-                    dayTitle.text = resources.getString(R.string.day10_title)
+                    dayTitle.text = resources.getString(R.string.day8_title)
                     dayDescription.text = resources.getString(R.string.day8_description)
                 }
 
@@ -115,7 +115,7 @@ class ContentHolyDay : MainActivity() {
                     val (heavenlyDay, gregorianDay) = separateDays
                     celebrateHeavenlyDay.text = heavenlyDay
                     celebrateGregorianDay.text = gregorianDay
-                    dayTitle.text = resources.getString(R.string.day11_title)
+                    dayTitle.text = resources.getString(R.string.day9_title)
                     dayDescription.text = resources.getString(R.string.day8_description)
                 }
 
@@ -124,7 +124,7 @@ class ContentHolyDay : MainActivity() {
                     val (heavenlyDay, gregorianDay) = separateDays
                     celebrateHeavenlyDay.text = heavenlyDay
                     celebrateGregorianDay.text = gregorianDay
-                    dayTitle.text = resources.getString(R.string.day12_title)
+                    dayTitle.text = resources.getString(R.string.day10_title)
                     dayDescription.text = resources.getString(R.string.day8_description)
                 }
 
@@ -133,7 +133,7 @@ class ContentHolyDay : MainActivity() {
                     val (heavenlyDay, gregorianDay) = separateDays
                     celebrateHeavenlyDay.text = heavenlyDay
                     celebrateGregorianDay.text = gregorianDay
-                    dayTitle.text = resources.getString(R.string.day13_title)
+                    dayTitle.text = resources.getString(R.string.day11_title)
                     dayDescription.text = resources.getString(R.string.day8_description)
                 }
 
@@ -142,7 +142,7 @@ class ContentHolyDay : MainActivity() {
                     val (heavenlyDay, gregorianDay) = separateDays
                     celebrateHeavenlyDay.text = heavenlyDay
                     celebrateGregorianDay.text = gregorianDay
-                    dayTitle.text = resources.getString(R.string.day14_title)
+                    dayTitle.text = resources.getString(R.string.day12_title)
                     dayDescription.text = resources.getString(R.string.day8_description)
                 }
 

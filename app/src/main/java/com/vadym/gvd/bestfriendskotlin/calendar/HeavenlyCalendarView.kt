@@ -8,13 +8,16 @@ import android.content.Intent
 import android.icu.util.ChineseCalendar
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.fj.koreanlunarcalendar.KoreanLunarCalendarUtils
+import com.vadym.gvd.bestfriendskotlin.FirebaseStorage
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.importantCalendar
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -24,10 +27,14 @@ const val NOTIFICATION_CHANNEL_ID = "HeavenlyCalendarChannel"
 
 class HeavenlyCalendarView: MainActivity() {
 
+    private val storage = FirebaseStorage(this)
     private lateinit var recyclerView: RecyclerView
     private lateinit var titleMonthYear: TextView
     private val calendarDays = mutableListOf<CalendarDay>()
     private val currentCalendar: Calendar = Calendar.getInstance()
+    private lateinit var viewImportantDay: TextView
+    private lateinit var importantDayPrev: TextView
+    private var importantDates = listOf<String>()
     private var heavenlyMonth = "0"
     private var heavenlyDay = "0"
 
@@ -41,6 +48,8 @@ class HeavenlyCalendarView: MainActivity() {
         val nextMonth = findViewById<ImageView>(R.id.next_month)
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         val viewHeavenlyDateToday = findViewById<TextView>(R.id.view_heavenly_date_today)
+        viewImportantDay = findViewById(R.id.view_important_day)
+        importantDayPrev = findViewById(R.id.important_day_prev)
 
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
@@ -50,8 +59,52 @@ class HeavenlyCalendarView: MainActivity() {
 
         toolbar.setNavigationOnClickListener { onBackPressed() }
 
+        val adapter = CalendarAdapter(calendarDays) { isImportant, position ->
+            val clickedDate = calendarDays[position].gregorian
+
+            if (isImportant) {
+                importantDayPrev.visibility = View.VISIBLE
+                viewImportantDay.visibility = View.VISIBLE
+
+                val index = importantDates.indexOfFirst { it == clickedDate }
+                if (index != -1) {
+                    val resourceName = "day${index + 1}_title"
+                    val resId = resources.getIdentifier(resourceName, "string", packageName)
+
+                    if (resId != 0) {
+                        viewImportantDay.text = resources.getString(resId)
+                    }
+                }
+            } else {
+                importantDayPrev.visibility = View.GONE
+                viewImportantDay.visibility = View.GONE
+            }
+
+        }
         recyclerView.layoutManager = GridLayoutManager(this, 7)
-        recyclerView.adapter = CalendarAdapter(calendarDays)
+        recyclerView.adapter = adapter
+
+        storage.listHollyDaysFromFB { listDays ->
+            importantDates = listDays.take(listDays.size + 1).mapNotNull { dayItem ->
+                dayItem.day?.let { splitAndGetGregorianDay(it) }
+            }
+        }
+
+        importantDates.forEachIndexed { index, date ->
+            if (isImportantToday(date)) {
+                importantDayPrev.visibility = View.VISIBLE
+                viewImportantDay.visibility = View.VISIBLE
+                val resourceName = "day${index + 1}_title"
+                val resId = resources.getIdentifier(resourceName, "string", packageName)
+
+                if (resId != 0) {
+                    viewImportantDay.text = resources.getString(resId)
+                }
+            } else {
+                importantDayPrev.visibility = View.GONE
+                viewImportantDay.visibility = View.GONE
+            }
+        }
 
         generateCalendar()
         createNotificationChannel()
@@ -98,7 +151,7 @@ class HeavenlyCalendarView: MainActivity() {
 
         val firstDayOfWeek = currentCalendar.get(Calendar.DAY_OF_WEEK)
         for (i in 1 until firstDayOfWeek) {
-            calendarDays.add(CalendarDay("", "", false, false))
+            calendarDays.add(CalendarDay("", "", false, false, false))
         }
 
         while (currentCalendar.get(Calendar.MONTH) == month) {
@@ -116,8 +169,7 @@ class HeavenlyCalendarView: MainActivity() {
                     currentCalendar.get(Calendar.MONTH) == todayMonth &&
                     currentCalendar.get(Calendar.YEAR) == todayYear)
 
-
-            calendarDays.add(CalendarDay(gregorianDay, lunarDay, isToday, isAnshiilDay(currentCalendar)))
+            calendarDays.add(CalendarDay(gregorianDay, lunarDay, isToday, isAnshiilDay(currentCalendar), isImportantDay(currentCalendar)))
 
             currentCalendar.add(Calendar.DAY_OF_MONTH, 1)
             lunarCalendar.add(ChineseCalendar.DAY_OF_MONTH, 1)
@@ -126,7 +178,7 @@ class HeavenlyCalendarView: MainActivity() {
         recyclerView.adapter?.notifyDataSetChanged()
     }
 
-    data class CalendarDay(val gregorian: String, val lunar: String, val isToday: Boolean, val isAnshiil: Boolean)
+    data class CalendarDay(val gregorian: String, val lunar: String, val isToday: Boolean, val isAnshiil: Boolean, val isImportantDay: Boolean)
 
     private fun isAnshiilDay(calendar: Calendar): Boolean {
         val referenceCalendar = Calendar.getInstance().apply {
@@ -151,6 +203,21 @@ class HeavenlyCalendarView: MainActivity() {
         val daysDifference = (diffInMillis / (1000 * 60 * 60 * 24)).toInt()
 
         return daysDifference % 8 == 0
+    }
+
+    private fun isImportantDay(calendar: Calendar): Boolean {
+        return importantDates.any { dateString ->
+            val importantCalendar = dateString.importantCalendar()
+            calendar.get(Calendar.YEAR) == importantCalendar.get(Calendar.YEAR) &&
+                    calendar.get(Calendar.MONTH) == importantCalendar.get(Calendar.MONTH) &&
+                    calendar.get(Calendar.DAY_OF_MONTH) == importantCalendar.get(Calendar.DAY_OF_MONTH)
+        }
+    }
+
+    private fun isImportantToday(date: String): Boolean {
+        val today = Calendar.getInstance()
+        return date.importantCalendar().get(Calendar.YEAR) == today.get(Calendar.YEAR) &&
+                date.importantCalendar().get(Calendar.DAY_OF_YEAR) == today.get(Calendar.DAY_OF_YEAR)
     }
 
     private fun scheduleNotification() {
@@ -212,6 +279,16 @@ class HeavenlyCalendarView: MainActivity() {
                 3 -> getString(R.string.ordinal_few, number)  // 3rd
                 else -> getString(R.string.ordinal_other, number)  // 4th, 5th, etc.
             }
+        }
+    }
+
+    private fun splitAndGetGregorianDay(day: String): String {
+        val parts = day.split(" ")
+        return if (parts.size == 2) {
+            val gregorianDay = parts[1]
+            gregorianDay
+        } else {
+            "0"
         }
     }
 

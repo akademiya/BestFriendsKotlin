@@ -202,7 +202,7 @@
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
                     android:gravity="center_vertical"
-                    android:text="@string/day9_title" />
+                    android:text="@string/day7_title" />
 
             </androidx.cardview.widget.CardView>
 
@@ -222,7 +222,7 @@
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
                     android:gravity="center_vertical"
-                    android:text="@string/day10_title" />
+                    android:text="@string/day8_title" />
 
             </androidx.cardview.widget.CardView>
 
@@ -242,7 +242,7 @@
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
                     android:gravity="center_vertical"
-                    android:text="@string/day11_title" />
+                    android:text="@string/day9_title" />
 
             </androidx.cardview.widget.CardView>
 
@@ -262,7 +262,7 @@
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
                     android:gravity="center_vertical"
-                    android:text="@string/day12_title" />
+                    android:text="@string/day10_title" />
 
             </androidx.cardview.widget.CardView>
 
@@ -282,7 +282,7 @@
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
                     android:gravity="center_vertical"
-                    android:text="@string/day13_title" />
+                    android:text="@string/day11_title" />
 
             </androidx.cardview.widget.CardView>
 
@@ -302,7 +302,7 @@
                     android:layout_marginStart="@dimen/edge_margins"
                     android:layout_marginEnd="@dimen/edge_margins"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/day14_title" />
+                    android:text="@string/day12_title" />
 
             </androidx.cardview.widget.CardView>
         </LinearLayout>
