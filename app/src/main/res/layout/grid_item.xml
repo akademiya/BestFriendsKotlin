@@ -1,20 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_tradition"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:padding="8dp"
-    app:cardCornerRadius="8dp">
+    android:layout_height="130dp"
+    android:layout_margin="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
 
-    <Button
-        android:id="@+id/btn_tradition"
-        android:layout_width="0dp"
+    <!-- Фонове зображення -->
+    <ImageView
+        android:id="@+id/iv_tradition_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/tp_photo" />
+
+    <!-- Напівпрозорий кольоровий оверлей -->
+    <View
+        android:id="@+id/view_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.35"
+        android:background="#7B52F4" />
+
+    <!-- Текст поверх -->
+    <TextView
+        android:id="@+id/tv_tradition_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/button_traditions_border"
-        android:paddingHorizontal="8dp"
-        android:textSize="14sp"
-        tools:text="Tradition Name" />
-</LinearLayout>
+        android:layout_gravity="bottom"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:shadowColor="#99000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        tools:text="Традиція" />
+
+</com.google.android.material.card.MaterialCardView>
