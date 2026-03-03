@@ -20,7 +20,7 @@ class ExerciseView : MainActivity() {
         val adContainer: AdView = findViewById(R.id.adViewExercise)
         val adDivider: View = findViewById(R.id.adDivider)
 
-        if (isNetworkAvailable(this)) {
+        if (isNetworkAvailable()) {
             adContainer.visibility = View.VISIBLE
             adDivider.visibility = View.VISIBLE
             Admob.initializeAdmob(this, adContainer)
@@ -55,5 +55,14 @@ class ExerciseView : MainActivity() {
             @Suppress("DEPRECATION")
             onBackPressed()
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+        }
+        startActivity(intent)
+        finish()
     }
 }

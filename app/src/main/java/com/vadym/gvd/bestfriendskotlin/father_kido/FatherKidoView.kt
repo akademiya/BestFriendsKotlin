@@ -83,7 +83,7 @@ class FatherKidoView : MainActivity() {
 
 
 
-        if (isNetworkAvailable(this)) {
+        if (isNetworkAvailable()) {
             adContainer.visibility = View.VISIBLE
             adDivider.visibility = View.VISIBLE
             Admob.initializeAdmob(this, adContainer)
@@ -131,5 +131,14 @@ class FatherKidoView : MainActivity() {
             24 -> startActivity(Intent(this, KidoChonilgukView::class.java))
             25 -> startActivity(Intent(this, KidoPenhwamesigiView::class.java))
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+        }
+        startActivity(intent)
+        finish()
     }
 }

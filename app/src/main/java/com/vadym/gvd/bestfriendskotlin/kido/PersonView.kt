@@ -80,7 +80,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
         showOrHideFab()
         chronometer()
 
-        if (isNetworkAvailable(this)) {
+        if (isNetworkAvailable()) {
             adContainer.visibility = View.VISIBLE
             adDivider.visibility = View.VISIBLE
             Admob.initializeAdmob(this, adContainer)
@@ -381,5 +381,14 @@ class PersonView : MainActivity(), PersonAdapterListener {
 
         builder.setNegativeButton(R.string.cancel) { _, _ -> Toast.makeText(this, R.string.task_cancelled, Toast.LENGTH_SHORT).show() }
         builder.show()
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+        }
+        startActivity(intent)
+        finish()
     }
 }

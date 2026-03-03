@@ -109,7 +109,7 @@ class HolyDaysView : MainActivity() {
         }
 
 
-        if (isNetworkAvailable(this)) {
+        if (isNetworkAvailable()) {
             adContainer.visibility = View.VISIBLE
             adDivider.visibility = View.VISIBLE
             Admob.initializeAdmob(this, adContainer)
@@ -259,6 +259,15 @@ class HolyDaysView : MainActivity() {
         )
 
         storage.saveDaysToFirebase(listDays)
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+        }
+        startActivity(intent)
+        finish()
     }
 
 }

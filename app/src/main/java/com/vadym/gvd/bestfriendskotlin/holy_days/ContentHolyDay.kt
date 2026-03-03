@@ -26,7 +26,7 @@ class ContentHolyDay : MainActivity() {
         val adContainer: AdView = findViewById(R.id.adViewHollyDayContent)
         val adDivider: View = findViewById(R.id.adDivider)
 
-        if (isNetworkAvailable(this)) {
+        if (isNetworkAvailable()) {
             adContainer.visibility = View.VISIBLE
             adDivider.visibility = View.VISIBLE
             Admob.initializeAdmob(this, adContainer)

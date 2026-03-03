@@ -57,7 +57,7 @@ class InfoView : MainActivity() {
         version.text = currentVersion
 
 
-        if (isNetworkAvailable(this)) {
+        if (isNetworkAvailable()) {
             adContainer.visibility = View.VISIBLE
             Admob.initializeAdmob(this, adContainer)
         } else {
@@ -92,6 +92,15 @@ class InfoView : MainActivity() {
         AppCompatDelegate.setDefaultNightMode(mode)
         DarkModePreferences(this).darkMode = if (mode == AppCompatDelegate.MODE_NIGHT_YES) 1 else 0
         delegate.applyDayNight()
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+        }
+        startActivity(intent)
+        finish()
     }
 
 

@@ -1,5 +1,6 @@
 package com.vadym.gvd.bestfriendskotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
@@ -23,7 +24,7 @@ class ExplanationView: MainActivity() {
         toolbar.setNavigationOnClickListener { onBackPressed() }
 
 
-        if (isNetworkAvailable(this)) {
+        if (isNetworkAvailable()) {
             adContainer.visibility = View.VISIBLE
             adContainer2.visibility = View.VISIBLE
             Admob.initializeAdmob(this, adContainer)
@@ -32,5 +33,14 @@ class ExplanationView: MainActivity() {
             adContainer.visibility = View.GONE
             adContainer2.visibility = View.GONE
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+        }
+        startActivity(intent)
+        finish()
     }
 }

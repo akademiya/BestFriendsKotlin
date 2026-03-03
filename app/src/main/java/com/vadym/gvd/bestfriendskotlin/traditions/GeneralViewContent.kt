@@ -24,7 +24,7 @@ class GeneralViewContent : MainActivity() {
         val traditionsImage: ImageView = findViewById(R.id.traditions_img)
 
 
-        if (isNetworkAvailable(this)) {
+        if (isNetworkAvailable()) {
             adContainer.visibility = View.VISIBLE
             adDivider.visibility = View.VISIBLE
             Admob.initializeAdmob(this, adContainer)

@@ -1,5 +1,6 @@
 package com.vadym.gvd.bestfriendskotlin
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageView
@@ -79,6 +80,15 @@ class AnthemView : MainActivity() {
     override fun onDestroy() {
         cheonIlGukAnthem.stop()
         super.onDestroy()
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+        }
+        startActivity(intent)
+        finish()
     }
 
 }
