@@ -13,29 +13,21 @@
     app:cardElevation="2dp"
     app:strokeWidth="0dp">
 
-    <!-- Фонове зображення -->
     <ImageView
         android:id="@+id/iv_tradition_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        tools:src="@drawable/tp_photo" />
+        tools:src="@drawable/hdh" />
 
-    <!-- Напівпрозорий кольоровий оверлей -->
-    <View
-        android:id="@+id/view_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.35"
-        android:background="#7B52F4" />
-
-    <!-- Текст поверх -->
     <TextView
         android:id="@+id/tv_tradition_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:padding="10dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="10dp"
+        android:paddingHorizontal="10dp"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"

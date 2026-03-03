@@ -40,23 +40,23 @@ class GeneralViewContent : MainActivity() {
             1 -> traditionDescription.text = getString(R.string.hdh_description).toHtml()
             2 -> traditionDescription.text = getString(R.string.pledge_description).toHtml()
             3 -> traditionDescription.text = getString(R.string.anshiil_description).toHtml()
-            4 -> {
-                traditionDescription.text = getString(R.string.salt_description).toHtml()
-                traditionsImage.setImageDrawable(getDrawable(R.drawable.tr_salt))
-            }
-            5 -> {
-                traditionDescription.text = getString(R.string.vine_description).toHtml()
-                traditionsImage.setImageDrawable(getDrawable(R.drawable.tr_vine))
-            }
-            6 -> traditionDescription.text = getString(R.string.candle_description).toHtml()
+            4 -> traditionDescription.text = getString(R.string.photo_of_tp_description)
+            5 -> traditionDescription.text = getString(R.string.days8_description).toHtml()
+            6 -> traditionDescription.text = getString(R.string.birthday_description).toHtml()
             7 -> traditionDescription.text = getString(R.string.clothes_description)
-            8 -> traditionDescription.text = getString(R.string.photo_of_tp_description)
-            9 -> traditionDescription.text = getString(R.string.days8_description)
-            10 -> traditionDescription.text = getString(R.string.birthday_description).toHtml()
-            11 -> traditionDescription.text = getString(R.string.songhwa_description).toHtml()
-            12 -> traditionDescription.text = getString(R.string.life_service_description).toHtml()
-            13 -> traditionDescription.text = getString(R.string.desyatyna_description).toHtml()
-            14 -> traditionDescription.text = getString(R.string.prayer_2g_description).toHtml()
+            8 -> traditionDescription.text = getString(R.string.life_service_description).toHtml()
+            9 -> traditionDescription.text = getString(R.string.songhwa_description).toHtml()
+            10 -> traditionDescription.text = getString(R.string.prayer_2g_description).toHtml()
+            12 -> traditionDescription.text = getString(R.string.desyatyna_description).toHtml()
+            13 -> {
+                traditionDescription.text = getString(R.string.salt_description).toHtml()
+                traditionsImage.setImageResource(R.drawable.tr_salt)
+            }
+            14 -> {
+                traditionDescription.text = getString(R.string.vine_description).toHtml()
+                traditionsImage.setImageResource(R.drawable.tr_vine)
+            }
+            15 -> traditionDescription.text = getString(R.string.candle_description).toHtml()
         }
     }
 

@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin12"
                     android:scaleType="center"
-                    android:src="@drawable/tf1" />
+                    android:src="@drawable/anshiil" />
 
                 <com.google.android.gms.ads.AdView
                     android:id="@+id/adView"

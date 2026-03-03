@@ -24,14 +24,6 @@
             android:text="@string/traditions" />
     </androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adViewTraditions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:adSize="SMART_BANNER"
-        app:adUnitId="ca-app-pub-5169531562006723/2425925775" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_traditions"
         android:layout_width="match_parent"

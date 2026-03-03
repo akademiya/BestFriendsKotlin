@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<!--    <permission android:name="android.permission.POST_NOTIFICATIONS"-->
-<!--        tools:ignore="ReservedSystemPermission" />-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+<!--    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />-->
+
+    <queries>
+        <package android:name="com.mattermost.rn" />
+        <package android:name="com.vadym.birthday" />
+    </queries>
 
     <application
         android:name=".AndroidApplication"
@@ -18,107 +25,161 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5169531562006723~5810328137"/>
+            android:value="ca-app-pub-5169531562006723~5810328137" />
 
-        <receiver android:name=".calendar.NotificationReceiver" android:exported="false"/>
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config"
+            tools:replace="android:resource" />
 
-        <activity android:name=".LoadingView"
+        <!-- ✅ exported=true — бо NotificationReceiver запускається системою -->
+        <receiver
+            android:name=".calendar.NotificationReceiver"
+            android:exported="true" />
+
+        <activity
+            android:name=".LoadingView"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!-- ✅ Всі внутрішні активності — exported="false" явно -->
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".kido.PersonView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.FatherKidoView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.nadezdy.FatherKidoNadezdyViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.pobedy.FatherKidoPobedyViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.pochtitelnosty.FatherKidoPochtitelnostyViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.serdca.FatherKidoSerdcaViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.reshimosty.FatherKidoReshimostyViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.faith.FatherKidoFaithViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.loyalty.FatherKidoLoyaltyViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.restoration.FatherKidoRestorationViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.devotion.FatherKidoDevotionViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.unification.FatherKidoUnificationViewIntro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.hananim.KidoHananimView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.champumo.KidoChampumoView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.chamsaran.KidoChamsaranView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.chamingan.KidoChaminganView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.chamkajon.KidoChamkajonView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.chammanmul.KidoChammanmulView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.yongye.KidoYongyeView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.suren.KidoSurenView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.mesia.KidoMesiaView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.penhwasasan.KidoPenhwasasanView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.menjol.KidoMenjolView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.chonilguk.KidoChonilgukView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".father_kido.intro.penhwamesigi.KidoPenhwamesigiView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".InfoView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".ExplanationView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".MenseView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".FragmentMenseKo"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".FragmentMenseEn"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".FragmentMenseUa"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".FragmentMenseRu"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".AnthemView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".condition.ConditionView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".PhraseForDay"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".holy_days.HolyDaysView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".holy_days.ContentHolyDay"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".traditions.TraditionsView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".traditions.GeneralViewContent"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ExerciseView" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+        <activity android:name=".ExerciseView"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".calendar.HeavenlyCalendarView"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
 
     </application>
 </manifest>
