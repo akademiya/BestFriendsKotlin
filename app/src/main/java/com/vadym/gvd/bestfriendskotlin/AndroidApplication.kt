@@ -12,6 +12,8 @@ class AndroidApplication : Application() {
         val sharedPreferences = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         val languageCode = sharedPreferences.getString("language", "en") ?: "en"
         MainActivity().setLocale(this, languageCode)
+
+        com.vadym.gvd.bestfriendskotlin.calendar.CalendarNotificationWorker.schedule(this)
     }
 }
 
