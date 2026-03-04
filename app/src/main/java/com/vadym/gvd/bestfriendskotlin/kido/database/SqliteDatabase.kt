@@ -80,7 +80,7 @@ class SqliteDatabase private constructor(private val context: Context) : SQLiteO
         values.put(KEY_PERSON_NAME, person.personName)
         values.put(KEY_PERSON_DESCRIPTION, person.personDescription)
         values.put(KEY_PERSON_PHOTO, person.personPhoto?.let { convertImageToByteArray(it) })
-        val db = this.readableDatabase
+        val db = this.writableDatabase
         db.update(TABLE_PERSONS, values, "$KEY_ID=?", arrayOf(person.personId.toString()))
     }
 
