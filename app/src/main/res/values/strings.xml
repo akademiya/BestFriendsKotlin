@@ -239,8 +239,11 @@
 
 
 
-    <string name="day7_description">....</string>
-    <string name="day8_description">....</string>
+    <string name="day7_description">..day7_description..</string>
+    <string name="day8_description">..day8_description..</string>
+    <string name="day9_description">..day9_description..</string>
+    <string name="day11_description">..day11_description..</string>
+    <string name="day12_description">..day12_description..</string>
 
 
     // Traditions

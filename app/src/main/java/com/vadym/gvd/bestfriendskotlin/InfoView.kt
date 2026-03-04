@@ -18,7 +18,7 @@ class InfoView : MainActivity() {
     private lateinit var privacyPolicy: TextView
     private lateinit var site: Button
     private lateinit var version: TextView
-    private val storage = FirebaseStorage(this)
+    private val storage = FirebaseStorage()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +31,12 @@ class InfoView : MainActivity() {
         val infoMessage = findViewById<TextView>(R.id.info_message)
 
         storage.infoMessageFromFB { message ->
-            if (message.isEmpty()) infoMessage.visibility = View.GONE
-            infoMessage.text = message
+            if (message.isNullOrEmpty()) {
+                infoMessage.visibility = View.GONE
+            } else {
+                infoMessage.visibility = View.VISIBLE
+                infoMessage.text = message
+            }
         }
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)

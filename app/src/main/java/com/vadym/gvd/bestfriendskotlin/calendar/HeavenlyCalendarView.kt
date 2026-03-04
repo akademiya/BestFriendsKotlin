@@ -18,7 +18,7 @@ import java.util.Locale
 
 class HeavenlyCalendarView : MainActivity() {
 
-    private val storage = FirebaseStorage(this)
+    private val storage = FirebaseStorage()
     private lateinit var recyclerView: RecyclerView
     private lateinit var titleMonthYear: TextView
     private lateinit var viewImportantDay: TextView

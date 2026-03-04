@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F0F1F8"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -11,300 +11,24 @@
         style="@style/Toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
-        android:padding="0dp"
+        android:elevation="0dp"
         app:contentInsetEnd="0dp"
         app:contentInsetStart="0dp">
-
         <TextView
             style="@style/Toolbar.TitleText"
             android:layout_marginEnd="100dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@string/holy_days" />
-
     </androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adViewHollyDays"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_holy_days"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-5169531562006723/1080905154" />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingHorizontal="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp" />
 
-    <View
-        android:id="@+id/adDivider"
-        style="@style/AppTheme.HorizontalViewDivider"
-        android:layout_marginTop="5dp" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/list_days"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/parent_margin"
-                android:layout_marginVertical="@dimen/margin8"
-                android:text="@string/title_major_holidays"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title1"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:paddingVertical="5dp"
-                    android:text="@string/day1_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card2"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title2"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:text="@string/day2_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card3"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title3"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:text="@string/day3_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card4"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title4"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:text="@string/day4_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card5"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title5"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:text="@string/day5_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card6"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title6"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/day6_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/parent_margin"
-                android:layout_marginVertical="@dimen/margin8"
-                android:text="@string/title_important_events"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card7"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title7"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:text="@string/day7_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card8"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title8"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:text="@string/day8_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card9"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title9"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:text="@string/day9_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card10"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title10"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:text="@string/day10_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card11"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title11"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_kido_container"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:gravity="center_vertical"
-                    android:text="@string/day11_title" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card12"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_kido_container"
-                android:layout_marginBottom="5dp"
-                android:clickable="true"
-                android:foreground="?android:selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/holly_day_title12"
-                    style="@style/TextStyle_Body2_Primary_Dark"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/edge_margins"
-                    android:layout_marginEnd="@dimen/edge_margins"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/day12_title" />
-
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

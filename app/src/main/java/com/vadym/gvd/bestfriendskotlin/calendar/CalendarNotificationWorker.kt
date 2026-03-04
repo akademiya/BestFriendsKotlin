@@ -83,7 +83,7 @@ class CalendarNotificationWorker(
     // Suspend-функція для отримання дат з Firebase
     private suspend fun fetchImportantDates(): List<String> {
         return kotlinx.coroutines.suspendCancellableCoroutine { cont ->
-            FirebaseStorage(ctx).listHollyDaysFromFB { list ->
+            FirebaseStorage.instance.listHollyDaysFromFB { list ->
                 val dates = list.mapNotNull { it.day?.let(::splitAndGetGregorianDay) }
                 cont.resume(dates) {}
             }

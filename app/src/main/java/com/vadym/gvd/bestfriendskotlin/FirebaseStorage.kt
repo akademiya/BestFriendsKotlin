@@ -1,6 +1,5 @@
 package com.vadym.gvd.bestfriendskotlin
 
-import android.content.Context
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -10,59 +9,85 @@ import com.google.firebase.ktx.Firebase
 import com.vadym.gvd.bestfriendskotlin.holy_days.HolyDayEntity
 
 private const val DB_URL = "https://tf-prayer.firebaseio.com/"
-class FirebaseStorage(private val context: Context) {
 
-    private val hollyDayRef: DatabaseReference = Firebase.database(DB_URL).getReference("HollyDays")
-    private val infoMessage: DatabaseReference = Firebase.database(DB_URL).getReference("InfoMessage")
+class FirebaseStorage {
+
+    // ✅ Singleton — один екземпляр на весь додаток
+    companion object {
+        val instance: FirebaseStorage by lazy { FirebaseStorage() }
+    }
+
+    private val hollyDayRef: DatabaseReference =
+        Firebase.database(DB_URL).getReference("HollyDays")
+    private val infoMessageRef: DatabaseReference =
+        Firebase.database(DB_URL).getReference("InfoMessage")
+
+    // ✅ Зберігає активний listener щоб можна було його зняти
+    private var hollyDaysListener: ValueEventListener? = null
 
     fun saveDaysToFirebase(holyDays: List<HolyDayEntity>) {
         holyDays.forEach { day ->
-            day.id += hollyDayRef.push().key
-            day.id.let {
-                hollyDayRef.child(it.toString()).setValue(day)
-            }
+            val key = hollyDayRef.push().key ?: return@forEach
+            day.id = key
+            hollyDayRef.child(key).setValue(day)
         }
     }
 
+    // ✅ addListenerForSingleValueEvent замість addValueEventListener —
+    //    дані зчитуються один раз, не тримає відкрите з'єднання постійно
     fun listHollyDaysFromFB(callback: (List<HolyDayEntity>) -> Unit) {
-        val holyDaysList = mutableListOf<HolyDayEntity>()
-
-        hollyDayRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                holyDaysList.clear()
-                for (personSnapshot in dataSnapshot.children) {
-                    val dayModel = personSnapshot.getValue(HolyDayEntity::class.java)
-                    if (dayModel != null) {
-                        holyDaysList.add(dayModel)
-                    }
+        hollyDayRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val list = snapshot.children.mapNotNull {
+                    it.getValue(HolyDayEntity::class.java)
                 }
-                callback(holyDaysList)
+                callback(list)
             }
 
-            override fun onCancelled(databaseError: DatabaseError) {
+            override fun onCancelled(error: DatabaseError) {
                 callback(emptyList())
             }
         })
+    }
+
+    // ✅ Якщо потрібні realtime-оновлення (наприклад для календаря)
+    fun observeHollyDays(callback: (List<HolyDayEntity>) -> Unit) {
+        hollyDaysListener = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val list = snapshot.children.mapNotNull {
+                    it.getValue(HolyDayEntity::class.java)
+                }
+                callback(list)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                callback(emptyList())
+            }
+        }
+        hollyDayRef.addValueEventListener(hollyDaysListener!!)
+    }
+
+    // ✅ Знімає realtime-listener щоб уникнути витоків пам'яті
+    fun removeHollyDaysObserver() {
+        hollyDaysListener?.let { hollyDayRef.removeEventListener(it) }
+        hollyDaysListener = null
     }
 
     fun updateValueOfDay(id: String, newDay: String) {
         hollyDayRef.child(id).child("day").setValue(newDay)
     }
 
-    fun infoMessageFromFB(callback: (String) -> Unit) {
-//        infoMessage.push().key.let {
-//            infoMessage.child(it.toString()).setValue("Some message")
-//        }
-        infoMessage.addListenerForSingleValueEvent(object : ValueEventListener {
+    fun infoMessageFromFB(callback: (String?) -> Unit) {
+        infoMessageRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                for (childSnapshot in snapshot.children) {
-                    val message = childSnapshot.getValue(String::class.java)
-                    callback(message.toString())
-                }
+                // ✅ Повертає перше повідомлення або null замість "null" string
+                val message = snapshot.children.firstOrNull()
+                    ?.getValue(String::class.java)
+                callback(message.toString())
             }
 
             override fun onCancelled(error: DatabaseError) {
-                println("Error: ${error.message}")
+                callback(null)
             }
         })
     }
