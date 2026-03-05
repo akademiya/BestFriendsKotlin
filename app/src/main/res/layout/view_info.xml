@@ -49,6 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin12"
+                    android:contentDescription="@string/app_name"
                     android:scaleType="center"
                     android:src="@drawable/anshiil" />
 
@@ -87,8 +88,9 @@
                     android:layout_margin="@dimen/parent_margin"
                     android:clickable="true"
                     android:focusable="true"
+                    android:textColorLink="@color/accent_darker"
                     android:text="@string/privacy_policy"
-                    android:textColor="@color/colorPrimaryDark" />
+                    android:textColor="@color/accent_darker" />
 
             </LinearLayout>
         </ScrollView>

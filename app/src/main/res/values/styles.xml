@@ -94,6 +94,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
         <item name="android:textSize">@dimen/text_size</item>
+        <item name="backgroundTint">@null</item>
     </style>
 
     <style name="TextStyle_Italic_Primary_Dark" parent="AppTheme">

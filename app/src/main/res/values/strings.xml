@@ -6,7 +6,11 @@
     <string name="advert">Advertising</string>
     <string name="konkurs">Brothers and sisters, I think the reading is simple, but your lived experience, how prayer works in your life, or how prayer once helped, is extremely interesting and encouraging to others. If you write me your experience by mail, I will be happy to publish it (translation through translate to other languages)</string>
     <string name="sorrow">If after the update you do not see the prayer list page, this can be fixed if you go to the settings of the phone - application - find the installed application "TRUE LIFE" and click "clear data". I apologize for this inconvenience.</string>
-    <string name="info_text">Hello. I`m Vadym. \n\nThe application is designed only for the prayer list. On the main page there will always be True Parents. The "Prayer List" menu allows you to add, edit and delete items. In the circle counter, how many times do you call the name of the person you pray for. There is also a chronometer that counts the time. After 3, 7, 12, 21, 40 minutes, a signal will sound with a message that expired according to the time. \n\nThe "Father's Prayer" menu is a collection of prayers that are in translation to russian for the time being. \n\nIf there are any suggestions regarding the app, please write to me. I will definitely take them into consideration.</string>
+    <string name="info_text">Hello! I\'m Woojin - the developer of this app. 😊
+\n\nOriginally, this app was created as a simple prayer list called TF PRAYER. The True Parents will always remain on the main screen as a reminder of the center of our faith and life.
+\n\nNow the app is growing and has a new name - TRUE LIFE. Its goal is to become a daily helper for every Cheon Il Guk owner.
+\n\nNew features have already been added to the app, and I plan to keep adding more useful functions in the future.
+\n\nIf you have any ideas or suggestions, please feel free to write to me. Your thoughts are very important, and I will gladly take them into consideration.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Privacy policy</a></string>
     <string name="site">Site</string>
     <string name="site_link">https://sites.google.com/view/tfprayer/main-en</string>
@@ -198,7 +202,7 @@
 \n\nIn order to restore things from false to true ownership, we have been doing fund raising in which we invest all our heart and love. By Principle, we helped all things be restored into the realm of true love. So, after Parents Day and Children\'s Day could be announced, the Day of All Things could be proclaimed.
 \n\nAs we know from the book of Romans, all things are in lamentation, sighing that they are in the hands of the wrong ownership. So for ownership to come into the hands of God or the country of God\'s dominion, it has to become dominated by true love. True love is what all things want. They are really disappointed and sighing because they are the prisoner and slave of unrighteous ownership. In order for them to go back to the true love dominion - to the godly nation, tribe, clan, and ultimately to the godly parents and children - the only way is for all things to be returned to the ownership of God.</string>
 
-    <string name="day3_description"></string>
+    <string name="day3_description">to be...</string>
 
     <string name="day5_description">On October 1, 1960 (lunar calendar), Father established Children\'s Day. The True Parents\' Holy Blessing was an event which opened up the gate for resurrection of all people in the spirit world and on earth We who have found the gate, who have located the True Parents here on earth, are fortunate people indeed.
 \n\nOn the foundation of Parents Day, God and True Parents established Children\'s Day. It signifies that God and True Parents had their own true children and on this basis, all humanity has the potential to become engrafted to the True Family.
@@ -242,7 +246,7 @@
     <string name="day7_description">..day7_description..</string>
     <string name="day8_description">..day8_description..</string>
     <string name="day9_description">..day9_description..</string>
-    <string name="day11_description">..day11_description..</string>
+    <string name="day11_description">..день 11_description..</string>
     <string name="day12_description">..day12_description..</string>
 
 

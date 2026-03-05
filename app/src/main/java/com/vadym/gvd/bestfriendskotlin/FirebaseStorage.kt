@@ -7,6 +7,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.vadym.gvd.bestfriendskotlin.holy_days.HolyDayEntity
+import java.util.Locale
 
 private const val DB_URL = "https://tf-prayer.firebaseio.com/"
 
@@ -80,10 +81,11 @@ class FirebaseStorage {
     fun infoMessageFromFB(callback: (String?) -> Unit) {
         infoMessageRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val raw = snapshot.children.firstOrNull()?.getValue(Any::class.java)
-                // Конвертуємо будь-який тип у String, null якщо порожньо
-                val message = raw?.toString()?.takeIf { it.isNotBlank() }
-                callback(message)
+                val locale = Locale.getDefault().language
+                val message = snapshot.child(locale).getValue(String::class.java)
+                    ?: snapshot.child("en").getValue(String::class.java)
+
+                callback(message?.takeIf { it.isNotBlank() })
             }
 
             override fun onCancelled(error: DatabaseError) {
