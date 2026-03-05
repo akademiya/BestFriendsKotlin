@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.WindowManager
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -28,6 +29,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     private lateinit var drawer: DrawerLayout
     private lateinit var navigationView: NavigationView
+    private var shouldOpenDrawer = false
 
     // ─── Lifecycle ────────────────────────────────────────────────────────────
 
@@ -53,6 +55,32 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             GetVersionCode(this).execute()
         }
     }
+
+//    private val drawerLauncher = registerForActivityResult(
+//        ActivityResultContracts.StartActivityForResult()
+//    ) { result ->
+//        if (result.resultCode == RESULT_OK) {
+//            drawer.post { drawer.openDrawer(GravityCompat.START) }
+//        }
+//    }
+
+//    override fun onNewIntent(intent: Intent) {
+//        super.onNewIntent(intent)
+//        setIntent(intent)
+//        if (intent.getBooleanExtra(EXTRA_OPEN_DRAWER, false)) {
+//            shouldOpenDrawer = true
+//        }
+//    }
+
+//    override fun onResume() {
+//        super.onResume()
+//        // Спрацює і коли повертаємось через finish() з дочірнього Activity
+//        if (intent.getBooleanExtra(EXTRA_OPEN_DRAWER, false) || shouldOpenDrawer) {
+//            shouldOpenDrawer = false
+//            intent.removeExtra(EXTRA_OPEN_DRAWER) // щоб не відкривався повторно
+//            drawer.post { drawer.openDrawer(GravityCompat.START) }
+//        }
+//    }
 
     override fun attachBaseContext(newBase: Context) {
         val lang = newBase.savedLanguage
@@ -143,6 +171,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_facebook -> startActivity(openFacebookIntent(this))
             R.id.nav_share    -> shareApp()
             R.id.nav_send     -> sendEmail()
+//            R.id.nav_info -> drawerLauncher.launch(Intent(this, InfoView::class.java).noAnimation())
         }
     }
 

@@ -12,61 +12,76 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.ads.AdView
 
-
 class InfoView : MainActivity() {
-    private val rater = object : AppRater(){}
+
     private lateinit var privacyPolicy: TextView
     private lateinit var site: Button
     private lateinit var version: TextView
+    private val rater by lazy { AppRater(this) }
     private val storage = FirebaseStorage()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_info)
 
+        bindViews()
+        setupToolbar()
+        setupListeners()
+        loadData()
+    }
+
+    private fun bindViews() {
         privacyPolicy = findViewById(R.id.private_policy)
         site = findViewById(R.id.site)
         version = findViewById(R.id.version)
-        val adContainer: AdView = findViewById(R.id.adView)
-        val infoMessage = findViewById<TextView>(R.id.info_message)
+    }
 
-        storage.infoMessageFromFB { message ->
-            if (message.isNullOrEmpty()) {
-                infoMessage.visibility = View.GONE
-            } else {
-                infoMessage.visibility = View.VISIBLE
-                infoMessage.text = message
-            }
-        }
-
+    private fun setupToolbar() {
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
+        toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+    }
 
-        toolbar.setNavigationOnClickListener { onBackPressed() }
+    private fun setupListeners() {
         privacyPolicy.movementMethod = LinkMovementMethod.getInstance()
 
         site.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(resources.getString(R.string.site_link)))
-            browserIntent.noAnimation()
-            startActivity(browserIntent)
+            val uri = Uri.parse(resources.getString(R.string.site_link))
+            Intent(Intent.ACTION_VIEW, uri).apply { noAnimation() }.also { startActivity(it) }
+        }
+    }
+
+    private fun loadData() {
+        val adContainer: AdView = findViewById(R.id.adView)
+        val infoMessage = findViewById<TextView>(R.id.info_message)
+
+        // Firebase повідомлення
+        storage.infoMessageFromFB { message ->
+            infoMessage.visibility = if (message.isNullOrEmpty()) View.GONE else View.VISIBLE
+            infoMessage.text = message
         }
 
-        rater.appLaunched(this)
+        // Версія додатку
+        runCatching {
+            "v. ${packageManager.getPackageInfo(packageName, 0).versionName}"
+        }.onSuccess {
+            version.text = it
+        }
 
-        val currentVersion: String = "v. " + packageManager.getPackageInfo(packageName, 0).versionName
-        version.text = currentVersion
-
-
+        // Реклама
         if (isNetworkAvailable()) {
             adContainer.visibility = View.VISIBLE
             Admob.initializeAdmob(this, adContainer)
         } else {
             adContainer.visibility = View.GONE
         }
+
+        // Рейтинг
+        rater.appLaunched()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -75,7 +90,7 @@ class InfoView : MainActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.ko -> setAppLanguage("ko")
             R.id.en -> setAppLanguage("en")
             R.id.ua -> setAppLanguage("uk")
@@ -83,13 +98,16 @@ class InfoView : MainActivity() {
             R.id.ru -> setAppLanguage("ru")
             R.id.light -> setDarkMode(AppCompatDelegate.MODE_NIGHT_NO)
             R.id.dark -> setDarkMode(AppCompatDelegate.MODE_NIGHT_YES)
+            else -> return super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
+        return true
     }
 
     private fun setAppLanguage(languageCode: String) {
         setLocale(this, languageCode)
-        startActivity(Intent(this, MainActivity::class.java))
+        Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        }.also { startActivity(it) }
     }
 
     private fun setDarkMode(mode: Int) {
@@ -99,13 +117,13 @@ class InfoView : MainActivity() {
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this, MainActivity::class.java).apply {
+        Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+            putExtra(EXTRA_OPEN_DRAWER, true)
+        }.also {
+            startActivity(it)
+            finish()
         }
-        startActivity(intent)
-        finish()
     }
-
 
 }
