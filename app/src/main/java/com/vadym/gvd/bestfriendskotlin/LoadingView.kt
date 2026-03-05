@@ -1,7 +1,6 @@
 package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -10,74 +9,77 @@ import android.text.method.LinkMovementMethod
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 
 class LoadingView : AppCompatActivity() {
 
-    private val DAYS_UNTIL_PROMPT = 90L //Min number of days
-    private lateinit var alertDialog: AlertDialog
+    companion object {
+        private const val PREFS_NAME = "gdpr"
+        private const val KEY_CONSENT_GIVEN = "consent_given"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_loading)
 
-        val prefs = getSharedPreferences("gdpr", 0)
-        val editor = prefs.edit()
-
-        // Get date of first launch
-        var dateFirstLaunch: Long = prefs.getLong("date_firstlaunch", 0)
-        if (dateFirstLaunch == 0L) {
-            dateFirstLaunch = System.currentTimeMillis()
-            editor.putLong("date_firstlaunch", dateFirstLaunch)
-            showMyConsentDialog(editor)
+        if (isConsentGiven()) {
+            startUseApp()
         } else {
-            // Wait at least n days before opening
-            if (System.currentTimeMillis() >= dateFirstLaunch + DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000) {
-                showMyConsentDialog(editor)
-            } else {
-                editor.commit()
-                startUseApp()
-            }
+            showConsentDialog()
         }
     }
 
-    private fun showMyConsentDialog(editor: SharedPreferences.Editor?) {
-        val inflater = layoutInflater
-        val consentDialog = inflater.inflate(R.layout.view_loading_consent, null)
-        val alertDialogBuilder = AlertDialog.Builder(this@LoadingView).apply {
-            setView(consentDialog)
-            setCancelable(false)
-        }
+    // Перевіряємо чи користувач вже надав згоду
+    private fun isConsentGiven(): Boolean {
+        return getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            .getBoolean(KEY_CONSENT_GIVEN, false)
+    }
 
-        alertDialog = alertDialogBuilder.create()
-        alertDialog.show()
+    // Зберігаємо згоду назавжди (apply() — асинхронно, не блокує UI thread)
+    private fun saveConsent() {
+        getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            .edit()
+            .putBoolean(KEY_CONSENT_GIVEN, true)
+            .apply()
+    }
 
-        val learnMore = consentDialog.findViewById<TextView>(R.id.tv_eu_learn_more)
-        val cbAgree = consentDialog.findViewById<CheckBox>(R.id.cb_accept_gdpr)
-        val iAgree = consentDialog.findViewById<Button>(R.id.btn_agree)
+    private fun showConsentDialog() {
+        val consentView = layoutInflater.inflate(R.layout.view_loading_consent, null)
 
-        learnMore.movementMethod = LinkMovementMethod.getInstance()
+        val dialog = AlertDialog.Builder(this)
+            .setView(consentView)
+            .setCancelable(false) // Користувач не може закрити без згоди
+            .create()
+
+        dialog.show()
+
+        val tvLearnMore = consentView.findViewById<TextView>(R.id.tv_eu_learn_more)
+        val cbAgree    = consentView.findViewById<CheckBox>(R.id.cb_accept_gdpr)
+        val btnAgree   = consentView.findViewById<Button>(R.id.btn_agree)
+
+        // Активуємо посилання на Privacy Policy
+        tvLearnMore.movementMethod = LinkMovementMethod.getInstance()
+
         cbAgree.setOnCheckedChangeListener { _, isChecked ->
+            btnAgree.isEnabled = isChecked
             if (isChecked) {
-                iAgree.isEnabled = true
-                cbAgree.text = resources.getString(R.string.agree)
-                cbAgree.setTextColor(resources.getColor(R.color.cb_agree))
+                cbAgree.setText(R.string.agree)
+                cbAgree.setTextColor(ContextCompat.getColor(this, R.color.cb_agree))
             } else {
-                iAgree.isEnabled = false
-                cbAgree.text = resources.getString(R.string.error_accept)
+                cbAgree.setText(R.string.error_accept)
                 cbAgree.setTextColor(Color.RED)
             }
         }
-        iAgree.setOnClickListener {
-            if (editor != null) {
-                editor.putLong("date_firstlaunch", System.currentTimeMillis())
-                editor.commit()
-            }
-            alertDialog.cancel()
+
+        btnAgree.setOnClickListener {
+            saveConsent()
+            dialog.dismiss()
             startUseApp()
         }
     }
 
     private fun startUseApp() {
         startActivity(Intent(this, MainActivity::class.java))
+        finish() // Закриваємо LoadingView, щоб вона не залишалась у back stack
     }
 }

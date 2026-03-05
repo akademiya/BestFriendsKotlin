@@ -23,9 +23,8 @@
             android:id="@+id/tv_eu_learn_more"
             style="@style/TextGdprVsMargin_Dialog"
             android:layout_marginTop="@dimen/margin8"
-            android:ellipsize="end"
-            android:fadingEdge="horizontal"
             android:clickable="true"
+            android:focusable="true"
             android:textColorLink="@color/colorPrimary"
             android:text="@string/learn_more" />
 
