@@ -80,10 +80,10 @@ class FirebaseStorage {
     fun infoMessageFromFB(callback: (String?) -> Unit) {
         infoMessageRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                // ✅ Повертає перше повідомлення або null замість "null" string
-                val message = snapshot.children.firstOrNull()
-                    ?.getValue(String::class.java)
-                callback(message.toString())
+                val raw = snapshot.children.firstOrNull()?.getValue(Any::class.java)
+                // Конвертуємо будь-який тип у String, null якщо порожньо
+                val message = raw?.toString()?.takeIf { it.isNotBlank() }
+                callback(message)
             }
 
             override fun onCancelled(error: DatabaseError) {

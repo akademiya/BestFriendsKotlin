@@ -2,13 +2,16 @@ package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.view.WindowManager
+import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +32,10 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     private lateinit var drawer: DrawerLayout
     private lateinit var navigationView: NavigationView
-    private var shouldOpenDrawer = false
+    private lateinit var notificationIcon: ImageView
+    private lateinit var prefs: SharedPreferences
+    private val storage = FirebaseStorage()
+    //    private var shouldOpenDrawer = false
 
     // ─── Lifecycle ────────────────────────────────────────────────────────────
 
@@ -54,6 +60,19 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         if (isNetworkAvailable()) {
             GetVersionCode(this).execute()
         }
+
+
+
+        prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        notificationIcon = findViewById(R.id.notification_from_admin)
+
+        notificationIcon.setOnClickListener {
+            // Ховаємо іконку одразу при кліку
+            notificationIcon.visibility = View.GONE
+            startActivity(Intent(this, InfoView::class.java))
+        }
+
+        checkInfoMessage()
     }
 
 //    private val drawerLauncher = registerForActivityResult(
@@ -72,15 +91,16 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 //        }
 //    }
 
-//    override fun onResume() {
-//        super.onResume()
-//        // Спрацює і коли повертаємось через finish() з дочірнього Activity
+    override fun onResume() {
+        super.onResume()
+        checkInfoMessage()
+        // Спрацює і коли повертаємось через finish() з дочірнього Activity
 //        if (intent.getBooleanExtra(EXTRA_OPEN_DRAWER, false) || shouldOpenDrawer) {
 //            shouldOpenDrawer = false
 //            intent.removeExtra(EXTRA_OPEN_DRAWER) // щоб не відкривався повторно
 //            drawer.post { drawer.openDrawer(GravityCompat.START) }
 //        }
-//    }
+    }
 
     override fun attachBaseContext(newBase: Context) {
         val lang = newBase.savedLanguage
@@ -230,6 +250,22 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             context.getSharedPreferences("AppSettings", MODE_PRIVATE)
                 .edit().putString("language", languageCode).apply()
         }
+
+
+    // ─── Info message from admin ───────────────────────────────────────────────────────────────
+    private fun checkInfoMessage() {
+        storage.infoMessageFromFB { message ->
+            if (message.isNullOrEmpty()) {
+                notificationIcon.visibility = View.GONE
+                return@infoMessageFromFB
+            }
+
+            val lastSeenMessage = prefs.getString("last_seen_info_message", null)
+            // Показуємо іконку тільки якщо повідомлення нове (або ще не переглянуте)
+            notificationIcon.visibility =
+                if (message != lastSeenMessage) View.VISIBLE else View.GONE
+        }
+    }
 
     // ─── Helpers ──────────────────────────────────────────────────────────────
 

@@ -1,5 +1,6 @@
 package com.vadym.gvd.bestfriendskotlin
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -58,11 +59,16 @@ class InfoView : MainActivity() {
     private fun loadData() {
         val adContainer: AdView = findViewById(R.id.adView)
         val infoMessage = findViewById<TextView>(R.id.info_message)
+        val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
 
         // Firebase повідомлення
         storage.infoMessageFromFB { message ->
             infoMessage.visibility = if (message.isNullOrEmpty()) View.GONE else View.VISIBLE
             infoMessage.text = message
+
+            if (!message.isNullOrEmpty()) {
+                prefs.edit().putString("last_seen_info_message", message).apply()
+            }
         }
 
         // Версія додатку
