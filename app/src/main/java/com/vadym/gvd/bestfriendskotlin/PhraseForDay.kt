@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import com.google.android.material.snackbar.Snackbar
+import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -16,6 +18,7 @@ class PhraseForDay : MainActivity() {
 
     private lateinit var phraseTextView: TextView
     private lateinit var textOnButton: TextView
+    private lateinit var coinManager: CoinManager
 
 
     private val phrases: Array<String> by lazy {
@@ -40,6 +43,7 @@ class PhraseForDay : MainActivity() {
 
         phraseTextView = findViewById(R.id.text_phrase)
         textOnButton = findViewById(R.id.text_on_button)
+        coinManager = CoinManager(this)
 
         val scrollClosed: ImageView = findViewById(R.id.scrollClosed)
         val scrollOpened: ImageView = findViewById(R.id.scrollOpened)
@@ -100,6 +104,7 @@ class PhraseForDay : MainActivity() {
                 textOnButton.visibility = View.GONE
                 showRandomPhrase()
                 saveCurrentDateAsLastOpenDate()
+                awardDailyCoins()
             }
         } else {
             textOnButton.visibility = View.GONE
@@ -135,6 +140,16 @@ class PhraseForDay : MainActivity() {
     private fun getCurrentDate(): String {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         return dateFormat.format(Date())
+    }
+
+    private fun awardDailyCoins() {
+        coinManager.addCoins(CoinManager.COINS_PER_DAY)
+        // Анімований показ нарахування
+        Snackbar.make(
+            findViewById(android.R.id.content),
+            "+${CoinManager.COINS_PER_DAY} 심정 SC",
+            Snackbar.LENGTH_SHORT
+        ).show()
     }
 
     override fun onBackPressed() {

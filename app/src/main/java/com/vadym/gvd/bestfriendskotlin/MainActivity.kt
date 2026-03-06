@@ -24,6 +24,7 @@ import com.vadym.gvd.bestfriendskotlin.condition.ConditionView
 import com.vadym.gvd.bestfriendskotlin.father_kido.FatherKidoView
 import com.vadym.gvd.bestfriendskotlin.holy_days.HolyDaysView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
+import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CardShopActivity
 import com.vadym.gvd.bestfriendskotlin.traditions.TraditionsView
 import java.net.URL
 import java.util.Locale
@@ -156,7 +157,6 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     private fun handleNavigation(itemId: Int) {
-        // Активності, які повертаються назад із відкритим drawer
         val activityMap = mapOf(
             R.id.nav_mense           to MenseView::class.java,
             R.id.nav_anthem          to AnthemView::class.java,
@@ -170,6 +170,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_calendar        to HeavenlyCalendarView::class.java,
             R.id.nav_info            to InfoView::class.java,
             R.id.nav_exercise        to ExerciseView::class.java,
+            R.id.nav_shop            to CardShopActivity::class.java
         )
 
         activityMap[itemId]?.let { cls ->

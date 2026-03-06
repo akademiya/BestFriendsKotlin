@@ -175,6 +175,9 @@
         <activity android:name=".calendar.HeavenlyCalendarView"
             android:screenOrientation="portrait"
             android:exported="false"/>
+        <activity android:name=".shimjeong_shop.CardShopActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
 
     </application>
 </manifest>

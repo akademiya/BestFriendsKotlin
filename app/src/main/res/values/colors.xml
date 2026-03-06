@@ -32,4 +32,12 @@
     <color name="tradition_custom_ripple_color">#FFD600</color>
 
     <color name="heavenly_day_color">#501187</color>
+
+
+    <color name="blob_15">  #9C27B0</color>  <!-- фіолетовий -->
+    <color name="blob_25">  #4CAF50</color>  <!-- зелений -->
+    <color name="blob_35">  #2196F3</color>  <!-- синій -->
+    <color name="blob_50">  #00BCD4</color>  <!-- бірюзовий -->
+    <color name="blob_75">  #FF9800</color>  <!-- помаранчевий -->
+    <color name="blob_100"> #E91E63</color>  <!-- рожевий -->
 </resources>

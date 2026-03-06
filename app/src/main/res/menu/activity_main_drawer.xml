@@ -80,6 +80,11 @@
 <!--            android:title="@string/experiences_prayer"/>-->
 
         <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/ic_nav_shop"
+            android:title="@string/card_shop_title" />
+
+        <item
             android:id="@+id/nav_facebook"
             android:icon="@drawable/fb"
             android:title="@string/facebook"/>
