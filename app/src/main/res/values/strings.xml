@@ -153,15 +153,22 @@
 
 
     // 심정 Shop
-    <string name="card_shop_title">심정 Shop</string>
-    <string name="buy">Купити</string>
-    <string name="purchased">✓ Відкрито</string>
-    <string name="not_enough_coins">Недостатньо монет</string>
-    <string name="need_coins_format">Потрібно %1$d 심정 Coins. \n\nЗаробляй коїни щодня, відкриваючи фразу на день.</string>
-    <string name="coins_balance_title">Твій баланс:</string>
-    <string name="coins">%1$d Shimjeong Coins</string>
-    <string name="confirm_purchase_format">Списати %1$d SC?</string>
-    <string name="card_unlocked">🎉 Карточку відкрито!</string>
+    <string name="card_shop_title">Shimjeong Shop</string>
+    <string name="buy">Buy</string>
+    <string name="purchased">✓ Unlocked</string>
+    <string name="not_enough_coins">Not enough coins</string>
+    <string name="need_coins_format">You need %1$d Simjeong Coins. \n\nEarn coins every day by opening the phrase of the day.</string>
+    <string name="coins_balance_title">Your balance:</string>
+    <string name="confirm_purchase_format">Spend %1$d SC?</string>
+    <string name="card_unlocked">🎉 Card unlocked!</string>
+
+
+    // HDH Calendar
+    <string name="hdh_calendar_title">HDH Calendar</string>
+    <string name="prev_month">Prev month</string>
+    <string name="next_month">Next month</string>
+    <string name="hdh_calendar_description">In the Hoon Dok Hae calendar, you should mark each day when you complete your Hoon Dok Hae. You can place the mark only between 6:00 and 8:00 in the morning. So don’t delay—come here and tap to mark it. But keep in mind that you cannot mark the previous or the next day.</string>
+    <string name="open_hdh_app">Open app HDH</string>
 
 
     // Kajon mense

@@ -33,6 +33,8 @@
 
     <color name="heavenly_day_color">#501187</color>
 
+    <color name="simple_text">#80000000</color> <!--80% of black-->
+
 
     <color name="blob_15">  #9C27B0</color>  <!-- фіолетовий -->
     <color name="blob_25">  #4CAF50</color>  <!-- зелений -->

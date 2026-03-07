@@ -178,6 +178,9 @@
         <activity android:name=".shimjeong_shop.CardShopActivity"
             android:screenOrientation="portrait"
             android:exported="false"/>
+        <activity android:name=".HDHView"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
 
     </application>
 </manifest>

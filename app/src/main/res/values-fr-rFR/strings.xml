@@ -130,6 +130,23 @@
     <string name="leftover">Laissé pour compte: </string>
     <string name="duration_value" formatted="false">%s, de %s à %s</string>
 
+    // 심정 Shop
+    <string name="card_shop_title">Shimjeong Shop</string>
+    <string name="buy">Acheter</string>
+    <string name="purchased">✓ Ouvert</string>
+    <string name="not_enough_coins">Pas assez de pièces</string>
+    <string name="need_coins_format">Il faut %1$d pièces Simjeong. \n\nGagnez des pièces chaque jour en ouvrant la phrase du jour.</string>
+    <string name="coins_balance_title">Votre solde :</string>
+    <string name="confirm_purchase_format">Dépenser %1$d SC ?</string>
+    <string name="card_unlocked">🎉 Carte débloquée !</string>
+
+    // HDH Calendar
+    <string name="hdh_calendar_title">Calendrier HDH</string>
+    <string name="prev_month">Mois précédent</string>
+    <string name="next_month">Mois suivant</string>
+    <string name="hdh_calendar_description">Dans le calendrier Hoon Dok Hae, vous devez marquer chaque jour où vous avez fait votre Hoon Dok Hae. Vous pouvez ajouter la marque uniquement entre 6h00 et 8h00 du matin. Alors ne tardez pas — venez ici et appuyez pour marquer la journée. Gardez à l’esprit qu’il n’est pas possible de marquer le jour précédent ni le jour suivant.</string>
+    <string name="open_hdh_app">Ouvrir l’application HDH</string>
+
     // Kajon mense
     <string name="one"><b>一(일)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 본향땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>
     <string name="two"><b>二(이)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님과 참부모님을 모시어, 천주의 대표적 가정이 되며 중심적 가정이 되어, 가정에서는 천주에서는 효자, 국가에서는 충신 세계에서는 성인, 성자의 가정의 도리를 완성할 것을 맹세하나이다.</string>

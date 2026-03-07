@@ -132,6 +132,26 @@
     <string name="leftover">Залишилось: </string>
     <string name="duration_value" formatted="false">%s, з %s до %s</string>
 
+
+    // 심정 Shop
+    <string name="card_shop_title">심정 Крамниця</string>
+    <string name="buy">Купити</string>
+    <string name="purchased">✓ Відкрито</string>
+    <string name="not_enough_coins">Недостатньо монет</string>
+    <string name="need_coins_format">Потрібно %1$d 심정 Coins. \n\nЗаробляй коїни щодня, відкриваючи фразу на день.</string>
+    <string name="coins_balance_title">Твій баланс:</string>
+    <string name="confirm_purchase_format">Списати %1$d SC?</string>
+    <string name="card_unlocked">🎉 Карточку відкрито!</string>
+
+
+    // HDH Calendar
+    <string name="hdh_calendar_title">ХДХ Календар</string>
+    <string name="prev_month">Попередній місяць</string>
+    <string name="next_month">Наступний місяць</string>
+    <string name="hdh_calendar_description">В календарі ХДХ потрібно відмічати кожен день свого зробленого ХДХ. Відмітку можна поставити тільки з 6 до 8 ранку. Тому не баріться, заходьте сюди і тапайте. Але майте на увазі, що не можна відмітити попередній чи наступний день.</string>
+    <string name="open_hdh_app">Відкрити ХДХ додаток</string>
+
+
     // EU GDPR Consent texts
     <string name="eu_consent_text">Шановний користувач!\n\nМи використовуємо Play Consol для публікації додатка та отримання інформації про взаємодію користувача з додатком. У відповідності до нового Європейського регламенту щодо захисту даних (GDPR) нам необхідна ваша згода з тим, що ви ознайомлені з політикою збору даних для розвитку додатка.</string>
     <string name="eu_consent_question">Прочитайте умови використання ваших даних і поставте прапорець, щоб погодитися з ними.</string>

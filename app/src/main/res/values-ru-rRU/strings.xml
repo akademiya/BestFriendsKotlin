@@ -121,6 +121,23 @@
     <string name="leftover">Осталось: </string>
     <string name="duration_value" formatted="false">%s, с %s до %s</string>
 
+    // 심정 Shop
+    <string name="card_shop_title">Shimjeong Магазин</string>
+    <string name="buy">Купить</string>
+    <string name="purchased">✓ Открыто</string>
+    <string name="not_enough_coins">Недостаточно монет</string>
+    <string name="need_coins_format">Нужно %1$d монет Simjeong. \n\nЗарабатывайте монеты каждый день, открывая фразу дня.</string>
+    <string name="coins_balance_title">Ваш баланс:</string>
+    <string name="confirm_purchase_format">Списать %1$d SC?</string>
+    <string name="card_unlocked">🎉 Карточка открыта!</string>
+
+    // HDH Calendar
+    <string name="hdh_calendar_title">Календарь HDH</string>
+    <string name="prev_month">Пред. месяц</string>
+    <string name="next_month">След. месяц</string>
+    <string name="hdh_calendar_description">В календаре Хун Док Хэ нужно отмечать каждый день, когда вы выполняете Хун Док Хэ. Отметку можно поставить только с 6:00 до 8:00 утра. Поэтому не откладывайте — заходите сюда и нажимайте, чтобы отметить. Имейте в виду, что отметить предыдущий или следующий день нельзя.</string>
+    <string name="open_hdh_app">Открыть приложение HDH</string>
+
     // EU GDPR Consent texts
     <string name="eu_consent_text">Уважаемый пользователь!\n\nМы используем Play Consol для публикации приложения и получения информации о взаимодействии пользователя с приложением. В соответствии с новым Европейским регламентом по защите данных (GDPR) нам необходимо ваше согласие для сбора информации.</string>
     <string name="eu_consent_question">Прочтите условия использования ваших данных и установите флажок, чтобы согласиться с ними.</string>

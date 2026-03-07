@@ -36,7 +36,6 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private lateinit var notificationIcon: ImageView
     private lateinit var prefs: SharedPreferences
     private val storage = FirebaseStorage()
-    //    private var shouldOpenDrawer = false
 
     // ─── Lifecycle ────────────────────────────────────────────────────────────
 
@@ -135,7 +134,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     private fun setupNavMenu() {
         val ukraineOnly = isUserFromUkraine()
-        listOf(R.id.nav_hdh, R.id.nav_ua_sj, R.id.nav_birthday).forEach { id ->
+        listOf(R.id.nav_ua_sj, R.id.nav_birthday).forEach { id ->
             navigationView.menu.findItem(id)?.isVisible = ukraineOnly
         }
         navigationView.setNavigationItemSelectedListener(this)
@@ -170,7 +169,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_calendar        to HeavenlyCalendarView::class.java,
             R.id.nav_info            to InfoView::class.java,
             R.id.nav_exercise        to ExerciseView::class.java,
-            R.id.nav_shop            to CardShopActivity::class.java
+            R.id.nav_shop            to CardShopActivity::class.java,
+            R.id.nav_hdh             to HDHView::class.java
         )
 
         activityMap[itemId]?.let { cls ->
@@ -184,7 +184,6 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         when (itemId) {
             R.id.nav_ua_sj    -> openApp("com.mattermost.rn", "https://umua.org/hpwords/channels/town-square")
-            R.id.nav_hdh      -> openHDHApp()
             R.id.nav_birthday -> openApp(
                 "com.vadym.birthday",
                 "https://sites.google.com/view/birthday-app/main"
@@ -192,14 +191,10 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_facebook -> startActivity(openFacebookIntent(this))
             R.id.nav_share    -> shareApp()
             R.id.nav_send     -> sendEmail()
-//            R.id.nav_info -> drawerLauncher.launch(Intent(this, InfoView::class.java).noAnimation())
         }
     }
 
     // ─── External apps ────────────────────────────────────────────────────────
-
-    open fun openHDHApp() =
-        openApp("com.vadym.hdhmeeting", "https://umua.org/hpwords/channels/town-square")
 
     private fun openApp(packageName: String, fallbackUrl: String) {
         val intent = packageManager.getLaunchIntentForPackage(packageName)
