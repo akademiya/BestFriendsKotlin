@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.vadym.gvd.bestfriendskotlin.R
 
-class FatherKidoAdapter(private val booksList: ArrayList<FatherKido>,
+class FatherKidoAdapter(private val booksList: List<FatherKido>,
                         private val clickListener: (FatherKido) -> Unit) : RecyclerView.Adapter<FatherKidoAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH (

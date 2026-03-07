@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.R
 
-class KidoNadezdyAdapter(private val booksList: ArrayList<KidoNadezdy>) : RecyclerView.Adapter<KidoNadezdyAdapter.VH>() {
+class KidoNadezdyAdapter(private val booksList: List<KidoNadezdy>) : RecyclerView.Adapter<KidoNadezdyAdapter.VH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH (
             LayoutInflater.from(parent.context).inflate(R.layout.item_father_kido_intro, parent, false)
     )

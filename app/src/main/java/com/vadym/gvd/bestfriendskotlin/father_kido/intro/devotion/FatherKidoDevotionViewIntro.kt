@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,11 +14,18 @@ import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
 class FatherKidoDevotionViewIntro: MainActivity() {
 
     private lateinit var rv: RecyclerView
-    private val kido = ArrayList<KidoDevotion>()
+    private lateinit var layoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido_intro)
+
+        setupToolbar()
+        setupRecyclerView()
+
+    }
+
+    private fun setupToolbar() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
@@ -27,8 +33,6 @@ class FatherKidoDevotionViewIntro: MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener { onBackPressed() }
-
-        init()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -37,11 +41,15 @@ class FatherKidoDevotionViewIntro: MainActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val view: View = findViewById(R.id.action_down)
-
         return when (item.itemId) {
             R.id.action_down -> {
-                kidoListPopupMenu(context = this, view = view, rv = rv, kidoSize = 29, positionHide = 29)
+                val view: View = findViewById(R.id.action_down)
+                kidoListPopupMenu(
+                    context = this,
+                    view = view,
+                    lm = layoutManager,
+                    kidoSize = 29
+                )
                 true
             }
             else -> {
@@ -49,45 +57,22 @@ class FatherKidoDevotionViewIntro: MainActivity() {
                 true
             }
         }
-
     }
 
-    private fun init() {
+    private fun setupRecyclerView() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        rv.hasFixedSize()
+        layoutManager = LinearLayoutManager(this)
+        rv.layoutManager = layoutManager
+        rv.setHasFixedSize(true)
 
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_1), getString(R.string.pr_devotion_1t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_2), getString(R.string.pr_devotion_2t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_3), getString(R.string.pr_devotion_3t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_4), getString(R.string.pr_devotion_4t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_5), getString(R.string.pr_devotion_5t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_6), getString(R.string.pr_devotion_6t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_7), getString(R.string.pr_devotion_7t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_8), getString(R.string.pr_devotion_8t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_9), getString(R.string.pr_devotion_9t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_10), getString(R.string.pr_devotion_10t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_11), getString(R.string.pr_devotion_11t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_12), getString(R.string.pr_devotion_12t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_13), getString(R.string.pr_devotion_13t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_14), getString(R.string.pr_devotion_14t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_15), getString(R.string.pr_devotion_15t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_16), getString(R.string.pr_devotion_16t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_17), getString(R.string.pr_devotion_17t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_18), getString(R.string.pr_devotion_18t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_19), getString(R.string.pr_devotion_19t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_20), getString(R.string.pr_devotion_20t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_21), getString(R.string.pr_devotion_21t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_22), getString(R.string.pr_devotion_22t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_23), getString(R.string.pr_devotion_23t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_24), getString(R.string.pr_devotion_24t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_25), getString(R.string.pr_devotion_25t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_26), getString(R.string.pr_devotion_26t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_27), getString(R.string.pr_devotion_27t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_28), getString(R.string.pr_devotion_28t)))
-        kido.add(KidoDevotion(getString(R.string.pr_devotion_29), getString(R.string.pr_devotion_29t)))
+        val kido = (1..29).map { i ->
+            KidoDevotion(
+                getString(resources.getIdentifier("pr_devotion_$i", "string", packageName)),
+                getString(resources.getIdentifier("pr_devotion_${i}t", "string", packageName))
+            )
+        }
 
-        val adapter = KidoDevotionAdapter(kido)
-        rv.adapter = adapter
+        rv.adapter = KidoDevotionAdapter(kido)
     }
+
 }

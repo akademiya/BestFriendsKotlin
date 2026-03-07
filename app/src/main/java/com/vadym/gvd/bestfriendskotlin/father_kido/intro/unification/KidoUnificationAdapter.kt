@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.R
 
-class KidoUnificationAdapter(private val booksKido: ArrayList<KidoUnification>) : RecyclerView.Adapter<KidoUnificationAdapter.VH>() {
+class KidoUnificationAdapter(private val booksKido: List<KidoUnification>) : RecyclerView.Adapter<KidoUnificationAdapter.VH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH (
         LayoutInflater.from(parent.context).inflate(R.layout.item_father_kido_intro, parent, false)
     )

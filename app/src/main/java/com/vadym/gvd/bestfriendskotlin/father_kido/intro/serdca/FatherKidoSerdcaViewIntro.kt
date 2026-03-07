@@ -1,13 +1,12 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.serdca
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
@@ -15,12 +14,17 @@ import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
 class FatherKidoSerdcaViewIntro : MainActivity() {
 
     private lateinit var rv: RecyclerView
-    private val kido = ArrayList<KidoSerdca>()
+    private lateinit var layoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido_intro)
 
+        setupToolbar()
+        setupRecyclerView()
+    }
+
+    private fun setupToolbar() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
@@ -28,8 +32,6 @@ class FatherKidoSerdcaViewIntro : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener { onBackPressed() }
-
-        init()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -38,11 +40,15 @@ class FatherKidoSerdcaViewIntro : MainActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val view: View = findViewById(R.id.action_down)
-
         return when (item.itemId) {
             R.id.action_down -> {
-                kidoListPopupMenu(context = this, view = view, rv = rv, kidoSize = 32, positionHide = 32)
+                val view: View = findViewById(R.id.action_down)
+                kidoListPopupMenu(
+                    context = this,
+                    view = view,
+                    lm = layoutManager,
+                    kidoSize = 32
+                )
                 true
             }
             else -> {
@@ -50,48 +56,22 @@ class FatherKidoSerdcaViewIntro : MainActivity() {
                 true
             }
         }
-
     }
 
-    private fun init() {
+    private fun setupRecyclerView() {
         rv = findViewById(R.id.rv_list_father_kido_intro)
-        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        rv.hasFixedSize()
+        layoutManager = LinearLayoutManager(this)
+        rv.layoutManager = layoutManager
+        rv.setHasFixedSize(true)
 
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_1), getString(R.string.pr_serdca_1t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_2), getString(R.string.pr_serdca_2t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_3), getString(R.string.pr_serdca_3t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_4), getString(R.string.pr_serdca_4t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_5), getString(R.string.pr_serdca_5t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_6), getString(R.string.pr_serdca_6t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_7), getString(R.string.pr_serdca_7t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_8), getString(R.string.pr_serdca_8t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_9), getString(R.string.pr_serdca_9t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_10), getString(R.string.pr_serdca_10t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_11), getString(R.string.pr_serdca_11t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_12), getString(R.string.pr_serdca_12t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_13), getString(R.string.pr_serdca_13t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_14), getString(R.string.pr_serdca_14t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_15), getString(R.string.pr_serdca_15t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_16), getString(R.string.pr_serdca_16t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_17), getString(R.string.pr_serdca_17t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_18), getString(R.string.pr_serdca_18t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_19), getString(R.string.pr_serdca_19t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_20), getString(R.string.pr_serdca_20t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_21), getString(R.string.pr_serdca_21t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_22), getString(R.string.pr_serdca_22t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_23), getString(R.string.pr_serdca_23t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_24), getString(R.string.pr_serdca_24t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_25), getString(R.string.pr_serdca_25t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_26), getString(R.string.pr_serdca_26t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_27), getString(R.string.pr_serdca_27t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_28), getString(R.string.pr_serdca_28t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_29), getString(R.string.pr_serdca_29t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_30), getString(R.string.pr_serdca_30t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_31), getString(R.string.pr_serdca_31t)))
-        kido.add(KidoSerdca(getString(R.string.pr_serdca_32), getString(R.string.pr_serdca_32t)))
+        val kido = (1..32).map { i ->
+            KidoSerdca(
+                getString(resources.getIdentifier("pr_serdca_$i", "string", packageName)),
+                getString(resources.getIdentifier("pr_serdca_${i}t", "string", packageName))
+            )
+        }
 
-        val adapter = KidoSerdcaAdapter(kido)
-        rv.adapter = adapter
+        rv.adapter = KidoSerdcaAdapter(kido)
     }
+
 }

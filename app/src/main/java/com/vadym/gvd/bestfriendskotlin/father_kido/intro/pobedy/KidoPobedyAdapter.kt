@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.vadym.gvd.bestfriendskotlin.R
 
-class KidoPobedyAdapter(private val booksList: ArrayList<KidoPobedy>) : RecyclerView.Adapter<KidoPobedyAdapter.VH>() {
+class KidoPobedyAdapter(private val booksList: List<KidoPobedy>) : RecyclerView.Adapter<KidoPobedyAdapter.VH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH (
             LayoutInflater.from(parent.context).inflate(R.layout.item_father_kido_intro, parent, false)
     )
