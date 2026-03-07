@@ -77,7 +77,7 @@ class HDHView : AppCompatActivity() {
                 && now.hour >= 6 && now.hour < 8
 
         binding.tvMonthYear.text = currentYearMonth
-            .format(DateTimeFormatter.ofPattern("LLLL yyyy", Locale("uk")))
+            .format(DateTimeFormatter.ofPattern("LLLL yyyy", Locale.getDefault()))
             .replaceFirstChar { it.uppercase() }
 
         binding.calendarGrid.removeAllViews()

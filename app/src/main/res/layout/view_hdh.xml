@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/hdh_description"
+                android:text="@string/hdh_calendar_description"
                 android:textSize="14sp"
                 android:lineSpacingMultiplier="1.4"
                 android:textColor="#757575" />
