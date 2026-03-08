@@ -124,7 +124,7 @@
     // 심정 Shop
     <string name="card_shop_title">Shimjeong Магазин</string>
     <string name="buy">Купить</string>
-    <string name="purchased">✓ Открыто</string>
+    <string name="image_unlocked">✓ Открыто</string>
     <string name="not_enough_coins">Недостаточно монет</string>
     <string name="need_coins_format">Нужно %1$d монет Simjeong. \n\nЗарабатывайте монеты каждый день, открывая фразу дня.</string>
     <string name="coins_balance_title">Ваш баланс:</string>

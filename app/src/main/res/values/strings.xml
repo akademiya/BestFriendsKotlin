@@ -155,12 +155,12 @@
     // 심정 Shop
     <string name="card_shop_title">Shimjeong Shop</string>
     <string name="buy">Buy</string>
-    <string name="purchased">✓ Unlocked</string>
     <string name="not_enough_coins">Not enough coins</string>
     <string name="need_coins_format">You need %1$d Simjeong Coins. \n\nEarn coins every day by opening the phrase of the day.</string>
     <string name="coins_balance_title">Your balance:</string>
     <string name="confirm_purchase_format">Spend %1$d SC?</string>
     <string name="card_unlocked">🎉 Card unlocked!</string>
+    <string name="image_unlocked">✓ Unlocked</string>
 
 
     // HDH Calendar

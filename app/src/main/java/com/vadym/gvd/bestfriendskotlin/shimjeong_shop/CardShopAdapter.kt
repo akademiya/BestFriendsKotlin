@@ -1,12 +1,18 @@
 package com.vadym.gvd.bestfriendskotlin.shimjeong_shop
 
+import android.app.AlertDialog
+import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
+import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.databinding.ItemShopCardBinding
 import jp.wasabeef.glide.transformations.BlurTransformation
 
@@ -34,11 +40,21 @@ class CardShopAdapter(
             if (purchased) {
                 cardImage.setImageResource(card.imageRes)
                 cardImage.visibility = View.VISIBLE
+                purchasedBadge.visibility = View.VISIBLE
                 cardBlob.visibility = View.GONE
                 lockIcon.visibility = View.GONE
                 priceGroup.visibility = View.GONE
+                expandIcon.visibility = View.VISIBLE
+
+                val openFull = View.OnClickListener {
+                    showFullscreenDialog(root.context, card.imageRes)
+                }
+//                root.setOnClickListener(openFull)
+                expandIcon.setOnClickListener(openFull)
             } else {
                 cardImage.visibility = View.GONE
+                expandIcon.visibility = View.GONE
+                purchasedBadge.visibility = View.GONE
                 cardBlob.visibility = View.VISIBLE
                 lockIcon.visibility = View.VISIBLE
                 priceGroup.visibility = View.VISIBLE
@@ -63,5 +79,29 @@ class CardShopAdapter(
     fun refreshCard(cardId: Int) {
         val idx = cards.indexOfFirst { it.id == cardId }
         if (idx != -1) notifyItemChanged(idx)
+    }
+
+    private fun showFullscreenDialog(context: Context, imageRes: Int) {
+        val dialogView = LayoutInflater.from(context)
+            .inflate(R.layout.dialog_card_fullscreen, null)
+
+        val fullImage = dialogView.findViewById<ImageView>(R.id.full_image)
+        val btnClose = dialogView.findViewById<ImageView>(R.id.btn_close)
+
+        val dialog = AlertDialog.Builder(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
+            .setView(dialogView)
+            .create()
+
+        dialog.window?.apply {
+            setLayout(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT
+            )
+            setBackgroundDrawableResource(android.R.color.white)
+            fullImage.setImageResource(imageRes)
+        }
+
+        btnClose.setOnClickListener { dialog.dismiss() }
+        dialog.show()
     }
 }

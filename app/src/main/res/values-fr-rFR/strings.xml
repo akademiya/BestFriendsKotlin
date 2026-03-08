@@ -133,7 +133,7 @@
     // 심정 Shop
     <string name="card_shop_title">Shimjeong Shop</string>
     <string name="buy">Acheter</string>
-    <string name="purchased">✓ Ouvert</string>
+    <string name="image_unlocked">✓ Ouvert</string>
     <string name="not_enough_coins">Pas assez de pièces</string>
     <string name="need_coins_format">Il faut %1$d pièces Simjeong. \n\nGagnez des pièces chaque jour en ouvrant la phrase du jour.</string>
     <string name="coins_balance_title">Votre solde :</string>

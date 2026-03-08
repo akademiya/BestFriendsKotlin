@@ -136,12 +136,12 @@
     // 심정 Shop
     <string name="card_shop_title">심정 Крамниця</string>
     <string name="buy">Купити</string>
-    <string name="purchased">✓ Відкрито</string>
     <string name="not_enough_coins">Недостатньо монет</string>
     <string name="need_coins_format">Потрібно %1$d 심정 Coins. \n\nЗаробляй коїни щодня, відкриваючи фразу на день.</string>
     <string name="coins_balance_title">Твій баланс:</string>
     <string name="confirm_purchase_format">Списати %1$d SC?</string>
     <string name="card_unlocked">🎉 Карточку відкрито!</string>
+    <string name="image_unlocked">✓ Відкрито</string>
 
 
     // HDH Calendar
