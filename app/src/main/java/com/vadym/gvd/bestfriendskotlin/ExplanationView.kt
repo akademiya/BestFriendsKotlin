@@ -25,10 +25,12 @@ class ExplanationView: MainActivity() {
 
 
         if (isNetworkAvailable()) {
-            adContainer.visibility = View.VISIBLE
-            adContainer2.visibility = View.VISIBLE
-            Admob.initializeAdmob(this, adContainer)
-            Admob.initializeAdmob(this, adContainer2)
+            window.decorView.post {
+                adContainer.visibility = View.VISIBLE
+                adContainer2.visibility = View.VISIBLE
+                Admob.initializeAdmob(this, adContainer)
+                Admob.initializeAdmob(this, adContainer2)
+            }
         } else {
             adContainer.visibility = View.GONE
             adContainer2.visibility = View.GONE

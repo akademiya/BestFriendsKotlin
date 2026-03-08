@@ -31,10 +31,12 @@ class ExerciseView : MainActivity() {
         lifecycle.addObserver(youTubePlayerView)
 
         if (isNetworkAvailable()) {
-            adContainer.visibility = View.VISIBLE
-            adDivider.visibility = View.VISIBLE
-            Admob.initializeAdmob(this, adContainer)
             initYouTubePlayer()
+            window.decorView.post {
+                adContainer.visibility = View.VISIBLE
+                adDivider.visibility = View.VISIBLE
+                Admob.initializeAdmob(this, adContainer)
+            }
         } else {
             adContainer.visibility = View.GONE
             adDivider.visibility = View.GONE

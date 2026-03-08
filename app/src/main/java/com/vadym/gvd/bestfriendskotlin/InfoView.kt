@@ -80,8 +80,11 @@ class InfoView : MainActivity() {
 
         // Реклама
         if (isNetworkAvailable()) {
-            adContainer.visibility = View.VISIBLE
-            Admob.initializeAdmob(this, adContainer)
+            window.decorView.post {
+                adContainer.visibility = View.VISIBLE
+                Admob.initializeAdmob(this, adContainer)
+            }
+
         } else {
             adContainer.visibility = View.GONE
         }

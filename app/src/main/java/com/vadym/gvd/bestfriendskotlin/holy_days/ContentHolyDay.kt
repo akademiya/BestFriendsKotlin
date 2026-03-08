@@ -27,9 +27,12 @@ class ContentHolyDay : MainActivity() {
         val adDivider          = findViewById<View>(R.id.adDivider)
 
         if (isNetworkAvailable()) {
-            adContainer.visibility = View.VISIBLE
-            adDivider.visibility = View.VISIBLE
-            Admob.initializeAdmob(this, adContainer)
+            window.decorView.post {
+                adContainer.visibility = View.VISIBLE
+                adDivider.visibility = View.VISIBLE
+                Admob.initializeAdmob(this, adContainer)
+            }
+
         } else {
             adContainer.visibility = View.GONE
             adDivider.visibility = View.GONE

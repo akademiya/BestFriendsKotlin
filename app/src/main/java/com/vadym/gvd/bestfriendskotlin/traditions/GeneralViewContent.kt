@@ -25,9 +25,12 @@ class GeneralViewContent : MainActivity() {
 
 
         if (isNetworkAvailable()) {
-            adContainer.visibility = View.VISIBLE
-            adDivider.visibility = View.VISIBLE
-            Admob.initializeAdmob(this, adContainer)
+            window.decorView.post {
+                adContainer.visibility = View.VISIBLE
+                adDivider.visibility = View.VISIBLE
+                Admob.initializeAdmob(this, adContainer)
+            }
+
         } else {
             adContainer.visibility = View.GONE
             adDivider.visibility = View.GONE
