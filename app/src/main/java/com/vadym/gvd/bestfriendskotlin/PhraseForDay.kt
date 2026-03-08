@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.snackbar.Snackbar
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
@@ -16,93 +17,60 @@ import java.util.Locale
 
 class PhraseForDay : MainActivity() {
 
+    // ── Константи ────────────────────────────────────────────────────────────
+    companion object {
+        private const val PREFS_NAME         = "PhraseForDay"
+        private const val KEY_PHRASE_TEXT    = "phraseText"
+        private const val KEY_SCROLL_CLOSED  = "svitokClose"
+        private const val KEY_LAST_OPEN_DATE = "lastOpenDate"
+        private const val KEY_HISTORY        = "phraseHistory"
+
+        private const val PHRASE_PREFIX      = "f"
+        private const val PHRASE_COUNT       = 318
+        private const val NO_REPEAT_WINDOW   = 100  // не повторювати останні N фраз
+    }
+
+    // ── Поля ─────────────────────────────────────────────────────────────────
     private lateinit var phraseTextView: TextView
     private lateinit var textOnButton: TextView
     private lateinit var coinManager: CoinManager
 
-
-    private val phrases: Array<String> by lazy {
-        arrayOf(
-            "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10",
-            "f11", "f12", "f13", "f14", "f15", "f16", "f17", "f18", "f19", "f20",
-            "f21", "f22", "f23", "f24", "f25", "f26", "f27", "f28", "f29", "f30",
-            "f31", "f32", "f33", "f34", "f35", "f36", "f37", "f38", "f39", "f40",
-            "f41", "f42", "f43", "f44", "f45", "f46", "f47", "f48", "f49", "f50",
-            "f51", "f52", "f53", "f54", "f55", "f56", "f57", "f58", "f59", "f60",
-            "f61", "f62", "f63", "f64", "f65", "f66", "f67", "f68", "f69", "f70",
-            "f71", "f72", "f73", "f74", "f75", "f76", "f77", "f78", "f79", "f80",
-            "f81", "f82", "f83", "f84", "f85", "f86", "f87", "f88", "f89", "f90",
-            "f91", "f92", "f93", "f94", "f95", "f96", "f97", "f98", "f99", "f100",
-            "f101", "f102", "f103", "f104", "f105", "f106", "f107", "f108", "f109"
-        )
+    // Генеруємо список програмно — не треба вручну писати 318 рядків
+    private val phrases: List<String> by lazy {
+        (1..PHRASE_COUNT).map { "$PHRASE_PREFIX$it" }
     }
 
+    // ── Lifecycle ─────────────────────────────────────────────────────────────
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_phrase_for_day)
 
         phraseTextView = findViewById(R.id.text_phrase)
-        textOnButton = findViewById(R.id.text_on_button)
-        coinManager = CoinManager(this)
+        textOnButton   = findViewById(R.id.text_on_button)
+        coinManager    = CoinManager(this)
 
         val scrollClosed: ImageView = findViewById(R.id.scrollClosed)
         val scrollOpened: ImageView = findViewById(R.id.scrollOpened)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.apply {
-            setDisplayHomeAsUpEnabled(true)
-            setDisplayShowTitleEnabled(false)
-        }
-
-        toolbar.setNavigationOnClickListener { onBackPressed() }
-
-        val sharedPrefs = getSharedPreferences("PhraseForDay", Context.MODE_PRIVATE)
-        val savedPhraseKey = sharedPrefs.getString("phraseText", null)
-
-        savedPhraseKey?.let {
-            val resId = resources.getIdentifier(it, "string", packageName)
-            phraseTextView.text = if (resId != 0) getString(resId) else ""
-        }
+        setupToolbar()
+        setupBackPress()
+        restoreSavedPhrase()
 
         if (isBoxOpenableToday()) {
-            val visibility = sharedPrefs.getBoolean("svitokClose", false)
-            if (visibility) {
+            val prefs      = getPrefs()
+            val wasClosed  = prefs.getBoolean(KEY_SCROLL_CLOSED, false)
+
+            if (wasClosed) {
                 phraseTextView.visibility = View.GONE
-                textOnButton.visibility = View.VISIBLE
-                scrollClosed.visibility = View.VISIBLE
-                scrollOpened.visibility = View.GONE
+                textOnButton.visibility   = View.VISIBLE
+                scrollClosed.visibility   = View.VISIBLE
+                scrollOpened.visibility   = View.GONE
             }
+
             scrollClosed.setOnClickListener {
-                scrollClosed.animate()
-                    .scaleX(0f)
-                    .scaleY(0f)
-                    .alpha(0f)
-                    .setDuration(500)
-                    .setListener(object : Animator.AnimatorListener {
-
-                        override fun onAnimationStart(p0: Animator) {
-                            scrollClosed.visibility = View.GONE
-                            scrollOpened.visibility = View.VISIBLE
-                            scrollOpened.alpha = 0f
-                            scrollOpened.scaleX = 0f
-                            scrollOpened.scaleY = 0f
-                            scrollOpened.animate()
-                                .scaleX(1f)
-                                .scaleY(1f)
-                                .alpha(1f)
-                                .setDuration(500)
-                                .start()
-                        }
-
-                        override fun onAnimationEnd(p0: Animator) {}
-                        override fun onAnimationCancel(p0: Animator) {}
-                        override fun onAnimationRepeat(p0: Animator) {}
-                    })
-                    .start()
-
+                animateScrollOpen(scrollClosed, scrollOpened)
                 textOnButton.visibility = View.GONE
-                showRandomPhrase()
+                showNextPhrase()
                 saveCurrentDateAsLastOpenDate()
                 awardDailyCoins()
             }
@@ -113,38 +81,97 @@ class PhraseForDay : MainActivity() {
         }
     }
 
-    private fun showRandomPhrase() {
-        val randomPhrase = phrases.random()
+    // ── UI setup ──────────────────────────────────────────────────────────────
+    private fun setupToolbar() {
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
+        toolbar.setNavigationOnClickListener { navigateBack() }
+    }
+
+    /** Замінює deprecated onBackPressed() */
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    // ── Логіка фраз ───────────────────────────────────────────────────────────
+
+    /**
+     * Повертає рандомну фразу, яка не зустрічалась серед останніх [NO_REPEAT_WINDOW].
+     * Якщо всі фрази вже у вікні (теоретично неможливо при 318 > 100) — скидає історію.
+     */
+    private fun getNextUniquePhrase(): String {
+        val history    = loadHistory().toMutableList()
+        val candidates = phrases.filterNot { it in history }
+
+        // Якщо кандидатів не залишилось (мала кількість фраз) — скидаємо вікно
+        val available  = candidates.ifEmpty {
+            history.clear()
+            phrases
+        }
+
+        val chosen = available.random()
+
+        // Оновлюємо вікно: додаємо новий, прибираємо старий якщо перевищили розмір
+        history.add(chosen)
+        if (history.size > NO_REPEAT_WINDOW) {
+            history.removeAt(0)
+        }
+        saveHistory(history)
+
+        return chosen
+    }
+
+    private fun showNextPhrase() {
+        val phraseKey = getNextUniquePhrase()
+        val resId     = resources.getIdentifier(phraseKey, "string", packageName)
+
         phraseTextView.visibility = View.VISIBLE
-        phraseTextView.text = getString(resources.getIdentifier(randomPhrase, "string", packageName))
-        val sharedPrefs = getSharedPreferences("PhraseForDay", Context.MODE_PRIVATE)
-        sharedPrefs.edit().putString("phraseText", randomPhrase).apply()
-        sharedPrefs.edit().putBoolean("svitokClose", true).apply()
+        phraseTextView.text       = if (resId != 0) getString(resId) else phraseKey
+
+        getPrefs().edit()
+            .putString(KEY_PHRASE_TEXT, phraseKey)
+            .putBoolean(KEY_SCROLL_CLOSED, true)
+            .apply()
+    }
+
+    private fun restoreSavedPhrase() {
+        val savedKey = getPrefs().getString(KEY_PHRASE_TEXT, null) ?: return
+        val resId    = resources.getIdentifier(savedKey, "string", packageName)
+        phraseTextView.text = if (resId != 0) getString(resId) else ""
+    }
+
+    // ── Збереження/читання ────────────────────────────────────────────────────
+    private fun getPrefs() = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
+    /** Зберігаємо історію як рядок "f1,f5,f23,..." */
+    private fun saveHistory(history: List<String>) {
+        getPrefs().edit().putString(KEY_HISTORY, history.joinToString(",")).apply()
+    }
+
+    private fun loadHistory(): List<String> {
+        val raw = getPrefs().getString(KEY_HISTORY, null) ?: return emptyList()
+        return raw.split(",").filter { it.isNotBlank() }
     }
 
     private fun isBoxOpenableToday(): Boolean {
-        val sharedPrefs = getSharedPreferences("PhraseForDay", Context.MODE_PRIVATE)
-        val lastOpenDate = sharedPrefs.getString("lastOpenDate", null)
-        val currentDate = getCurrentDate()
-        return lastOpenDate != currentDate
+        val lastOpenDate = getPrefs().getString(KEY_LAST_OPEN_DATE, null)
+        return lastOpenDate != getCurrentDate()
     }
 
     private fun saveCurrentDateAsLastOpenDate() {
-        val sharedPrefs = getSharedPreferences("PhraseForDay", Context.MODE_PRIVATE)
-        with(sharedPrefs.edit()) {
-            putString("lastOpenDate", getCurrentDate())
-            apply()
-        }
+        getPrefs().edit().putString(KEY_LAST_OPEN_DATE, getCurrentDate()).apply()
     }
 
-    private fun getCurrentDate(): String {
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        return dateFormat.format(Date())
-    }
+    private fun getCurrentDate(): String =
+        SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
+    // ── Монети ────────────────────────────────────────────────────────────────
     private fun awardDailyCoins() {
         coinManager.addCoins(CoinManager.COINS_PER_DAY)
-        // Анімований показ нарахування
         Snackbar.make(
             findViewById(android.R.id.content),
             "+${CoinManager.COINS_PER_DAY} 심정 SC",
@@ -152,12 +179,37 @@ class PhraseForDay : MainActivity() {
         ).show()
     }
 
-    override fun onBackPressed() {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
-        }
-        startActivity(intent)
+    // ── Анімація ──────────────────────────────────────────────────────────────
+    private fun animateScrollOpen(scrollClosed: ImageView, scrollOpened: ImageView) {
+        scrollClosed.animate()
+            .scaleX(0f).scaleY(0f).alpha(0f)
+            .setDuration(500)
+            .setListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(p0: Animator) {
+                    scrollClosed.visibility = View.GONE
+                    scrollOpened.apply {
+                        visibility = View.VISIBLE
+                        alpha  = 0f
+                        scaleX = 0f
+                        scaleY = 0f
+                        animate().scaleX(1f).scaleY(1f).alpha(1f).setDuration(500).start()
+                    }
+                }
+                override fun onAnimationEnd(p0: Animator)    {}
+                override fun onAnimationCancel(p0: Animator) {}
+                override fun onAnimationRepeat(p0: Animator) {}
+            })
+            .start()
+    }
+
+    // ── Навігація ─────────────────────────────────────────────────────────────
+    private fun navigateBack() {
+        startActivity(
+            Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+            }
+        )
         finish()
     }
 }
