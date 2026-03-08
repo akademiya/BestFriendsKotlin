@@ -44,7 +44,7 @@ class FatherKidoView : MainActivity() {
         setContentView(R.layout.view_father_kido)
         setupToolbar()
         setupRecyclerView()
-        setupAds()
+//        setupAds()
     }
 
     private fun setupToolbar() {
@@ -65,14 +65,14 @@ class FatherKidoView : MainActivity() {
         recyclerView.adapter = FatherKidoAdapter(books) { booksItemClicked(it) }
     }
 
-    private fun setupAds() {
-        val adContainer: AdView = findViewById(R.id.adView)
-        val adDivider: View = findViewById(R.id.adDivider)
-        val show = isNetworkAvailable()
-        adContainer.visibility = if (show) View.VISIBLE else View.GONE
-        adDivider.visibility = if (show) View.VISIBLE else View.GONE
-        if (show) Admob.initializeAdmob(this, adContainer)
-    }
+//    private fun setupAds() {
+//        val adContainer: AdView = findViewById(R.id.adView)
+//        val adDivider: View = findViewById(R.id.adDivider)
+//        val show = isNetworkAvailable()
+//        adContainer.visibility = if (show) View.VISIBLE else View.GONE
+//        adDivider.visibility = if (show) View.VISIBLE else View.GONE
+//        if (show) Admob.initializeAdmob(this, adContainer)
+//    }
 
     private fun buildBooksList() = listOf(
         FatherKido(1,  getString(R.string.pr_nadezdy)),
