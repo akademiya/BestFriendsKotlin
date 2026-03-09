@@ -130,6 +130,8 @@
     <string name="coins_balance_title">Ваш баланс:</string>
     <string name="confirm_purchase_format">Списать %1$d SC?</string>
     <string name="card_unlocked">🎉 Карточка открыта!</string>
+    <string name="bonus_7days">дней подряд!</string>
+    <string name="bonus_congratulation">Бонус +%1$d Simjeong Coin за %2$d дней подряд!\n\nТак держать 💪</string>
 
     // HDH Calendar
     <string name="hdh_calendar_title">Календарь HDH</string>

@@ -131,6 +131,8 @@
     <string name="coins_balance_title">내 잔액:</string>
     <string name="confirm_purchase_format">%1$d SC를 사용하시겠습니까?</string>
     <string name="card_unlocked">🎉 카드가 열렸습니다!</string>
+    <string name="bonus_7days">일 연속!</string>
+    <string name="bonus_congratulation">%2$d일 연속 달성! 보너스 +%1$d 심정 코인!\n\n계속 힘내세요 💪</string>
 
     // HDH Calendar
     <string name="hdh_calendar_title">훈독회를 캘린더</string>

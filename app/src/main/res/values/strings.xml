@@ -161,6 +161,8 @@
     <string name="confirm_purchase_format">Spend %1$d SC?</string>
     <string name="card_unlocked">🎉 Card unlocked!</string>
     <string name="image_unlocked">✓ Unlocked</string>
+    <string name="bonus_7days">days in a row!</string>
+    <string name="bonus_congratulation">Bonus +%1$d Simjeong Coin for %2$d days in a row!\n\nKeep it up 💪</string>
 
 
     // HDH Calendar

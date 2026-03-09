@@ -142,6 +142,9 @@
     <string name="confirm_purchase_format">Списати %1$d SC?</string>
     <string name="card_unlocked">🎉 Карточку відкрито!</string>
     <string name="image_unlocked">✓ Відкрито</string>
+    <string name="bonus_7days">днів поспіль!</string>
+    <string name="bonus_congratulation">Бонус +%1$d 심정 Coin за %2$d днів підряд!\n\nПродовжуй у тому ж дусі 💪</string>
+
 
 
     // HDH Calendar

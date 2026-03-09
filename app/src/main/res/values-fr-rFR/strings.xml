@@ -139,6 +139,8 @@
     <string name="coins_balance_title">Votre solde :</string>
     <string name="confirm_purchase_format">Dépenser %1$d SC ?</string>
     <string name="card_unlocked">🎉 Carte débloquée !</string>
+    <string name="bonus_7days">jours d’affilée !</string>
+    <string name="bonus_congratulation">Bonus +%1$d Simjeong Coin pour %2$d jours d’affilée !\n\nContinue comme ça 💪</string>
 
     // HDH Calendar
     <string name="hdh_calendar_title">Calendrier HDH</string>
