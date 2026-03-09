@@ -6,10 +6,11 @@
     <string name="advert">Advertising</string>
     <string name="konkurs">Brothers and sisters, I think the reading is simple, but your lived experience, how prayer works in your life, or how prayer once helped, is extremely interesting and encouraging to others. If you write me your experience by mail, I will be happy to publish it (translation through translate to other languages)</string>
     <string name="sorrow">If after the update you do not see the prayer list page, this can be fixed if you go to the settings of the phone - application - find the installed application "TRUE LIFE" and click "clear data". I apologize for this inconvenience.</string>
-    <string name="info_text">Hello! I\'m Woojin - the developer of this app. 😊
-\n\nOriginally, this app was created as a simple prayer list called TF PRAYER. The True Parents will always remain on the main screen as a reminder of the center of our faith and life.
-\n\nNow the app is growing and has a new name - TRUE LIFE. Its goal is to become a daily helper for every Cheon Il Guk owner.
-\n\nNew features have already been added to the app, and I plan to keep adding more useful functions in the future.
+    <string name="info_text">Hello! I\'m :Woojin - the developer of this app. 😊
+\n\nThe TF PRAYER app is evolving and now has a new name — TRUE LIFE. The True Parents will always remain on the main screen to remind us of the center of our faith and life.
+\n\nThe goal of the app is to become a daily helper for every Cheon Il Guk owner.
+\n\nNew features have already been added to the app. Let me explain some of the updates. A new coin has been introduced — the Simjeong Coin (SC). You can earn coins by completing tasks. Feel free to explore.
+\n\nIn the future, I plan to add even more useful features.
 \n\nIf you have any ideas or suggestions, please feel free to write to me. Your thoughts are very important, and I will gladly take them into consideration.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">Privacy policy</a></string>
     <string name="site">Site</string>
@@ -20,7 +21,7 @@
     <string name="share_body">I want to share "TRUE LIFE" application.\n</string>
     <string name="empty_list">Empty list</string>
     <string name="author">\"Learn to master yourself before you master the Universe\"</string>
-    <string name="email">E-mail: vadym.adv@gmail.com</string>
+    <string name="email">E-mail: gms.nppn@gmail.com</string>
     <string name="explanation">Value of prayer</string>
     <string name="holy_days">Holy Days</string>
     <string name="title_major_holidays">8 Major Holidays</string>

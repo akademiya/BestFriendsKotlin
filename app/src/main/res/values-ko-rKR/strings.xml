@@ -7,9 +7,10 @@
     <string name="konkurs">형제 자매 여러분, 읽기는 간단하다고 생각합니다. 그러나 여러분의 생생한 경험, 기도가 여러분의 삶에서 어떻게 작용하는지, 또는 한때 기도가 어떻게 도움이 되었는지는 매우 흥미롭고 다른 사람들에게 격려가 됩니다. 귀하의 경험을 우편으로 보내주시면 기꺼이 게시하겠습니다(다른 언어로의 번역을 통한 번역).</string>
     <string name="sorrow">업데이트 후기도 목록 페이지가 보이지 않으면 전화-응용 프로그램-설치된 응용 프로그램 "TF기도"를 찾아 "데이터 지우기"를 클릭하면이 문제가 해결 될 수 있습니다. 불편을 드려 죄송합니다</string>
     <string name="info_text">안녕하세요! 저는 이 앱을 만든 개발자 우진입니다. 😊
-\n\n이 앱은 처음에 TF PRAYER라는 이름의 간단한 기도 목록 앱으로 시작했습니다. 메인 화면에는 항상 참부모님이 중심으로 남아 우리 신앙과 삶의 중심을 기억하도록 합니다.
-\n\n지금은 앱이 발전하면서 새로운 이름인 TRUE LIFE로 바뀌었습니다. 이 앱의 목표는 모든 천일국 주인의 일상적인 도움자가 되는 것입니다.
-\n\n이미 몇 가지 새로운 기능이 추가되었고, 앞으로도 더 유용한 기능들을 계속 추가할 계획입니다.
+\n\nTF PRAYER 앱이 발전하면서 새로운 이름인 TRUE LIFE로 바뀌었습니다. 메인 화면에는 항상 참부모님이 중심으로 계셔서 우리의 신앙과 삶의 중심을 기억하도록 합니다.
+\n\n이 앱의 목표는 모든 천일국 주인의 일상적인 도움이 되는 것입니다.
+\n\n앱에는 이미 새로운 기능들이 추가되었습니다. 몇 가지 새로운 점을 설명드리겠습니다. 심정 코인(Simjeong Coin, SC)이 새롭게 도입되었습니다. 미션을 수행하면 코인을 얻을 수 있습니다. 직접 탐색해 보세요.
+\n\n앞으로도 더 많은 유용한 기능들을 계속 추가할 계획입니다.
 \n\n아이디어나 제안이 있다면 언제든지 저에게 알려주세요. 여러분의 의견은 매우 소중하며, 기쁘게 참고하겠습니다.</string>
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1kkNl-DxcwSJC_99Ux2qXFd_5fiUR6DCV/view?usp=sharing">개인 정책</a></string>
     <string name="site">사이트 (en)</string>
@@ -20,7 +21,7 @@
     <string name="share_body">"TRUE LIFE" 애플리케이션을 공유하고 싶습니다.\n</string>
     <string name="empty_list">목록이 비어 있습니다</string>
     <string name="author">\"우주주관 바라기 전에 자아를 주관하라\"</string>
-    <string name="email">이메일: vadym.adv@gmail.com</string>
+    <string name="email">이메일: gms.nppn@gmail.com</string>
     <string name="explanation">기도의 가치</string>
     <string name="loading_mp3">MP3를 로드하는 동안 잠시 기다려주십시오</string>
     <string name="kido_counter">기도 %s</string>
