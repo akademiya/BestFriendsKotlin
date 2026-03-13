@@ -95,14 +95,13 @@
             </LinearLayout>
         </ScrollView>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/site"
-            style="@style/ButtonChronometer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonGoToSite"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/parent_margin"
-            android:text="@string/site"
-            android:textColor="#fff" />
+            app:cornerRadius="12dp"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            android:text="@string/site" />
     </RelativeLayout>
 </LinearLayout>

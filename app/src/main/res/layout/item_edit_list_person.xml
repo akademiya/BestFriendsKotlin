@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -19,18 +20,14 @@
             android:contentDescription="@string/upload_img_description"
             android:src="@drawable/ic_person" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_select_photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            style="@style/ButtonSelectPhoto"
+            app:cornerRadius="4dp"
+            app:iconGravity="start"
+            app:iconPadding="12dp"
+            app:iconTint="@android:color/white"
             android:layout_toEndOf="@+id/upload_img_person"
-            android:background="@color/purple_200"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:drawablePadding="12dp"
-            android:textColor="@color/text_take_photo_button"
-            android:drawableStart="@drawable/ic_take_photo"
             android:text="@string/select_photo" />
 
         <EditText

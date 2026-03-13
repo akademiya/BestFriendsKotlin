@@ -97,9 +97,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            android:backgroundTint="@color/tradition_custom_ripple_color"
+            android:backgroundTint="@color/button_site"
             android:src="@drawable/ic_add"
-            app:rippleColor="@color/color_pause" />
+            app:tint="@android:color/white"
+            app:rippleColor="@color/button_site_pressed" />
 
         <include
             android:id="@+id/list_kido_empty"
