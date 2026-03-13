@@ -36,7 +36,7 @@ class GeneralViewContent : MainActivity() {
             adDivider.visibility = View.GONE
         }
 
-        traditionTitle.text = intent.getStringExtra("TRADITION_NAME") ?: "Unknown Tradition"
+        traditionTitle.text = intent.getStringExtra("TRADITION_TITLE") ?: "Unknown Tradition"
         val position = intent.getIntExtra("TRADITION_POSITION", 0)
         when(position) {
             0 -> traditionDescription.text = getString(R.string.sunday_service_description)

@@ -15,14 +15,14 @@
             android:title="@string/h_calendar" />
 
         <item
-            android:id="@+id/nav_ua_sj"
-            android:icon="@drawable/ic_uasj"
-            android:title="@string/uasj_app" />
-
-        <item
             android:id="@+id/nav_hdh"
             android:icon="@drawable/ic_hdh"
             android:title="@string/hdh_app"/>
+
+        <item
+            android:id="@+id/nav_ua_sj"
+            android:icon="@drawable/ic_uasj"
+            android:title="@string/uasj_app" />
 
         <item
             android:id="@+id/nav_birthday"
