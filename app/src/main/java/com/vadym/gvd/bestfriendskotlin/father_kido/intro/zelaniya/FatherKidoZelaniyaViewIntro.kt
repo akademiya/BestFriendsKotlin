@@ -4,17 +4,21 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.PodcastTtsManager
 import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
 
 class FatherKidoZelaniyaViewIntro : MainActivity() {
 
     private lateinit var rv: RecyclerView
     private lateinit var layoutManager: LinearLayoutManager
+    private lateinit var ttsManager: PodcastTtsManager
+    private lateinit var kidoList: List<KidoZelaniya>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,7 @@ class FatherKidoZelaniyaViewIntro : MainActivity() {
 
         setupToolbar()
         setupRecyclerView()
+        setupPodcast()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -64,14 +69,32 @@ class FatherKidoZelaniyaViewIntro : MainActivity() {
         rv.layoutManager = layoutManager
         rv.setHasFixedSize(true)
 
-        val kido = (1..50).map { i ->
+        kidoList = (1..50).map { i ->
             KidoZelaniya(
                 getString(resources.getIdentifier("pr_zelaniya_$i", "string", packageName)),
                 getString(resources.getIdentifier("pr_zelaniya_${i}t", "string", packageName))
             )
         }
 
-        rv.adapter = KidoZelaniyaAdapter(kido)
+        rv.adapter = KidoZelaniyaAdapter(kidoList)
     }
+
+    private fun setupPodcast() {
+        val audioPodcastBtn = findViewById<ImageView>(R.id.audio_podcast)
+        audioPodcastBtn.visibility = View.VISIBLE
+        val kidoTexts = kidoList.map { it.textTitle + it.textDescription }
+        ttsManager = PodcastTtsManager(this)
+        ttsManager.bind(
+            texts = kidoTexts,
+            recyclerView = rv,
+            button = findViewById(R.id.audio_podcast)
+        )
+        audioPodcastBtn.setOnClickListener {
+            ttsManager.toggle()
+        }
+    }
+
+    override fun onPause() { super.onPause(); ttsManager.onPause() }
+    override fun onDestroy() { ttsManager.onDestroy(); super.onDestroy() }
 
 }

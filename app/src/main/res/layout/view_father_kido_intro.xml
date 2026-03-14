@@ -18,7 +18,16 @@
 
         <TextView
             style="@style/Toolbar.TitleText"
-            android:text="@string/tp_mKido" />
+            android:text="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/audio_podcast"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/parent_margin"
+            android:visibility="gone"
+            android:src="@drawable/ic_audio_podcast" />
 
     </androidx.appcompat.widget.Toolbar>
 
