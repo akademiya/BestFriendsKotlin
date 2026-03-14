@@ -32,6 +32,8 @@
     <color name="calendar_day_bg">#33000000</color> <!--24% of black-->
     <color name="calendar_prev_day">#4CAF50</color> <!--Green 500-->
     <color name="tradition_custom_ripple_color">#FFD600</color>
+    <color name="play_music_fab">#FFA900</color>
+    <color name="play_music_fab_pressed">#FFA000</color>
 
     <color name="heavenly_day_color">#501187</color>
 

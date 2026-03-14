@@ -52,6 +52,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
     private lateinit var itemTouchHelper: ItemTouchHelper
 
     private lateinit var fab: FloatingActionButton
+    private lateinit var musicFab: FloatingActionButton
     private lateinit var start: Button
     private lateinit var stop: Button
     private lateinit var listKido: RecyclerView
@@ -60,12 +61,14 @@ class PersonView : MainActivity(), PersonAdapterListener {
     private lateinit var uploadPhoto: ImageView
     private var isImgSelected = false
     private var isImgEdit = false
+    private var isMusicPlaying = false
     private lateinit var selectedPerson: Person
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kido)
         fab = findViewById(R.id.fab)
+        musicFab = findViewById(R.id.music_fab)
         start = findViewById(R.id.start)
         stop = findViewById(R.id.stop)
         listKido = findViewById(R.id.rv_list_kido)
@@ -75,7 +78,8 @@ class PersonView : MainActivity(), PersonAdapterListener {
 
         toolbarButtonMenu()
         initializ()
-        showOrHideFab()
+        setupFabVisibility(fab, musicFab)
+        setupMusicFab()
         chronometer()
 
         if (isNetworkAvailable()) {
@@ -306,14 +310,31 @@ class PersonView : MainActivity(), PersonAdapterListener {
         }
     }
 
-    private fun showOrHideFab() {
+    private fun setupMusicFab() {
+        musicFab.setOnClickListener {
+            if (isMusicPlaying) stopMusic() else startMusic()
+        }
+    }
+
+    private fun startMusic() {
+        isMusicPlaying = true
+        musicFab.setImageResource(R.drawable.ic_close)
+        Intent(this, MusicService::class.java).also { startService(it) }
+    }
+
+    private fun stopMusic() {
+        isMusicPlaying = false
+        musicFab.setImageResource(R.drawable.ic_play_music)
+        Intent(this, MusicService::class.java).also { stopService(it) }
+    }
+
+
+    private fun setupFabVisibility(vararg fabs: FloatingActionButton) {
         listKido.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                if (dy > 0 && fab.visibility == View.VISIBLE) {
-                    fab.hide()
-                } else if (dy < 0 && fab.visibility != View.VISIBLE) {
-                    fab.show()
+                when {
+                    dy > 0 -> fabs.forEach { it.hide() }
+                    dy < 0 -> fabs.forEach { it.show() }
                 }
             }
         })
