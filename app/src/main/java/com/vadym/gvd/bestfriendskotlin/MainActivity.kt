@@ -8,10 +8,12 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -184,10 +186,11 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         when (itemId) {
             R.id.nav_ua_sj    -> openApp("com.mattermost.rn", "https://umua.org/hpwords/channels/town-square")
-            R.id.nav_birthday -> openApp(
-                "com.vadym.birthday",
-                "https://sites.google.com/view/birthday-app/main"
-            )
+            R.id.nav_birthday -> Toast.makeText(this, "Coming soon. I'm fixing the code", Toast.LENGTH_SHORT).show()
+//                openApp(
+//                "com.vadym.birthday",
+//                "https://sites.google.com/view/birthday-app/main"
+//            )
             R.id.nav_facebook -> startActivity(openFacebookIntent(this))
             R.id.nav_share    -> shareApp()
             R.id.nav_send     -> sendEmail()
@@ -266,7 +269,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     // ─── Helpers ──────────────────────────────────────────────────────────────
 
     private fun isUserFromUkraine() =
-        Locale.getDefault().country.equals("ua", ignoreCase = true)
+        Locale.getDefault().language.equals("uk", ignoreCase = true)
 
     fun isNetworkAvailable(): Boolean {
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
