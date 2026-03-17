@@ -1,6 +1,7 @@
 package com.vadym.gvd.bestfriendskotlin.traditions
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -38,10 +39,25 @@ class GeneralViewContent : MainActivity() {
 
         traditionTitle.text = intent.getStringExtra("TRADITION_TITLE") ?: "Unknown Tradition"
         val position = intent.getIntExtra("TRADITION_POSITION", 0)
+
+        val spannable = SpannableStringBuilder()
+        listOf(
+            R.string.pledge_description1,
+            R.string.pledge_description2,
+            R.string.pledge_description3,
+            R.string.pledge_description4,
+            R.string.pledge_description5,
+            R.string.pledge_description6,
+            R.string.pledge_description7,
+            R.string.pledge_description8
+        ).forEach { resId ->
+            spannable.append(getString(resId).toHtml())
+        }
+
         when(position) {
             0 -> traditionDescription.text = getString(R.string.sunday_service_description)
             1 -> traditionDescription.text = getString(R.string.hdh_description).toHtml()
-            2 -> traditionDescription.text = getString(R.string.pledge_description).toHtml()
+            2 -> traditionDescription.text = spannable
             3 -> traditionDescription.text = getString(R.string.anshiil_description).toHtml()
             4 -> traditionDescription.text = getString(R.string.photo_of_tp_description)
             5 -> traditionDescription.text = getString(R.string.days8_description).toHtml()
