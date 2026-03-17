@@ -187,10 +187,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         when (itemId) {
             R.id.nav_ua_sj    -> openApp("com.mattermost.rn", "https://umua.org/hpwords/channels/town-square")
             R.id.nav_birthday -> Toast.makeText(this, "Coming soon. I'm fixing the code", Toast.LENGTH_SHORT).show()
-//                openApp(
-//                "com.vadym.birthday",
-//                "https://sites.google.com/view/birthday-app/main"
-//            )
+//                openApp( "com.vadym.birthday", "https://sites.google.com/view/birthday-app/main" )
             R.id.nav_facebook -> startActivity(openFacebookIntent(this))
             R.id.nav_share    -> shareApp()
             R.id.nav_send     -> sendEmail()
