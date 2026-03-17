@@ -14,7 +14,7 @@ import androidx.core.content.ContextCompat
 class LoadingView : AppCompatActivity() {
 
     companion object {
-        private const val PREFS_NAME = "gdpr"
+        private const val PREFS_NAME        = "gdpr"
         private const val KEY_CONSENT_GIVEN = "consent_given"
     }
 
@@ -23,24 +23,23 @@ class LoadingView : AppCompatActivity() {
         setContentView(R.layout.view_loading)
 
         if (isConsentGiven()) {
-            startUseApp()
+            // Згода вже є — ініціалізуємо AdMob і показуємо рекламу перед входом
+            initAdAndProceed()
         } else {
+            // Перший запуск — спочатку отримуємо згоду, реклама — після
             showConsentDialog()
         }
     }
 
-    // Перевіряємо чи користувач вже надав згоду
-    private fun isConsentGiven(): Boolean {
-        return getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
-            .getBoolean(KEY_CONSENT_GIVEN, false)
-    }
+    // ── GDPR ─────────────────────────────────────────────────────────────────
 
-    // Зберігаємо згоду назавжди (apply() — асинхронно, не блокує UI thread)
+    private fun isConsentGiven(): Boolean =
+        getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            .getBoolean(KEY_CONSENT_GIVEN, false)
+
     private fun saveConsent() {
         getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
-            .edit()
-            .putBoolean(KEY_CONSENT_GIVEN, true)
-            .apply()
+            .edit().putBoolean(KEY_CONSENT_GIVEN, true).apply()
     }
 
     private fun showConsentDialog() {
@@ -48,16 +47,15 @@ class LoadingView : AppCompatActivity() {
 
         val dialog = AlertDialog.Builder(this)
             .setView(consentView)
-            .setCancelable(false) // Користувач не може закрити без згоди
+            .setCancelable(false)
             .create()
 
         dialog.show()
 
         val tvLearnMore = consentView.findViewById<TextView>(R.id.tv_eu_learn_more)
-        val cbAgree    = consentView.findViewById<CheckBox>(R.id.cb_accept_gdpr)
-        val btnAgree   = consentView.findViewById<Button>(R.id.btn_agree)
+        val cbAgree     = consentView.findViewById<CheckBox>(R.id.cb_accept_gdpr)
+        val btnAgree    = consentView.findViewById<Button>(R.id.btn_agree)
 
-        // Активуємо посилання на Privacy Policy
         tvLearnMore.movementMethod = LinkMovementMethod.getInstance()
 
         cbAgree.setOnCheckedChangeListener { _, isChecked ->
@@ -74,12 +72,31 @@ class LoadingView : AppCompatActivity() {
         btnAgree.setOnClickListener {
             saveConsent()
             dialog.dismiss()
+            // Тільки після згоди — ініціалізуємо AdMob (вимога Google / GDPR)
+            initAdAndProceed()
+        }
+    }
+
+    // ── Реклама → перехід ─────────────────────────────────────────────────────
+
+    /**
+     * Ініціалізує AdMob, потім намагається показати рекламу.
+     * Після закриття реклами (або якщо її нема) — переходить в MainActivity.
+     *
+     * ВАЖЛИВО: onFinished = { startUseApp() } викликається ЗАВЖДИ —
+     * навіть якщо реклама не завантажилась або не показалась.
+     */
+    private fun initAdAndProceed() {
+        AdManager.init(this)
+        AdManager.tryShowOnAppStart(this) {
             startUseApp()
         }
     }
 
+    // ── Навігація ─────────────────────────────────────────────────────────────
+
     private fun startUseApp() {
         startActivity(Intent(this, MainActivity::class.java))
-        finish() // Закриваємо LoadingView, щоб вона не залишалась у back stack
+        finish()
     }
 }

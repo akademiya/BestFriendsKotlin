@@ -73,6 +73,10 @@ class PhraseForDay : MainActivity() {
                 showNextPhrase()
                 saveCurrentDateAsLastOpenDate()
                 awardDailyCoins()
+
+                scrollOpened.postDelayed({
+                    AdManager.tryShowAfterScrollOpen(this)
+                }, 1500)
             }
         } else {
             textOnButton.visibility = View.GONE

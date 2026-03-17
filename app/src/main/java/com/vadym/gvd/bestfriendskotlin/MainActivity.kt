@@ -220,7 +220,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 Intent(Intent.ACTION_SEND).apply {
                     noAnimation()
                     type = "text/plain"
-                    putExtra(Intent.EXTRA_SUBJECT, "True Father Prayers")
+                    putExtra(Intent.EXTRA_SUBJECT, "True Life")
                     putExtra(Intent.EXTRA_TEXT, "$shareBody$appUrl")
                 },
                 getString(R.string.share_by)
@@ -231,8 +231,8 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private fun sendEmail() {
         startActivity(
             Intent.createChooser(
-                Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:vadym.adv@gmail.com")).noAnimation(),
-                "True Father Prayers"
+                Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:gms.nppn@gmail.com")).noAnimation(),
+                "True Life"
             )
         )
     }
@@ -266,7 +266,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     // ─── Helpers ──────────────────────────────────────────────────────────────
 
     private fun isUserFromUkraine() =
-        Locale.getDefault().language.equals("uk", ignoreCase = true)
+        Locale.getDefault().country.equals("ua", ignoreCase = true)
 
     fun isNetworkAvailable(): Boolean {
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
