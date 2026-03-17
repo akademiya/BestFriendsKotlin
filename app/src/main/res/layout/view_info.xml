@@ -95,13 +95,15 @@
             </LinearLayout>
         </ScrollView>
 
-        <com.google.android.material.button.MaterialButton
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/site"
-            style="@style/ButtonGoToSite"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/parent_margin"
-            app:cornerRadius="12dp"
             android:layout_marginHorizontal="@dimen/parent_margin"
-            android:text="@string/site" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/buy_coffee"
+            app:shapeAppearanceOverlay="@style/ButtonGoToSite" />
     </RelativeLayout>
 </LinearLayout>
