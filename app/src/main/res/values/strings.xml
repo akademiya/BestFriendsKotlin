@@ -153,8 +153,8 @@
     <string name="duration_value" formatted="false">%s, from %s to %s</string>
 
 
-    // 심정 Shop
-    <string name="card_shop_title">Shimjeong Shop</string>
+    // 심정 Store
+    <string name="card_shop_title">Shimjeong Store</string>
     <string name="buy">Buy</string>
     <string name="not_enough_coins">Not enough coins</string>
     <string name="need_coins_format">You need %1$d Simjeong Coins. \n\nEarn coins every day by opening the phrase of the day.</string>
