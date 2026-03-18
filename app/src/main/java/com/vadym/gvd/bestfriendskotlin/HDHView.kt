@@ -145,15 +145,11 @@ class HDHView : AppCompatActivity() {
     private fun openApp(packageName: String) {
         val launchIntent = packageManager.getLaunchIntentForPackage(packageName)
         if (launchIntent != null) {
-            // Додаток встановлено — відкриваємо його
             startActivity(launchIntent)
         } else {
-            // Додаток не встановлено — відкриваємо Play Market
             try {
-                // Спочатку пробуємо відкрити через Play Market додаток
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
             } catch (e: Exception) {
-                // Якщо Play Market не встановлено — відкриваємо браузер
                 startActivity(Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://play.google.com/store/apps/details?id=$packageName&hl=uk")))
             }

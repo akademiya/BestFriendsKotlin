@@ -6,14 +6,14 @@ plugins {
 }
 
 android {
-    compileSdk 34
+    compileSdk 35
     namespace 'com.vadym.gvd.bestfriendskotlin'
 
     defaultConfig {
         applicationId "me.vadym.adv.tfprayer"
         minSdk 26
-        targetSdk 34
-        versionCode 31
+        targetSdk 35
+        versionCode 33
         versionName "5.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         multiDexEnabled true

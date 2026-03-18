@@ -60,7 +60,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }
 
         if (isNetworkAvailable()) {
-            GetVersionCode(this).execute()
+            GetVersionCode(this).check()
         }
 
 
