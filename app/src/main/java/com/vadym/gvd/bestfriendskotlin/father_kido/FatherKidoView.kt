@@ -2,49 +2,47 @@ package com.vadym.gvd.bestfriendskotlin.father_kido
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.ads.AdView
-import com.vadym.gvd.bestfriendskotlin.Admob
+import com.vadym.gvd.bestfriendskotlin.BaseActivity
 import com.vadym.gvd.bestfriendskotlin.MainActivity
+import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import com.vadym.gvd.bestfriendskotlin.R
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.devotion.FatherKidoDevotionViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.faith.FatherKidoFaithViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.loyalty.FatherKidoLoyaltyViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.nadezdy.FatherKidoNadezdyViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.pobedy.FatherKidoPobedyViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.pochtitelnosty.FatherKidoPochtitelnostyViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.reshimosty.FatherKidoReshimostyViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.restoration.FatherKidoRestorationViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.serdca.FatherKidoSerdcaViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.unification.FatherKidoUnificationViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro
-import com.vadym.gvd.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamingan.KidoChaminganView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamkajon.KidoChamkajonView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chammanmul.KidoChammanmulView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.champumo.KidoChampumoView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamsaran.KidoChamsaranView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chonilguk.KidoChonilgukView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.devotion.FatherKidoDevotionViewIntro
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.faith.FatherKidoFaithViewIntro
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.hananim.KidoHananimView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.loyalty.FatherKidoLoyaltyViewIntro
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.menjol.KidoMenjolView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.mesia.KidoMesiaView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.nadezdy.FatherKidoNadezdyViewIntro
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.penhwamesigi.KidoPenhwamesigiView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.penhwasasan.KidoPenhwasasanView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.pobedy.FatherKidoPobedyViewIntro
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.pochtitelnosty.FatherKidoPochtitelnostyViewIntro
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.reshimosty.FatherKidoReshimostyViewIntro
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.restoration.FatherKidoRestorationViewIntro
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.serdca.FatherKidoSerdcaViewIntro
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.suren.KidoSurenView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.unification.FatherKidoUnificationViewIntro
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.voskresheniya.FatherKidoVoskresheniyaViewIntro
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.yongye.KidoYongyeView
+import com.vadym.gvd.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
 
 
-class FatherKidoView : MainActivity() {
+class FatherKidoView : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido)
         setupToolbar()
         setupRecyclerView()
-//        setupAds()
     }
 
     private fun setupToolbar() {
@@ -65,14 +63,6 @@ class FatherKidoView : MainActivity() {
         recyclerView.adapter = FatherKidoAdapter(books) { booksItemClicked(it) }
     }
 
-//    private fun setupAds() {
-//        val adContainer: AdView = findViewById(R.id.adView)
-//        val adDivider: View = findViewById(R.id.adDivider)
-//        val show = isNetworkAvailable()
-//        adContainer.visibility = if (show) View.VISIBLE else View.GONE
-//        adDivider.visibility = if (show) View.VISIBLE else View.GONE
-//        if (show) Admob.initializeAdmob(this, adContainer)
-//    }
 
     private fun buildBooksList() = listOf(
         FatherKido(1,  getString(R.string.pr_nadezdy)),

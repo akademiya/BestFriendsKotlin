@@ -9,7 +9,7 @@ import androidx.appcompat.widget.Toolbar
 import java.io.IOException
 
 
-class AnthemView : MainActivity() {
+class AnthemView : BaseActivity() {
 
     private lateinit var cheonIlGukAnthem: MediaPlayer
 

@@ -7,11 +7,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.vadym.gvd.bestfriendskotlin.BaseActivity
 import com.vadym.gvd.bestfriendskotlin.MainActivity
+import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.databinding.ActivityCardShopBinding
 
-class CardShopActivity : MainActivity() {
+class CardShopActivity : BaseActivity() {
 
     private lateinit var binding: ActivityCardShopBinding
     private lateinit var coinManager: CoinManager

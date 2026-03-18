@@ -5,11 +5,13 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.vadym.gvd.bestfriendskotlin.BaseActivity
 import com.vadym.gvd.bestfriendskotlin.FirebaseStorage
 import com.vadym.gvd.bestfriendskotlin.MainActivity
+import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import com.vadym.gvd.bestfriendskotlin.R
 
-class HolyDaysView : MainActivity() {
+class HolyDaysView : BaseActivity() {
 
     private var count = 0
     private val listDays: MutableList<HolyDayEntity> = mutableListOf()

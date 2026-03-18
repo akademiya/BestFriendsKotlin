@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.google.android.gms.analytics.HitBuilders
 
-class FragmentMenseRu : MainActivity() {
+class FragmentMenseRu : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

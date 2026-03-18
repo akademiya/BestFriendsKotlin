@@ -32,7 +32,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.vadym.gvd.bestfriendskotlin.Admob
+import com.vadym.gvd.bestfriendskotlin.BaseActivity
 import com.vadym.gvd.bestfriendskotlin.MainActivity
+import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
 import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapter
@@ -42,7 +44,7 @@ import com.vadym.gvd.bestfriendskotlin.restartActivity
 import java.util.Collections
 
 
-class PersonView : MainActivity(), PersonAdapterListener {
+class PersonView : BaseActivity(), PersonAdapterListener {
     private val PERMISSION_REQUEST_CODE = 101
     private val PICK_IMAGE_REQUEST_CODE = 102
     private lateinit var allPerson: List<Person>

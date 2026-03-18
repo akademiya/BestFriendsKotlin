@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.WindowCompat
 import com.google.android.gms.ads.AdView
 import com.google.android.material.imageview.ShapeableImageView
 

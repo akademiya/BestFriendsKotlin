@@ -12,10 +12,11 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstan
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ExerciseView : MainActivity() {
+class ExerciseView : BaseActivity() {
 
     private lateinit var youTubePlayerView: YouTubePlayerView
 

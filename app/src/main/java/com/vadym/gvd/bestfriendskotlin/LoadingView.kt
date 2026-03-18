@@ -11,7 +11,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
-class LoadingView : AppCompatActivity() {
+class LoadingView : BaseActivity() {
 
     companion object {
         private const val PREFS_NAME        = "gdpr"

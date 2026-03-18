@@ -3,20 +3,16 @@ package com.vadym.gvd.bestfriendskotlin
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -31,7 +27,7 @@ import com.vadym.gvd.bestfriendskotlin.traditions.TraditionsView
 import java.net.URL
 import java.util.Locale
 
-open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawer: DrawerLayout
     private lateinit var navigationView: NavigationView
@@ -268,13 +264,13 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private fun isUserFromUkraine() =
         Locale.getDefault().language.equals("uk", ignoreCase = true)
 
-    fun isNetworkAvailable(): Boolean {
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val caps = cm.getNetworkCapabilities(cm.activeNetwork) ?: return false
-        return caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
-                || caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
-                || caps.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
-    }
+//    fun isNetworkAvailable(): Boolean {
+//        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+//        val caps = cm.getNetworkCapabilities(cm.activeNetwork) ?: return false
+//        return caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+//                || caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+//                || caps.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+//    }
 
     // ─── Extensions (можна винести в окремий файл Extensions.kt) ──────────────
 

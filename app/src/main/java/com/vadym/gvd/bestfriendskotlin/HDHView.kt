@@ -18,7 +18,7 @@ import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-class HDHView : AppCompatActivity() {
+class HDHView : BaseActivity() {
 
     private lateinit var binding: ViewHdhBinding
     private var currentYearMonth = YearMonth.now()
