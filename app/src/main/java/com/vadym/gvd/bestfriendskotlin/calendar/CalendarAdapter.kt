@@ -1,13 +1,11 @@
 package com.vadym.gvd.bestfriendskotlin.calendar
 
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.vadym.gvd.bestfriendskotlin.FirebaseStorage
 import com.vadym.gvd.bestfriendskotlin.R
 
 class CalendarAdapter (private val days: List<HeavenlyCalendarView.CalendarDay>,

@@ -3,8 +3,6 @@ package com.vadym.gvd.bestfriendskotlin
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
@@ -65,39 +63,22 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
         notificationIcon = findViewById(R.id.notification_from_admin)
 
         notificationIcon.setOnClickListener {
-            // Ховаємо іконку одразу при кліку
             notificationIcon.visibility = View.GONE
             startActivity(Intent(this, InfoView::class.java))
         }
 
         checkInfoMessage()
+
+        val header = navigationView.getHeaderView(0)
+        val maxHeightPx = (resources.displayMetrics.heightPixels * 0.28).toInt()
+        header.layoutParams.height = maxHeightPx
+        header.requestLayout()
     }
 
-//    private val drawerLauncher = registerForActivityResult(
-//        ActivityResultContracts.StartActivityForResult()
-//    ) { result ->
-//        if (result.resultCode == RESULT_OK) {
-//            drawer.post { drawer.openDrawer(GravityCompat.START) }
-//        }
-//    }
-
-//    override fun onNewIntent(intent: Intent) {
-//        super.onNewIntent(intent)
-//        setIntent(intent)
-//        if (intent.getBooleanExtra(EXTRA_OPEN_DRAWER, false)) {
-//            shouldOpenDrawer = true
-//        }
-//    }
 
     override fun onResume() {
         super.onResume()
         checkInfoMessage()
-        // Спрацює і коли повертаємось через finish() з дочірнього Activity
-//        if (intent.getBooleanExtra(EXTRA_OPEN_DRAWER, false) || shouldOpenDrawer) {
-//            shouldOpenDrawer = false
-//            intent.removeExtra(EXTRA_OPEN_DRAWER) // щоб не відкривався повторно
-//            drawer.post { drawer.openDrawer(GravityCompat.START) }
-//        }
     }
 
     override fun attachBaseContext(newBase: Context) {
