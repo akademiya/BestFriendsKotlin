@@ -20,8 +20,7 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -29,40 +28,54 @@
             android:id="@+id/scrollClosed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:contentDescription="rolled_scroll"
-            android:src="@drawable/rolled_scroll" />
+            android:src="@drawable/rolled_scroll"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.498" />
 
         <ImageView
             android:id="@+id/scrollOpened"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:contentDescription="opened_scroll"
             android:src="@drawable/opened_scroll2"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_on_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/scrollClosed"
-            android:text="@string/pre_text_phrase"
-            android:layout_marginTop="112dp"
-            android:layout_centerHorizontal="true"
             android:paddingEnd="15dp"
+            android:text="@string/pre_text_phrase"
             android:textColor="#FFAFAF"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollClosed"
+            app:layout_constraintEnd_toEndOf="@id/scrollClosed"
+            app:layout_constraintStart_toStartOf="@id/scrollClosed"
+            app:layout_constraintTop_toTopOf="@id/scrollClosed"
+            app:layout_constraintVertical_bias="0.47" />
 
         <TextView
             android:id="@+id/text_phrase"
             style="@style/TextTitle_Kido_Explanation"
-            android:layout_width="match_parent"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="80dp"
-            android:layout_marginEnd="80dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="@dimen/text_size_phrase" />
+            android:textSize="@dimen/text_size_phrase"
+            app:layout_constraintBottom_toBottomOf="@id/scrollOpened"
+            app:layout_constraintEnd_toEndOf="@id/scrollOpened"
+            app:layout_constraintStart_toStartOf="@id/scrollOpened"
+            app:layout_constraintTop_toTopOf="@id/scrollOpened"
+            app:layout_constraintWidth_percent="0.6" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>
