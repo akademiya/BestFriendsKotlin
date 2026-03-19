@@ -8,8 +8,12 @@ import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.gms.ads.AdView
 import com.google.android.material.imageview.ShapeableImageView
 
@@ -25,8 +29,12 @@ class InfoView : MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_info)
 
+        drawer = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.nav_view)
+
         bindViews()
         setupToolbar()
+        applyDrawerMode(drawerToggle)
         setupListeners()
         loadData()
     }
@@ -125,13 +133,42 @@ class InfoView : MainActivity() {
         delegate.applyDayNight()
     }
 
+    override fun setContentMargin(marginPx: Int) {
+        // Знаходимо кореневий LinearLayout view_info.xml
+        val root = findViewById<android.widget.LinearLayout>(R.id.info_root) ?: return
+        val lp = root.layoutParams
+        if (lp is android.view.ViewGroup.MarginLayoutParams) {
+            lp.marginStart = marginPx
+            root.layoutParams = lp
+        }
+    }
+
+    override fun applyDrawerMode(toggle: ActionBarDrawerToggle?) {
+        super.applyDrawerMode(toggle)   // drawer lock + setContentMargin
+
+        val isLandscape = resources.configuration.orientation ==
+                android.content.res.Configuration.ORIENTATION_LANDSCAPE
+
+        if (!isLandscape) {
+            // Тільки у portrait — показуємо Back замість гамбургера
+            toggle?.isDrawerIndicatorEnabled = false
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        }
+    }
+
+    override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
+        super.onConfigurationChanged(newConfig)
+        applyDrawerMode(drawerToggle)
+    }
+
     override fun onBackPressed() {
-        Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(EXTRA_OPEN_DRAWER, true)
-        }.also {
-            startActivity(it)
-            finish()
+        val isLandscape = resources.configuration.orientation ==
+                android.content.res.Configuration.ORIENTATION_LANDSCAPE
+
+        if (!isLandscape && drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
         }
     }
 

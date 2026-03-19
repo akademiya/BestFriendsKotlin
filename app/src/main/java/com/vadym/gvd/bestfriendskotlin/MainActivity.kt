@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -27,13 +28,20 @@ import java.util.Locale
 
 open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var drawer: DrawerLayout
-    private lateinit var navigationView: NavigationView
+    protected lateinit var drawer: DrawerLayout
+    protected lateinit var navigationView: NavigationView
     private lateinit var notificationIcon: ImageView
     private lateinit var prefs: SharedPreferences
     private val storage = FirebaseStorage()
+    protected var drawerToggle: ActionBarDrawerToggle? = null
 
     // ─── Lifecycle ────────────────────────────────────────────────────────────
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(KEY_DRAWER_OPEN, drawer.isDrawerOpen(GravityCompat.START))
+        outState.putBoolean(KEY_NOTIFICATION_VISIBLE, notificationIcon.visibility == View.VISIBLE)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,16 +50,30 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
         CheckTheme.checkTheme(this, delegate)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        drawer = findViewById(R.id.drawer_layout)
+        drawer = findViewById(R.id.actual_drawer)
         navigationView = findViewById(R.id.nav_view)
 
         setupToolbar()
         setupNavMenu()
 
-        // Відкрити drawer одразу, якщо повернулись з іншої activity
-        if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_DRAWER, false)) {
+        if (savedInstanceState != null) {
+            val wasDrawerOpen = savedInstanceState.getBoolean(KEY_DRAWER_OPEN, false)
+            val wasNotificationVisible = savedInstanceState.getBoolean(KEY_NOTIFICATION_VISIBLE, false)
+
+            if (wasDrawerOpen) {
+                drawer.post { drawer.openDrawer(GravityCompat.START) }
+            }
+            if (wasNotificationVisible) {
+                notificationIcon.visibility = View.VISIBLE
+            }
+        } else if (intent.getBooleanExtra(EXTRA_OPEN_DRAWER, false)) {
             drawer.post { drawer.openDrawer(GravityCompat.START) }
         }
+
+        // Відкрити drawer одразу, якщо повернулись з іншої activity
+//        if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_DRAWER, false)) {
+//            drawer.post { drawer.openDrawer(GravityCompat.START) }
+//        }
 
         if (isNetworkAvailable()) {
             GetVersionCode(this).check()
@@ -69,10 +91,22 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
 
         checkInfoMessage()
 
-        val header = navigationView.getHeaderView(0)
-        val maxHeightPx = (resources.displayMetrics.heightPixels * 0.28).toInt()
-        header.layoutParams.height = maxHeightPx
-        header.requestLayout()
+//        val header = navigationView.getHeaderView(0)
+//        val maxHeightPx = (resources.displayMetrics.heightPixels * 0.28).toInt()
+//        header.layoutParams.height = maxHeightPx
+//        header.requestLayout()
+
+        adjustNavHeaderHeight()
+    }
+
+
+    private fun isDrawerOpen() =
+        (drawer as? DrawerLayout)?.isDrawerOpen(GravityCompat.START) ?: false
+
+    override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
+        super.onConfigurationChanged(newConfig)
+        drawerToggle?.onConfigurationChanged(newConfig)
+        applyDrawerMode(drawerToggle)
     }
 
 
@@ -87,8 +121,8 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START)
+        if (isDrawerOpen()) {
+            (drawer as DrawerLayout).closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
@@ -101,7 +135,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        ActionBarDrawerToggle(
+        drawerToggle = ActionBarDrawerToggle(
             this, drawer, toolbar,
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
@@ -109,6 +143,54 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
             drawer.addDrawerListener(toggle)
             toggle.syncState()
         }
+
+        applyDrawerMode(drawerToggle)
+    }
+
+    protected open fun applyDrawerMode(toggle: ActionBarDrawerToggle? = null) {
+        val isLandscape = resources.configuration.orientation ==
+                android.content.res.Configuration.ORIENTATION_LANDSCAPE
+
+        // У landscape layout — це LinearLayout, DrawerLayout методи не потрібні
+        val drawerLayout = findViewById<View>(R.id.drawer_layout)
+        if (drawerLayout !is DrawerLayout) {
+            // landscape — drawer вже "відкритий" по структурі layout
+            toggle?.isDrawerIndicatorEnabled = false
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            return
+        }
+
+        // Portrait — звичайна логіка DrawerLayout
+        if (isLandscape) {
+            // не буде викликатись бо landscape має LinearLayout
+        } else {
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+            toggle?.isDrawerIndicatorEnabled = true
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            drawerLayout.post { drawerLayout.closeDrawer(GravityCompat.START) }
+            setContentMargin(0)
+        }
+    }
+
+    // Окремий метод — кожна Activity перевизначає під свій root view
+    protected open fun setContentMargin(marginPx: Int) {
+        val content = findViewById<FrameLayout>(R.id.activity_content) ?: return
+        (content.layoutParams as? DrawerLayout.LayoutParams)?.let {
+            it.marginStart = marginPx
+            content.layoutParams = it
+        }
+    }
+
+    private fun adjustNavHeaderHeight() {
+        val header = navigationView.getHeaderView(0)
+        val isLandscape = resources.configuration.orientation ==
+                android.content.res.Configuration.ORIENTATION_LANDSCAPE
+
+        val ratio = if (isLandscape) 0.35f else 0.28f  // у landscape беремо % від висоти
+        val heightPx = (resources.displayMetrics.heightPixels * ratio).toInt()
+
+        header.layoutParams.height = heightPx
+        header.requestLayout()
     }
 
     private fun setupNavMenu() {
@@ -123,8 +205,10 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         handleNavigation(item.itemId)
-        drawer.closeDrawer(GravityCompat.START)
+        (drawer as? DrawerLayout)?.closeDrawer(GravityCompat.START)
         return true
+//        drawer.closeDrawer(GravityCompat.START)
+//        return true
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -270,5 +354,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
 
     companion object {
         const val EXTRA_OPEN_DRAWER = "extra_open_drawer"
+        private const val KEY_DRAWER_OPEN = "key_drawer_open"
+        private const val KEY_NOTIFICATION_VISIBLE = "key_notification_visible"
     }
 }

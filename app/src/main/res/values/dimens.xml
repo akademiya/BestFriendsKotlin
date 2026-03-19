@@ -15,6 +15,7 @@
     <dimen name="toolbar_title_margin">72dp</dimen>
     <dimen name="toolbar_height">56dp</dimen>
     <dimen name="menu_icon_margin">8dp</dimen>
+    <dimen name="nav_drawer_width">240dp</dimen>
 
     // List item, view
     <dimen name="item_kido_container">60dp</dimen>

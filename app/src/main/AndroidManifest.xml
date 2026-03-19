@@ -37,7 +37,7 @@
 
         <activity
             android:name=".LoadingView"
-            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|screenLayout"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,7 +47,7 @@
 
         <!-- ✅ Всі внутрішні активності — exported="false" явно -->
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|screenLayout"
             android:exported="false"/>
         <activity android:name=".kido.PersonView"
             android:screenOrientation="portrait"
@@ -131,7 +131,7 @@
             android:screenOrientation="portrait"
             android:exported="false"/>
         <activity android:name=".InfoView"
-            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|screenLayout"
             android:exported="false"/>
         <activity android:name=".ExplanationView"
             android:screenOrientation="portrait"
