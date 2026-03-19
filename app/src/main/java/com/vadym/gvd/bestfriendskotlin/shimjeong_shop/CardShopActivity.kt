@@ -1,6 +1,7 @@
 package com.vadym.gvd.bestfriendskotlin.shimjeong_shop
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -77,6 +78,9 @@ class CardShopActivity : BaseActivity() {
     }
 
     private fun showPurchaseSuccess() {
+        val mediaPlayer = MediaPlayer.create(this, R.raw.sj_coin)
+        mediaPlayer.setOnCompletionListener { it.release() }
+        mediaPlayer.start()
         Snackbar.make(binding.root, R.string.card_unlocked, Snackbar.LENGTH_SHORT).show()
     }
 
