@@ -89,21 +89,21 @@
 
                 <TextView
                     android:id="@+id/heavenly_day_of_celebrate"
-                    style="@style/TextStyle_Body2_Primary_Dark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/heavenly_day_color"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size"
                     tools:text="16/03/13" />
 
                 <TextView
                     android:id="@+id/gregorian_day_of_celebrate"
-                    style="@style/TextStyle_Body2_Primary_Dark"
                     android:layout_width="match_parent"
                     android:gravity="end"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size"
                     tools:text="13/04/2025" />
             </LinearLayout>
 

@@ -14,8 +14,10 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.work.*
 import com.vadym.gvd.bestfriendskotlin.FirebaseStorage
 import com.vadym.gvd.bestfriendskotlin.R
-import com.vadym.gvd.bestfriendskotlin.importantCalendar
+import com.vadym.gvd.bestfriendskotlin.deviceLocale
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 const val NOTIFICATION_CHANNEL_ID = "HeavenlyCalendarChannel"
@@ -175,5 +177,11 @@ class CalendarNotificationWorker(
                 request
             )
         }
+    }
+
+    fun String.importantCalendar(): Calendar {
+        val sdf = SimpleDateFormat("d/MM/yyyy", deviceLocale())
+        val parsed = sdf.parse(this)
+        return Calendar.getInstance().apply { time = parsed ?: Date() }
     }
 }

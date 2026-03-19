@@ -96,9 +96,9 @@ fun String.toHtml() : Spanned {
     return Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
 }
 
-val importantSDF = SimpleDateFormat("dd/MM/yyyy", deviceLocale())
-
-fun String.importantCalendar(): Calendar {
-    val parsed = importantSDF.parse(this)
-    return Calendar.getInstance().apply { time = parsed!! }
-}
+//val importantSDF = SimpleDateFormat("dd/MM/yyyy", deviceLocale())
+//
+//fun String.importantCalendar(): Calendar {
+//    val parsed = importantSDF.parse(this)
+//    return Calendar.getInstance().apply { time = parsed!! }
+//}

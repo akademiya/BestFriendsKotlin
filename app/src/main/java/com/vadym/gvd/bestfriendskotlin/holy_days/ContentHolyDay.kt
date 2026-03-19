@@ -1,6 +1,7 @@
 package com.vadym.gvd.bestfriendskotlin.holy_days
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
@@ -51,6 +52,7 @@ class ContentHolyDay : MainActivity() {
             val (heavenly, gregorian) = splitDays(day)
             celebrateHeavenly.text = heavenly
             celebrateGregorian.text = gregorian
+            Log.d("FB_DEBUG", "size = ${listDays.size}, key=${listDays.getOrNull(index)?.day}, heavenly - $heavenly, gregorian - $gregorian")
         }
     }
 

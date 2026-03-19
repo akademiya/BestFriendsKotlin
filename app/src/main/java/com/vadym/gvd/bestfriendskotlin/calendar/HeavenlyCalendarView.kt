@@ -11,9 +11,10 @@ import com.github.fj.koreanlunarcalendar.KoreanLunarCalendarUtils
 import com.vadym.gvd.bestfriendskotlin.FirebaseStorage
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
-import com.vadym.gvd.bestfriendskotlin.importantCalendar
+import com.vadym.gvd.bestfriendskotlin.deviceLocale
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 class HeavenlyCalendarView : MainActivity() {
@@ -246,5 +247,11 @@ class HeavenlyCalendarView : MainActivity() {
             }
         )
         finish()
+    }
+
+    fun String.importantCalendar(): Calendar {
+        val sdf = SimpleDateFormat("d/MM/yyyy", deviceLocale())
+        val parsed = sdf.parse(this)
+        return Calendar.getInstance().apply { time = parsed ?: Date() }
     }
 }
