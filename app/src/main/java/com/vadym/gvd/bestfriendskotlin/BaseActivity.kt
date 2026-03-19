@@ -18,4 +18,5 @@ abstract class BaseActivity : AppCompatActivity() {
                 || caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
                 || caps.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
     }
+
 }
