@@ -4,13 +4,14 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.ImageDecoder
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.provider.MediaStore
@@ -24,17 +25,15 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.vadym.gvd.bestfriendskotlin.Admob
-import com.vadym.gvd.bestfriendskotlin.BaseActivity
 import com.vadym.gvd.bestfriendskotlin.MainActivity
-import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
 import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapter
@@ -45,13 +44,12 @@ import java.util.Collections
 
 
 class PersonView : MainActivity(), PersonAdapterListener {
-    private val PERMISSION_REQUEST_CODE = 101
-    private val PICK_IMAGE_REQUEST_CODE = 102
     private lateinit var allPerson: List<Person>
     private lateinit var listPersonEmpty: RelativeLayout
     private lateinit var database: SqliteDatabase
     private lateinit var adapter: PersonAdapter
     private lateinit var itemTouchHelper: ItemTouchHelper
+    private lateinit var selectedPerson: Person
 
     private lateinit var fab: FloatingActionButton
     private lateinit var musicFab: FloatingActionButton
@@ -62,9 +60,10 @@ class PersonView : MainActivity(), PersonAdapterListener {
 
     private lateinit var uploadPhoto: ImageView
     private var isImgSelected = false
-    private var isImgEdit = false
+    private var pendingImageTarget: ImageTarget = ImageTarget.NONE
+    private enum class ImageTarget { NONE, NEW_PERSON, EDIT_PERSON }
+
     private var isMusicPlaying = false
-    private lateinit var selectedPerson: Person
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -156,11 +155,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
         uploadPhoto = subView.findViewById(R.id.upload_img_person)
 
         buttonSelectPhoto.setOnClickListener {
-            if (checkPermission()) {
-                openGallery()
-            } else {
-                requestPermission()
-            }
+            openGallery(ImageTarget.NEW_PERSON)
         }
 
         val builder = AlertDialog.Builder(this)
@@ -192,54 +187,40 @@ class PersonView : MainActivity(), PersonAdapterListener {
         builder.show()
     }
 
-    private fun checkPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-    }
 
-    private fun requestPermission() {
-        ActivityCompat.requestPermissions(this,
-            arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_REQUEST_CODE
-        )
-    }
+    private val pickImageLauncher =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            uri ?: return@registerForActivityResult
+            when (pendingImageTarget) {
+                ImageTarget.NEW_PERSON -> {
+                    uploadPhoto.setImageURI(uri)
+                    isImgSelected = true
+                }
+                ImageTarget.EDIT_PERSON -> {
+                    val bitmap = uriToBitmap(uri)
+                    onPhotoUpdated(selectedPerson, bitmap)
+                }
+                ImageTarget.NONE -> Unit
+            }
+            pendingImageTarget = ImageTarget.NONE
+        }
 
     override fun onSelectPhoto(person: Person) {
         selectedPerson = person
-        isImgEdit = true
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        @Suppress("DEPRECATION")
-        startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
+        openGallery(ImageTarget.EDIT_PERSON)
     }
 
     override fun onPhotoUpdated(person: Person, newBitmap: Bitmap) {
         adapter.updatePersonPhoto(person, newBitmap)
     }
 
-    private fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        @Suppress("DEPRECATION")
-        startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
+    private fun openGallery(target: ImageTarget) {
+        pendingImageTarget = target
+        pickImageLauncher.launch(
+            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+        )
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        @Suppress("DEPRECATION")
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == PICK_IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
-            val selectedImageUri: Uri? = data.data
-            if (selectedImageUri != null) {
-                if (!isImgEdit) {
-                    uploadPhoto.setImageURI(selectedImageUri)
-                    isImgSelected = true
-                } else {
-                    @Suppress("DEPRECATION")
-                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
-                    onPhotoUpdated(selectedPerson, bitmap)
-                    isImgEdit = false
-                }
-            }
-        }
-    }
 
     private fun imageViewToBitmap(imageView: ImageView): Bitmap {
         return (imageView.drawable as BitmapDrawable).bitmap
@@ -258,6 +239,14 @@ class PersonView : MainActivity(), PersonAdapterListener {
         drawable.draw(canvas)
         return bitmap
     }
+
+    private fun uriToBitmap(uri: Uri): Bitmap =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, uri))
+        } else {
+            @Suppress("DEPRECATION")
+            MediaStore.Images.Media.getBitmap(contentResolver, uri)
+        }
 
 
     private fun chronometer() {
