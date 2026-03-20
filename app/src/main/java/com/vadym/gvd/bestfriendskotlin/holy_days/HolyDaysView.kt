@@ -11,7 +11,7 @@ import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import com.vadym.gvd.bestfriendskotlin.R
 
-class HolyDaysView : BaseActivity() {
+class HolyDaysView : MainActivity() {
 
     private var count = 0
     private val listDays: MutableList<HolyDayEntity> = mutableListOf()

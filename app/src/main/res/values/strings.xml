@@ -43,7 +43,8 @@
     <string name="rate">Rate "TRUE LIFE"</string>
     <string name="later_rate">Remind me later</string>
     <string name="no_rate">No, thanks</string>
-    <string name="to_rate">Take a moment to rate the "TRUE LIFE" app. Thanks for the support!</string>
+    <string name="to_rate">Take a moment to rate the "TRUE LIFE" app. Get the SC award!</string>
+    <string name="thanks_for_rate">Thank you for your rating! ⭐⭐⭐⭐⭐ Get %s SC reward.</string>
 
     // Dialog
     <string name="add_new_person">Add new person</string>

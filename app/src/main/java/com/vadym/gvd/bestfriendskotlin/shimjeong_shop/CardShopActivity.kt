@@ -14,7 +14,7 @@ import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.databinding.ActivityCardShopBinding
 
-class CardShopActivity : BaseActivity() {
+class CardShopActivity : MainActivity() {
 
     private lateinit var binding: ActivityCardShopBinding
     private lateinit var coinManager: CoinManager

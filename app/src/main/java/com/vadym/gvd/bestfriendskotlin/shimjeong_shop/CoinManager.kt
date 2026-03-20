@@ -10,11 +10,13 @@ class CoinManager(context: Context) {
         const val COINS_PER_DAY    = 5
         const val COINS_STREAK_BONUS = 20
         const val STREAK_DAYS      = 7
+        const val COINS_FOR_RATING   = 5
 
         private const val KEY_BALANCE       = "balance"
         private const val KEY_PURCHASED     = "purchased_cards"
         private const val KEY_STREAK_COUNT  = "streak_count"
         private const val KEY_STREAK_DATE   = "streak_last_date"
+        private const val KEY_RATED         = "app_rated"
     }
 
     val balance: Int
@@ -83,5 +85,14 @@ class CoinManager(context: Context) {
         cal.time = sdf.parse(today)!!
         cal.add(java.util.Calendar.DAY_OF_YEAR, -1)
         return sdf.format(cal.time)
+    }
+
+    fun rewardForRating(): Boolean {
+        if (prefs.getBoolean(KEY_RATED, false)) return false  // вже нараховано
+        prefs.edit()
+            .putBoolean(KEY_RATED, true)
+            .apply()
+        addCoins(COINS_FOR_RATING)
+        return true
     }
 }

@@ -36,7 +36,7 @@ import com.vadym.gvd.bestfriendskotlin.father_kido.intro.yongye.KidoYongyeView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
 
 
-class FatherKidoView : BaseActivity() {
+class FatherKidoView : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

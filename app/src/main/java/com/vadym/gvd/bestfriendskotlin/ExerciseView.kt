@@ -16,7 +16,7 @@ import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ExerciseView : BaseActivity() {
+class ExerciseView : MainActivity() {
 
     private lateinit var youTubePlayerView: YouTubePlayerView
 

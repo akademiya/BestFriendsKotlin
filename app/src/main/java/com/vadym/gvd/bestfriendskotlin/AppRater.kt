@@ -5,8 +5,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 
-class AppRater(private val context: Context) {
+class AppRater(private val context: Context,
+               private val coinManager: CoinManager,
+               private val onCoinsAwarded: ((Int) -> Unit)? = null) {
 
     companion object {
         private const val APP_PACKAGE = "me.vadym.adv.tfprayer"
@@ -29,7 +32,7 @@ class AppRater(private val context: Context) {
         val dateFirstLaunch = prefs.getLong(KEY_FIRST_LAUNCH, 0).takeIf { it != 0L }
             ?: System.currentTimeMillis().also { editor.putLong(KEY_FIRST_LAUNCH, it) }
 
-        editor.apply() // apply() замість commit() — неблокуючий запис
+        editor.apply()
 
         if (launchCount >= LAUNCHES_UNTIL_PROMPT &&
             System.currentTimeMillis() >= dateFirstLaunch + DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000L
@@ -45,6 +48,9 @@ class AppRater(private val context: Context) {
             .setCancelable(false)
             .setPositiveButton(R.string.rate) { dialog, _ ->
                 openPlayStore()
+                if (coinManager.rewardForRating()) {
+                    onCoinsAwarded?.invoke(CoinManager.COINS_FOR_RATING)
+                }
                 dialog.dismiss()
             }
             .setNeutralButton(R.string.later_rate) { dialog, _ ->

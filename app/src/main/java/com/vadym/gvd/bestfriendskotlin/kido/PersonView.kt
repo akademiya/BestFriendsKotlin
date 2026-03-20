@@ -44,7 +44,7 @@ import com.vadym.gvd.bestfriendskotlin.restartActivity
 import java.util.Collections
 
 
-class PersonView : BaseActivity(), PersonAdapterListener {
+class PersonView : MainActivity(), PersonAdapterListener {
     private val PERMISSION_REQUEST_CODE = 101
     private val PICK_IMAGE_REQUEST_CODE = 102
     private lateinit var allPerson: List<Person>

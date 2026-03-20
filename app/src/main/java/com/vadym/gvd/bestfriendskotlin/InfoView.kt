@@ -12,13 +12,28 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.ads.AdView
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.android.material.snackbar.Snackbar
+import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 
 class InfoView : MainActivity() {
 
     private lateinit var privacyPolicy: TextView
     private lateinit var site: ShapeableImageView
     private lateinit var version: TextView
-    private val rater by lazy { AppRater(this) }
+
+    private val coinManager by lazy { CoinManager(this) }
+    private val rater by lazy {
+        AppRater(
+            context = this,
+            coinManager = coinManager,
+            onCoinsAwarded = { coins ->
+                Snackbar.make(
+                    findViewById(android.R.id.content), getString(R.string.thanks_for_rate, "$coins"),
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+        )
+    }
     private val storage = FirebaseStorage()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +76,6 @@ class InfoView : MainActivity() {
         val infoMessage = findViewById<TextView>(R.id.info_message)
         val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
 
-        // Firebase повідомлення
         storage.infoMessageFromFB { message ->
             infoMessage.visibility = if (message.isNullOrEmpty()) View.GONE else View.VISIBLE
             infoMessage.text = message
@@ -71,25 +85,21 @@ class InfoView : MainActivity() {
             }
         }
 
-        // Версія додатку
         runCatching {
             "v. ${packageManager.getPackageInfo(packageName, 0).versionName}"
         }.onSuccess {
             version.text = it
         }
 
-        // Реклама
         if (isNetworkAvailable()) {
             window.decorView.post {
                 adContainer.visibility = View.VISIBLE
                 Admob.initializeAdmob(this, adContainer)
             }
-
         } else {
             adContainer.visibility = View.GONE
         }
 
-        // Рейтинг
         rater.appLaunched()
     }
 
@@ -134,5 +144,4 @@ class InfoView : MainActivity() {
             finish()
         }
     }
-
 }

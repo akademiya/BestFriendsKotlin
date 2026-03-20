@@ -63,6 +63,10 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
         notificationIcon = findViewById(R.id.notification_from_admin)
 
         notificationIcon.setOnClickListener {
+            val currentMessage = prefs.getString("last_firebase_info_message", null)
+            if (currentMessage != null) {
+                prefs.edit().putString("last_seen_info_message", currentMessage).apply()
+            }
             notificationIcon.visibility = View.GONE
             startActivity(Intent(this, InfoView::class.java))
         }
@@ -233,8 +237,9 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
                 return@infoMessageFromFB
             }
 
+            prefs.edit().putString("last_firebase_info_message", message).apply()
+
             val lastSeenMessage = prefs.getString("last_seen_info_message", null)
-            // Показуємо іконку тільки якщо повідомлення нове (або ще не переглянуте)
             notificationIcon.visibility =
                 if (message != lastSeenMessage) View.VISIBLE else View.GONE
         }

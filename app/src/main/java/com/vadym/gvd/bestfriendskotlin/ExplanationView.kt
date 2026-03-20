@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.ads.AdView
 
-class ExplanationView: BaseActivity() {
+class ExplanationView: MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
