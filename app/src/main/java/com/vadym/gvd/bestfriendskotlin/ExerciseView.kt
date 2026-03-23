@@ -11,8 +11,8 @@ import com.google.android.gms.ads.AdView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -30,8 +30,6 @@ class ExerciseView : MainActivity() {
         val adContainer: AdView = findViewById(R.id.adViewExercise)
         val adDivider: View = findViewById(R.id.adDivider)
 
-        // Реєструємо player у lifecycle — обов'язково!
-//        lifecycle.addObserver(youTubePlayerView)
 
         if (isNetworkAvailable()) {
             initYouTubePlayer()
@@ -57,11 +55,17 @@ class ExerciseView : MainActivity() {
 
     private fun initYouTubePlayer() {
         val videoId = getString(R.string.youtube_video_id)
+//        youTubePlayerView.enableAutomaticInitialization = false
         lifecycle.addObserver(youTubePlayerView)
 
-        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+        val iFramePlayerOptions = IFramePlayerOptions.Builder()
+            .controls(1)
+            .rel(0)
+            .build()
+
+        youTubePlayerView.initialize(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                youTubePlayer.loadVideo(videoId, 0f)
+                youTubePlayer.cueVideo(videoId, 0f)
             }
             override fun onError(youTubePlayer: YouTubePlayer, error: PlayerConstants.PlayerError) {
                 val intent = Intent(
@@ -70,7 +74,7 @@ class ExerciseView : MainActivity() {
                 )
                 startActivity(intent)
             }
-        })
+        }, iFramePlayerOptions)
     }
 
     private fun setupToolbar() {
