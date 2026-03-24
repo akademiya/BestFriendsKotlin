@@ -4,28 +4,30 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.vadym.gvd.bestfriendskotlin.R
 
-class KidoRestorationAdapter(private val booksKido: List<KidoRestoration>) : RecyclerView.Adapter<KidoRestorationAdapter.VH>() {
+class KidoRestorationAdapter(private val booksList: List<KidoRestoration>) : RecyclerView.Adapter<KidoRestorationAdapter.VH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH (
         LayoutInflater.from(parent.context).inflate(R.layout.item_father_kido_intro, parent, false)
     )
 
-    override fun getItemCount(): Int { return booksKido.size }
+    override fun getItemCount() = booksList.size
 
-    override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.bind(booksKido[position])
-    }
+    override fun onBindViewHolder(holder: VH, position: Int) { holder.bind(booksList[position], position) }
 
     class VH(view: View) : RecyclerView.ViewHolder(view) {
-        private val kidoTitle = view.findViewById<TextView>(R.id.kido_title)
-        private val kidoDescription = view.findViewById<TextView>(R.id.kido_description)
-        fun bind(books: KidoRestoration) {
-            itemView.let {
-                kidoTitle.text = books.textTitle
-                kidoDescription.text = books.textDescription
-            }
+        private val kidoTitle: TextView = view.findViewById(R.id.kido_title)
+        private val kidoDescription: TextView = view.findViewById(R.id.kido_description)
+        private val dividerRow: LinearLayout = view.findViewById(R.id.divider_row)
+        private val badge: TextView = view.findViewById(R.id.kido_badge)
+
+        fun bind(item: KidoRestoration, position: Int) {
+            kidoTitle.text = item.textTitle
+            kidoDescription.text = item.textDescription
+            badge.text = itemView.context.getString(R.string.kido_counter, "${position + 1}")
+            dividerRow.visibility = if (position == 0) View.GONE else View.VISIBLE
         }
     }
 }

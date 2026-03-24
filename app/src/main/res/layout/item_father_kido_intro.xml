@@ -7,36 +7,63 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
+        android:id="@+id/divider_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        app:cardElevation="4dp">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        android:paddingStart="@dimen/parent_margin"
+        android:paddingEnd="@dimen/parent_margin">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/kido_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill_badge"
+            android:paddingStart="12dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/badge_text"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            tools:text="Молитва 9" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@color/divider_line" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/parent_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/kido_title"
+            style="@style/TextStyle_Body2_Primary_Dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/parent_margin"
-            android:orientation="vertical">
+            android:layout_marginBottom="@dimen/margin8"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:text="@string/send" />
 
-            <TextView
-                android:id="@+id/kido_title"
-                style="@style/TextStyle_Body2_Primary_Dark"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin8"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                tools:text="@string/send" />
+        <TextView
+            android:id="@+id/kido_description"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10dp"
+            android:textIsSelectable="true"
+            tools:text="sfghsfh" />
 
-            <TextView
-                android:id="@+id/kido_description"
-                style="@style/TextStyle_Body2_Primary_Dark"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="10dp"
-                android:textIsSelectable="true"
-                tools:text="sfghsfh" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </LinearLayout>

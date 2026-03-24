@@ -3,6 +3,7 @@ package com.vadym.gvd.bestfriendskotlin.father_kido.intro.faith
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.R
@@ -12,20 +13,21 @@ class KidoFaithAdapter(private val booksList: List<KidoFaith>) : RecyclerView.Ad
         LayoutInflater.from(parent.context).inflate(R.layout.item_father_kido_intro, parent, false)
     )
 
-    override fun getItemCount(): Int { return booksList.size }
+    override fun getItemCount() = booksList.size
 
-    override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.bind(booksList[position])
-    }
+    override fun onBindViewHolder(holder: VH, position: Int) { holder.bind(booksList[position], position) }
 
-    class VH(val view: View) : RecyclerView.ViewHolder(view) {
-        private val kidoTitle = view.findViewById<TextView>(R.id.kido_title)
-        private val kidoDescription = view.findViewById<TextView>(R.id.kido_description)
-        fun bind(books: KidoFaith) {
-            itemView.let {
-                kidoTitle.text = books.textTitle
-                kidoDescription.text = books.textDescription
-            }
+    class VH(view: View) : RecyclerView.ViewHolder(view) {
+        private val kidoTitle: TextView = view.findViewById(R.id.kido_title)
+        private val kidoDescription: TextView = view.findViewById(R.id.kido_description)
+        private val dividerRow: LinearLayout = view.findViewById(R.id.divider_row)
+        private val badge: TextView = view.findViewById(R.id.kido_badge)
+
+        fun bind(item: KidoFaith, position: Int) {
+            kidoTitle.text = item.textTitle
+            kidoDescription.text = item.textDescription
+            badge.text = itemView.context.getString(R.string.kido_counter, "${position + 1}")
+            dividerRow.visibility = if (position == 0) View.GONE else View.VISIBLE
         }
     }
 }

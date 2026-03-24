@@ -1,5 +1,6 @@
 package com.vadym.gvd.bestfriendskotlin.father_kido.intro.zelaniya
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -80,19 +81,39 @@ class FatherKidoZelaniyaViewIntro : MainActivity() {
     }
 
     private fun setupPodcast() {
+        ttsManager = PodcastTtsManager(this)
         val audioPodcastBtn = findViewById<ImageView>(R.id.audio_podcast)
         audioPodcastBtn.visibility = View.VISIBLE
         val kidoTexts = kidoList.map { it.textTitle + it.textDescription }
-        ttsManager = PodcastTtsManager(this)
+
         ttsManager.bind(
             texts = kidoTexts,
             recyclerView = rv,
             button = findViewById(R.id.audio_podcast)
         )
         audioPodcastBtn.setOnClickListener {
-            ttsManager.toggle()
+            if (ttsManager.isPlaying) {
+                ttsManager.stop()
+            } else {
+                showStartFromDialog()
+            }
         }
     }
+
+    private fun showStartFromDialog() {
+        val items = Array(kidoList.size) { i ->
+            kidoList[i].textTitle
+        }
+
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.start_from))
+            .setItems(items) { _, index ->
+                ttsManager.startFrom(index)
+            }
+            .show()
+    }
+
+
 
     override fun onPause() { super.onPause(); ttsManager.onPause() }
     override fun onDestroy() { ttsManager.onDestroy(); super.onDestroy() }
