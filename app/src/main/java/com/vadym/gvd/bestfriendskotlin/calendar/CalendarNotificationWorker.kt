@@ -66,15 +66,15 @@ class CalendarNotificationWorker(
                     } ?: ctx.getString(R.string.important_day)
 
                 sendNotification(
-                    title = ctx.getString(R.string.notification_important_title),
-                    text = ctx.getString(R.string.notification_important_text),
+                    title = label,
+//                    text = ctx.getString(R.string.notification_important_text),
 //                    text = ctx.getString(R.string.notification_important_text, label),
                     id = NOTIF_ID_IMPORTANT
                 )
             }
             isTomorrowAnshiil -> sendNotification(
                 title = ctx.getString(R.string.notification_anshiil_title),
-                text = ctx.getString(R.string.notification_anshiil_text),
+//                text = ctx.getString(R.string.notification_anshiil_text),
                 id = NOTIF_ID_ANSHIIL
             )
         }
@@ -101,7 +101,7 @@ class CalendarNotificationWorker(
         return days % 8 == 0
     }
 
-    private fun sendNotification(title: String, text: String, id: Int) {
+    private fun sendNotification(title: String, id: Int) {
         if (ActivityCompat.checkSelfPermission(ctx, Manifest.permission.POST_NOTIFICATIONS)
             != PackageManager.PERMISSION_GRANTED) return
 
@@ -116,7 +116,7 @@ class CalendarNotificationWorker(
         val notification = NotificationCompat.Builder(ctx, NOTIFICATION_CHANNEL_ID)
             .setSmallIcon(R.drawable.mense_dark)
             .setContentTitle(title)
-            .setContentText(text)
+//            .setContentText(text)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentIntent(pi)
             .setAutoCancel(true)

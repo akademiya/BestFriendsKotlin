@@ -128,10 +128,10 @@
     <string name="h_important_prev">Important date:</string>
     <string name="heavenly_date">Today %1$s year of Cheon Il Guk %2$s month %3$s day</string>
 
-    <string name="important_day">Важлива подія</string>
-    <string name="notification_important_title">Title about important day</string>
+    <string name="important_day">Important day</string>
+    <string name="notification_important_title">Important day</string>
     <string name="notification_important_text">text about important day</string>
-    <string name="notification_anshiil_title">Title Anshiil</string>
+    <string name="notification_anshiil_title">Anshiil</string>
     <string name="notification_anshiil_text">text Anshiil</string>
 
     // EU GDPR Consent texts
