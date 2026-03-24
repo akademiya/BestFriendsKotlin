@@ -45,6 +45,7 @@
                     android:id="@+id/youtube_exercises"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:autoPlay="true"
                     app:videoId="@string/youtube_video_id" />
 
                 <View
