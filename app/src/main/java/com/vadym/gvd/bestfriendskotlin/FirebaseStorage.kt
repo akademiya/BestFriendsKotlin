@@ -39,8 +39,14 @@ class FirebaseStorage {
     fun listHollyDaysFromFB(callback: (List<HolyDayEntity>) -> Unit) {
         hollyDayRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val list = snapshot.children.mapNotNull {
-                    it.getValue(HolyDayEntity::class.java)
+//                val list = snapshot.children.mapNotNull {
+//                    it.getValue(HolyDayEntity::class.java)
+//                }
+                val list = snapshot.children.mapNotNull { child ->
+                    val id    = child.child("id").getValue(String::class.java)
+                    val title = child.child("title").getValue(String::class.java)
+                    val day   = child.child("day").getValue(String::class.java)
+                    if (day != null) HolyDayEntity(id, title, day) else null
                 }
                 callback(list)
             }
