@@ -150,6 +150,17 @@
     <string name="error_accept">계속하려면 개인 정보 보호 정책에 동의해야합니다.</string>
     <string name="let_continue">시작하다</string>
 
+    // Update Checker
+    <string name="update_available_title">업데이트 이용 가능 🎉</string>
+    <string name="update_available_message">현재 버전: %1$s\nGoogle Play에서 새 버전을 사용할 수 있습니다. 새로운 기능과 개선 사항을 받으려면 업데이트하세요.</string>
+    <string name="update_now">업데이트</string>
+    <string name="update_later">나중에</string>
+    <string name="update_up_to_date_title">최신 상태입니다 ✅</string>
+    <string name="update_up_to_date_message">최신 버전의 앱이 설치되어 있습니다.</string>
+    <string name="update_check_failed_title">확인 실패</string>
+    <string name="update_check_failed_message">Google Play에 연결할 수 없습니다. 수동으로 확인할 수 있습니다.</string>
+    <string name="open_store">Play 스토어 열기</string>
+
     // Kajon mense
     <string name="one"><b>一(일)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 본향땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>
     <string name="two"><b>二(이)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님과 참부모님을 모시어, 천주의 대표적 가정이 되며 중심적 가정이 되어, 가정에서는 천주에서는 효자, 국가에서는 충신 세계에서는 성인, 성자의 가정의 도리를 완성할 것을 맹세하나이다.</string>

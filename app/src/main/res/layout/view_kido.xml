@@ -65,18 +65,6 @@
             android:id="@+id/divider"
             style="@style/AppTheme.HorizontalViewDivider"
             android:layout_marginVertical="5dp" />
-
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-5169531562006723/8726791033" />
-
-        <View
-            android:id="@+id/adDivider"
-            style="@style/AppTheme.HorizontalViewDivider"
-            android:layout_marginTop="5dp" />
     </LinearLayout>
 
     <FrameLayout

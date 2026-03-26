@@ -150,6 +150,17 @@
     <string name="hdh_calendar_description">Dans le calendrier Hoon Dok Hae, vous devez marquer chaque jour où vous avez fait votre Hoon Dok Hae. Vous pouvez ajouter la marque uniquement entre 6h00 et 8h00 du matin. Alors ne tardez pas — venez ici et appuyez pour marquer la journée. Gardez à l’esprit qu’il n’est pas possible de marquer le jour précédent ni le jour suivant.</string>
     <string name="open_hdh_app">Ouvrir l’application HDH</string>
 
+    // Update Checker
+    <string name="update_available_title">Mise à jour disponible 🎉</string>
+    <string name="update_available_message">Version actuelle : %1$s\nUne nouvelle version est disponible sur Google Play. Mettez à jour pour obtenir de nouvelles fonctionnalités et améliorations.</string>
+    <string name="update_now">Mettre à jour</string>
+    <string name="update_later">Plus tard</string>
+    <string name="update_up_to_date_title">À jour ✅</string>
+    <string name="update_up_to_date_message">Vous avez la dernière version de l’application.</string>
+    <string name="update_check_failed_title">Échec de la vérification</string>
+    <string name="update_check_failed_message">Impossible de se connecter à Google Play. Vous pouvez vérifier manuellement.</string>
+    <string name="open_store">Ouvrir le Play Store</string>
+
     // Kajon mense
     <string name="one"><b>一(일)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 본향땅을 찾아, 본연의 창조이상인 지상천국과 천상천국을 창건할 것을 맹세하나이다.</string>
     <string name="two"><b>二(이)</b> 천일국 주인 우리 가정은 참사랑을 중심하고, 하늘부모님과 참부모님을 모시어, 천주의 대표적 가정이 되며 중심적 가정이 되어, 가정에서는 천주에서는 효자, 국가에서는 충신 세계에서는 성인, 성자의 가정의 도리를 완성할 것을 맹세하나이다.</string>

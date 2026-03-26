@@ -166,6 +166,18 @@
     <string name="error_accept">Потрібно прийняти Політику конфіденційності, щоб продовжити</string>
     <string name="let_continue">Продовжити</string>
 
+
+    // Update Checker
+    <string name="update_available_title">Доступне оновлення 🎉</string>
+    <string name="update_available_message">Поточна версія: %1$s\nДоступна нова версія у Google Play. Оновіть, щоб отримати нові функції та покращення.</string>
+    <string name="update_now">Оновити</string>
+    <string name="update_later">Пізніше</string>
+    <string name="update_up_to_date_title">Все актуально ✅</string>
+    <string name="update_up_to_date_message">У вас встановлена остання версія додатка.</string>
+    <string name="update_check_failed_title">Не вдалося перевірити</string>
+    <string name="update_check_failed_message">Не вдалося зв’язатися з Google Play. Ви можете перевірити вручну.</string>
+    <string name="open_store">Відкрити Play Store</string>
+
     // Kajon mense
     <string name="one"><b>1.</b> Ми, сім’я, як господарі Чонільґук, присягаємось: керуючись істинною любов’ю, знайти свою первісну батьківщину та встановити первісний ідеал творіння — Царство Небесне на землі та небесах.</string>
     <string name="two"><b>2.</b> Ми, сім’я, як господарі Чонільґук, присягаємось: керуючись істинною любов’ю і служачи Небесному Батьку та Істинним Батькам, стати сім’єю, яка представляє небеса і землю і є їх центром, та виконати сімейний обов’язок шанобливих дітей сім’ї, відданих громадян своєї країни, праведників світу та святих дітей небес і землі.</string>

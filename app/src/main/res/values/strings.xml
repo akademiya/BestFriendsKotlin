@@ -176,6 +176,18 @@
     <string name="open_hdh_app">Open app HDH</string>
 
 
+    // Update Checker
+    <string name="update_available_title">Update available 🎉</string>
+    <string name="update_available_message">Current version: %1$s\nA new version is available on Google Play. Update to get new features and improvements.</string>
+    <string name="update_now">Update</string>
+    <string name="update_later">Later</string>
+    <string name="update_up_to_date_title">All up to date ✅</string>
+    <string name="update_up_to_date_message">You have the latest version of the app installed.</string>
+    <string name="update_check_failed_title">Check failed</string>
+    <string name="update_check_failed_message">Unable to connect to Google Play. You can check manually.</string>
+    <string name="open_store">Open Play Store</string>
+
+
     // Kajon mense
     <string name="one"><b>1.</b> Our family, the owner of Cheon Il Guk, pledges to seek our original homeland and build the Kingdom of God on earth and in heaven, the original ideal of creation, by centering on true love.</string>
     <string name="two"><b>2.</b> Our family, the owner of Cheon Il Guk, pledges to represent and become central to heaven and earth by attending the Heavenly Parent and True Parents; we pledge to perfect the dutiful family way of filial sons and daughters in our family, patriots in our nation, saints in the world, and divine sons and daughters in heaven and on earth, by centering on true love.</string>

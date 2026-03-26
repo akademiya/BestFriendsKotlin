@@ -20,6 +20,7 @@ class InfoView : MainActivity() {
     private lateinit var privacyPolicy: TextView
     private lateinit var site: ShapeableImageView
     private lateinit var version: TextView
+    private val updateChecker by lazy { AppUpdateChecker(this) }
 
     private val coinManager by lazy { CoinManager(this) }
     private val rater by lazy {
@@ -89,6 +90,10 @@ class InfoView : MainActivity() {
             "v. ${packageManager.getPackageInfo(packageName, 0).versionName}"
         }.onSuccess {
             version.text = it
+        }
+
+        version.setOnClickListener {
+            updateChecker.checkManually()
         }
 
         if (isNetworkAvailable()) {

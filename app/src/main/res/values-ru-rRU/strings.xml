@@ -149,6 +149,17 @@
     <string name="error_accept">Нужно принять политику конфиденциальности, чтобы продолжить</string>
     <string name="let_continue">Продолжить</string>
 
+    //  Update Checker
+    <string name="update_available_title">Доступно обновление 🎉</string>
+    <string name="update_available_message">Текущая версия: %1$s\nНовая версия доступна в Google Play. Обновите приложение, чтобы получить новые функции и улучшения.</string>
+    <string name="update_now">Обновить</string>
+    <string name="update_later">Позже</string>
+    <string name="update_up_to_date_title">Все актуально ✅</string>
+    <string name="update_up_to_date_message">У вас установлена последняя версия приложения.</string>
+    <string name="update_check_failed_title">Ошибка проверки</string>
+    <string name="update_check_failed_message">Не удалось подключиться к Google Play. Вы можете проверить вручную.</string>
+    <string name="open_store">Открыть Play Маркет</string>
+
     // Kajon mense
     <string name="one"><b>1.</b> Как хозяева Чхонильгук, мы, семья, основываясь на истинной любви, даем обет: найти свою изначальную родину и построить Царство Божье на земле и на небе, как изначальный идеал творения.</string>
     <string name="two"><b>2.</b> Как хозяева Чхонильгук, мы, семья, основываясь на истинной любви, даем обет: служа Богу и Истинным Родителям, стать представительной и центральной семьей Вселенной, исполнить долг почтительных сыновей и дочерей семьи, долг семьи преданных граждан своей страны, долг семьи святых мира и долг семьи божественных детей Вселенной.</string>

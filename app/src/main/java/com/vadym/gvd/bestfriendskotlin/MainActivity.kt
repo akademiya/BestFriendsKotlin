@@ -32,6 +32,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var notificationIcon: ImageView
     private lateinit var prefs: SharedPreferences
     private val storage = FirebaseStorage()
+    private val updateChecker by lazy { AppUpdateChecker(this) }
 
     // ─── Lifecycle ────────────────────────────────────────────────────────────
 
@@ -47,6 +48,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
 
         setupToolbar()
         setupNavMenu()
+        updateChecker.checkOnLaunchIfNeeded()
 
         // Відкрити drawer одразу, якщо повернулись з іншої activity
         if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_DRAWER, false)) {

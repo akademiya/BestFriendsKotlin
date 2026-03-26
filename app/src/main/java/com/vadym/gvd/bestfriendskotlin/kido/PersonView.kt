@@ -1,7 +1,6 @@
 package com.vadym.gvd.bestfriendskotlin.kido
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
@@ -30,9 +29,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.ads.AdView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.vadym.gvd.bestfriendskotlin.Admob
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
@@ -74,8 +71,6 @@ class PersonView : MainActivity(), PersonAdapterListener {
         stop = findViewById(R.id.stop)
         listKido = findViewById(R.id.rv_list_kido)
         chronometer = findViewById(R.id.chronometer)
-        val adContainer: AdView = findViewById(R.id.adView)
-        val adDivider: View = findViewById(R.id.adDivider)
 
         toolbarButtonMenu()
         initializ()
@@ -83,17 +78,6 @@ class PersonView : MainActivity(), PersonAdapterListener {
         setupMusicFab()
         chronometer()
 
-        if (isNetworkAvailable()) {
-            window.decorView.post {
-                adContainer.visibility = View.VISIBLE
-                adDivider.visibility = View.VISIBLE
-                Admob.initializeAdmob(this, adContainer)
-            }
-
-        } else {
-            adContainer.visibility = View.GONE
-            adDivider.visibility = View.GONE
-        }
     }
 
     private fun toolbarButtonMenu() {
