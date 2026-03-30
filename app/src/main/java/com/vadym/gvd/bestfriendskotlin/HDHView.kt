@@ -9,9 +9,11 @@ import android.view.Gravity
 import android.view.View
 import android.widget.GridLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.vadym.gvd.bestfriendskotlin.databinding.ViewHdhBinding
+import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.YearMonth
@@ -31,6 +33,7 @@ class HDHView : MainActivity() {
         setupToolbar()
         setupCalendar()
         setupButtons()
+        checkAndRewardPreviousMonth()
     }
 
     private fun setupToolbar() {
@@ -139,6 +142,35 @@ class HDHView : MainActivity() {
     private fun setupButtons() {
         binding.btnOpenHdh.setOnClickListener { openHDHApp() }
     }
+
+    private fun countMarkedDays(yearMonth: YearMonth): Int {
+        val prefs = getSharedPreferences("hdh_calendar", Context.MODE_PRIVATE)
+        return (1..yearMonth.lengthOfMonth()).count { day ->
+            prefs.getBoolean(yearMonth.atDay(day).toString(), false)
+        }
+    }
+
+    private fun checkAndRewardPreviousMonth() {
+        val previousMonth = YearMonth.now().minusMonths(1)
+        val markedCount = countMarkedDays(previousMonth)
+        if (markedCount >= 20) {
+            val coinManager = CoinManager(this)
+            val rewarded = coinManager.rewardForHDHMonth(previousMonth.toString())
+            if (rewarded) {
+                // Опційно: показати Toast або Snackbar
+                Toast.makeText(
+                    this,
+                    "🎉 +25 심정 за $markedCount HDH у ${previousMonth.month.getDisplayName(
+                        java.time.format.TextStyle.FULL,
+                        Locale.getDefault()
+                    )}!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    }
+
+
 
     fun openHDHApp() = openApp("com.vadym.hdhmeeting")
 

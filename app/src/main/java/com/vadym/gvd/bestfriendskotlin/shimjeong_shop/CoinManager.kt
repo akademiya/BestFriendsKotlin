@@ -88,11 +88,19 @@ class CoinManager(context: Context) {
     }
 
     fun rewardForRating(): Boolean {
-        if (prefs.getBoolean(KEY_RATED, false)) return false  // вже нараховано
+        if (prefs.getBoolean(KEY_RATED, false)) return false
         prefs.edit()
             .putBoolean(KEY_RATED, true)
             .apply()
         addCoins(COINS_FOR_RATING)
+        return true
+    }
+
+    fun rewardForHDHMonth(yearMonth: String): Boolean {
+        val key = "hdh_reward_$yearMonth"
+        if (prefs.getBoolean(key, false)) return false
+        prefs.edit().putBoolean(key, true).apply()
+        addCoins(25)
         return true
     }
 }
