@@ -14,22 +14,24 @@
 
         <EditText
             android:id="@+id/create_lider"
-            style="@style/TextStyle_Body2_Primary_Dark"
+            style="@style/BaseText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin8"
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
             android:ellipsize="end"
+            android:textColorHint="@color/text_color_hint"
             android:hint="@string/lider"
             android:inputType="textCapWords"
             android:maxLines="1" />
 
         <EditText
             android:id="@+id/create_duration"
-            style="@style/TextStyle_Body2_Primary_Dark"
+            style="@style/BaseText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/text_color_hint"
             android:layout_below="@+id/create_lider"
             android:layout_marginBottom="@dimen/margin8"
             android:layout_marginEnd="@dimen/edge_margins"
@@ -51,7 +53,7 @@
 
         <EditText
             android:id="@+id/create_condition"
-            style="@style/TextStyle_Body2_Primary_Dark"
+            style="@style/BaseText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/create_date_from"
@@ -59,17 +61,19 @@
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
             android:hint="@string/condition"
+            android:textColorHint="@color/text_color_hint"
             android:inputType="textMultiLine" />
 
         <EditText
             android:id="@+id/create_public_goal"
-            style="@style/TextStyle_Body2_Primary_Dark"
+            style="@style/BaseText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/create_condition"
             android:layout_marginBottom="@dimen/margin8"
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/edge_margins"
+            android:textColorHint="@color/text_color_hint"
             android:hint="@string/public_goal"
             android:inputType="textMultiLine" />
 

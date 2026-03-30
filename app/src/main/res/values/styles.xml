@@ -3,11 +3,37 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorSurface">@color/white</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlNormal">@color/white</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:ignore="NewApi">true</item>
+    </style>
+
+    <style name="DarkAlertDialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="backgroundTint">@null</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">#2a2a2a</item>
+        <item name="android:alertDialogStyle">@color/white</item>
+        <item name="android:alertDialogTheme">@color/white</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:textColor">@color/simple_text</item>
+    </style>
+
+    <style name="KidoPopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="backgroundTint">@null</item>
+        <item name="android:popupBackground">@color/white</item>
+        <item name="android:popupMenuStyle">@color/white</item>
+        <item name="android:textColor">@color/simple_text</item>
+        <item name="tint">@color/white</item>
+        <item name="android:textSize">12sp</item>
+<!--        <item name="android:dropDownListViewStyle">@style/KidoPopupMenu.ListView</item>-->
+    </style>
+
+    <style name="KidoPopupMenu.ListView" parent="android:Widget.Material.ListView.DropDown">
+        <item name="android:divider">@null</item>
     </style>
 
     // Toolbar
@@ -16,7 +42,7 @@
         <item name="android:layout_marginBottom">2dp</item>
         <item name="android:layout_marginLeft">2dp</item>
         <item name="android:layout_marginRight">2dp</item>
-        <item name="android:textColor">@color/black_effective</item>
+        <item name="android:textColor">@color/simple_text</item>
     </style>
 
     <style name="TextStyle.Heading" parent="TextStyle">
@@ -27,13 +53,13 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/toolbar_height</item>
         <item name="android:minHeight">?attr/actionBarSize</item>
-        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlNormal">@color/simple_white_text</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:padding">0dp</item>
     </style>
 
     <style name="Toolbar.TitleText" parent="TextStyle.Heading">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/toolbar_text_title</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:textSize">18sp</item>
@@ -62,6 +88,8 @@
     <style name="BaseText" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textColor">@color/simple_text</item>
         <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
     </style>
 
@@ -76,47 +104,39 @@
     <style name="ConditionValue" parent="BaseText">
         <item name="android:textSize">@dimen/text_size_condition_value</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/simple_text</item>
         <item name="android:layout_marginStart">@dimen/parent_margin</item>
         <item name="android:layout_marginEnd">@dimen/parent_margin</item>
     </style>
 
-    <style name="TextStyle_Body2_Primary_Dark" parent="AppTheme">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
-        <item name="android:textSize">@dimen/text_size</item>
+    <style name="TextStyle_Body2_Primary_Dark" parent="BaseText">
+        <item name="android:textColor">@color/simple_text</item>
         <item name="backgroundTint">@null</item>
     </style>
 
-    <style name="TextStyle_Italic_Primary_Dark" parent="AppTheme">
+    <style name="TextStyle_Italic_Primary_Dark" parent="BaseText">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
-        <item name="android:textSize">@dimen/text_size</item>
         <item name="android:textStyle">italic</item>
     </style>
 
-    <style name="TextTitle_Kido_Explanation" parent="AppTheme">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="TextTitle_Kido_Explanation" parent="BaseText">
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
+        <item name="android:textColor">@color/simple_text</item>
         <item name="android:textSize">@dimen/text_size_title_explanation</item>
     </style>
 
-    <style name="TextStyle_Description" parent="AppTheme">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
-        <item name="android:textSize">@dimen/text_size</item>
+    <style name="HCalendar" parent="BaseText">
+        <item name="android:textColor">@color/simple_text</item>
+    </style>
+
+    <style name="TextStyle_Description" parent="BaseText">
         <item name="android:textColor">@color/dark_gray</item>
     </style>
 
-    <style name="Kajon_mense" parent="AppTheme">
+    <style name="Kajon_mense" parent="BaseText">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
         <item name="android:textSize">@dimen/text_size_mense</item>
+        <item name="android:textColor">@color/simple_text</item>
         <item name="android:layout_marginBottom">25dp</item>
         <item name="android:lineSpacingExtra">10dp</item>
     </style>
@@ -230,10 +250,8 @@
     </style>
 
 
-    <style name="DayHeader">
-        <item name="android:textSize">16sp</item>
+    <style name="DayHeader" parent="BaseText">
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_height">wrap_content</item>
     </style>
 </resources>

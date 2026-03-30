@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -32,8 +33,7 @@
             android:padding="16dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/HCalendar"
                 android:layout_gravity="center"
                 android:layout_marginBottom="16dp"
                 android:text="@string/h_calendar"
@@ -55,8 +55,8 @@
 
                 <TextView
                     android:id="@+id/title_month_year"
+                    style="@style/HCalendar"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="6"
                     android:gravity="center"
@@ -143,8 +143,8 @@
 
             <TextView
                 android:id="@+id/view_heavenly_date_today"
+                style="@style/HCalendar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -163,8 +163,8 @@
 
             <TextView
                 android:id="@+id/view_important_day"
+                style="@style/HCalendar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:textSize="20sp"
                 android:textStyle="bold"

@@ -59,10 +59,10 @@
             android:icon="@drawable/books"
             android:title="@string/tp_kido" />
 
-        <item
-            android:id="@+id/nav_kido_explanation"
-            android:icon="@drawable/ic_explanation"
-            android:title="@string/explanation" />
+<!--        <item-->
+<!--            android:id="@+id/nav_kido_explanation"-->
+<!--            android:icon="@drawable/ic_explanation"-->
+<!--            android:title="@string/explanation" />-->
 
         <item
             android:id="@+id/nav_traditions"
@@ -84,10 +84,10 @@
             android:icon="@drawable/ic_nav_shop"
             android:title="@string/card_shop_title" />
 
-        <item
-            android:id="@+id/nav_facebook"
-            android:icon="@drawable/fb"
-            android:title="@string/facebook"/>
+<!--        <item-->
+<!--            android:id="@+id/nav_facebook"-->
+<!--            android:icon="@drawable/fb"-->
+<!--            android:title="@string/facebook"/>-->
 
         <item
             android:id="@+id/nav_info"

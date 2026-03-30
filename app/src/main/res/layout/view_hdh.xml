@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/badge_background">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -39,17 +39,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
+                android:orientation="horizontal">
 
                 <ImageButton
                     android:id="@+id/btn_prev_month"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/ic_prev"
-                    android:contentDescription="@string/prev_month" />
+                    android:contentDescription="@string/prev_month"
+                    android:src="@drawable/ic_prev" />
 
                 <TextView
                     android:id="@+id/tv_month_year"
@@ -57,26 +57,27 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/colorPrimary" />
+                    tools:text="April" />
 
                 <ImageButton
                     android:id="@+id/btn_next_month"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/ic_next"
-                    android:contentDescription="@string/next_month" />
+                    android:contentDescription="@string/next_month"
+                    android:src="@drawable/ic_next" />
 
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#FFFFFF">
+                app:cardElevation="4dp">
 
                 <GridLayout
                     android:id="@+id/calendar_grid"
@@ -91,10 +92,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/hdh_calendar_description"
-                android:textSize="14sp"
                 android:lineSpacingMultiplier="1.4"
-                android:textColor="#757575" />
+                android:text="@string/hdh_calendar_description"
+                android:textColor="@color/simple_text"
+                android:textSize="14sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_open_hdh"

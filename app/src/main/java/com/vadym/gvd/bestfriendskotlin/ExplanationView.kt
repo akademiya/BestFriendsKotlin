@@ -1,6 +1,5 @@
 package com.vadym.gvd.bestfriendskotlin
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
@@ -11,38 +10,48 @@ class ExplanationView: MainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kido_explanation)
+        toolbarButtonMenu()
 
-        val adContainer: AdView = findViewById(R.id.adView)
+        val adContainer1: AdView = findViewById(R.id.adView)
         val adContainer2: AdView = findViewById(R.id.adView2)
+        val adContainer3: AdView = findViewById(R.id.adView3)
+        val adContainer4: AdView = findViewById(R.id.adView4)
+        val adContainer5: AdView = findViewById(R.id.adView5)
+
+
+        if (isNetworkAvailable()) {
+            window.decorView.post {
+                adContainer1.visibility = View.VISIBLE
+                adContainer2.visibility = View.VISIBLE
+                adContainer3.visibility = View.VISIBLE
+                adContainer4.visibility = View.VISIBLE
+                adContainer5.visibility = View.VISIBLE
+                Admob.initializeAdmob(this, adContainer1)
+                Admob.initializeAdmob(this, adContainer2)
+                Admob.initializeAdmob(this, adContainer3)
+                Admob.initializeAdmob(this, adContainer4)
+                Admob.initializeAdmob(this, adContainer5)
+            }
+        } else {
+            adContainer1.visibility = View.GONE
+            adContainer2.visibility = View.GONE
+            adContainer3.visibility = View.GONE
+            adContainer4.visibility = View.GONE
+            adContainer5.visibility = View.GONE
+        }
+    }
+
+    private fun toolbarButtonMenu() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-
-        toolbar.setNavigationOnClickListener { onBackPressed() }
-
-
-        if (isNetworkAvailable()) {
-            window.decorView.post {
-                adContainer.visibility = View.VISIBLE
-                adContainer2.visibility = View.VISIBLE
-                Admob.initializeAdmob(this, adContainer)
-                Admob.initializeAdmob(this, adContainer2)
-            }
-        } else {
-            adContainer.visibility = View.GONE
-            adContainer2.visibility = View.GONE
+        toolbar.setNavigationOnClickListener {
+            @Suppress("DEPRECATION")
+            onBackPressed()
         }
     }
 
-    override fun onBackPressed() {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
-        }
-        startActivity(intent)
-        finish()
-    }
 }

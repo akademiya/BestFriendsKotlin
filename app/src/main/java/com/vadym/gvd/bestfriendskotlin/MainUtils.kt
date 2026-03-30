@@ -6,6 +6,9 @@ import android.content.Intent
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
+import android.view.ContextThemeWrapper
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.PopupMenu
@@ -23,7 +26,8 @@ fun kidoListPopupMenu(
     lm: LinearLayoutManager,
     kidoSize: Int
 ) {
-    val popupMenu = PopupMenu(context, view)
+    val themedContext = ContextThemeWrapper(context, R.style.KidoPopupMenu)
+    val popupMenu = PopupMenu(themedContext, view)
     popupMenu.inflate(R.menu.kido_popup_menu)
 
     val menuSize = popupMenu.menu.size()
@@ -37,26 +41,16 @@ fun kidoListPopupMenu(
     }
 
     popupMenu.setOnMenuItemClickListener { item ->
-        val position = when (item.itemId) {
-            R.id.kido1  -> 0;  R.id.kido2  -> 1;  R.id.kido3  -> 2;  R.id.kido4  -> 3
-            R.id.kido5  -> 4;  R.id.kido6  -> 5;  R.id.kido7  -> 6;  R.id.kido8  -> 7
-            R.id.kido9  -> 8;  R.id.kido10 -> 9;  R.id.kido11 -> 10; R.id.kido12 -> 11
-            R.id.kido13 -> 12; R.id.kido14 -> 13; R.id.kido15 -> 14; R.id.kido16 -> 15
-            R.id.kido17 -> 16; R.id.kido18 -> 17; R.id.kido19 -> 18; R.id.kido20 -> 19
-            R.id.kido21 -> 20; R.id.kido22 -> 21; R.id.kido23 -> 22; R.id.kido24 -> 23
-            R.id.kido25 -> 24; R.id.kido26 -> 25; R.id.kido27 -> 26; R.id.kido28 -> 27
-            R.id.kido29 -> 28; R.id.kido30 -> 29; R.id.kido31 -> 30; R.id.kido32 -> 31
-            R.id.kido33 -> 32; R.id.kido34 -> 33; R.id.kido35 -> 34; R.id.kido36 -> 35
-            R.id.kido37 -> 36; R.id.kido38 -> 37; R.id.kido39 -> 38; R.id.kido40 -> 39
-            R.id.kido41 -> 40; R.id.kido42 -> 41; R.id.kido43 -> 42; R.id.kido44 -> 43
-            R.id.kido45 -> 44; R.id.kido46 -> 45; R.id.kido47 -> 46; R.id.kido48 -> 47
-            R.id.kido49 -> 48; R.id.kido50 -> 49
-            else -> -1
-        }
+        val position = popupMenu.menu.indexOfItem(item)
         if (position >= 0) lm.scrollToPositionWithOffset(position, 0)
         true
     }
     popupMenu.show()
+}
+
+private fun Menu.indexOfItem(target: MenuItem): Int {
+    for (i in 0 until size()) if (getItem(i).itemId == target.itemId) return i
+    return -1
 }
 
 fun deviceLocale() : Locale {

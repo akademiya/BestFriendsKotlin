@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin24"
             android:gravity="end"
-            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textColor="@color/toolbar_text_title"
             tools:text="v 3.25" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -33,6 +34,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <ScrollView
@@ -74,7 +76,7 @@
                     tools:text="@string/konkurs" />
 
                 <TextView
-                    style="@style/TextStyle_Body2_Primary_Dark"
+                    style="@style/BaseText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/parent_margin"

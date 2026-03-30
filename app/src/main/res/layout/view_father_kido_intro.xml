@@ -36,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbarSize="6dp"
+        android:background="@color/white"
         android:scrollbarThumbVertical="@color/colorAccent"
         android:scrollbars="vertical"
         tools:listitem="@layout/item_father_kido_intro" />

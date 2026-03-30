@@ -135,9 +135,8 @@ class InfoView : MainActivity() {
     }
 
     private fun setDarkMode(mode: Int) {
+        DarkModePreferences(this).mode = mode
         AppCompatDelegate.setDefaultNightMode(mode)
-        DarkModePreferences(this).darkMode = if (mode == AppCompatDelegate.MODE_NIGHT_YES) 1 else 0
-        delegate.applyDayNight()
     }
 
     override fun onBackPressed() {

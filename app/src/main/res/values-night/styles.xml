@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorSurface">#1A1A2E</item>
+        <item name="colorOnSurface">#E8E8E8</item>
+        <item name="android:textColorPrimary">#E8E8E8</item>
+        <item name="android:popupBackground">#1A1A2E</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:ignore="NewApi">true</item>
+    </style>
+</resources>

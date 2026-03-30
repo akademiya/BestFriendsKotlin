@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -26,28 +27,29 @@
             android:id="@+id/iv_play"
             style="@style/ButtonAnthem"
             android:src="@drawable/ic_play"
-            android:tint="@color/color_primary_disable" />
+            app:tint="@color/color_primary_disable" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/iv_pause"
             style="@style/ButtonAnthem"
             android:src="@drawable/ic_pause"
-            android:tint="@color/color_pause_disable" />
+            app:tint="@color/color_pause_disable" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/iv_stop"
             style="@style/ButtonAnthem"
             android:src="@drawable/ic_stop"
-            android:tint="@color/color_accent_disable" />
+            app:tint="@color/color_accent_disable" />
     </LinearLayout>
 
     <View style="@style/AppTheme.HorizontalViewDivider" />

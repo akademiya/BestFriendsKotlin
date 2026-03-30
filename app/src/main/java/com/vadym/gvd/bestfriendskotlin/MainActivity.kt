@@ -40,7 +40,6 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         loadLocale()
         setContentView(R.layout.activity_main)
-        CheckTheme.checkTheme(this, delegate)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         drawer = findViewById(R.id.drawer_layout)
@@ -147,7 +146,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_kido            to PersonView::class.java,
             R.id.nav_father_kido     to FatherKidoView::class.java,
             R.id.nav_phrase_day      to PhraseForDay::class.java,
-            R.id.nav_kido_explanation to ExplanationView::class.java,
+//            R.id.nav_kido_explanation to ExplanationView::class.java,
             R.id.nav_holly_days      to HolyDaysView::class.java,
             R.id.nav_kido_condition  to ConditionView::class.java,
             R.id.nav_traditions      to TraditionsView::class.java,
@@ -171,7 +170,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_ua_sj    -> openApp("com.mattermost.rn", "https://umua.org/hpwords/channels/town-square")
             R.id.nav_birthday -> Toast.makeText(this, "Coming soon. I'm fixing the code", Toast.LENGTH_SHORT).show()
 //                openApp( "com.vadym.birthday", "https://sites.google.com/view/birthday-app/main" )
-            R.id.nav_facebook -> startActivity(openFacebookIntent(this))
+//            R.id.nav_facebook -> startActivity(openFacebookIntent(this))
             R.id.nav_share    -> shareApp()
             R.id.nav_send     -> sendEmail()
         }
@@ -185,15 +184,15 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(intent)
     }
 
-    open fun openFacebookIntent(context: Context): Intent {
-        val url = "https://www.facebook.com/groups/tfprayer"
-        return try {
-            context.packageManager.getPackageInfo("com.facebook.katana", 0)
-            Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=$url"))
-        } catch (e: Exception) {
-            Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        }
-    }
+//    open fun openFacebookIntent(context: Context): Intent {
+//        val url = "https://www.facebook.com/groups/tfprayer"
+//        return try {
+//            context.packageManager.getPackageInfo("com.facebook.katana", 0)
+//            Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=$url"))
+//        } catch (e: Exception) {
+//            Intent(Intent.ACTION_VIEW, Uri.parse(url))
+//        }
+//    }
 
     private fun shareApp() {
         val shareBody = getString(R.string.share_body)
