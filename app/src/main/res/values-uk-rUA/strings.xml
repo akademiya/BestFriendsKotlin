@@ -15,7 +15,7 @@
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1mS3vjhdWB4gV23UGREKpstizmCEGNsPA/view?usp=sharing">Політика конфіденційності</a></string>
     <string name="site">Перейти на сайт</string>
     <string name="site_link">https://sites.google.com/view/tfprayer/main</string>
-    <string name="about">Про додаток</string>
+    <string name="about">Налаштування</string>
     <string name="experiences_prayer">Молитва в моєму житті</string>
     <string name="share_by">Поділитися:</string>
     <string name="share_body">Рекомендую додаток "TRUE LIFE".\n</string>
@@ -105,7 +105,7 @@
     <string name="nav_exercise">Зарядка ІБ</string>
     <string name="share">Поділитися</string>
     <string name="send">Написати автору</string>
-    <string name="donation">Прочитати</string>
+    <string name="donation">Налаштування</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

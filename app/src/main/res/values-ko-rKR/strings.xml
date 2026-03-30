@@ -15,7 +15,7 @@
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1mS3vjhdWB4gV23UGREKpstizmCEGNsPA/view?usp=sharing">개인 정책</a></string>
     <string name="site">사이트 (en)</string>
     <string name="site_link">https://sites.google.com/view/tfprayer/main-en</string>
-    <string name="about">응용 프로그램 정보</string>
+    <string name="about">설정</string>
     <string name="experiences_prayer">내 삶의기도</string>
     <string name="share_by">몫:</string>
     <string name="share_body">"TRUE LIFE" 애플리케이션을 공유하고 싶습니다.\n</string>
@@ -94,7 +94,7 @@
     <string name="communicate">접촉</string>
     <string name="share">몫</string>
     <string name="send">저자에 쓰기</string>
-    <string name="donation">정보</string>
+    <string name="donation">설정</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

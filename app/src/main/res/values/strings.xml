@@ -15,7 +15,7 @@
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1mS3vjhdWB4gV23UGREKpstizmCEGNsPA/view?usp=sharing">Privacy policy</a></string>
     <string name="site">Site</string>
     <string name="site_link">https://sites.google.com/view/tfprayer/main-en</string>
-    <string name="about">About app</string>
+    <string name="about">Settings</string>
     <string name="experiences_prayer">Prayer in my life</string>
     <string name="share_by">Share:</string>
     <string name="share_body">I want to share "TRUE LIFE" application.\n</string>
@@ -43,8 +43,8 @@
     <string name="rate">Rate "TRUE LIFE"</string>
     <string name="later_rate">Remind me later</string>
     <string name="no_rate">No, thanks</string>
-    <string name="to_rate">Take a moment to rate the "TRUE LIFE" app. Get the SC award!</string>
-    <string name="thanks_for_rate">Thank you for your rating! ⭐⭐⭐⭐⭐ Get %s SC reward.</string>
+    <string name="to_rate">Take a moment to rate the "TRUE LIFE" app. Get the 심정 Coins award!</string>
+    <string name="thanks_for_rate">Thank you for your rating! ⭐⭐⭐⭐⭐ Get %s 심정 Coins reward.</string>
 
     // Dialog
     <string name="add_new_person">Add new person</string>
@@ -105,7 +105,7 @@
     <string name="nav_exercise">TF Exercise</string>
     <string name="share">Share</string>
     <string name="send">Write to the author</string>
-    <string name="donation">Read</string>
+    <string name="donation">Settings</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -131,7 +131,7 @@
     <string name="important_day">Important day</string>
     <string name="notification_important_title">Important day</string>
     <string name="notification_important_text">text about important day</string>
-    <string name="notification_anshiil_title">Anshiil</string>
+    <string name="notification_anshiil_title">Tomorrow Anshiil</string>
     <string name="notification_anshiil_text">text Anshiil</string>
 
     // EU GDPR Consent texts

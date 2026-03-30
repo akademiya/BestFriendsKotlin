@@ -14,7 +14,7 @@
     <string name="privacy_policy"><a href="https://drive.google.com/file/d/1mS3vjhdWB4gV23UGREKpstizmCEGNsPA/view?usp=sharing">Политика конфиденциальности</a></string>
     <string name="site">Перейти на сайт</string>
     <string name="site_link">https://sites.google.com/view/tfprayer/main</string>
-    <string name="about">О приложении</string>
+    <string name="about">Настройки</string>
     <string name="experiences_prayer">Молитва в моей жизни</string>
     <string name="share_by">Поделиться:</string>
     <string name="share_body">Рекомендую приложение "TRUE LIFE".\n</string>
@@ -92,7 +92,7 @@
     <string name="communicate">Связаться</string>
     <string name="share">Поделиться</string>
     <string name="send">Написать автору</string>
-    <string name="donation">Прочитать</string>
+    <string name="donation">Настройки</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

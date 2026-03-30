@@ -23,10 +23,8 @@ class LoadingView : MainActivity() {
         setContentView(R.layout.view_loading)
 
         if (isConsentGiven()) {
-            // Згода вже є — ініціалізуємо AdMob і показуємо рекламу перед входом
-            initAdAndProceed()
+            startUseApp()
         } else {
-            // Перший запуск — спочатку отримуємо згоду, реклама — після
             showConsentDialog()
         }
     }
@@ -72,23 +70,6 @@ class LoadingView : MainActivity() {
         btnAgree.setOnClickListener {
             saveConsent()
             dialog.dismiss()
-            // Тільки після згоди — ініціалізуємо AdMob (вимога Google / GDPR)
-            initAdAndProceed()
-        }
-    }
-
-    // ── Реклама → перехід ─────────────────────────────────────────────────────
-
-    /**
-     * Ініціалізує AdMob, потім намагається показати рекламу.
-     * Після закриття реклами (або якщо її нема) — переходить в MainActivity.
-     *
-     * ВАЖЛИВО: onFinished = { startUseApp() } викликається ЗАВЖДИ —
-     * навіть якщо реклама не завантажилась або не показалась.
-     */
-    private fun initAdAndProceed() {
-        AdManager.init(this)
-        AdManager.tryShowOnAppStart(this) {
             startUseApp()
         }
     }
