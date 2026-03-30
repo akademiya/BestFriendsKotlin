@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import java.io.IOException
 
@@ -16,6 +17,7 @@ class AnthemView : MainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_anthem)
+        setupBackPress()
 
         val stop = findViewById<ImageView>(R.id.iv_stop)
         val pause = findViewById<ImageView>(R.id.iv_pause)
@@ -68,7 +70,7 @@ class AnthemView : MainActivity() {
         }
         toolbar.setNavigationOnClickListener {
             cheonIlGukAnthem.stop()
-            onBackPressed()
+            navigateBack()
         }
     }
 
@@ -82,10 +84,14 @@ class AnthemView : MainActivity() {
         super.onDestroy()
     }
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+            putExtra(EXTRA_OPEN_DRAWER, true)
         }
         startActivity(intent)
         finish()

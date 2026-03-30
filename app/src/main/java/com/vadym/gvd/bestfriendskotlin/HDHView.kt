@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.GridLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import com.vadym.gvd.bestfriendskotlin.databinding.ViewHdhBinding
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
@@ -31,6 +31,7 @@ class HDHView : MainActivity() {
         setContentView(binding.root)
 
         setupToolbar()
+        setupBackPress()
         setupCalendar()
         setupButtons()
         checkAndRewardPreviousMonth()
@@ -40,7 +41,7 @@ class HDHView : MainActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.toolbar.setNavigationOnClickListener { onBackPressed() }
+        binding.toolbar.setNavigationOnClickListener { navigateBack() }
     }
 
     private fun setupCalendar() {
@@ -170,8 +171,6 @@ class HDHView : MainActivity() {
         }
     }
 
-
-
     fun openHDHApp() = openApp("com.vadym.hdhmeeting")
 
     private fun openApp(packageName: String) {
@@ -190,10 +189,14 @@ class HDHView : MainActivity() {
 
     private val Int.dp get() = (this * resources.displayMetrics.density).toInt()
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+            putExtra(EXTRA_OPEN_DRAWER, true)
         }
         startActivity(intent)
         finish()

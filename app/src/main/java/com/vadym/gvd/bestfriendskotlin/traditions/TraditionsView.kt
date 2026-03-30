@@ -2,6 +2,7 @@ package com.vadym.gvd.bestfriendskotlin.traditions
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,7 @@ class TraditionsView : MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_traditions)
         toolbarButtonMenu()
+        setupBackPress()
 
         val traditions = listOf(
             TraditionItem(getString(R.string.sunday_service), R.drawable.sunday_service),
@@ -63,15 +65,18 @@ class TraditionsView : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener {
-            @Suppress("DEPRECATION")
-            onBackPressed()
+            navigateBack()
         }
     }
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+            putExtra(EXTRA_OPEN_DRAWER, true)
         }
         startActivity(intent)
         finish()

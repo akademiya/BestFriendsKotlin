@@ -5,13 +5,16 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.addCallback
 import com.google.android.gms.analytics.HitBuilders
+import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 
 class FragmentMenseUa : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_mense_ua)
+        setupBackPress()
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -20,7 +23,7 @@ class FragmentMenseUa : BaseActivity() {
             setDisplayShowTitleEnabled(false)
         }
 
-        toolbar.setNavigationOnClickListener { startActivity(Intent(this, MainActivity::class.java).noAnimation()) }
+        toolbar.setNavigationOnClickListener { navigateBack() }
 
     }
 
@@ -38,5 +41,18 @@ class FragmentMenseUa : BaseActivity() {
             R.id.ru -> startActivity(Intent(this, FragmentMenseRu::class.java).noAnimation())
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(EXTRA_OPEN_DRAWER, true)
+        }
+        startActivity(intent)
+        finish()
     }
 }

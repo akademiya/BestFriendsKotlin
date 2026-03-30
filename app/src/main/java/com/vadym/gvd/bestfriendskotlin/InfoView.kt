@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.ads.AdView
 import com.google.android.material.imageview.ShapeableImageView
@@ -43,6 +44,7 @@ class InfoView : MainActivity() {
 
         bindViews()
         setupToolbar()
+        setupBackPress()
         setupListeners()
         loadData()
     }
@@ -60,7 +62,7 @@ class InfoView : MainActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+        toolbar.setNavigationOnClickListener { navigateBack() }
     }
 
     private fun setupListeners() {
@@ -139,7 +141,11 @@ class InfoView : MainActivity() {
         AppCompatDelegate.setDefaultNightMode(mode)
     }
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             putExtra(EXTRA_OPEN_DRAWER, true)

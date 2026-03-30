@@ -3,6 +3,7 @@ package com.vadym.gvd.bestfriendskotlin
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -19,6 +20,7 @@ class ExerciseView : MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_exercise)
         setupToolbar()
+        setupBackPress()
 
         youTubePlayerView = findViewById(R.id.youtube_exercises)
         val swipeRefresh = findViewById<SwipeRefreshLayout>(R.id.swipe_refresh)
@@ -90,11 +92,15 @@ class ExerciseView : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
+            navigateBack()
         }
     }
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             putExtra(EXTRA_OPEN_DRAWER, true)

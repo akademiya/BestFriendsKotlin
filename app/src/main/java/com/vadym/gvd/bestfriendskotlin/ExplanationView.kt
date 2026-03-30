@@ -1,7 +1,9 @@
 package com.vadym.gvd.bestfriendskotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.ads.AdView
 
@@ -11,6 +13,7 @@ class ExplanationView: MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kido_explanation)
         toolbarButtonMenu()
+        setupBackPress()
 
         val adContainer1: AdView = findViewById(R.id.adView)
         val adContainer2: AdView = findViewById(R.id.adView2)
@@ -49,9 +52,21 @@ class ExplanationView: MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener {
-            @Suppress("DEPRECATION")
-            onBackPressed()
+            navigateBack()
         }
+    }
+
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(EXTRA_OPEN_DRAWER, true)
+        }
+        startActivity(intent)
+        finish()
     }
 
 }

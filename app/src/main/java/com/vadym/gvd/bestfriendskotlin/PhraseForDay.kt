@@ -36,7 +36,6 @@ class PhraseForDay : MainActivity() {
     private lateinit var textOnButton: TextView
     private lateinit var coinManager: CoinManager
 
-    // Генеруємо список програмно — не треба вручну писати 318 рядків
     private val phrases: List<String> by lazy {
         (1..PHRASE_COUNT).map { "$PHRASE_PREFIX$it" }
     }
@@ -190,7 +189,7 @@ class PhraseForDay : MainActivity() {
 
         if (streakBonus) {
             // 🎉 Бонус за 7 днів підряд
-            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정 Coin", Snackbar.LENGTH_SHORT)
+            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정", Snackbar.LENGTH_SHORT)
                 .show()
 
             // Показуємо окремий діалог про бонус
@@ -200,11 +199,11 @@ class PhraseForDay : MainActivity() {
                     .setMessage(getString(R.string.bonus_congratulation, CoinManager.COINS_STREAK_BONUS, CoinManager.STREAK_DAYS))
                     .setPositiveButton(android.R.string.ok, null)
                     .show()
-            }, 600) // затримка щоб Snackbar встиг показатись
+            }, 1200) // затримка щоб Snackbar встиг показатись
         } else {
             // Звичайне нарахування + показуємо поточну серію
             val streakText = if (streak > 1) "  🔥 $streak" else ""
-            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정 Coin$streakText", Snackbar.LENGTH_SHORT)
+            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정 $streakText", Snackbar.LENGTH_SHORT)
                 .show()
         }
     }
@@ -237,7 +236,7 @@ class PhraseForDay : MainActivity() {
         startActivity(
             Intent(this, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+                putExtra(EXTRA_OPEN_DRAWER, true)
             }
         )
         finish()

@@ -2,6 +2,7 @@ package com.vadym.gvd.bestfriendskotlin.holy_days
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +18,6 @@ class HolyDaysView : MainActivity() {
     private val listDays: MutableList<HolyDayEntity> = mutableListOf()
     private val storage = FirebaseStorage()
 
-    // ✅ Єдине місце де описані всі святкові дні
     private fun buildItems(): List<HolyDayItem> = listOf(
         HolyDayItem(HolyDayEntity(), 0,  null,                  R.string.day1_title,  R.string.day1_description,  isMajor = true),
         HolyDayItem(HolyDayEntity(), 1,  null,                  R.string.day2_title,  R.string.day2_description,  isMajor = true),
@@ -37,6 +37,7 @@ class HolyDaysView : MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_holy_days)
         toolbarButtonMenu()
+        setupBackPress()
 
         storage.listHollyDaysFromFB { list ->
             listDays.addAll(list)
@@ -62,15 +63,22 @@ class HolyDaysView : MainActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { @Suppress("DEPRECATION") onBackPressed() }
+        toolbar.setNavigationOnClickListener { navigateBack() }
         toolbar.setOnClickListener {
-            if (count == 7) { updateCelebrationHollyDayDialog(); count = 0 } else count++
+            if (count == 7) {
+                updateCelebrationHollyDayDialog();
+                count = 0
+            } else count++
         }
     }
 
     private fun updateCelebrationHollyDayDialog() { /* без змін */ }
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         startActivity(Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             putExtra(EXTRA_OPEN_DRAWER, true)

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 
 class MenseView : MainActivity() {
@@ -11,6 +12,7 @@ class MenseView : MainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kajon_mense)
+        setupBackPress()
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -19,10 +21,9 @@ class MenseView : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
 
-        toolbar.setNavigationOnClickListener { onBackPressed() }
+        toolbar.setNavigationOnClickListener { navigateBack() }
     }
 
-    /** app bar menu переход в activity по клику на item */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
@@ -38,10 +39,14 @@ class MenseView : MainActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)
+            putExtra(EXTRA_OPEN_DRAWER, true)
         }
         startActivity(intent)
         finish()

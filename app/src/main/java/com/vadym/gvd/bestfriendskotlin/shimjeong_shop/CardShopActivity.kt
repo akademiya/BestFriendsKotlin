@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.addCallback
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -28,6 +29,7 @@ class CardShopActivity : MainActivity() {
         coinManager = CoinManager(this)
 
         setupToolbar()
+        setupBackPress()
         setupRecyclerView()
         updateBalanceDisplay()
 
@@ -40,7 +42,7 @@ class CardShopActivity : MainActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.toolbar.setNavigationOnClickListener { onBackPressed() }
+        binding.toolbar.setNavigationOnClickListener { navigateBack() }
     }
 
     private fun setupRecyclerView() {
@@ -101,7 +103,11 @@ class CardShopActivity : MainActivity() {
 
     private val Int.dp get() = (this * resources.displayMetrics.density).toInt()
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             putExtra(EXTRA_OPEN_DRAWER, true)

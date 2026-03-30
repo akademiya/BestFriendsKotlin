@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.addCallback
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.fj.koreanlunarcalendar.KoreanLunarCalendarUtils
@@ -54,6 +55,7 @@ class HeavenlyCalendarView : MainActivity() {
 
         bindViews()
         setupToolbar()
+        setupBackPress()
         setupRecyclerView()
         setupNavigation()
         showTodayHeavenlyDate()
@@ -82,7 +84,7 @@ class HeavenlyCalendarView : MainActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { onBackPressed() }
+        toolbar.setNavigationOnClickListener { navigateBack() }
     }
 
     private fun setupRecyclerView() {
@@ -239,7 +241,11 @@ class HeavenlyCalendarView : MainActivity() {
 
     // ─── Navigation ───────────────────────────────────────────────────────────
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         startActivity(
             Intent(this, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP

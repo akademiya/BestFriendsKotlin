@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,6 +45,7 @@ class ConditionView : MainActivity() {
         viewListCondition = findViewById(R.id.view_list_condition)
         fab = findViewById(R.id.fab)
         toolbarButtonMenu()
+        setupBackPress()
         showOrHideFab()
 
         fab.setOnClickListener { addTaskDialog() }
@@ -77,7 +79,7 @@ class ConditionView : MainActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { onBackPressed() }
+        toolbar.setNavigationOnClickListener { navigateBack() }
     }
 
     private fun showOrHideFab() {
@@ -205,7 +207,11 @@ class ConditionView : MainActivity() {
         }
     }
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             putExtra(MainActivity.EXTRA_OPEN_DRAWER, true)

@@ -2,12 +2,11 @@ package com.vadym.gvd.bestfriendskotlin.father_kido
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.vadym.gvd.bestfriendskotlin.BaseActivity
 import com.vadym.gvd.bestfriendskotlin.MainActivity
-import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamingan.KidoChaminganView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamkajon.KidoChamkajonView
@@ -42,6 +41,7 @@ class FatherKidoView : MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_father_kido)
         setupToolbar()
+        setupBackPress()
         setupRecyclerView()
     }
 
@@ -52,7 +52,7 @@ class FatherKidoView : MainActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        toolbar.setNavigationOnClickListener { onBackPressed() }
+        toolbar.setNavigationOnClickListener { navigateBack() }
     }
 
     private fun setupRecyclerView() {
@@ -124,7 +124,11 @@ class FatherKidoView : MainActivity() {
         destinations[item.booksID]?.let { startActivity(Intent(this, it)) }
     }
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         startActivity(Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             putExtra(EXTRA_OPEN_DRAWER, true)

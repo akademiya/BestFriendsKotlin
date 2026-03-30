@@ -24,6 +24,7 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
@@ -73,6 +74,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
         chronometer = findViewById(R.id.chronometer)
 
         toolbarButtonMenu()
+        setupBackPress()
         initializ()
         setupFabVisibility(fab, musicFab)
         setupMusicFab()
@@ -88,8 +90,7 @@ class PersonView : MainActivity(), PersonAdapterListener {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener {
-            @Suppress("DEPRECATION")
-            onBackPressed()
+            navigateBack()
         }
     }
 
@@ -380,7 +381,11 @@ class PersonView : MainActivity(), PersonAdapterListener {
         builder.show()
     }
 
-    override fun onBackPressed() {
+    private fun setupBackPress() {
+        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+    }
+
+    private fun navigateBack() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             putExtra(EXTRA_OPEN_DRAWER, true)
