@@ -15,24 +15,26 @@ import com.google.android.gms.ads.AdView
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.snackbar.Snackbar
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
+import java.util.concurrent.TimeUnit
 
 class InfoView : MainActivity() {
 
     private lateinit var privacyPolicy: TextView
     private lateinit var site: ShapeableImageView
     private lateinit var version: TextView
-    private val updateChecker by lazy { AppUpdateChecker(this) }
 
-    private val coinManager by lazy { CoinManager(this) }
+    private lateinit var cardAdMonth: View
+    private lateinit var cardAdForever: View
+    private lateinit var cardAdStatus: TextView
+
+    private val updateChecker by lazy { AppUpdateChecker(this) }
+    private val coinManager   by lazy { CoinManager(this) }
     private val rater by lazy {
         AppRater(
             context = this,
             coinManager = coinManager,
             onCoinsAwarded = { coins ->
-                Snackbar.make(
-                    findViewById(android.R.id.content), getString(R.string.thanks_for_rate, "$coins"),
-                    Snackbar.LENGTH_LONG
-                ).show()
+                showSnack(getString(R.string.thanks_for_rate, "$coins"))
             }
         )
     }
@@ -47,12 +49,16 @@ class InfoView : MainActivity() {
         setupBackPress()
         setupListeners()
         loadData()
+        refreshAdCards()
     }
 
     private fun bindViews() {
-        privacyPolicy = findViewById(R.id.private_policy)
-        site = findViewById(R.id.site)
-        version = findViewById(R.id.version)
+        privacyPolicy  = findViewById(R.id.private_policy)
+        site           = findViewById(R.id.site)
+        version        = findViewById(R.id.version)
+        cardAdMonth    = findViewById(R.id.card_ad_month)
+        cardAdForever  = findViewById(R.id.card_ad_forever)
+        cardAdStatus   = findViewById(R.id.tv_ad_status)
     }
 
     private fun setupToolbar() {
@@ -72,43 +78,107 @@ class InfoView : MainActivity() {
             val uri = Uri.parse(resources.getString(R.string.site_link))
             Intent(Intent.ACTION_VIEW, uri).apply { noAnimation() }.also { startActivity(it) }
         }
+
+        cardAdMonth.setOnClickListener { onBuyAdHide(forever = false) }
+        cardAdForever.setOnClickListener { onBuyAdHide(forever = true) }
     }
 
+    // -------------------------------------------------------------------------
+    // Покупка приховування реклами
+    // -------------------------------------------------------------------------
+
+    private fun onBuyAdHide(forever: Boolean) {
+        if (AdManager.isAdHidden(this)) {
+            showSnack(getString(R.string.ad_already_hidden))
+            return
+        }
+
+        val success = if (forever)
+            AdManager.hideForever(this, coinManager)
+        else
+            AdManager.hideForMonth(this, coinManager)
+
+        if (success) {
+            val msg = if (forever) getString(R.string.ad_hidden_forever)
+            else         getString(R.string.ad_hidden_month)
+            showSnack(msg)
+            refreshAdCards()
+            hideAdBannerImmediately()
+        } else {
+            showSnack(getString(R.string.not_enough_coins))
+        }
+    }
+
+    private fun hideAdBannerImmediately() {
+        val adContainer = findViewById<AdView>(R.id.adView)
+        adContainer.pause()
+        adContainer.destroy()
+        adContainer.visibility = View.GONE
+    }
+
+    // -------------------------------------------------------------------------
+    // Оновлення стану карток залежно від поточного статусу
+    // -------------------------------------------------------------------------
+
+    private fun refreshAdCards() {
+        val hidden = AdManager.isAdHidden(this)
+
+        if (hidden) {
+            cardAdMonth.isEnabled   = false
+            cardAdForever.isEnabled = false
+            cardAdMonth.alpha       = 0.4f
+            cardAdForever.alpha     = 0.4f
+
+            val remaining = AdManager.remainingMs(this)
+            cardAdStatus.visibility = View.VISIBLE
+            cardAdStatus.text = if (remaining == 0L) {
+                getString(R.string.ad_status_forever)
+            } else {
+                val days = TimeUnit.MILLISECONDS.toDays(remaining)
+                getString(R.string.ad_status_days, days)
+            }
+        } else {
+            cardAdMonth.isEnabled   = true
+            cardAdForever.isEnabled = true
+            cardAdMonth.alpha       = 1f
+            cardAdForever.alpha     = 1f
+            cardAdStatus.visibility = View.GONE
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Решта завантаження даних
+    // -------------------------------------------------------------------------
+
     private fun loadData() {
-        val adContainer: AdView = findViewById(R.id.adView)
-        val infoMessage = findViewById<TextView>(R.id.info_message)
-        val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val adContainer  = findViewById<AdView>(R.id.adView)
+        val infoMessage  = findViewById<TextView>(R.id.info_message)
+        val prefs        = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
 
         storage.infoMessageFromFB { message ->
             infoMessage.visibility = if (message.isNullOrEmpty()) View.GONE else View.VISIBLE
             infoMessage.text = message
-
-            if (!message.isNullOrEmpty()) {
+            if (!message.isNullOrEmpty())
                 prefs.edit().putString("last_seen_info_message", message).apply()
-            }
         }
 
         runCatching {
             "v. ${packageManager.getPackageInfo(packageName, 0).versionName}"
-        }.onSuccess {
-            version.text = it
-        }
+        }.onSuccess { version.text = it }
 
-        version.setOnClickListener {
-            updateChecker.checkManually()
-        }
+        version.setOnClickListener { updateChecker.checkManually() }
 
-        if (isNetworkAvailable()) {
-            window.decorView.post {
-                adContainer.visibility = View.VISIBLE
-                Admob.initializeAdmob(this, adContainer)
-            }
-        } else {
-            adContainer.visibility = View.GONE
-        }
+        AdManager.setupBanner(this, adContainer)
 
         rater.appLaunched()
     }
+
+    private fun showSnack(msg: String) =
+        Snackbar.make(findViewById(android.R.id.content), msg, Snackbar.LENGTH_LONG).show()
+
+    // -------------------------------------------------------------------------
+    // Меню / мова / тема
+    // -------------------------------------------------------------------------
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.language, menu)
@@ -117,20 +187,20 @@ class InfoView : MainActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.ko -> setAppLanguage("ko")
-            R.id.en -> setAppLanguage("en")
-            R.id.ua -> setAppLanguage("uk")
-            R.id.fr -> setAppLanguage("fr")
-            R.id.ru -> setAppLanguage("ru")
+            R.id.ko    -> setAppLanguage("ko")
+            R.id.en    -> setAppLanguage("en")
+            R.id.ua    -> setAppLanguage("uk")
+            R.id.fr    -> setAppLanguage("fr")
+            R.id.ru    -> setAppLanguage("ru")
             R.id.light -> setDarkMode(AppCompatDelegate.MODE_NIGHT_NO)
-            R.id.dark -> setDarkMode(AppCompatDelegate.MODE_NIGHT_YES)
-            else -> return super.onOptionsItemSelected(item)
+            R.id.dark  -> setDarkMode(AppCompatDelegate.MODE_NIGHT_YES)
+            else       -> return super.onOptionsItemSelected(item)
         }
         return true
     }
 
-    private fun setAppLanguage(languageCode: String) {
-        setLocale(this, languageCode)
+    private fun setAppLanguage(code: String) {
+        setLocale(this, code)
         Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         }.also { startActivity(it) }
@@ -149,9 +219,6 @@ class InfoView : MainActivity() {
         Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             putExtra(EXTRA_OPEN_DRAWER, true)
-        }.also {
-            startActivity(it)
-            finish()
-        }
+        }.also { startActivity(it); finish() }
     }
 }

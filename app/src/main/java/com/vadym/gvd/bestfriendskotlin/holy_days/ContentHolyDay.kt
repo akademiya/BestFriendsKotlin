@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.ads.AdView
-import com.vadym.gvd.bestfriendskotlin.Admob
+import com.vadym.gvd.bestfriendskotlin.AdManager
 import com.vadym.gvd.bestfriendskotlin.FirebaseStorage
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
@@ -27,17 +27,7 @@ class ContentHolyDay : MainActivity() {
         val adContainer        = findViewById<AdView>(R.id.adViewHollyDayContent)
         val adDivider          = findViewById<View>(R.id.adDivider)
 
-        if (isNetworkAvailable()) {
-            window.decorView.post {
-                adContainer.visibility = View.VISIBLE
-                adDivider.visibility = View.VISIBLE
-                Admob.initializeAdmob(this, adContainer)
-            }
-
-        } else {
-            adContainer.visibility = View.GONE
-            adDivider.visibility = View.GONE
-        }
+        AdManager.setupBanner(this, adContainer, adDivider)
 
         // ✅ Отримуємо дані через Intent, без SharedPreferences
         val index   = intent.getIntExtra("HOLY_DAY_INDEX", 0)

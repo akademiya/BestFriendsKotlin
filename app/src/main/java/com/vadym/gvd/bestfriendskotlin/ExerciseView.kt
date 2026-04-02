@@ -1,13 +1,21 @@
 package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import androidx.activity.addCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.gms.ads.AdView
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -26,21 +34,9 @@ class ExerciseView : MainActivity() {
         val swipeRefresh = findViewById<SwipeRefreshLayout>(R.id.swipe_refresh)
         val adContainer: AdView = findViewById(R.id.adViewExercise)
         val adDivider: View = findViewById(R.id.adDivider)
+        initYouTubePlayer()
 
-
-        if (isNetworkAvailable()) {
-//            initYouTubePlayer()
-            lifecycle.addObserver(youTubePlayerView)
-            window.decorView.post {
-                adContainer.visibility = View.VISIBLE
-                adDivider.visibility = View.VISIBLE
-                Admob.initializeAdmob(this, adContainer)
-            }
-        } else {
-            adContainer.visibility = View.GONE
-            adDivider.visibility = View.GONE
-            youTubePlayerView.visibility = View.GONE
-        }
+        AdManager.setupBanner(this, adContainer, adDivider)
 
         swipeRefresh.setOnRefreshListener {
             lifecycleScope.launch {
@@ -52,36 +48,23 @@ class ExerciseView : MainActivity() {
     }
 
     private fun initYouTubePlayer() {
-//        val videoId = "6_QzQ5KRDw8"
-//            getString(R.string.youtube_video_id)
-//        youTubePlayerView.enableAutomaticInitialization = false
-//        lifecycle.addObserver(youTubePlayerView)
-//
-//
-//        val iFramePlayerOptions = IFramePlayerOptions.Builder()
-//            .controls(1)
-//            .rel(0)
-//            .build()
-//
-//        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-//            override fun onReady(youTubePlayer: YouTubePlayer) {
-//                super.onReady(youTubePlayer)
-//                youTubePlayer.cueVideo(videoId, 0f)
-//            }
-//            override fun onError(youTubePlayer: YouTubePlayer, error: PlayerConstants.PlayerError) {
-//                val intent = Intent(
-//                    Intent.ACTION_VIEW,
-//                    Uri.parse("https://www.youtube.com/watch?v=$videoId")
-//                )
-//                startActivity(intent)
-//            }
-//        })
+        val videoId = "6_QzQ5KRDw8"
 
-//        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-//            override fun onReady(youTubePlayer: YouTubePlayer) {
-//                youTubePlayer.loadVideo(videoId, 0f)
-//            }
-//        })
+//        youTubePlayerView.enableAutomaticInitialization = false
+        lifecycle.addObserver(youTubePlayerView)
+
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                youTubePlayer.loadVideo(videoId, 0f)
+            }
+            override fun onError(youTubePlayer: YouTubePlayer, error: PlayerConstants.PlayerError) {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/watch?v=$videoId")
+                )
+                startActivity(intent)
+            }
+        })
     }
 
     private fun setupToolbar() {
@@ -101,11 +84,15 @@ class ExerciseView : MainActivity() {
     }
 
     private fun navigateBack() {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(EXTRA_OPEN_DRAWER, true)
+        AdManager.init(this)
+        AdManager.tryShowOnAppStart(this) {
+            startActivity(
+                Intent(this, MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    putExtra(EXTRA_OPEN_DRAWER, true)
+                }
+            )
+            finish()
         }
-        startActivity(intent)
-        finish()
     }
 }

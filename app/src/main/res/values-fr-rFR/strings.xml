@@ -37,6 +37,17 @@
     <string name="no_rate">Non merci</string>
     <string name="to_rate">Prenez un moment pour noter l\'application "TRUE LIFE". Merci pour le soutien!</string>
 
+    // Settings
+    <string name="ad_remove_month">Supprimer les pubs\npour 1 mois</string>
+    <string name="ad_cost_month">45 SC</string>
+    <string name="ad_remove_forever">Supprimer les pubs\npour toujours</string>
+    <string name="ad_cost_forever">90 SC</string>
+    <string name="ad_already_hidden">Les pubs sont déjà désactivées</string>
+    <string name="ad_hidden_month">Pubs désactivées pour 30 jours ✓</string>
+    <string name="ad_hidden_forever">Pubs désactivées définitivement ✓</string>
+    <string name="ad_status_forever">🚫 Pubs désactivées définitivement</string>
+    <string name="ad_status_days">🪫 Pubs désactivées encore pour %1$d jours</string>
+
     // Dialog
     <string name="add_new_person">Ajouter une nouvelle personne</string>
     <string name="add_person">Ajouter une personne</string>

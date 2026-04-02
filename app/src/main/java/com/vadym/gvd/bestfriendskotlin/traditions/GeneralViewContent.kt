@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.ads.AdView
-import com.vadym.gvd.bestfriendskotlin.Admob
+import com.vadym.gvd.bestfriendskotlin.AdManager
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.toHtml
@@ -25,17 +25,7 @@ class GeneralViewContent : MainActivity() {
         val traditionsImage: ImageView = findViewById(R.id.traditions_img)
 
 
-        if (isNetworkAvailable()) {
-            window.decorView.post {
-                adContainer.visibility = View.VISIBLE
-                adDivider.visibility = View.VISIBLE
-                Admob.initializeAdmob(this, adContainer)
-            }
-
-        } else {
-            adContainer.visibility = View.GONE
-            adDivider.visibility = View.GONE
-        }
+        AdManager.setupBanner(this, adContainer, adDivider)
 
         traditionTitle.text = intent.getStringExtra("TRADITION_TITLE") ?: "Unknown Tradition"
         val position = intent.getIntExtra("TRADITION_POSITION", 0)
@@ -87,7 +77,6 @@ class GeneralViewContent : MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener {
-            @Suppress("DEPRECATION")
             onBackPressed()
         }
     }

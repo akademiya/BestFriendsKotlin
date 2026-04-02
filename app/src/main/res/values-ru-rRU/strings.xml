@@ -36,6 +36,17 @@
     <string name="no_rate">Нет, спасибо</string>
     <string name="to_rate">Найдите минутку, чтобы оценить приложение "TRUE LIFE". Спасибо за поддержку!</string>
 
+    // Settings
+    <string name="ad_remove_month">Убрать рекламу\nна 1 месяц</string>
+    <string name="ad_cost_month">45 SC</string>
+    <string name="ad_remove_forever">Убрать рекламу\nнавсегда</string>
+    <string name="ad_cost_forever">90 SC</string>
+    <string name="ad_already_hidden">Реклама уже скрыта</string>
+    <string name="ad_hidden_month">Реклама скрыта на 30 дней ✓</string>
+    <string name="ad_hidden_forever">Реклама скрыта навсегда ✓</string>
+    <string name="ad_status_forever">🚫 Реклама скрыта навсегда</string>
+    <string name="ad_status_days">🪫 Реклама скрыта ещё на %1$d дн.</string>
+
     // Dialog
     <string name="add_new_person">Добавить новую позицию</string>
     <string name="add_person">Добавить</string>

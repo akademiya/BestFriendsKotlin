@@ -76,7 +76,7 @@ class PhraseForDay : MainActivity() {
 
                 scrollOpened.postDelayed({
                     AdManager.tryShowAfterScrollOpen(this)
-                }, 1500)
+                }, 1200)
             }
         } else {
             textOnButton.visibility = View.GONE
@@ -189,8 +189,7 @@ class PhraseForDay : MainActivity() {
 
         if (streakBonus) {
             // 🎉 Бонус за 7 днів підряд
-            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정", Snackbar.LENGTH_SHORT)
-                .show()
+            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정", Snackbar.LENGTH_SHORT).show()
 
             // Показуємо окремий діалог про бонус
             android.os.Handler(mainLooper).postDelayed({
@@ -203,8 +202,7 @@ class PhraseForDay : MainActivity() {
         } else {
             // Звичайне нарахування + показуємо поточну серію
             val streakText = if (streak > 1) "  🔥 $streak" else ""
-            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정 $streakText", Snackbar.LENGTH_SHORT)
-                .show()
+            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정 $streakText", Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -233,12 +231,16 @@ class PhraseForDay : MainActivity() {
 
     // ── Навігація ─────────────────────────────────────────────────────────────
     private fun navigateBack() {
-        startActivity(
-            Intent(this, MainActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                putExtra(EXTRA_OPEN_DRAWER, true)
-            }
-        )
-        finish()
+        AdManager.init(this)
+        AdManager.tryShowOnAppStart(this) {
+            startActivity(
+                Intent(this, MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    putExtra(EXTRA_OPEN_DRAWER, true)
+                }
+            )
+            finish()
+        }
+
     }
 }

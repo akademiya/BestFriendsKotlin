@@ -32,9 +32,7 @@
         android:background="@color/white"
         tools:ignore="MissingConstraints">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
 
             <LinearLayout
                 android:id="@+id/fl_archive_list"
@@ -45,9 +43,7 @@
                 <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                     android:id="@+id/youtube_exercises"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:autoPlay="true"
-                    app:videoId="@string/youtube_video_id" />
+                    android:layout_height="wrap_content" />
 
                 <View
                     android:id="@+id/adDivider"
@@ -66,6 +62,6 @@
                     app:adUnitId="ca-app-pub-5169531562006723/9791396001" />
 
             </LinearLayout>
-        </ScrollView>
+
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

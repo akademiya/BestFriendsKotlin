@@ -4,6 +4,7 @@
 
 # ===== Власні класи (Firebase моделі) =====
 -keep class com.vadym.gvd.bestfriendskotlin.** { *; }
+-keep class com.pierfrancescosoffritti.androidyoutubeplayer.** { *; }
 -keepattributes Signature, *Annotation*, RuntimeVisibleAnnotations, AnnotationDefault
 
 # ===== Firebase SDK =====

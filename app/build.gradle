@@ -95,7 +95,7 @@ dependencies {
 
     // ── YouTube Player ────────────────────────────────────────────
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.1'
-    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.30'
+//    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.30'
 
     // ── Other ─────────────────────────────────────────────────────
     implementation 'org.jsoup:jsoup:1.18.3'

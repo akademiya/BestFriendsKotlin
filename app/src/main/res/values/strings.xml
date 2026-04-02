@@ -46,6 +46,17 @@
     <string name="to_rate">Take a moment to rate the "TRUE LIFE" app. Get the 심정 Coins award!</string>
     <string name="thanks_for_rate">Thank you for your rating! ⭐⭐⭐⭐⭐ Get %s 심정 Coins reward.</string>
 
+    // Settings
+    <string name="ad_remove_month">Remove ads\nfor 1 month</string>
+    <string name="ad_cost_month">45 SC</string>
+    <string name="ad_remove_forever">Remove ads\nforever</string>
+    <string name="ad_cost_forever">90 SC</string>
+    <string name="ad_already_hidden">Ads are already hidden</string>
+    <string name="ad_hidden_month">Ads hidden for 30 days ✓</string>
+    <string name="ad_hidden_forever">Ads hidden forever ✓</string>
+    <string name="ad_status_forever">🚫 Ads are hidden forever</string>
+    <string name="ad_status_days">🪫 Ads are hidden for %1$d more days</string>
+
     // Dialog
     <string name="add_new_person">Add new person</string>
     <string name="add_person">Add person</string>

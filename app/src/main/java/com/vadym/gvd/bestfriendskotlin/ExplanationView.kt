@@ -13,7 +13,7 @@ class ExplanationView: MainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kido_explanation)
         toolbarButtonMenu()
-        setupBackPress()
+//        setupBackPress()
 
         val adContainer1: AdView = findViewById(R.id.adView)
         val adContainer2: AdView = findViewById(R.id.adView2)
@@ -21,27 +21,33 @@ class ExplanationView: MainActivity() {
         val adContainer4: AdView = findViewById(R.id.adView4)
         val adContainer5: AdView = findViewById(R.id.adView5)
 
+        AdManager.setupBanner(this, adContainer1)
+        AdManager.setupBanner(this, adContainer2)
+        AdManager.setupBanner(this, adContainer3)
+        AdManager.setupBanner(this, adContainer4)
+        AdManager.setupBanner(this, adContainer5)
 
-        if (isNetworkAvailable()) {
-            window.decorView.post {
-                adContainer1.visibility = View.VISIBLE
-                adContainer2.visibility = View.VISIBLE
-                adContainer3.visibility = View.VISIBLE
-                adContainer4.visibility = View.VISIBLE
-                adContainer5.visibility = View.VISIBLE
-                Admob.initializeAdmob(this, adContainer1)
-                Admob.initializeAdmob(this, adContainer2)
-                Admob.initializeAdmob(this, adContainer3)
-                Admob.initializeAdmob(this, adContainer4)
-                Admob.initializeAdmob(this, adContainer5)
-            }
-        } else {
-            adContainer1.visibility = View.GONE
-            adContainer2.visibility = View.GONE
-            adContainer3.visibility = View.GONE
-            adContainer4.visibility = View.GONE
-            adContainer5.visibility = View.GONE
-        }
+
+//        if (isNetworkAvailable()) {
+//            window.decorView.post {
+//                adContainer1.visibility = View.VISIBLE
+//                adContainer2.visibility = View.VISIBLE
+//                adContainer3.visibility = View.VISIBLE
+//                adContainer4.visibility = View.VISIBLE
+//                adContainer5.visibility = View.VISIBLE
+//                Admob.initializeAdmob(this, adContainer1)
+//                Admob.initializeAdmob(this, adContainer2)
+//                Admob.initializeAdmob(this, adContainer3)
+//                Admob.initializeAdmob(this, adContainer4)
+//                Admob.initializeAdmob(this, adContainer5)
+//            }
+//        } else {
+//            adContainer1.visibility = View.GONE
+//            adContainer2.visibility = View.GONE
+//            adContainer3.visibility = View.GONE
+//            adContainer4.visibility = View.GONE
+//            adContainer5.visibility = View.GONE
+//        }
     }
 
     private fun toolbarButtonMenu() {
@@ -52,21 +58,21 @@ class ExplanationView: MainActivity() {
             setDisplayShowTitleEnabled(false)
         }
         toolbar.setNavigationOnClickListener {
-            navigateBack()
+            onBackPressed()
         }
     }
 
-    private fun setupBackPress() {
-        onBackPressedDispatcher.addCallback(this) { navigateBack() }
-    }
-
-    private fun navigateBack() {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            putExtra(EXTRA_OPEN_DRAWER, true)
-        }
-        startActivity(intent)
-        finish()
-    }
+//    private fun setupBackPress() {
+//        onBackPressedDispatcher.addCallback(this) { navigateBack() }
+//    }
+//
+//    private fun navigateBack() {
+//        val intent = Intent(this, MainActivity::class.java).apply {
+//            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+//            putExtra(EXTRA_OPEN_DRAWER, true)
+//        }
+//        startActivity(intent)
+//        finish()
+//    }
 
 }

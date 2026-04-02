@@ -38,6 +38,17 @@
     <string name="no_rate">아니요, 고마워요</string>
     <string name="to_rate">"TRUE LIFE" 앱을 평가 해보십시오. 지원해 주셔서 감사합니다!</string>
 
+    // Settings
+    <string name="ad_remove_month">광고 제거\n1개월</string>
+    <string name="ad_cost_month">45 SC</string>
+    <string name="ad_remove_forever">광고 제거\n영구</string>
+    <string name="ad_cost_forever">90 SC</string>
+    <string name="ad_already_hidden">이미 광고가 숨겨져 있습니다</string>
+    <string name="ad_hidden_month">광고가 30일 동안 숨겨졌습니다 ✓</string>
+    <string name="ad_hidden_forever">광고가 영구적으로 숨겨졌습니다 ✓</string>
+    <string name="ad_status_forever">🚫 광고가 영구적으로 숨겨져 있습니다</string>
+    <string name="ad_status_days">🪫 광고가 앞으로 %1$d일 동안 숨겨집니다</string>
+
     // Dialog
     <string name="add_new_person">새 사람 추가</string>
     <string name="add_person">추가</string>

@@ -44,6 +44,17 @@
     <string name="to_rate">Отримайте нагороду 심정 - виділіть хвилинку, щоб оцінити додаток "TRUE LIFE".</string>
     <string name="thanks_for_rate">Щиро дякую за вашу оцінку! ⭐⭐⭐⭐⭐ Ваша нагорода %s 심정 Coin.</string>
 
+    // Settngs
+    <string name="ad_remove_month">Прибрати рекламу\nна 1 місяць</string>
+    <string name="ad_cost_month">45 심정</string>
+    <string name="ad_remove_forever">Прибрати рекламу\nназавжди</string>
+    <string name="ad_cost_forever">90 심정</string>
+    <string name="ad_already_hidden">Реклама вже прихована</string>
+    <string name="ad_hidden_month">Рекламу приховано на 30 днів ✓</string>
+    <string name="ad_hidden_forever">Рекламу приховано назавжди ✓</string>
+    <string name="ad_status_forever">🚫 Реклама прихована назавжди</string>
+    <string name="ad_status_days">🪫 Реклама прихована ще %1$d дн.</string>
+
     // Dialog
     <string name="add_new_person">Додати нову позицію</string>
     <string name="add_person">Додати</string>
