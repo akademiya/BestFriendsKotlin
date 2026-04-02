@@ -4,10 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebChromeClient
-import android.webkit.WebView
+import android.widget.ImageButton
 import androidx.activity.addCallback
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -15,7 +13,6 @@ import com.google.android.gms.ads.AdView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -31,10 +28,19 @@ class ExerciseView : MainActivity() {
         setupBackPress()
 
         youTubePlayerView = findViewById(R.id.youtube_exercises)
+        val watchInYoutubeButton = findViewById<ImageButton>(R.id.watch_in_youtube)
         val swipeRefresh = findViewById<SwipeRefreshLayout>(R.id.swipe_refresh)
         val adContainer: AdView = findViewById(R.id.adViewExercise)
         val adDivider: View = findViewById(R.id.adDivider)
         initYouTubePlayer()
+
+        watchInYoutubeButton.setOnClickListener {
+            val intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.youtube.com/watch?v=6_QzQ5KRDw8")
+            )
+            startActivity(intent)
+        }
 
         AdManager.setupBanner(this, adContainer, adDivider)
 

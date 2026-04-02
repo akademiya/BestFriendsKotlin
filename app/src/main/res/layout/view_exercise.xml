@@ -23,6 +23,16 @@
             android:text="@string/nav_exercise"
             tools:text="TF Exercise" />
 
+        <ImageButton
+            android:id="@+id/watch_in_youtube"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:scaleType="fitCenter"
+            android:layout_marginEnd="@dimen/parent_margin"
+            android:src="@drawable/ic_youtube"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -31,8 +41,6 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         tools:ignore="MissingConstraints">
-
-
 
             <LinearLayout
                 android:id="@+id/fl_archive_list"
@@ -62,6 +70,5 @@
                     app:adUnitId="ca-app-pub-5169531562006723/9791396001" />
 
             </LinearLayout>
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>
