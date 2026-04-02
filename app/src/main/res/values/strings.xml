@@ -5,10 +5,10 @@
 
     <string name="advert">Advertising</string>
     <string name="konkurs">Brothers and sisters, I think the reading is simple, but your lived experience, how prayer works in your life, or how prayer once helped, is extremely interesting and encouraging to others. If you write me your experience by mail, I will be happy to publish it (translation through translate to other languages)</string>
-    <string name="info_text">Hello! I\'m :Woojin - the developer of this app. 😊
-\n\nThe TF PRAYER app is evolving and now has a new name — TRUE LIFE. The True Parents will always remain on the main screen to remind us of the center of our faith and life.
+    <string name="info_text">Hello! I\'m :Woojin - the developer of app "TRUE LIFE — live your faith every day". 😊
+\n\nThe True Parents will always remain on the main screen to remind us of the center of our faith and life.
 \n\nThe goal of the app is to become a daily helper for every Cheon Il Guk owner.
-\n\nNew features have already been added to the app. Let me explain some of the updates. A new coin has been introduced — the 심정 (심정 Coin - Simjeong Coin - SC). You can earn coins by completing tasks. Feel free to explore.
+\n\nNA new coin has been introduced — the 심정 (심정 Coin - Simjeong Coin - SC). You can earn coins by completing tasks. Feel free to explore.
 \n\nIn the future, I plan to add even more useful features.
 \n\nIf you have any ideas or suggestions, please feel free to write to me. Your thoughts are very important, and I will gladly take them into consideration.
     \n\nI work on this app by myself, so not everything moves quickly. If you\'d like to support and inspire me, you can tap the ☕ button below 😉</string>
@@ -43,7 +43,7 @@
     <string name="rate">Rate "TRUE LIFE"</string>
     <string name="later_rate">Remind me later</string>
     <string name="no_rate">No, thanks</string>
-    <string name="to_rate">Take a moment to rate the "TRUE LIFE" app. Get the 심정 Coins award!</string>
+    <string name="to_rate">Take a moment to rate the "TRUE LIFE" app. Get the 5 심정 Coins award!</string>
     <string name="thanks_for_rate">Thank you for your rating! ⭐⭐⭐⭐⭐ Get %s 심정 Coins reward.</string>
 
     // Settings
