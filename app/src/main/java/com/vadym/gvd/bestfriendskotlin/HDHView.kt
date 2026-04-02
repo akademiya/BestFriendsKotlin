@@ -158,10 +158,9 @@ class HDHView : MainActivity() {
             val coinManager = CoinManager(this)
             val rewarded = coinManager.rewardForHDHMonth(previousMonth.toString())
             if (rewarded) {
-                // Опційно: показати Toast або Snackbar
                 Toast.makeText(
                     this,
-                    "🎉 +25 심정 за $markedCount HDH у ${previousMonth.month.getDisplayName(
+                    "🎉 +25 심정 for $markedCount HDH in ${previousMonth.month.getDisplayName(
                         java.time.format.TextStyle.FULL,
                         Locale.getDefault()
                     )}!",
