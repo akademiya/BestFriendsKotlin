@@ -38,6 +38,7 @@ class CardShopAdapter(
 
         with(holder.binding) {
             if (purchased) {
+                root.setOnClickListener(null)
                 cardImage.setImageResource(card.imageRes)
                 cardImage.visibility = View.VISIBLE
                 purchasedBadge.visibility = View.VISIBLE
@@ -49,7 +50,6 @@ class CardShopAdapter(
                 val openFull = View.OnClickListener {
                     showFullscreenDialog(root.context, card.imageRes)
                 }
-//                root.setOnClickListener(openFull)
                 expandIcon.setOnClickListener(openFull)
             } else {
                 cardImage.visibility = View.GONE
@@ -69,7 +69,11 @@ class CardShopAdapter(
                     )
                     .into(cardBlob)
 
-                root.setOnClickListener { onPurchaseClick(card) }
+                root.setOnClickListener {
+                    if (!coinManager.isCardPurchased(card.id)) {
+                        onPurchaseClick(card)
+                    }
+                }
             }
         }
     }

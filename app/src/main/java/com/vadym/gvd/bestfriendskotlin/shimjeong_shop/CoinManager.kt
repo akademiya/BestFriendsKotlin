@@ -5,6 +5,7 @@ import android.content.Context
 class CoinManager(context: Context) {
 
     private val prefs = context.getSharedPreferences("shimjeong_coins", Context.MODE_PRIVATE)
+    private val purchasedCache = mutableSetOf<Int>()
 
     companion object {
         const val COINS_PER_DAY    = 5
@@ -17,6 +18,10 @@ class CoinManager(context: Context) {
         private const val KEY_STREAK_COUNT  = "streak_count"
         private const val KEY_STREAK_DATE   = "streak_last_date"
         private const val KEY_RATED         = "app_rated"
+    }
+
+    init {
+        purchasedCache.addAll(getPurchasedIds())
     }
 
     val balance: Int
@@ -63,8 +68,11 @@ class CoinManager(context: Context) {
     }
 
     fun purchaseCard(cardId: Int): Boolean {
+        if (isCardPurchased(cardId)) return false
         val card = ShopCard.all.find { it.id == cardId } ?: return false
         if (!spendCoins(card.price)) return false
+
+        purchasedCache.add(cardId)
         val purchased = getPurchasedIds().toMutableSet()
         purchased.add(cardId)
         prefs.edit().putStringSet(KEY_PURCHASED, purchased.map { it.toString() }.toSet()).apply()

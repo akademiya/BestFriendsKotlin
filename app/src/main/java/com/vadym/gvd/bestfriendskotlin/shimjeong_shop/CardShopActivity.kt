@@ -57,6 +57,7 @@ class CardShopActivity : MainActivity() {
     }
 
     private fun showPurchaseDialog(card: ShopCard) {
+        if (coinManager.isCardPurchased(card.id)) return
         if (coinManager.balance < card.price) {
             MaterialAlertDialogBuilder(this)
                 .setTitle(getString(R.string.not_enough_coins))
