@@ -39,9 +39,9 @@
 
     // Settings
     <string name="ad_remove_month">Supprimer les pubs\npour 1 mois</string>
-    <string name="ad_cost_month">45 SC</string>
+    <string name="ad_cost_month">90 SC</string>
     <string name="ad_remove_forever">Supprimer les pubs\npour toujours</string>
-    <string name="ad_cost_forever">90 SC</string>
+    <string name="ad_cost_forever">210 SC</string>
     <string name="ad_already_hidden">Les pubs sont déjà désactivées</string>
     <string name="ad_hidden_month">Pubs désactivées pour 30 jours ✓</string>
     <string name="ad_hidden_forever">Pubs désactivées définitivement ✓</string>
@@ -158,8 +158,9 @@
     <string name="hdh_calendar_title">Calendrier HDH</string>
     <string name="prev_month">Mois précédent</string>
     <string name="next_month">Mois suivant</string>
-    <string name="hdh_calendar_description">Dans le calendrier Hoon Dok Hae, vous devez marquer chaque jour où vous avez fait votre Hoon Dok Hae. Vous pouvez ajouter la marque uniquement entre 6h00 et 8h00 du matin. Alors ne tardez pas — venez ici et appuyez pour marquer la journée. Gardez à l’esprit qu’il n’est pas possible de marquer le jour précédent ni le jour suivant.</string>
+    <string name="hdh_calendar_description">Dans le calendrier Hoon Dok Hae, vous devez marquer chaque jour où vous avez fait votre Hoon Dok Hae. Vous pouvez ajouter la marque uniquement entre 6h00 et 8h00 du matin. Alors ne tardez pas — venez ici et appuyez pour marquer la journée. Gardez à l’esprit qu’il n’est pas possible de marquer le jour précédent ni le jour suivant. Gagnez des pièces Simjeong pour chaque jour où vous accomplissez le HDH.</string>
     <string name="open_hdh_app">Ouvrir l’application HDH</string>
+    <string name="coins_per_hdh_day">+%1$d Simjeong Coins 💪</string>
 
     // Update Checker
     <string name="update_available_title">Mise à jour disponible 🎉</string>

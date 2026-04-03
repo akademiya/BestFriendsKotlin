@@ -37,8 +37,8 @@ object AdManager {
     private const val KEY_AD_HIDE_UNTIL = "ad_hide_until"    // Long  — timestamp мс; -1 = назавжди
 
     // ── Вартість підписки (SC) ────────────────────────────────────────────────
-    const val COST_HIDE_MONTH   = 45
-    const val COST_HIDE_FOREVER = 90
+    const val COST_HIDE_MONTH   = 90
+    const val COST_HIDE_FOREVER = 210
 
     // ── Інтервал interstitial при старті ─────────────────────────────────────
     private val START_INTERVAL_MS = TimeUnit.HOURS.toMillis(24)

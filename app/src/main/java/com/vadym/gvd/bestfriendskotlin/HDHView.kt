@@ -2,6 +2,7 @@ package com.vadym.gvd.bestfriendskotlin
 
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.vadym.gvd.bestfriendskotlin.databinding.ViewHdhBinding
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 import java.time.LocalDate
@@ -133,6 +135,19 @@ class HDHView : MainActivity() {
                 if (isToday && isMarkableNow && !isMarked) {
                     setOnClickListener {
                         prefs.edit().putBoolean(dateKey, true).apply()
+
+                        val mediaPlayer = MediaPlayer.create(this@HDHView, R.raw.sj_coin)
+                        mediaPlayer.setOnCompletionListener { it.release() }
+                        mediaPlayer.start()
+
+                        val coinManager = CoinManager(this@HDHView)
+                        coinManager.addCoins(CoinManager.COINS_PER_HDH_DAY)
+                        Snackbar.make(
+                            binding.root,
+                            getString(R.string.coins_per_hdh_day, CoinManager.COINS_PER_HDH_DAY),
+                            Snackbar.LENGTH_LONG
+                        ).show()
+
                         renderCalendar()
                     }
                 }
