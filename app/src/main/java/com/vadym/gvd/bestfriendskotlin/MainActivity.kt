@@ -22,6 +22,7 @@ import com.vadym.gvd.bestfriendskotlin.holy_days.HolyDaysView
 import com.vadym.gvd.bestfriendskotlin.kido.PersonView
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CardShopActivity
 import com.vadym.gvd.bestfriendskotlin.traditions.TraditionsView
+import com.vadym.gvd.bestfriendskotlin.treelife.TreeOfLifeView
 import java.net.URL
 import java.util.Locale
 
@@ -154,6 +155,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_info            to InfoView::class.java,
             R.id.nav_exercise        to ExerciseView::class.java,
             R.id.nav_shop            to CardShopActivity::class.java,
+            R.id.nav_treelife        to TreeOfLifeView::class.java,
             R.id.nav_hdh             to HDHView::class.java
         )
 

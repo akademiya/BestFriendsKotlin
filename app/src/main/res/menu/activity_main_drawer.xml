@@ -84,6 +84,11 @@
             android:icon="@drawable/ic_nav_shop"
             android:title="@string/card_shop_title" />
 
+        <item
+            android:id="@+id/nav_treelife"
+            android:icon="@drawable/ic_tree_life"
+            android:title="@string/card_tree_title" />
+
 <!--        <item-->
 <!--            android:id="@+id/nav_facebook"-->
 <!--            android:icon="@drawable/fb"-->

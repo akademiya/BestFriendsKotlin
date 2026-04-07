@@ -1,19 +1,20 @@
 package com.vadym.gvd.bestfriendskotlin
 
-import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
-import androidx.activity.addCallback
+import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.ads.AdView
 
 class ExplanationView: MainActivity() {
 
+    private val ARTICLE_KEY = "read_Традиції -> Молитва"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_kido_explanation)
         toolbarButtonMenu()
-//        setupBackPress()
 
         val adContainer1: AdView = findViewById(R.id.adView)
         val adContainer2: AdView = findViewById(R.id.adView2)
@@ -28,26 +29,27 @@ class ExplanationView: MainActivity() {
         AdManager.setupBanner(this, adContainer5)
 
 
-//        if (isNetworkAvailable()) {
-//            window.decorView.post {
-//                adContainer1.visibility = View.VISIBLE
-//                adContainer2.visibility = View.VISIBLE
-//                adContainer3.visibility = View.VISIBLE
-//                adContainer4.visibility = View.VISIBLE
-//                adContainer5.visibility = View.VISIBLE
-//                Admob.initializeAdmob(this, adContainer1)
-//                Admob.initializeAdmob(this, adContainer2)
-//                Admob.initializeAdmob(this, adContainer3)
-//                Admob.initializeAdmob(this, adContainer4)
-//                Admob.initializeAdmob(this, adContainer5)
-//            }
-//        } else {
-//            adContainer1.visibility = View.GONE
-//            adContainer2.visibility = View.GONE
-//            adContainer3.visibility = View.GONE
-//            adContainer4.visibility = View.GONE
-//            adContainer5.visibility = View.GONE
-//        }
+        val scoin = findViewById<ImageView>(R.id.sj_coin_in_prayer)
+        val alreadyRead = getSharedPreferences("articles_read", MODE_PRIVATE)
+            .getBoolean(ARTICLE_KEY, false)
+
+        scoin.visibility = if (alreadyRead) View.GONE else View.VISIBLE
+
+        scoin.setOnClickListener {
+            // 1. Звук
+            val mediaPlayer = MediaPlayer.create(this, R.raw.sj_coin)
+            mediaPlayer.setOnCompletionListener { it.release() }
+            mediaPlayer.start()
+
+            // 2. Ховаємо монету
+            scoin.visibility = View.GONE
+
+            // 3. Зберігаємо факт прочитання → ReadArticleTask.isCompleted() поверне true
+            getSharedPreferences("articles_read", MODE_PRIVATE)
+                .edit()
+                .putBoolean(ARTICLE_KEY, true)
+                .apply()
+        }
     }
 
     private fun toolbarButtonMenu() {
@@ -61,18 +63,5 @@ class ExplanationView: MainActivity() {
             onBackPressed()
         }
     }
-
-//    private fun setupBackPress() {
-//        onBackPressedDispatcher.addCallback(this) { navigateBack() }
-//    }
-//
-//    private fun navigateBack() {
-//        val intent = Intent(this, MainActivity::class.java).apply {
-//            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-//            putExtra(EXTRA_OPEN_DRAWER, true)
-//        }
-//        startActivity(intent)
-//        finish()
-//    }
 
 }

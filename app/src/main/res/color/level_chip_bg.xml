@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Вибраний — фіолетовий фон як на скріні -->
+    <item android:state_checked="true"  android:color="#EEEDFE" />
+    <!-- Заблокований -->
+    <item android:state_enabled="false" android:color="#F1F1F1" />
+    <!-- Звичайний -->
+    <item android:color="#F5F5F5" />
+</selector>

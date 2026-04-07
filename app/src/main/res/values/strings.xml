@@ -178,6 +178,19 @@
     <string name="bonus_7days">days in a row!</string>
     <string name="bonus_congratulation">Bonus +%1$d Simjeong Coin for %2$d days in a row!\n\nKeep it up 💪</string>
 
+    // Tree of Life
+    <string name="card_tree_title">Tree of life</string>
+    <string name="status_tree_title">Рівень %1$d — %2$s</string>
+    <string name="task_dialog_title">Завдання для рівня %1$d — %2$s</string>
+    <string name="task_dialog_hight">Ти досяг вершини!</string>
+    <string name="task_dialog_sub">Виконай всі завдання, щоб дерево зросло</string>
+    <string name="next_level">Перейти на рівень %1$d</string>
+    <string name="close_dialog">Закрити</string>
+    <string name="warning_text">Увага: цього місяця лише %1$d ХДХ. \nЗроби ще %2$d, щоб дерево не висохло.</string>
+    <string name="regress_dialog_title">Дерево висохло</string>
+    <string name="regress_dialog_message">Минулого місяця лише %1$d ХДХ (потрібно 20). Твоє дерево опустилось на один рівень.</string>
+    <string name="regress_accept">Зрозумів</string>
+
 
     // HDH Calendar
     <string name="hdh_calendar_title">HDH Calendar</string>

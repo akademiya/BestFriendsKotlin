@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -171,6 +172,16 @@
                 android:layout_marginBottom="@dimen/parent_margin"
                 android:text="@string/link_from2"
                 android:textStyle="italic" />
+
+            <ImageView
+                android:id="@+id/sj_coin_in_prayer"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="@dimen/parent_margin"
+                android:src="@drawable/ic_shimjeong_coin"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
             <TextView
                 style="@style/TextStyle_Body2_Primary_Dark"

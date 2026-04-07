@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryLight">#536AD5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4040</color>
     <color name="white">#FFFFFF</color>
@@ -52,6 +53,13 @@
     <color name="badge_background">#E6F1FB</color>
     <color name="badge_text">#501187</color>
     <color name="divider_line">#E0E0E0</color>
+
+    // tree life
+    <color name="tree_status_color">#621AA1</color>
+    <color name="badge_green_color">#E1F5EE</color>
+    <color name="badge_amber_color">#FAEEDA</color>
+    <color name="ic_check_empty_color">#5D5D5D</color>
+    <color name="ic_check_done_color">#4CAF50</color>
 
 
     <color name="blob_15">  #9C27B0</color>  <!-- фіолетовий -->

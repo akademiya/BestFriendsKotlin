@@ -133,12 +133,36 @@
         <item name="android:textColor">@color/dark_gray</item>
     </style>
 
+    <style name="StatusTreeLifeText" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_status_tree_life</item>
+        <item name="android:textColor">@color/tree_status_color</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif-condensed-medium</item>
+    </style>
+
     <style name="Kajon_mense" parent="BaseText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">@dimen/text_size_mense</item>
         <item name="android:textColor">@color/simple_text</item>
         <item name="android:layout_marginBottom">25dp</item>
         <item name="android:lineSpacingExtra">10dp</item>
+    </style>
+
+
+
+    <style name="LevelChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textSize">13sp</item>
+        <item name="chipCornerRadius">20dp</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="chipBackgroundColor">@color/level_chip_bg</item>
+        <item name="android:textColor">@color/level_chip_text</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/level_chip_stroke</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="rippleColor">@color/colorPrimaryLight</item>
     </style>
 
     <style name="GDPR_Consent_Dialog" parent="AppTheme">

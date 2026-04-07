@@ -181,6 +181,12 @@
         <activity android:name=".shimjeong_shop.CardShopActivity"
             android:screenOrientation="portrait"
             android:exported="false"/>
+        <activity android:name=".treelife.TreeOfLifeView"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+        <activity android:name=".treelife.TreeProfileView"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".HDHView"
             android:screenOrientation="portrait"
             android:exported="false"/>
