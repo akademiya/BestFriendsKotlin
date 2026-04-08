@@ -190,6 +190,35 @@
     <string name="regress_dialog_title">Дерево висохло</string>
     <string name="regress_dialog_message">Минулого місяця лише %1$d ХДХ (потрібно 20). Твоє дерево опустилось на один рівень.</string>
     <string name="regress_accept">Зрозумів</string>
+    <string name="profile">Профіль</string>
+    <string name="lider_sj">Лідер 심정</string>
+    <string name="chip_level_individual">Індивідуальний</string>
+    <string name="chip_level_family">Сім\'я</string>
+    <string name="chip_level_generational">Покоління</string>
+    <string name="individual_1">Шукач</string>
+    <string name="individual_2">Початківець</string>
+    <string name="individual_3">Учень</string>
+    <string name="individual_4">Вірний</string>
+    <string name="individual_5">Посвячений</string>
+    <string name="individual_6">Служитель</string>
+    <string name="individual_7">Лідер 심정</string>
+    <string name="family_1">Іскра життя</string>
+    <string name="family_2">Розквіт любові</string>
+    <string name="family_3">Друге покоління</string>
+    <string name="family_4">Міцний фундамент</string>
+    <string name="family_5">Щедрість</string>
+    <string name="family_6">Повнота життя</string>
+    <string name="family_7">Батьківський 심정</string>
+    <string name="generational_1">Початок роду</string>
+    <string name="generational_2">Закладення традицій</string>
+    <string name="generational_3">Сильний рід</string>
+    <string name="generational_4">Розквіт поколінь</string>
+    <string name="generational_5">Спадщина</string>
+    <string name="generational_6">Легенда роду</string>
+    <string name="generational_7">Божий 심정</string>
+    <string name="status_current">Поточний</string>
+
+
 
 
     // HDH Calendar

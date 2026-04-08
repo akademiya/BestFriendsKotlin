@@ -4,18 +4,25 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.vadym.gvd.bestfriendskotlin.treelife.TreeRow
 
 // ─── Data class ──────────────────────────────────────────────────────────────
 
 data class TreeRow(
     val id: Int = 1,
-    val stage: Int = 1,           // 1–7
-    val level: Int = 1,           // 1=індивідуальний, 2=батьки, 3=дідусь
+    val level: Int = 1,                  // розблокований рівень: 1/2/3
+    val stageIndividual: Int = 1,
+    val stageFamily: Int = 1,
+    val stageGenerational: Int = 1,
     val coins: Int = 0,
     val dedicationConfirmed: Boolean = false,
-    val lastRegressionCheck: String = "" // "yyyy-MM"
-)
+    val lastRegressionCheck: String = ""
+) {
+    fun stageForLevel(treeLevel: TreeLevel) = when (treeLevel) {
+        TreeLevel.INDIVIDUAL   -> stageIndividual
+        TreeLevel.FAMILY       -> stageFamily
+        TreeLevel.GENERATIONAL -> stageGenerational
+    }
+}
 
 // ─── DB ──────────────────────────────────────────────────────────────────────
 
@@ -24,35 +31,39 @@ class TreeOfLifeDB private constructor(ctx: Context)
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("""
-            CREATE TABLE $TABLE (
-                $COL_ID                 INTEGER PRIMARY KEY,
-                $COL_STAGE              INTEGER NOT NULL DEFAULT 1,
-                $COL_LEVEL              INTEGER NOT NULL DEFAULT 1,
-                $COL_COINS              INTEGER NOT NULL DEFAULT 0,
-                $COL_DEDICATION         INTEGER NOT NULL DEFAULT 0,
-                $COL_LAST_REG_CHECK     TEXT    NOT NULL DEFAULT ''
+            CREATE TABLE $T (
+                $ID                 INTEGER PRIMARY KEY,
+                $LEVEL              INTEGER NOT NULL DEFAULT 1,
+                $STAGE_IND          INTEGER NOT NULL DEFAULT 1,
+                $STAGE_FAM          INTEGER NOT NULL DEFAULT 1,
+                $STAGE_GEN          INTEGER NOT NULL DEFAULT 1,
+                $COINS              INTEGER NOT NULL DEFAULT 0,
+                $DEDICATION         INTEGER NOT NULL DEFAULT 0,
+                $LAST_REG           TEXT    NOT NULL DEFAULT ''
             )
         """.trimIndent())
     }
 
     override fun onUpgrade(db: SQLiteDatabase, old: Int, new: Int) {
-        db.execSQL("DROP TABLE IF EXISTS $TABLE")
+        db.execSQL("DROP TABLE IF EXISTS $T")
         onCreate(db)
     }
 
     // ─── Read ─────────────────────────────────────────────────────────────
 
     fun getTree(): TreeRow? {
-        val cursor = readableDatabase.query(TABLE, null, "$COL_ID=1", null, null, null, null)
-        return cursor.use {
+        val c = readableDatabase.query(T, null, "$ID=1", null, null, null, null)
+        return c.use {
             if (!it.moveToFirst()) return null
             TreeRow(
-                id                  = it.getInt(it.getColumnIndexOrThrow(COL_ID)),
-                stage               = it.getInt(it.getColumnIndexOrThrow(COL_STAGE)),
-                level               = it.getInt(it.getColumnIndexOrThrow(COL_LEVEL)),
-                coins               = it.getInt(it.getColumnIndexOrThrow(COL_COINS)),
-                dedicationConfirmed = it.getInt(it.getColumnIndexOrThrow(COL_DEDICATION)) == 1,
-                lastRegressionCheck = it.getString(it.getColumnIndexOrThrow(COL_LAST_REG_CHECK)) ?: ""
+                id                  = it.getInt(it.getColumnIndexOrThrow(ID)),
+                level               = it.getInt(it.getColumnIndexOrThrow(LEVEL)),
+                stageIndividual     = it.getInt(it.getColumnIndexOrThrow(STAGE_IND)),
+                stageFamily         = it.getInt(it.getColumnIndexOrThrow(STAGE_FAM)),
+                stageGenerational   = it.getInt(it.getColumnIndexOrThrow(STAGE_GEN)),
+                coins               = it.getInt(it.getColumnIndexOrThrow(COINS)),
+                dedicationConfirmed = it.getInt(it.getColumnIndexOrThrow(DEDICATION)) == 1,
+                lastRegressionCheck = it.getString(it.getColumnIndexOrThrow(LAST_REG)) ?: ""
             )
         }
     }
@@ -61,56 +72,53 @@ class TreeOfLifeDB private constructor(ctx: Context)
 
     fun insertDefaultTree() {
         writableDatabase.insertWithOnConflict(
-            TABLE, null,
+            T, null,
             ContentValues().apply {
-                put(COL_ID, 1)
-                put(COL_STAGE, 1)
-                put(COL_LEVEL, 1)
-                put(COL_COINS, 0)
-                put(COL_DEDICATION, 0)
-                put(COL_LAST_REG_CHECK, "")
+                put(ID, 1); put(LEVEL, 1)
+                put(STAGE_IND, 1); put(STAGE_FAM, 1); put(STAGE_GEN, 1)
+                put(COINS, 0); put(DEDICATION, 0); put(LAST_REG, "")
             },
             SQLiteDatabase.CONFLICT_IGNORE
         )
     }
 
-    fun updateStage(newStage: Int) {
-        writableDatabase.update(TABLE,
-            ContentValues().apply { put(COL_STAGE, newStage.coerceIn(1, 7)) },
-            "$COL_ID=1", null)
+    fun updateStageForLevel(treeLevel: TreeLevel, newStage: Int) {
+        val col = when (treeLevel) {
+            TreeLevel.INDIVIDUAL   -> STAGE_IND
+            TreeLevel.FAMILY       -> STAGE_FAM
+            TreeLevel.GENERATIONAL -> STAGE_GEN
+        }
+        writableDatabase.update(T,
+            ContentValues().apply { put(col, newStage.coerceIn(1, 7)) },
+            "$ID=1", null)
     }
 
     fun updateCoins(newCoins: Int) {
-        writableDatabase.update(TABLE,
-            ContentValues().apply { put(COL_COINS, newCoins) },
-            "$COL_ID=1", null)
+        writableDatabase.update(T,
+            ContentValues().apply { put(COINS, newCoins) },
+            "$ID=1", null)
     }
 
-    /** Викликається адміном або після QR-скану посвячення */
     fun confirmDedication() {
-        writableDatabase.update(TABLE,
-            ContentValues().apply { put(COL_DEDICATION, 1) },
-            "$COL_ID=1", null)
-    }
-
-    fun updateLastRegressionCheck(month: String) {
-        writableDatabase.update(TABLE,
-            ContentValues().apply { put(COL_LAST_REG_CHECK, month) },
-            "$COL_ID=1", null)
+        writableDatabase.update(T,
+            ContentValues().apply { put(DEDICATION, 1) },
+            "$ID=1", null)
     }
 
     // ─── Singleton ────────────────────────────────────────────────────────
 
     companion object {
         private const val DB_NAME    = "tree_of_life.db"
-        private const val DB_VERSION = 1
-        private const val TABLE      = "tree"
-        private const val COL_ID               = "id"
-        private const val COL_STAGE            = "stage"
-        private const val COL_LEVEL            = "level"
-        private const val COL_COINS            = "coins"
-        private const val COL_DEDICATION       = "dedication_confirmed"
-        private const val COL_LAST_REG_CHECK   = "last_regression_check"
+        private const val DB_VERSION = 2          // підняли версію!
+        private const val T          = "tree"
+        private const val ID         = "id"
+        private const val LEVEL      = "level"
+        private const val STAGE_IND  = "stage_individual"
+        private const val STAGE_FAM  = "stage_family"
+        private const val STAGE_GEN  = "stage_generational"
+        private const val COINS      = "coins"
+        private const val DEDICATION = "dedication_confirmed"
+        private const val LAST_REG   = "last_regression_check"
 
         @Volatile private var instance: TreeOfLifeDB? = null
         fun getInstance(ctx: Context) =

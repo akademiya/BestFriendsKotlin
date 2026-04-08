@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary">
+
+                <TextView
+                    style="@style/Toolbar.TitleText"
+                    android:text="@string/profile" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/parent_margin"
+            android:paddingBottom="@dimen/parent_margin">
+
+            <FrameLayout
+                android:layout_width="@dimen/profile_img_wh"
+                android:layout_height="@dimen/profile_img_wh"
+                android:layout_marginBottom="12dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/profile_img_wh"
+                    android:layout_height="@dimen/profile_img_wh"
+                    app:cardCornerRadius="@dimen/profile_corner_radius">
+
+                    <ImageView
+                        android:id="@+id/profile_photo"
+                        android:layout_width="@dimen/profile_img_wh"
+                        android:layout_height="@dimen/profile_img_wh"
+                        android:background="@drawable/bg_profile_gradient"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_person" />
+
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:id="@+id/edit_photo_badge"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="bottom|end"
+                    android:alpha="0.5"
+                    android:background="@drawable/ic_select_photo"
+                    android:elevation="2dp" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/profile_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    tools:text="User" />
+
+                <ImageView
+                    android:id="@+id/edit_nickname_btn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:alpha="0.5"
+                    android:src="@drawable/ic_edit" />
+
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.5"
+                    android:text="5 SC"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/profile_warn_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_warn_banner"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_warning" />
+
+            <TextView
+                android:id="@+id/profile_warn_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:lineSpacingMultiplier="1.4"
+                android:textColor="@color/warn_text_color"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <GridLayout
+            android:id="@+id/stats_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            android:layout_marginBottom="@dimen/parent_margin"
+            android:columnCount="2"
+            android:useDefaultMargins="true" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/parent_margin"
+            android:paddingBottom="8dp"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/profile_level_chips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="8dp"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/profile_chip_1"
+                    style="@style/LevelChip"
+                    android:checked="true"
+                    android:text="@string/chip_level_individual" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/profile_chip_2"
+                    style="@style/LevelChip"
+                    android:enabled="false"
+                    android:text="@string/chip_level_family" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/profile_chip_3"
+                    style="@style/LevelChip"
+                    android:enabled="false"
+                    android:text="@string/chip_level_generational" />
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <!-- Individual achievement card (видима тільки якщо stage=7) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/individual_achievement_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            android:layout_marginBottom="@dimen/parent_margin"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/achievement_card_bg_color"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="0dp"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/parent_margin">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/lider_sj"
+                    android:textColor="@color/achievement_text_title_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/achievement_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/achievement_text_color"
+                        android:textSize="11sp"
+                        tools:text="Досягнуто: 01.04.2025" />
+
+                    <TextView
+                        android:id="@+id/achievement_days"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/achievement_text_color"
+                        android:textSize="11sp"
+                        tools:text="За 87 днів" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Список статусів (програмно заповнюється) -->
+        <LinearLayout
+            android:id="@+id/profile_status_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/parent_margin"
+            android:paddingBottom="32dp" />
+
+    </LinearLayout>
+</ScrollView>

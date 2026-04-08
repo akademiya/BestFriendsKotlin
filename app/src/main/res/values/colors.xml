@@ -18,6 +18,7 @@
     <color name="divider_color">#1E000000</color>
     <color name="text_take_photo_button">#80000000</color> <!--80% of black-->
     <color name="bg_empty">#f5f5f5</color>
+    <color name="bg_lock">#B4B4B4</color>
 
     <color name="button_chronometer">#621AA1</color>
     <color name="button_chronometer_pressed">#501187</color>
@@ -60,6 +61,21 @@
     <color name="badge_amber_color">#FAEEDA</color>
     <color name="ic_check_empty_color">#5D5D5D</color>
     <color name="ic_check_done_color">#4CAF50</color>
+    <color name="stat_green">#4CAF50</color>
+    <color name="stat_blue">#2196F3</color>
+    <color name="stat_turquoise">#00BCD4</color>
+    <color name="stat_purple">#9C27B0</color>
+    <color name="stat_orange">#FF9800</color>
+    <color name="stat_red">#E91E63</color>
+    <color name="warn_color">#FAEEDA</color>
+    <color name="warn_border_color">#FAC775</color>
+    <color name="warn_text_color">#633806</color>
+    <color name="achievement_card_bg_color">#EEEDFE</color>
+    <color name="achievement_text_title_color">#3C3489</color>
+    <color name="achievement_text_color">#534AB7</color>
+    <color name="profile_status_name">#085041</color>
+    <color name="profile_status_level">#0F6E56</color>
+
 
 
     <color name="blob_15">  #9C27B0</color>  <!-- фіолетовий -->

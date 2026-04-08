@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="@dimen/parent_margin"
+    android:layout_marginBottom="6dp"
+    android:background="@drawable/bg_status_locked">
+
+    <ImageView
+        android:id="@+id/lock_icon"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/ic_lock"
+        android:background="@drawable/circle_background_lock"
+        android:layout_marginEnd="12dp"
+        android:alpha="0.45" />
+
+    <TextView
+        android:id="@+id/locked_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="14sp"
+        android:textColor="?android:attr/textColorSecondary"
+        tools:text="Вірний" />
+
+    <TextView
+        android:id="@+id/locked_req"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:textColor="?android:attr/textColorTertiary"
+        tools:text="Стадія 4 · рівень 1" />
+
+</LinearLayout>

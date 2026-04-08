@@ -24,6 +24,8 @@
     <dimen name="arrow_size">32dp</dimen>
     <dimen name="height_advert">80dp</dimen>
     <dimen name="margin_from_advert">79dp</dimen>
+    <dimen name="profile_img_wh">88dp</dimen>
+
 
     // text size
     <dimen name="text_size_condition_item">10sp</dimen>
@@ -49,4 +51,9 @@
     // fab
     <dimen name="first_fab">75dp</dimen>
     <dimen name="second_fab">130dp</dimen>
+
+    // radius
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="profile_corner_radius">50dp</dimen>
+
 </resources>

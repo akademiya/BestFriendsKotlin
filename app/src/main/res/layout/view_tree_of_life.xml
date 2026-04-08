@@ -31,13 +31,6 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/coin_balance"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="@dimen/parent_margin"
-                    android:src="@drawable/ic_shimjeong_coin" />
-
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btn_profile"
                     android:layout_width="40dp"
@@ -45,14 +38,14 @@
                     android:layout_margin="4dp"
                     android:clickable="true"
                     android:focusable="true"
-                    app:cardCornerRadius="10dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="2dp"
                     app:strokeWidth="0dp">
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/bg_profile_gradient" />
+                        android:background="@color/white" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -87,19 +80,19 @@
                 android:id="@+id/chip_level_1"
                 style="@style/LevelChip"
                 android:checked="true"
-                android:text="Individual" />
+                android:text="@string/chip_level_individual" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_level_2"
                 style="@style/LevelChip"
                 android:enabled="false"
-                android:text="Family" />
+                android:text="@string/chip_level_family" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_level_3"
                 style="@style/LevelChip"
                 android:enabled="false"
-                android:text="Generational" />
+                android:text="@string/chip_level_generational" />
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
@@ -115,11 +108,10 @@
         android:id="@+id/tree_warn_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="@dimen/parent_margin"
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_warn_banner"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
         android:padding="10dp"
         android:visibility="gone"
         tools:visibility="visible">
@@ -136,7 +128,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:lineSpacingMultiplier="1.4"
-            android:textColor="@color/simple_text"
+            android:textColor="@color/warn_text_color"
             android:textSize="12sp"
             tools:text="За місяць зроблено 14 хдх. Потрібно мінімум 20" />
 
