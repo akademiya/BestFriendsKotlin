@@ -67,6 +67,8 @@
     <color name="stat_purple">#9C27B0</color>
     <color name="stat_orange">#FF9800</color>
     <color name="stat_red">#E91E63</color>
+    <color name="stat_pink">#F9B2FF</color>
+    <color name="stat_salad">#CCFFB2</color>
     <color name="warn_color">#FAEEDA</color>
     <color name="warn_border_color">#FAC775</color>
     <color name="warn_text_color">#633806</color>

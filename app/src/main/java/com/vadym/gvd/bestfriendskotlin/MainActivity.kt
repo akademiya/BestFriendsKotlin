@@ -24,6 +24,7 @@ import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CardShopActivity
 import com.vadym.gvd.bestfriendskotlin.traditions.TraditionsView
 import com.vadym.gvd.bestfriendskotlin.treelife.TreeOfLifeView
 import java.net.URL
+import java.time.LocalDate
 import java.util.Locale
 
 open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -71,6 +72,12 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
             }
             notificationIcon.visibility = View.GONE
             startActivity(Intent(this, InfoView::class.java))
+        }
+
+        val profilePrefs = getSharedPreferences("tree_profile", MODE_PRIVATE)
+
+        if (!profilePrefs.contains("join_date")) {
+            profilePrefs.edit().putString("join_date", LocalDate.now().toString()).apply()
         }
 
         checkInfoMessage()

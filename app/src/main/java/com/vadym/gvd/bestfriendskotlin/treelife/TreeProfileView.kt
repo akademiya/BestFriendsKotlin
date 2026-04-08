@@ -42,7 +42,6 @@ class TreeProfileView : MainActivity() {
         if (result.resultCode == Activity.RESULT_OK) {
             val uri: Uri? = result.data?.data
             uri?.let {
-                // Беремо постійний дозвіл щоб URI був доступний після перезапуску
                 try {
                     contentResolver.takePersistableUriPermission(
                         it, Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -87,39 +86,29 @@ class TreeProfileView : MainActivity() {
         val prefs = getSharedPreferences(PREFS_PROFILE, MODE_PRIVATE)
         val tree  = db.getTree() ?: return
 
-        // Фото
         val savedUri = prefs.getString("photo_uri", null)
         if (savedUri != null) loadPhoto(Uri.parse(savedUri))
         editPhotoBadge.setOnClickListener { openGallery() }
         profilePhoto.setOnClickListener   { openGallery() }
 
-        // Нікнейм
         val nickname = prefs.getString("nickname", "User") ?: "User"
         nicknameText.text = nickname
         editNicknameBtn.setOnClickListener { showEditNicknameDialog() }
 
-        // SC баланс поруч з нікнеймом
-//        findViewById<TextView>(R.id.profile_sc_balance).text = "${coinManager.balance} SC"
 
-        // HDH warning
         val hdhCount = hdhCountThisMonth()
         if (hdhCount < 20) {
             val daysLeft  = daysLeftInMonth()
             val remaining = 20 - hdhCount
             warnBanner.visibility = View.VISIBLE
-            warnText.text = "Увага: цього місяця лише $hdhCount ХДХ. До кінця місяця $daysLeft днів. Зроби ще $remaining, щоб дерево не висохло."
+            warnText.text = getString(R.string.warning_text_profile, hdhCount, daysLeft, remaining)
         } else {
             warnBanner.visibility = View.GONE
         }
 
-        // Stat cards
         renderStatCards(tree, hdhCount)
-
-        // Level chips + статуси
         setupLevelChips(tree)
         renderStatusList(tree, TreeLevel.INDIVIDUAL)
-
-        // Якщо Individual завершено → показати досягнення
         renderIndividualAchievement(tree)
     }
 
@@ -130,18 +119,23 @@ class TreeProfileView : MainActivity() {
         val joinDate  = prefs.getString("join_date", LocalDate.now().toString()) ?: LocalDate.now().toString()
         val daysIn    = LocalDate.parse(joinDate).until(LocalDate.now()).days.coerceAtLeast(0)
 
-        val cardsOpened = getSharedPreferences("cards_opened", MODE_PRIVATE)
-            .all.values.filterIsInstance<Int>().sum()
+        val cardsOpened = getSharedPreferences("shimjeong_coins", MODE_PRIVATE)
+            .getStringSet("purchased_cards", emptySet())?.size ?: 0
+
+        val phrasesOpened = getSharedPreferences("PhraseForDay", MODE_PRIVATE)
+            .getInt("total_phrases_opened", 0)
 
         val dedicationDone = tree.dedicationConfirmed
 
         val cards = listOf(
-            StatCard(hdhCount.toString(),       "ХДХ цього місяця", R.color.stat_green),
-            StatCard(coinManager.balance.toString(), "Монети",       R.color.stat_blue),
-            StatCard("${tree.stageIndividual} / 7", "Стадія (рівень 1)", R.color.stat_turquoise),
-            StatCard("$daysIn",                 "Днів у системі",   R.color.stat_purple),
-            StatCard(cardsOpened.toString(),    "Всього відкритих фраз", R.color.stat_orange),
-            StatCard(if (dedicationDone) "✓" else "—", "Умова посвячення", R.color.stat_red)
+            StatCard(hdhCount.toString(), getString(R.string.stat_card_hdh), R.drawable.bg_stat_card),
+            StatCard(coinManager.balance.toString(), getString(R.string.stat_card_sc), R.drawable.bg_stat_card_blue),
+            StatCard("${tree.stageIndividual} / 7", "Стадія (рівень 1)", R.drawable.bg_stat_card_turquoise),
+            StatCard("$daysIn", getString(R.string.stat_card_days), R.drawable.bg_stat_card_purple),
+            StatCard(cardsOpened.toString(), getString(R.string.stat_card_cards), R.drawable.bg_stat_card_orange),
+            StatCard(if (dedicationDone) "✓" else "—", getString(R.string.condition_title), R.drawable.bg_stat_card_red),
+            StatCard(phrasesOpened.toString(), getString(R.string.stat_card_phrases), R.drawable.bg_stat_card_pink),
+            StatCard("0 / 20", getString(R.string.stat_card_easter_egg), R.drawable.bg_stat_card_salad)
         )
 
         val grid = findViewById<GridLayout>(R.id.stats_grid)
@@ -183,7 +177,7 @@ class TreeProfileView : MainActivity() {
         // Поточний статус — виділений
         val currentView = layoutInflater.inflate(R.layout.item_status_current, statusList, false)
         currentView.findViewById<TextView>(R.id.status_name).text  = names[stage - 1]
-        currentView.findViewById<TextView>(R.id.status_level).text = "${level.displayName} · Стадія $stage"
+        currentView.findViewById<TextView>(R.id.status_level).text = getString(R.string.status_level_text, level.displayName, stage)
         statusList.addView(currentView)
 
         // Всі стадії
@@ -194,7 +188,7 @@ class TreeProfileView : MainActivity() {
             val itemView = layoutInflater.inflate(R.layout.item_status_locked, statusList, false)
             itemView.findViewById<TextView>(R.id.locked_name).text = name
             itemView.findViewById<TextView>(R.id.locked_req).text  =
-                if (stageNum < stage) "Пройдено" else "Стадія $stageNum · ${level.displayName}"
+                if (stageNum < stage) getString(R.string.status_fulfill) else getString(R.string.current_status_list, stageNum, level.displayName)
             val lockIcon = itemView.findViewById<ImageView>(R.id.lock_icon)
             lockIcon.setImageResource(
                 if (stageNum < stage) R.drawable.ic_check_done else R.drawable.ic_lock

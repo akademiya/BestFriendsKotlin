@@ -218,6 +218,18 @@
     <string name="generational_7">Божий 심정</string>
     <string name="status_current">Поточний</string>
 
+    // Profile
+    <string name="stat_card_hdh">ХДХ цього місяця</string>
+    <string name="stat_card_sc">심정 коїнів</string>
+    <string name="stat_card_days">Днів у системі</string>
+    <string name="stat_card_cards">Всього відкритих карток ІБ</string>
+    <string name="stat_card_phrases">Всього прочитаних фраз</string>
+    <string name="stat_card_easter_egg">Пасхалка - знайдено SC</string>
+    <string name="status_fulfill">Пройдено</string>
+    <string name="current_status_list">Стадія %1$d · %2$s</string>
+    <string name="status_level_text">%1$s · Стадія %2$d</string>
+    <string name="warning_text_profile">Увага: цього місяця лише %1$d ХДХ. До кінця місяця %2$d днів. Зроби ще %3$d, щоб дерево не висохло.</string>
+
 
 
 

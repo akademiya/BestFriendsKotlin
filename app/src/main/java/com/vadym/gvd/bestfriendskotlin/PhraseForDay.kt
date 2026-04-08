@@ -136,9 +136,12 @@ class PhraseForDay : MainActivity() {
         phraseTextView.visibility = View.VISIBLE
         phraseTextView.text       = if (resId != 0) getString(resId) else phraseKey
 
+        val total = getPrefs().getInt("total_phrases_opened", 0)
+
         getPrefs().edit()
             .putString(KEY_PHRASE_TEXT, phraseKey)
             .putBoolean(KEY_SCROLL_CLOSED, true)
+            .putInt("total_phrases_opened", total + 1)
             .apply()
     }
 
