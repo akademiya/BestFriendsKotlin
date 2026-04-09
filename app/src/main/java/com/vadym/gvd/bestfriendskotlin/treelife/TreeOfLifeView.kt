@@ -26,7 +26,6 @@ class TreeOfLifeView : MainActivity() {
     private lateinit var db: TreeOfLifeDB
     private lateinit var treeImage: ImageView
     private lateinit var stageLabel: TextView
-//    private lateinit var coinBalanceIv: ImageView
     private lateinit var coinManager: CoinManager
     private lateinit var btnProfile: MaterialCardView
     private lateinit var warnBanner: View
@@ -70,7 +69,6 @@ class TreeOfLifeView : MainActivity() {
         treeImage     = findViewById(R.id.tree_image)
         stageLabel    = findViewById(R.id.tree_stage_label)
         stageDots     = findViewById(R.id.tree_stage_dots)
-//        coinBalanceIv = findViewById(R.id.coin_balance)
         btnProfile    = findViewById(R.id.btn_profile)
         warnBanner    = findViewById(R.id.tree_warn_banner)
         warnText      = findViewById(R.id.tree_warn_text)
@@ -108,7 +106,6 @@ class TreeOfLifeView : MainActivity() {
         treeImage.setImageResource(treeDrawable(stage))
         stageLabel.text = getString(R.string.status_tree_title, stage, stageName)
 
-//        coinBalanceIv.setOnClickListener { showBalanceDialog(coinManager.balance) }
     }
 
     private fun treeDrawable(stage: Int) = when (stage) {
@@ -121,24 +118,13 @@ class TreeOfLifeView : MainActivity() {
         else -> R.drawable.tree_stage_7
     }
 
-    // ─── Balance dialog ───────────────────────────────────────────────────────
-
-//    private fun showBalanceDialog(balance: Int) {
-//        val dialogView = layoutInflater.inflate(R.layout.dialog_balance, null)
-//        dialogView.findViewById<TextView>(R.id.balance_text).text = "$balance 심정 Coins"
-//        MaterialAlertDialogBuilder(this)
-//            .setTitle(getString(R.string.coins_balance_title))
-//            .setView(dialogView)
-//            .setPositiveButton(android.R.string.ok, null)
-//            .show()
-//    }
 
     // ─── Tasks dialog ─────────────────────────────────────────────────────────
 
     private fun showTasksDialog() {
         val tree  = db.getTree() ?: return
         val stage = tree.stageForLevel(activeLevel).coerceIn(1, 7)
-        val tasks = TreeTasksConfig.tasksFor(activeLevel, stage)
+        val tasks = TreeTasksConfig.tasksFor(activeLevel, stage, this)
         val stageNames = TreeStageNames.forLevel(activeLevel)
 
         val view  = layoutInflater.inflate(R.layout.dialog_tree_tasks, null)

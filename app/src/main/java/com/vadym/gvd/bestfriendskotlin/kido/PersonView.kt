@@ -2,6 +2,7 @@ package com.vadym.gvd.bestfriendskotlin.kido
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -235,12 +236,19 @@ class PersonView : MainActivity(), PersonAdapterListener {
 
 
     private fun chronometer() {
+        // Прапори щоб не нараховувати сесію двічі за одне включення
+        var session3Awarded  = false
+        var session7Awarded  = false
+        var session12Awarded = false
         val mp = MediaPlayer.create(this, R.raw.ton)
         chronometer.text = DateUtils.formatElapsedTime(0)
 
         start.setOnClickListener {
             Chronometer.base = SystemClock.elapsedRealtime()
             Chronometer.start()
+            session3Awarded  = false
+            session7Awarded  = false
+            session12Awarded = false
         }
 
         Chronometer.setOnTick {
@@ -248,8 +256,22 @@ class PersonView : MainActivity(), PersonAdapterListener {
             val elapsedMillis = now - Chronometer.base
 
             chronometer.text = DateUtils.formatElapsedTime(elapsedMillis / 1000)
-            if (elapsedMillis < nextBeep)
-                return@setOnTick
+            if (elapsedMillis < nextBeep) return@setOnTick
+
+            // ── Зарахування сесій молитви ─────────────────────────────────────
+            if (!session3Awarded && elapsedMillis >= 3 * 60 * 1000L) {
+                recordPrayerSession(minutesPerSession = 3)
+                session3Awarded = true
+            }
+            if (!session7Awarded && elapsedMillis >= 7 * 60 * 1000L) {
+                recordPrayerSession(minutesPerSession = 7)
+                session7Awarded = true
+            }
+            if (!session12Awarded && elapsedMillis >= 12 * 60 * 1000L) {
+                recordPrayerSession(minutesPerSession = 12)
+                session12Awarded = true
+            }
+            // ─────────────────────────────────────────────────────────────────
 
             when {
                 elapsedMillis >= 2400000 -> {
@@ -284,6 +306,23 @@ class PersonView : MainActivity(), PersonAdapterListener {
             chronometer.text = DateUtils.formatElapsedTime(0)
             mp.stop()
         }
+    }
+
+    private fun recordPrayerSession(minutesPerSession: Int) {
+        val prefs   = getSharedPreferences("prayer_sessions", Context.MODE_PRIVATE)
+        val today   = java.time.LocalDate.now().toString()              // "yyyy-MM-dd"
+        val dayKey  = "session_${minutesPerSession}min_date"            // дата останньої сесії
+        val lastDay = prefs.getString(dayKey, null)
+
+        if (lastDay == today) return                                    // вже зараховано сьогодні
+
+        val countKey = "sessions_${minutesPerSession}min"
+        val current  = prefs.getInt(countKey, 0)
+
+        prefs.edit()
+            .putInt(countKey, current + 1)
+            .putString(dayKey, today)
+            .apply()
     }
 
     private fun setupMusicFab() {

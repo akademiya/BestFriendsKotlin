@@ -180,11 +180,11 @@
 
     // Tree of Life
     <string name="card_tree_title">Tree of life</string>
-    <string name="status_tree_title">Рівень %1$d — %2$s</string>
-    <string name="task_dialog_title">Завдання для рівня %1$d — %2$s</string>
+    <string name="status_tree_title">Статус %1$d — %2$s</string>
+    <string name="task_dialog_title">Наступний статус %1$d — %2$s</string>
     <string name="task_dialog_hight">Ти досяг вершини!</string>
     <string name="task_dialog_sub">Виконай всі завдання, щоб дерево зросло</string>
-    <string name="next_level">Перейти на рівень %1$d</string>
+    <string name="next_level">Перейти на статус %1$d</string>
     <string name="close_dialog">Закрити</string>
     <string name="warning_text">Увага: цього місяця лише %1$d ХДХ. \nЗроби ще %2$d, щоб дерево не висохло.</string>
     <string name="regress_dialog_title">Дерево висохло</string>
@@ -217,6 +217,12 @@
     <string name="generational_6">Легенда роду</string>
     <string name="generational_7">Божий 심정</string>
     <string name="status_current">Поточний</string>
+    <string name="task_read_article">Прочитати «%1$s»</string>
+    <string name="task_quiz">Вікторина «%1$s»</string>
+    <string name="task_open_card">Відкрити %1$d картки × %1$d SC</string>
+    <string name="task_condition">Виконати умову посвячення</string>
+    <string name="task_completed">Вже прочитали? Тапай!</string>
+    <string name="task_already_completed">✓ Прочитано</string>
 
     // Profile
     <string name="stat_card_hdh">ХДХ цього місяця</string>
@@ -224,11 +230,20 @@
     <string name="stat_card_days">Днів у системі</string>
     <string name="stat_card_cards">Всього відкритих карток ІБ</string>
     <string name="stat_card_phrases">Всього прочитаних фраз</string>
+    <string name="stat_card_conditions">Виконано посвячень</string>
     <string name="stat_card_easter_egg">Пасхалка - знайдено SC</string>
     <string name="status_fulfill">Пройдено</string>
     <string name="current_status_list">Стадія %1$d · %2$s</string>
     <string name="status_level_text">%1$s · Стадія %2$d</string>
     <string name="warning_text_profile">Увага: цього місяця лише %1$d ХДХ. До кінця місяця %2$d днів. Зроби ще %3$d, щоб дерево не висохло.</string>
+    <string name="nickname_new">Новий нікнейм</string>
+    <string name="nickname_rename">Змінити нікнейм - 5 SC</string>
+    <string name="nickname_balance">Поточний баланс: %1$d SC</string>
+    <string name="nickname_not_enough">Недостатньо SC (потрібно 5)</string>
+    <string name="nickname_save">Зберегти</string>
+    <string name="nickname_decline">Скасувати</string>
+    <string name="achievement_days">За %1$d днів</string>
+    <string name="achieved">Досягнуто: %1$s</string>
 
 
 

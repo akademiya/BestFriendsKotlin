@@ -76,7 +76,13 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
+                android:visibility="gone"
                 tools:src="@drawable/tr_vine" />
+
+            <Button
+                android:id="@+id/task_completed"
+                style="@style/ButtonTaskCompleted"
+                android:text="@string/task_completed" />
         </LinearLayout>
     </ScrollView>
 

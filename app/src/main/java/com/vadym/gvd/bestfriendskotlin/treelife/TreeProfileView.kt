@@ -15,6 +15,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -125,15 +126,16 @@ class TreeProfileView : MainActivity() {
         val phrasesOpened = getSharedPreferences("PhraseForDay", MODE_PRIVATE)
             .getInt("total_phrases_opened", 0)
 
-        val dedicationDone = tree.dedicationConfirmed
+        val dedicationCount  = DedicationTask.finishedCount(this)
+        val totalConditions = ConditionSqlDB.getInstance(this).listConditions().size
 
         val cards = listOf(
             StatCard(hdhCount.toString(), getString(R.string.stat_card_hdh), R.drawable.bg_stat_card),
             StatCard(coinManager.balance.toString(), getString(R.string.stat_card_sc), R.drawable.bg_stat_card_blue),
-            StatCard("${tree.stageIndividual} / 7", "Стадія (рівень 1)", R.drawable.bg_stat_card_turquoise),
+            StatCard("${tree.stageIndividual} / 7", "Статус 1", R.drawable.bg_stat_card_turquoise),
             StatCard("$daysIn", getString(R.string.stat_card_days), R.drawable.bg_stat_card_purple),
             StatCard(cardsOpened.toString(), getString(R.string.stat_card_cards), R.drawable.bg_stat_card_orange),
-            StatCard(if (dedicationDone) "✓" else "—", getString(R.string.condition_title), R.drawable.bg_stat_card_red),
+            StatCard("$dedicationCount / $totalConditions", getString(R.string.stat_card_conditions), R.drawable.bg_stat_card_red),
             StatCard(phrasesOpened.toString(), getString(R.string.stat_card_phrases), R.drawable.bg_stat_card_pink),
             StatCard("0 / 20", getString(R.string.stat_card_easter_egg), R.drawable.bg_stat_card_salad)
         )
@@ -214,9 +216,9 @@ class TreeProfileView : MainActivity() {
             }
 
             achievementCard.findViewById<TextView>(R.id.achievement_date).text =
-                "Досягнуто: ${LocalDate.parse(dateStr).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))}"
+                getString(R.string.achieved, LocalDate.parse(dateStr).format(DateTimeFormatter.ofPattern("dd.MM.yyyy")))
             achievementCard.findViewById<TextView>(R.id.achievement_days).text =
-                "За $days днів"
+                getString(R.string.achievement_days, days)
         } else {
             achievementCard.visibility = View.GONE
         }
@@ -226,29 +228,28 @@ class TreeProfileView : MainActivity() {
 
     private fun showEditNicknameDialog() {
         if (coinManager.balance < 5) {
-            Toast.makeText(this, "Недостатньо SC (потрібно 5)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.nickname_not_enough), Toast.LENGTH_SHORT).show()
             return
         }
         val input = EditText(this).apply {
-            hint = "Новий нікнейм"
+            hint = getString(R.string.nickname_new)
             setText(nicknameText.text)
             setPadding(32, 16, 32, 16)
         }
         AlertDialog.Builder(this)
-            .setTitle("Змінити нікнейм - 5 SC")
-            .setMessage("Поточний баланс: ${coinManager.balance} SC")
+            .setTitle(getString(R.string.nickname_rename))
+            .setMessage(getString(R.string.nickname_balance, coinManager.balance))
             .setView(input)
-            .setPositiveButton("Зберегти") { _, _ ->
+            .setPositiveButton(getString(R.string.nickname_save)) { _, _ ->
                 val newName = input.text.toString().trim()
                 if (newName.isNotEmpty()) {
                     coinManager.spendCoins(5)
                     getSharedPreferences(PREFS_PROFILE, MODE_PRIVATE)
                         .edit().putString("nickname", newName).apply()
                     nicknameText.text = newName
-//                    findViewById<TextView>(R.id.profile_sc_balance).text = "${coinManager.balance} SC"
                 }
             }
-            .setNegativeButton("Скасувати", null)
+            .setNegativeButton(getString(R.string.nickname_decline), null)
             .show()
     }
 

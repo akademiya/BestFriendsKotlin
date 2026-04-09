@@ -223,6 +223,15 @@
         <item name="cornerSize">12dp</item>
     </style>
 
+    <style name="ButtonTaskCompleted">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_marginHorizontal">@dimen/parent_margin</item>
+        <item name="android:layout_marginBottom">32dp</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
     // Button Agree Gdpr
     <style name="ButtonAgreeGdpr" parent="Widget.AppCompat.Button.Borderless">
         <item name="android:background">@drawable/button_green_default</item>

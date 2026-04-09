@@ -1,5 +1,8 @@
 package com.vadym.gvd.bestfriendskotlin.treelife
 
+import android.content.Context
+import com.vadym.gvd.bestfriendskotlin.R
+
 // ─── Рівні ───────────────────────────────────────────────────────────────────
 
 enum class TreeLevel(val displayName: String) {
@@ -35,56 +38,60 @@ object TreeStageNames {
 
 object TreeTasksConfig {
 
-    fun tasksFor(level: TreeLevel, stage: Int): List<TreeTask> = when (level) {
-        TreeLevel.INDIVIDUAL   -> individualTasks(stage)
+    fun tasksFor(level: TreeLevel, stage: Int, ctx: Context): List<TreeTask> = when (level) {
+        TreeLevel.INDIVIDUAL   -> individualTasks(stage, ctx)
         TreeLevel.FAMILY       -> familyTasks(stage)
         TreeLevel.GENERATIONAL -> generationalTasks(stage)
     }
 
     // ── Individual ────────────────────────────────────────────────────────────
 
-    private fun individualTasks(stage: Int): List<TreeTask> = when (stage) {
+    private fun individualTasks(stage: Int, ctx: Context): List<TreeTask> = when (stage) {
         1 -> listOf(
-            HdhWeeklyTask(weeksRequired = 2),
-            ReadArticleTask("Традиції -> Молитва"),
-            QuizTask("Традиції -> Молитва"),
-            PrayerTask(minutesPerSession = 12, sessionsRequired = 3)
+            HdhWeeklyTask(weeksRequired = 1),
+            ReadArticleTask(ctx.getString(R.string.pledge)),
+            QuizTask(ctx.getString(R.string.pledge)),
+            PrayerTask(minutesPerSession = 3, sessionsRequired = 7),
+            PhraseOpenTask(3)
         )
         2 -> listOf(
-            HdhWeeklyTask(weeksRequired = 3),
-            QuizTask("Традиції -> Молитва"),
-            PrayerTask(minutesPerSession = 12, sessionsRequired = 5),
-            CardOpenTask(cardsRequired = 1, scCost = 75)
+            HdhWeeklyTask(weeksRequired = 2),
+            ReadArticleTask(ctx.getString(R.string.hdh)),
+            QuizTask(ctx.getString(R.string.hdh)),
+            PrayerTask(minutesPerSession = 7, sessionsRequired = 4),
         )
         3 -> listOf(
-            HdhMonthlyTask(countRequired = 20),
-            QuizTask("Традиції"),
-            CardOpenTask(cardsRequired = 2, scCost = 75),
-            ReadArticleTask("Традиції")
+            HdhWeeklyTask(weeksRequired = 2),
+            ReadArticleTask(ctx.getString(R.string.sunday_service)),
+            QuizTask(ctx.getString(R.string.sunday_service)),
+            CardOpenTask(cardsRequired = 1, scCost = 25)
         )
         4 -> listOf(
-            HdhMonthlyTask(countRequired = 20),
-            QuizTask("Святі дні"),
+            ReadArticleTask(ctx.getString(R.string.anshiil)),
+            QuizTask(ctx.getString(R.string.anshiil)),
             DedicationTask,
-            CardOpenTask(cardsRequired = 2, scCost = 75)
+            CardOpenTask(cardsRequired = 1, scCost = 40)
         )
         5 -> listOf(
-            HdhMonthlyTask(countRequired = 20),
-            CardOpenTask(cardsRequired = 4, scCost = 75),
-            PrayerTask(minutesPerSession = 12, sessionsRequired = 10),
-            QuizTask("Святі дні")
+            HdhWeeklyTask(weeksRequired = 2),
+            PrayerTask(minutesPerSession = 12, sessionsRequired = 3),
+            ReadArticleTask(ctx.getString(R.string.life_service)),
+            QuizTask(ctx.getString(R.string.life_service))
         )
         6 -> listOf(
-            HdhMonthlyTask(countRequired = 20),
-            QuizTask("Традиції -> Молитва"),
-            QuizTask("Традиції"),
-            QuizTask("Святі дні"),
+            HdhWeeklyTask(weeksRequired = 2),
+            ReadArticleTask(ctx.getString(R.string.prayer_tradition)),
+            QuizTask(ctx.getString(R.string.prayer_tradition)),
+            PhraseOpenTask(5)
         )
         7 -> listOf(
             HdhMonthlyTask(countRequired = 20),
             DedicationTask,
-            CardOpenTask(cardsRequired = 6, scCost = 75),
-            PrayerTask(minutesPerSession = 12, sessionsRequired = 20)
+            CardOpenTask(cardsRequired = 1, scCost = 75),
+            PrayerTask(minutesPerSession = 12, sessionsRequired = 20),
+            ReadArticleTask(ctx.getString(R.string.salt)),
+            QuizTask(ctx.getString(R.string.salt)),
+            PhraseOpenTask(5)
         )
         else -> emptyList()
     }

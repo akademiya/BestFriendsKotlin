@@ -5,11 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.R
-import com.vadym.gvd.bestfriendskotlin.treelife.*
-import com.vadym.gvd.bestfriendskotlin.treelife.TreeOfLifeDB
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -93,6 +90,11 @@ class TaskAdapter(
             val prefs = ctx.getSharedPreferences("cards_opened", Context.MODE_PRIVATE)
             val done  = prefs.getInt("cards_${task.scCost}sc", 0)
             "$done/${task.cardsRequired}"
+        }
+        is PhraseOpenTask -> {
+            val done = ctx.getSharedPreferences("PhraseForDay", Context.MODE_PRIVATE)
+                .getInt("total_phrases_opened", 0)
+            "$done/${task.count}"
         }
         else -> null
     }

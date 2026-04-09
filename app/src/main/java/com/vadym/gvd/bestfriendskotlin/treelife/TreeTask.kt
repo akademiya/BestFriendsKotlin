@@ -1,6 +1,7 @@
 package com.vadym.gvd.bestfriendskotlin.treelife
 
 import android.content.Context
+import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -73,7 +74,7 @@ data class PrayerTask(
 // ─── Прочитати статтю + клікнути монету ──────────────────────────────────────
 
 data class ReadArticleTask(val articleKey: String) : TreeTask() {
-    override val label get() = "Прочитати «$articleKey» + знайти монету"
+    override val label get() = "Прочитати «$articleKey»"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         val prefs = ctx.getSharedPreferences("articles_read", Context.MODE_PRIVATE)
@@ -107,13 +108,48 @@ data class CardOpenTask(val cardsRequired: Int, val scCost: Int) : TreeTask() {
         get() = "" // заповнюється динамічно в адаптері
 }
 
+
+// ─── Відкрити фразу на день ────────────────────────────────────────────────────
+
+data class PhraseOpenTask(val count: Int) : TreeTask() {
+    override val label get() = "Відкрити «Фраза на день» × $count разів"
+
+    override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
+        val done = ctx.getSharedPreferences("PhraseForDay", Context.MODE_PRIVATE)
+            .getInt("total_phrases_opened", 0)
+        return done >= count
+    }
+
+    override val progressText: String
+        get() = "" // заповнюється динамічно в адаптері
+}
+
 // ─── Умова посвячення ─────────────────────────────────────────────────────────
 
 object DedicationTask : TreeTask() {
     override val label = "Умова посвячення"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
-        // підтверджується адміном або QR-скан → пишеться в TreeRow.dedicationConfirmed
-        return tree.dedicationConfirmed
+        return finishedCount(ctx) > 0
+    }
+
+    /**
+     * Рахує кількість завершених умов посвячення з ConditionSqlDB.
+     * Умова вважається завершеною якщо (startDate + duration) <= сьогодні —
+     * та сама логіка що в ConditionAdapter.calculateFinalDay()
+     */
+    fun finishedCount(ctx: Context): Int {
+        val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+        return try {
+            ConditionSqlDB.getInstance(ctx)
+                .listConditions()
+                .count { condition ->
+                    val startDate  = LocalDate.parse(condition.today.toString(), formatter)
+                    val finishDate = startDate.plusDays(condition.duration!!.toLong())
+                    finishDate.isEqual(LocalDate.now()) || finishDate.isBefore(LocalDate.now())
+                }
+        } catch (e: Exception) {
+            0
+        }
     }
 }
