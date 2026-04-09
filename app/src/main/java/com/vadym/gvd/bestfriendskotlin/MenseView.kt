@@ -35,6 +35,7 @@ class MenseView : MainActivity() {
             R.id.en -> startActivity(Intent(this, FragmentMenseEn::class.java).noAnimation())
             R.id.ua -> startActivity(Intent(this, FragmentMenseUa::class.java).noAnimation())
             R.id.ru -> startActivity(Intent(this, FragmentMenseRu::class.java).noAnimation())
+            R.id.deviz -> startActivity(Intent(this, FragmentDeviz::class.java).noAnimation())
         }
         return super.onOptionsItemSelected(item)
     }

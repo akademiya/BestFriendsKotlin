@@ -8,11 +8,11 @@ import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import com.vadym.gvd.bestfriendskotlin.MainActivity.Companion.EXTRA_OPEN_DRAWER
 
-class FragmentMenseKo : BaseActivity() {
+class FragmentDeviz : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_mense_ko)
+        setContentView(R.layout.fragment_deviz)
         setupBackPress()
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
