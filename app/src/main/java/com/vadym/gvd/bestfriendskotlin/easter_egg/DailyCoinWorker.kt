@@ -60,16 +60,16 @@ fun showCoinNotification(context: Context) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         val channel = NotificationChannel(
             channelId,
-            "Монета дня",
+            context.getString(R.string.notif_daily_coin),
             NotificationManager.IMPORTANCE_DEFAULT
-        ).apply { description = "Нагадування про приховану монету SC" }
+        ).apply { description = context.getString(R.string.notif_hide_coin) }
         manager.createNotificationChannel(channel)
     }
 
     val notification = NotificationCompat.Builder(context, channelId)
         .setSmallIcon(R.drawable.ic_shimjeong_coin)
-        .setContentTitle("🪙 Сьогодні є монета SC!")
-        .setContentText("Знайди приховану монету в додатку")
+        .setContentTitle(context.getString(R.string.notif_exist_coin))
+        .setContentText(context.getString(R.string.notif_find_coin))
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
         .setAutoCancel(true)
         .build()

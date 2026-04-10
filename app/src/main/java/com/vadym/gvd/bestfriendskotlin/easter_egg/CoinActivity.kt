@@ -53,18 +53,6 @@ abstract class CoinActivity : MainActivity() {
         }
     }
 
-//    private fun checkAndShowDailyCoin() {
-//        val todayId = coinViewModel.todayCoinId
-//        val viewId  = coinViewMap[todayId] ?: return  // монета не в цьому activity
-//
-//        val coinView = findViewById<ImageView>(viewId) ?: return
-//        if (coinViewModel.isCoinCollected(todayId)) {
-//            coinView.visibility = View.GONE
-//            return
-//        }
-//        coinView.visibility = View.VISIBLE
-//        coinView.setOnClickListener { animateAndCollect(coinView, todayId) }
-//    }
 
     private fun animateAndCollect(view: ImageView, coinId: String) {
         val mediaPlayer = MediaPlayer.create(this, R.raw.sj_coin)
@@ -73,7 +61,7 @@ abstract class CoinActivity : MainActivity() {
 
         coinManager.addCoins(CoinManager.COIN_EASTER_EGG)
         coinViewModel.collectCoin(coinId)
-        Snackbar.make(view, "🪙 +1 SC монета знайдена!", Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(view, getString(R.string.snack_found_coin), Snackbar.LENGTH_SHORT).show()
 
 
         // Обертання по Y (як справжня монета)

@@ -20,7 +20,7 @@ abstract class CoinDatabase : RoomDatabase() {
                     CoinDatabase::class.java,
                     "coins_db"
                 )
-                    .fallbackToDestructiveMigration()  // ← додай це
+                    .fallbackToDestructiveMigration()
                     .build().also { INSTANCE = it }
             }
     }

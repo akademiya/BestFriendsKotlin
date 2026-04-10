@@ -9,7 +9,6 @@ import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinRepository
 import com.vadym.gvd.bestfriendskotlin.easter_egg.scheduleDailyCoin
 import kotlinx.coroutines.launch
 
-
 @SuppressLint("Registered")
 class AndroidApplication : Application() {
     override fun onCreate() {
@@ -18,18 +17,14 @@ class AndroidApplication : Application() {
         val languageCode = savedLanguage
         setLocale(languageCode)
 
-//        val sharedPreferences = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
-//        val languageCode = sharedPreferences.getString("language", "en") ?: "en"
-//        MainActivity().setLocale(this, languageCode)
-//        setLocale(this, languageCode)
         DarkModePreferences(this).applyMode()
         CalendarNotificationWorker.schedule(this)
 
         kotlinx.coroutines.MainScope().launch {
             val prefs = getSharedPreferences("daily_coin", Context.MODE_PRIVATE)
             val repo  = CoinRepository(CoinDatabase.getInstance(this@AndroidApplication).coinDao())
-            repo.seedCoins()           // посіяти монети якщо ще немає
-            repo.pickDailyCoinIfNeeded(prefs)  // вибрати монету дня одразу
+            repo.seedCoins()
+            repo.pickDailyCoinIfNeeded(prefs)
         }
         scheduleDailyCoin(this)
     }

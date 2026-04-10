@@ -161,7 +161,6 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_kido            to PersonView::class.java,
             R.id.nav_father_kido     to FatherKidoView::class.java,
             R.id.nav_phrase_day      to PhraseForDay::class.java,
-//            R.id.nav_kido_explanation to ExplanationView::class.java,
             R.id.nav_holly_days      to HolyDaysView::class.java,
             R.id.nav_kido_condition  to ConditionView::class.java,
             R.id.nav_traditions      to TraditionsView::class.java,
@@ -200,15 +199,6 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(intent)
     }
 
-//    open fun openFacebookIntent(context: Context): Intent {
-//        val url = "https://www.facebook.com/groups/tfprayer"
-//        return try {
-//            context.packageManager.getPackageInfo("com.facebook.katana", 0)
-//            Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=$url"))
-//        } catch (e: Exception) {
-//            Intent(Intent.ACTION_VIEW, Uri.parse(url))
-//        }
-//    }
 
     private fun shareApp() {
         val shareBody = getString(R.string.share_body)
@@ -235,15 +225,6 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
         )
     }
 
-    // ─── Locale ───────────────────────────────────────────────────────────────
-
-//    private fun loadLocale() = setLocale(this, savedLanguage)
-//
-//    fun setLocale(context: Context, languageCode: String): Context =
-//        context.withLocale(languageCode).also {
-//            context.getSharedPreferences("AppSettings", MODE_PRIVATE)
-//                .edit().putString("language", languageCode).apply()
-//        }
 
 
     // ─── Info message from admin ───────────────────────────────────────────────────────────────
@@ -267,28 +248,6 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
     private fun isUserFromUkraine() =
         Locale.getDefault().language.equals("uk", ignoreCase = true)
 
-//    fun isNetworkAvailable(): Boolean {
-//        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-//        val caps = cm.getNetworkCapabilities(cm.activeNetwork) ?: return false
-//        return caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
-//                || caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
-//                || caps.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
-//    }
-
-    // ─── Extensions (можна винести в окремий файл Extensions.kt) ──────────────
-
-//    private val Context.savedLanguage: String
-//        get() = getSharedPreferences("AppSettings", MODE_PRIVATE)
-//            .getString("language", "en") ?: "en"
-//
-//    private fun Context.withLocale(languageCode: String): Context {
-//        val locale = Locale(languageCode)
-//        Locale.setDefault(locale)
-//        val config = resources.configuration.also { it.setLocale(locale) }
-//        @Suppress("DEPRECATION")
-//        resources.updateConfiguration(config, resources.displayMetrics)
-//        return createConfigurationContext(config)
-//    }
 
     companion object {
         const val EXTRA_OPEN_DRAWER = "extra_open_drawer"

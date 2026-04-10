@@ -5,7 +5,7 @@ import java.time.LocalDate
 
 class CoinRepository(private val dao: CoinDao) {
 
-    val allCoins = dao.getAllCoins()
+//    val allCoins = dao.getAllCoins()
     val collectedCount = dao.getCollectedCount()
 
     // Викликається при першому запуску — сіємо всі 100 монет

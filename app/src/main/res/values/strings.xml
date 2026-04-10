@@ -178,6 +178,7 @@
     <string name="bonus_7days">days in a row!</string>
     <string name="bonus_congratulation">Bonus +%1$d Simjeong Coin for %2$d days in a row!\n\nKeep it up 💪</string>
 
+
     // Tree of Life
     <string name="card_tree_title">Tree of life</string>
     <string name="status_tree_title">Статус %1$d — %2$s</string>
@@ -224,6 +225,7 @@
     <string name="task_completed">Вже прочитали? Тапай!</string>
     <string name="task_already_completed">✓ Прочитано</string>
 
+
     // Profile
     <string name="stat_card_hdh">ХДХ цього місяця</string>
     <string name="stat_card_sc">심정 коїнів</string>
@@ -244,6 +246,15 @@
     <string name="nickname_decline">Скасувати</string>
     <string name="achievement_days">За %1$d днів</string>
     <string name="achieved">Досягнуто: %1$s</string>
+
+
+    // Easter egg
+    <string name="notif_daily_coin">Монета дня</string>
+    <string name="notif_hide_coin">Нагадування про приховану монету SC</string>
+    <string name="notif_exist_coin">🪙 Сьогодні є монета SC!</string>
+    <string name="notif_find_coin">Знайди приховану монету в додатку</string>
+    <string name="snack_found_coin">🪙 +1 심정 знайдено!</string>
+
 
 
 
