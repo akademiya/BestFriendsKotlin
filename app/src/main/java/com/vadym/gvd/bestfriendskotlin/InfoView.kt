@@ -14,10 +14,11 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.ads.AdView
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.snackbar.Snackbar
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 import java.util.concurrent.TimeUnit
 
-class InfoView : MainActivity() {
+class InfoView : CoinActivity() {
 
     private lateinit var privacyPolicy: TextView
     private lateinit var site: ShapeableImageView
@@ -39,6 +40,11 @@ class InfoView : MainActivity() {
         )
     }
     private val storage = FirebaseStorage()
+
+    override val coinViewMap = mapOf(
+        "coin_info_001" to R.id.coin_info_001,
+        "coin_info_002" to R.id.coin_info_002
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

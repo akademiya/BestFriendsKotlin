@@ -75,9 +75,6 @@
                     android:textSize="16sp"
                     tools:text="@string/konkurs" />
 
-
-
-
                 <TextView
                     android:id="@+id/tv_ad_status"
                     android:layout_width="match_parent"
@@ -203,6 +200,16 @@
                     android:layout_margin="@dimen/parent_margin"
                     android:text="@string/info_text" />
 
+                <ImageView
+                    android:id="@+id/coin_info_002"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_shimjeong_coin"
+                    android:visibility="gone"
+                    android:layout_margin="@dimen/parent_margin"
+                    tools:visibility="visible"
+                    android:alpha="1" />
+
                 <TextView
                     android:id="@+id/private_policy"
                     android:layout_width="match_parent"
@@ -230,5 +237,16 @@
             android:scaleType="centerCrop"
             android:src="@drawable/buy_coffee"
             app:shapeAppearanceOverlay="@style/ButtonGoToSite" />
+
+        <ImageView
+            android:id="@+id/coin_info_001"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/parent_margin"
+            tools:visibility="visible"
+            android:alpha="0.65" />
     </RelativeLayout>
 </LinearLayout>

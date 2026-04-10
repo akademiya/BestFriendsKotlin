@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import com.vadym.gvd.bestfriendskotlin.calendar.CalendarNotificationWorker
+import com.vadym.gvd.bestfriendskotlin.easter_egg.scheduleDailyCoin
 
 
 @SuppressLint("Registered")
@@ -15,6 +16,7 @@ class AndroidApplication : Application() {
         MainActivity().setLocale(this, languageCode)
         DarkModePreferences(this).applyMode()
         CalendarNotificationWorker.schedule(this)
+        scheduleDailyCoin(this)
     }
 }
 

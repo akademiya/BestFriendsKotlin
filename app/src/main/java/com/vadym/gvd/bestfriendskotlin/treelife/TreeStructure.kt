@@ -50,8 +50,8 @@ object TreeTasksConfig {
         1 -> listOf(
             HdhWeeklyTask(weeksRequired = 1),
             ReadArticleTask(ctx.getString(R.string.pledge)),
-            QuizTask(ctx.getString(R.string.pledge)),
-            PrayerTask(minutesPerSession = 3, sessionsRequired = 7),
+//            QuizTask(ctx.getString(R.string.pledge)),
+            PrayerTask(minutesPerSession = 3, sessionsRequired = 4),
             PhraseOpenTask(3)
         )
         2 -> listOf(

@@ -187,6 +187,9 @@
         <activity android:name=".treelife.TreeProfileView"
             android:screenOrientation="portrait"
             android:exported="false"/>
+        <activity android:name=".easter_egg.CoinActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".HDHView"
             android:screenOrientation="portrait"
             android:exported="false"/>

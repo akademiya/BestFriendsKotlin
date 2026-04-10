@@ -10,17 +10,22 @@ import android.widget.*
 import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class TreeProfileView : MainActivity() {
+class TreeProfileView : CoinActivity() {
 
     private lateinit var db: TreeOfLifeDB
     private lateinit var coinManager: CoinManager
@@ -55,6 +60,12 @@ class TreeProfileView : MainActivity() {
         }
     }
 
+    override val coinViewMap = mapOf(
+        "coin_tree_001" to R.id.coin_info_001
+//        "coin_tree_002" to R.id.coin_tree_002,
+        // ...
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_tree_profile)
@@ -85,49 +96,58 @@ class TreeProfileView : MainActivity() {
 
     private fun renderProfile() {
         val prefs = getSharedPreferences(PREFS_PROFILE, MODE_PRIVATE)
-        val tree  = db.getTree() ?: return
 
+        // UI без БД — одразу
         val savedUri = prefs.getString("photo_uri", null)
         if (savedUri != null) loadPhoto(Uri.parse(savedUri))
         editPhotoBadge.setOnClickListener { openGallery() }
-        profilePhoto.setOnClickListener   { openGallery() }
-
-        val nickname = prefs.getString("nickname", "User") ?: "User"
-        nicknameText.text = nickname
+        profilePhoto.setOnClickListener { openGallery() }
+        nicknameText.text = prefs.getString("nickname", "User") ?: "User"
         editNicknameBtn.setOnClickListener { showEditNicknameDialog() }
 
-
-        val hdhCount = hdhCountThisMonth()
-        if (hdhCount < 20) {
-            val daysLeft  = daysLeftInMonth()
-            val remaining = 20 - hdhCount
-            warnBanner.visibility = View.VISIBLE
-            warnText.text = getString(R.string.warning_text_profile, hdhCount, daysLeft, remaining)
-        } else {
-            warnBanner.visibility = View.GONE
+        // LiveData observe — один раз тут
+        coinViewModel.collectedCount.observe(this) { _ ->
+            lifecycleScope.launch {
+                val tree = withContext(Dispatchers.IO) { db.getTree() } ?: return@launch
+                val hdh  = withContext(Dispatchers.IO) { hdhCountThisMonth() }
+                val ded  = withContext(Dispatchers.IO) { DedicationTask.finishedCount(this@TreeProfileView) }
+                val cond = withContext(Dispatchers.IO) { ConditionSqlDB.getInstance(this@TreeProfileView).listConditions().size }
+                renderStatCards(tree, hdh, ded, cond)
+            }
         }
 
-        renderStatCards(tree, hdhCount)
-        setupLevelChips(tree)
-        renderStatusList(tree, TreeLevel.INDIVIDUAL)
-        renderIndividualAchievement(tree)
+        // Основне завантаження
+        lifecycleScope.launch {
+            val tree = withContext(Dispatchers.IO) { db.getTree() } ?: return@launch
+            val hdh  = withContext(Dispatchers.IO) { hdhCountThisMonth() }
+            val ded  = withContext(Dispatchers.IO) { DedicationTask.finishedCount(this@TreeProfileView) }
+            val cond = withContext(Dispatchers.IO) { ConditionSqlDB.getInstance(this@TreeProfileView).listConditions().size }
+
+            if (hdh < 20) {
+                warnBanner.visibility = View.VISIBLE
+                warnText.text = getString(R.string.warning_text_profile, hdh, daysLeftInMonth(), 20 - hdh)
+            } else {
+                warnBanner.visibility = View.GONE
+            }
+
+            renderStatCards(tree, hdh, ded, cond)
+            setupLevelChips(tree)
+            renderStatusList(tree, TreeLevel.INDIVIDUAL)
+            renderIndividualAchievement(tree)
+        }
     }
 
     // ─── Stat cards ──────────────────────────────────────────────────────────
 
-    private fun renderStatCards(tree: TreeRow, hdhCount: Int) {
+    private fun renderStatCards(tree: TreeRow, hdhCount: Int, dedicationCount: Int, totalConditions: Int) {
         val prefs     = getSharedPreferences(PREFS_PROFILE, MODE_PRIVATE)
         val joinDate  = prefs.getString("join_date", LocalDate.now().toString()) ?: LocalDate.now().toString()
         val daysIn    = LocalDate.parse(joinDate).until(LocalDate.now()).days.coerceAtLeast(0)
-
         val cardsOpened = getSharedPreferences("shimjeong_coins", MODE_PRIVATE)
             .getStringSet("purchased_cards", emptySet())?.size ?: 0
-
         val phrasesOpened = getSharedPreferences("PhraseForDay", MODE_PRIVATE)
             .getInt("total_phrases_opened", 0)
-
-        val dedicationCount  = DedicationTask.finishedCount(this)
-        val totalConditions = ConditionSqlDB.getInstance(this).listConditions().size
+        val eggCount = coinViewModel.collectedCount.value ?: 0
 
         val cards = listOf(
             StatCard(hdhCount.toString(), getString(R.string.stat_card_hdh), R.drawable.bg_stat_card),
@@ -137,7 +157,7 @@ class TreeProfileView : MainActivity() {
             StatCard(cardsOpened.toString(), getString(R.string.stat_card_cards), R.drawable.bg_stat_card_orange),
             StatCard("$dedicationCount / $totalConditions", getString(R.string.stat_card_conditions), R.drawable.bg_stat_card_red),
             StatCard(phrasesOpened.toString(), getString(R.string.stat_card_phrases), R.drawable.bg_stat_card_pink),
-            StatCard("0 / 20", getString(R.string.stat_card_easter_egg), R.drawable.bg_stat_card_salad)
+            StatCard("$eggCount / 100", getString(R.string.stat_card_easter_egg), R.drawable.bg_stat_card_salad)
         )
 
         val grid = findViewById<GridLayout>(R.id.stats_grid)
@@ -150,6 +170,47 @@ class TreeProfileView : MainActivity() {
             grid.addView(v)
         }
     }
+
+//    private fun renderStatCards(tree: TreeRow, hdhCount: Int) {
+//        coinViewModel.collectedCount.observe(this) { _ ->
+//            renderStatCards(db.getTree() ?: return@observe, hdhCountThisMonth())
+//        }
+//        val prefs     = getSharedPreferences(PREFS_PROFILE, MODE_PRIVATE)
+//        val joinDate  = prefs.getString("join_date", LocalDate.now().toString()) ?: LocalDate.now().toString()
+//        val daysIn    = LocalDate.parse(joinDate).until(LocalDate.now()).days.coerceAtLeast(0)
+//
+//        val cardsOpened = getSharedPreferences("shimjeong_coins", MODE_PRIVATE)
+//            .getStringSet("purchased_cards", emptySet())?.size ?: 0
+//
+//        val phrasesOpened = getSharedPreferences("PhraseForDay", MODE_PRIVATE)
+//            .getInt("total_phrases_opened", 0)
+//
+//        val dedicationCount  = DedicationTask.finishedCount(this)
+//        val totalConditions = ConditionSqlDB.getInstance(this).listConditions().size
+//
+//        val eggCount = coinViewModel.collectedCount.value ?: 0
+//
+//        val cards = listOf(
+//            StatCard(hdhCount.toString(), getString(R.string.stat_card_hdh), R.drawable.bg_stat_card),
+//            StatCard(coinManager.balance.toString(), getString(R.string.stat_card_sc), R.drawable.bg_stat_card_blue),
+//            StatCard("${tree.stageIndividual} / 7", "Статус 1", R.drawable.bg_stat_card_turquoise),
+//            StatCard("$daysIn", getString(R.string.stat_card_days), R.drawable.bg_stat_card_purple),
+//            StatCard(cardsOpened.toString(), getString(R.string.stat_card_cards), R.drawable.bg_stat_card_orange),
+//            StatCard("$dedicationCount / $totalConditions", getString(R.string.stat_card_conditions), R.drawable.bg_stat_card_red),
+//            StatCard(phrasesOpened.toString(), getString(R.string.stat_card_phrases), R.drawable.bg_stat_card_pink),
+//            StatCard("$eggCount / 100", getString(R.string.stat_card_easter_egg), R.drawable.bg_stat_card_salad)
+//        )
+//
+//        val grid = findViewById<GridLayout>(R.id.stats_grid)
+//        grid.removeAllViews()
+//        cards.forEach { card ->
+//            val v = layoutInflater.inflate(R.layout.item_stat_card, grid, false)
+//            v.findViewById<TextView>(R.id.stat_value).text = card.value
+//            v.findViewById<TextView>(R.id.stat_label).text = card.label
+//            v.setBackgroundResource(card.colorRes)
+//            grid.addView(v)
+//        }
+//    }
 
     data class StatCard(val value: String, val label: String, val colorRes: Int)
 
