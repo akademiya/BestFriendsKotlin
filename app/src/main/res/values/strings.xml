@@ -289,6 +289,14 @@
     <string name="six"><b>6.</b> Our family, the owner of Cheon Il Guk, pledges to become a family that moves heavenly fortune by embodying the Heavenly Parent and True Parents, and to perfect a family that conveys Heaven\'s blessing to our community, by centering on true love.</string>
     <string name="seven"><b>7.</b> Our family, the owner of Cheon Il Guk, pledges, through living for the sake of others, to perfect the world based on the culture of heart, which is rooted in the original lineage, by centering on true love.</string>
     <string name="eight"><b>8.</b> Our family, the owner of Cheon Il Guk, pledges, having entered the Era of Cheon Il Guk, to achieve the ideal of God and human beings united in love through absolute faith, absolute love and absolute obedience, and to perfect the realm of liberation and complete freedom in the Kingdom of God on earth and in heaven, by centering on true love.</string>
+    <string name="deviz_toolbar">Девізи</string>
+    <string name="deviz_vertical"><b>Вертикальний</b></string>
+    <string name="deviz_vertical_desc_ko">창조주 하늘부모님을 실체로 모시고 사는 천일국 13년 전 세계 축복가정들은 참부모와 하나된 선민으로서 책임을 다하는 천일국의 참자녀가 되자!</string>
+    <string name="deviz_vertical_desc_ko_ua">Чан(г)-джо-джу Ха-ниль-Пу-мо-нім-иль шіль-чє-ро мо-ші-ґо са-нин Чон-іль-ґук шіп-сам-ньон чон се-ґє чук-пок-ка-джон(г)-ди-рин чам-пу-мо-(у)а ха-на-т(у)ен сон-мін-и-ро-со чє-ґім-иль та-ха-нин чон-іль-ґу-ґе чам-джа-ньо-ґа т(у)е-джа!</string>
+    <string name="deviz_vertical_desc">«Благословенні сім’ї всього світу, які живуть у субстанційному служінні Небесному Батькові-Творцю! У 13-й рік Чонільґук станьмо істинними дітьми Чонільґук, які повністю виконують відповідальність обраного народу, єдиного з Істинними Батьками»</string>
+    <string name="deviz_horizontal"><b>Горизонтальний</b></string>
+    <string name="deviz_horizontal_desc_ko">우주주관 바라기 전에 자아를 주관하라</string>
+    <string name="deviz_horizontal_desc">«Перш, ніж прагнути володіти над Всесвітом, навчись володіти собою»</string>
 
     // Holy days
     <string name="day1_title">Anniversary of True Parents\' Holy Wedding\nHeavenly Parent\'s Day\nTrue Parents\' Day</string>

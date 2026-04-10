@@ -139,6 +139,9 @@
         <activity android:name=".MenseView"
             android:screenOrientation="portrait"
             android:exported="false"/>
+        <activity android:name=".FragmentDeviz"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".FragmentMenseKo"
             android:screenOrientation="portrait"
             android:exported="false"/>
