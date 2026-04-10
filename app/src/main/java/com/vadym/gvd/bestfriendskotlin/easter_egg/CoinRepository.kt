@@ -10,12 +10,13 @@ class CoinRepository(private val dao: CoinDao) {
 
     // Викликається при першому запуску — сіємо всі 100 монет
     suspend fun seedCoins() {
-        if (dao.getUncollectedCoins().isNotEmpty()) return
+        val existing = dao.getAllCoinsSync()
+        if (existing.size >= CoinSeeds.ALL_COINS.size) return
         dao.insertAll(CoinSeeds.ALL_COINS)
     }
 
     // WorkManager викликає щодня
-    suspend fun pickDailyCoin(prefs: SharedPreferences) {
+    suspend fun pickDailyCoinIfNeeded(prefs: SharedPreferences) {
         val today = LocalDate.now().toString()
         val lastDate = prefs.getString("last_coin_date", "")
 

@@ -14,7 +14,6 @@ import android.view.WindowManager
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.LinearLayoutManager
 import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
@@ -89,10 +88,3 @@ fun screenOn(context: Context) {
 fun String.toHtml() : Spanned {
     return Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
 }
-
-//val importantSDF = SimpleDateFormat("dd/MM/yyyy", deviceLocale())
-//
-//fun String.importantCalendar(): Calendar {
-//    val parsed = importantSDF.parse(this)
-//    return Calendar.getInstance().apply { time = parsed!! }
-//}

@@ -19,7 +19,7 @@ class DailyCoinWorker(ctx: Context, params: WorkerParameters) : CoroutineWorker(
     override suspend fun doWork(): Result {
         val prefs = applicationContext.getSharedPreferences("daily_coin", Context.MODE_PRIVATE)
         val repo  = CoinRepository(CoinDatabase.getInstance(applicationContext).coinDao())
-        repo.pickDailyCoin(prefs)
+        repo.pickDailyCoinIfNeeded(prefs)
         showCoinNotification(applicationContext)
         return Result.success()
     }

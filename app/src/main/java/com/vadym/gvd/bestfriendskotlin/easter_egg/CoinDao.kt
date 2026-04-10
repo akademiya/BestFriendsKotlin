@@ -12,6 +12,9 @@ interface CoinDao {
     @Query("SELECT * FROM coins")
     fun getAllCoins(): LiveData<List<CoinEntity>>
 
+    @Query("SELECT * FROM coins")
+    suspend fun getAllCoinsSync(): List<CoinEntity>
+
     @Query("SELECT * FROM coins WHERE isCollected = 0")
     suspend fun getUncollectedCoins(): List<CoinEntity>
 

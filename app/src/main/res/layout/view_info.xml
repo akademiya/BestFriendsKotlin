@@ -206,7 +206,8 @@
                     android:layout_height="40dp"
                     android:src="@drawable/ic_shimjeong_coin"
                     android:visibility="gone"
-                    android:layout_margin="@dimen/parent_margin"
+                    android:layout_marginBottom="@dimen/parent_margin"
+                    android:layout_marginStart="@dimen/parent_margin"
                     tools:visibility="visible"
                     android:alpha="1" />
 
@@ -248,5 +249,17 @@
             android:layout_margin="@dimen/parent_margin"
             tools:visibility="visible"
             android:alpha="0.65" />
+
+        <ImageView
+            android:id="@+id/coin_info_003"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="300dp"
+            android:layout_marginStart="60dp"
+            android:alpha="0.85"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            tools:visibility="visible" />
     </RelativeLayout>
 </LinearLayout>

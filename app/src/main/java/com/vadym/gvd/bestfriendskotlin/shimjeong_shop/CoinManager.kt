@@ -13,6 +13,7 @@ class CoinManager(context: Context) {
         const val STREAK_DAYS      = 7
         const val COINS_FOR_RATING   = 5
         const val COINS_PER_HDH_DAY = 7
+        const val COIN_EASTER_EGG = 1
 
         private const val KEY_BALANCE       = "balance"
         private const val KEY_PURCHASED     = "purchased_cards"

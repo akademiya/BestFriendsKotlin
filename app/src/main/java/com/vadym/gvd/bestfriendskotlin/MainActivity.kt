@@ -95,9 +95,16 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val lang = newBase.savedLanguage
-        super.attachBaseContext(newBase.withLocale(lang))
+        super.attachBaseContext(newBase.withLocale(newBase.savedLanguage))
     }
+
+    private fun loadLocale() = setLocale(savedLanguage)
+
+    fun setLocale(context: Context, languageCode: String): Context =
+        context.withLocale(languageCode).also {
+            context.getSharedPreferences("AppSettings", MODE_PRIVATE)
+                .edit().putString("language", languageCode).apply()
+        }
 
     override fun onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -230,13 +237,13 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
 
     // ─── Locale ───────────────────────────────────────────────────────────────
 
-    private fun loadLocale() = setLocale(this, savedLanguage)
-
-    fun setLocale(context: Context, languageCode: String): Context =
-        context.withLocale(languageCode).also {
-            context.getSharedPreferences("AppSettings", MODE_PRIVATE)
-                .edit().putString("language", languageCode).apply()
-        }
+//    private fun loadLocale() = setLocale(this, savedLanguage)
+//
+//    fun setLocale(context: Context, languageCode: String): Context =
+//        context.withLocale(languageCode).also {
+//            context.getSharedPreferences("AppSettings", MODE_PRIVATE)
+//                .edit().putString("language", languageCode).apply()
+//        }
 
 
     // ─── Info message from admin ───────────────────────────────────────────────────────────────
@@ -270,18 +277,18 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
 
     // ─── Extensions (можна винести в окремий файл Extensions.kt) ──────────────
 
-    private val Context.savedLanguage: String
-        get() = getSharedPreferences("AppSettings", MODE_PRIVATE)
-            .getString("language", "en") ?: "en"
-
-    private fun Context.withLocale(languageCode: String): Context {
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-        val config = resources.configuration.also { it.setLocale(locale) }
-        @Suppress("DEPRECATION")
-        resources.updateConfiguration(config, resources.displayMetrics)
-        return createConfigurationContext(config)
-    }
+//    private val Context.savedLanguage: String
+//        get() = getSharedPreferences("AppSettings", MODE_PRIVATE)
+//            .getString("language", "en") ?: "en"
+//
+//    private fun Context.withLocale(languageCode: String): Context {
+//        val locale = Locale(languageCode)
+//        Locale.setDefault(locale)
+//        val config = resources.configuration.also { it.setLocale(locale) }
+//        @Suppress("DEPRECATION")
+//        resources.updateConfiguration(config, resources.displayMetrics)
+//        return createConfigurationContext(config)
+//    }
 
     companion object {
         const val EXTRA_OPEN_DRAWER = "extra_open_drawer"

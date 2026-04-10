@@ -43,7 +43,8 @@ class InfoView : CoinActivity() {
 
     override val coinViewMap = mapOf(
         "coin_info_001" to R.id.coin_info_001,
-        "coin_info_002" to R.id.coin_info_002
+        "coin_info_002" to R.id.coin_info_002,
+        "coin_info_003" to R.id.coin_info_003
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -206,7 +207,7 @@ class InfoView : CoinActivity() {
     }
 
     private fun setAppLanguage(code: String) {
-        setLocale(this, code)
+        this.setLocale(code)
         Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         }.also { startActivity(it) }
