@@ -250,8 +250,8 @@
 
     // Easter egg
     <string name="notif_daily_coin">Монета дня</string>
-    <string name="notif_hide_coin">Нагадування про приховану монету SC</string>
-    <string name="notif_exist_coin">🪙 Сьогодні є монета SC!</string>
+    <string name="notif_hide_coin">Нагадування про приховану монету 심정</string>
+    <string name="notif_exist_coin">🪙 Сьогодні є монета 심정!</string>
     <string name="notif_find_coin">Знайди приховану монету в додатку</string>
     <string name="snack_found_coin">🪙 +1 심정 знайдено!</string>
 

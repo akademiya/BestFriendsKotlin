@@ -286,4 +286,17 @@
     <style name="DayHeader" parent="BaseText">
         <item name="android:gravity">center</item>
     </style>
+
+
+
+
+    <style name="TransparentBottomSheet" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/TransparentBottomSheetStyle</item>
+    </style>
+
+    <style name="TransparentBottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
 </resources>

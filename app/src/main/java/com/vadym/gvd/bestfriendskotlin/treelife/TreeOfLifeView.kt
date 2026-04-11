@@ -11,6 +11,9 @@ import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -149,7 +152,7 @@ class TreeOfLifeView : MainActivity() {
         })
 
         val allDone = tasks.all { it.isCompleted(this, tree) }
-        view.findViewById<com.google.android.material.button.MaterialButton>(R.id.dialog_btn_action)
+        view.findViewById<MaterialButton>(R.id.dialog_btn_action)
             .apply {
                 text = if (allDone && stage < 7)
                     getString(R.string.next_level, nextStage)
@@ -157,13 +160,13 @@ class TreeOfLifeView : MainActivity() {
                     getString(R.string.close_dialog)
             }
 
-        val sheet = com.google.android.material.bottomsheet.BottomSheetDialog(this).apply {
+        val sheet = BottomSheetDialog(this, R.style.TransparentBottomSheet).apply {
             setContentView(view)
-            behavior.state = com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
+            behavior.state = BottomSheetBehavior.STATE_EXPANDED
             behavior.skipCollapsed = true
         }
 
-        view.findViewById<com.google.android.material.button.MaterialButton>(R.id.dialog_btn_action)
+        view.findViewById<MaterialButton>(R.id.dialog_btn_action)
             .setOnClickListener {
                 if (allDone && stage < 7) advanceStage()
                 sheet.dismiss()
