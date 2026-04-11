@@ -11,6 +11,7 @@ import com.google.android.gms.ads.AdView
 import com.vadym.gvd.bestfriendskotlin.AdManager
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.quiz.QuizView
 import com.vadym.gvd.bestfriendskotlin.toHtml
 import com.vadym.gvd.bestfriendskotlin.treelife.ReadArticleTask
 import com.vadym.gvd.bestfriendskotlin.treelife.TreeLevel
@@ -31,6 +32,7 @@ class GeneralViewContent : MainActivity() {
         val traditionDescription: TextView = findViewById(R.id.tradition_description)
         val traditionsImage: ImageView = findViewById(R.id.traditions_img)
         val taskCompletedBtn = findViewById<Button>(R.id.task_completed)
+        val quizBtn = findViewById<Button>(R.id.go_to_quiz)
 
         ARTICLE_KEYS = mapOf(
             0 to getString(R.string.sunday_service),     //stage 3
@@ -88,7 +90,7 @@ class GeneralViewContent : MainActivity() {
             15 -> traditionDescription.text = getString(R.string.candle_description).toHtml()
         }
 
-        // ── Кнопка завдання ───────────────────────────────────────────────────
+        // ── Кнопка завдання + quiz button ───────────────────────────────────────────────────
         val articleKey = ARTICLE_KEYS[position]
 
         if (articleKey != null) {
@@ -127,6 +129,38 @@ class GeneralViewContent : MainActivity() {
         } else {
             taskCompletedBtn.visibility = View.GONE
         }
+
+
+        // ── Quiz кнопка ───────────────────────────────────────────────────────
+        val quizKey = articleKey  // той самий ключ що і для статті
+
+        if (quizKey != null) {
+            val quizPassed  = getSharedPreferences("quizzes_passed", MODE_PRIVATE)
+                .getBoolean("quiz_$quizKey", false)
+            val articleRead = getSharedPreferences("articles_read", MODE_PRIVATE)
+                .getBoolean("read_$quizKey", false)
+
+            when {
+                quizPassed -> {
+                    quizBtn.visibility = View.VISIBLE
+                    quizBtn.isEnabled  = false
+                    quizBtn.text       = getString(R.string.quiz_already_passed)
+                }
+                articleRead -> {
+                    // Статтю прочитано → quiz доступна
+                    quizBtn.visibility = View.VISIBLE
+                    quizBtn.isEnabled  = true
+                    quizBtn.text       = getString(R.string.go_to_quiz)
+                    quizBtn.setOnClickListener {
+                        QuizView.start(this, quizKey)
+                    }
+                }
+                else -> quizBtn.visibility = View.GONE
+            }
+        } else {
+            quizBtn.visibility = View.GONE
+        }
+
     }
 
     private fun toolbarButtonMenu() {

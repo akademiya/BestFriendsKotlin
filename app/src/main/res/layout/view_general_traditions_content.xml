@@ -79,10 +79,19 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
                 android:visibility="gone"
                 tools:src="@drawable/tr_vine" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <Button
                 android:id="@+id/task_completed"
                 style="@style/ButtonTaskCompleted"
                 android:text="@string/task_completed" />
+
+            <Button
+                android:id="@+id/go_to_quiz"
+                style="@style/ButtonTaskCompleted"
+                android:text="@string/go_to_quiz" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
