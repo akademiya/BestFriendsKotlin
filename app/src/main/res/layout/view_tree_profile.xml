@@ -55,14 +55,6 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <View
-                    android:id="@+id/edit_photo_badge"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="bottom|end"
-                    android:alpha="0.5"
-                    android:background="@drawable/ic_select_photo"
-                    android:elevation="2dp" />
             </FrameLayout>
 
             <LinearLayout

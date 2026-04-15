@@ -15,6 +15,7 @@ import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.vadym.gvd.bestfriendskotlin.databinding.ViewHdhBinding
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 import java.time.LocalDate
 import java.time.LocalTime
@@ -22,10 +23,15 @@ import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-class HDHView : MainActivity() {
+class HDHView : CoinActivity() {
 
     private lateinit var binding: ViewHdhBinding
     private var currentYearMonth = YearMonth.now()
+
+    override val coinViewMap = mapOf(
+        "coin_hdh_10" to R.id.coin_hdh_10,
+        "coin_hdh_11" to R.id.coin_hdh_11
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

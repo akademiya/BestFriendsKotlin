@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -37,6 +38,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.498" />
+
+        <ImageView
+            android:id="@+id/coin_phrase_12"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            android:alpha="1"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollClosed"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="180dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/scrollClosed"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/scrollOpened"
@@ -76,6 +92,20 @@
             app:layout_constraintStart_toStartOf="@id/scrollOpened"
             app:layout_constraintTop_toTopOf="@id/scrollOpened"
             app:layout_constraintWidth_percent="0.6" />
+
+        <ImageView
+            android:id="@+id/coin_phrase_13"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            android:alpha="1"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

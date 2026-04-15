@@ -20,6 +20,17 @@
             style="@style/Toolbar.TitleText"
             android:text="@string/calendar_toolbar" />
 
+        <ImageView
+            android:id="@+id/coin_hcalendar_9"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            android:layout_gravity="end"
+            tools:visibility="visible"
+            android:alpha="1" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
@@ -171,6 +182,17 @@
                 android:visibility="gone"
                 tools:text="오늘 천일국 13년 1월 9일"
                 tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/coin_hcalendar_8"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_shimjeong_coin"
+                android:visibility="gone"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="-140dp"
+                tools:visibility="visible"
+                android:alpha="0.8" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -9,6 +9,7 @@ class Condition {
     var pubGoal: String? = null
     var perGoal: String? = null
     var conditionPosition: Int = 0
+    var coinsAwarded: Boolean = false
 
     constructor(conditionId: Int,
                 lider: String,
@@ -17,7 +18,8 @@ class Condition {
                 condition: String,
                 pubGoal: String,
                 perGoal: String,
-                conditionPosition: Int) {
+                conditionPosition: Int,
+                coinsAwarded: Boolean = false) {
         this.conditionId = conditionId
         this.lider = lider
         this.duration = duration
@@ -26,6 +28,7 @@ class Condition {
         this.pubGoal = pubGoal
         this.perGoal = perGoal
         this.conditionPosition = conditionPosition
+        this.coinsAwarded = coinsAwarded
     }
 
     constructor(lider: String,

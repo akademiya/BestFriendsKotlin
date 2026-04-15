@@ -51,20 +51,20 @@ object TreeTasksConfig {
             HdhWeeklyTask(weeksRequired = 1),
             ReadArticleTask(ctx.getString(R.string.pledge)),
             QuizTask(ctx.getString(R.string.pledge)),
-            PrayerTask(minutesPerSession = 3, sessionsRequired = 4),
+            PrayerTask(minutesPerSession = 3, sessionsRequired = 4), // 3/7
             PhraseOpenTask(3)
         )
         2 -> listOf(
             HdhWeeklyTask(weeksRequired = 2),
             ReadArticleTask(ctx.getString(R.string.hdh)),
             QuizTask(ctx.getString(R.string.hdh)),
-            PrayerTask(minutesPerSession = 7, sessionsRequired = 4),
+            PrayerTask(minutesPerSession = 7, sessionsRequired = 2), // 7/4
         )
         3 -> listOf(
             HdhWeeklyTask(weeksRequired = 2),
             ReadArticleTask(ctx.getString(R.string.sunday_service)),
             QuizTask(ctx.getString(R.string.sunday_service)),
-            CardOpenTask(cardsRequired = 1, scCost = 25)
+            CardOpenTask(cardsRequired = 1, scCost = 40)
         )
         4 -> listOf(
             ReadArticleTask(ctx.getString(R.string.anshiil)),
@@ -88,7 +88,7 @@ object TreeTasksConfig {
             HdhMonthlyTask(countRequired = 20),
             DedicationTask,
             CardOpenTask(cardsRequired = 1, scCost = 75),
-            PrayerTask(minutesPerSession = 12, sessionsRequired = 20),
+            PrayerTask(minutesPerSession = 12, sessionsRequired = 3),
             ReadArticleTask(ctx.getString(R.string.salt)),
             QuizTask(ctx.getString(R.string.salt)),
             PhraseOpenTask(5)
@@ -102,24 +102,20 @@ object TreeTasksConfig {
         1 -> listOf(
             HdhWeeklyTask(weeksRequired = 2),
             ReadArticleTask("Сім'я -> Основи"),
-            QuizTask("Сім'я -> Основи"),
             PrayerTask(minutesPerSession = 12, sessionsRequired = 3)
         )
         2 -> listOf(
             HdhWeeklyTask(weeksRequired = 3),
-            QuizTask("Сім'я -> Основи"),
             PrayerTask(minutesPerSession = 12, sessionsRequired = 5),
             CardOpenTask(cardsRequired = 1, scCost = 75)
         )
         3 -> listOf(
             HdhMonthlyTask(countRequired = 20),
             ReadArticleTask("Сім'я -> Традиції"),
-            QuizTask("Сім'я -> Традиції"),
             CardOpenTask(cardsRequired = 2, scCost = 75)
         )
         4 -> listOf(
             HdhMonthlyTask(countRequired = 20),
-            QuizTask("Сім'я -> Святі дні"),
             DedicationTask,
             CardOpenTask(cardsRequired = 2, scCost = 75)
         )
@@ -127,13 +123,9 @@ object TreeTasksConfig {
             HdhMonthlyTask(countRequired = 20),
             CardOpenTask(cardsRequired = 4, scCost = 75),
             PrayerTask(minutesPerSession = 12, sessionsRequired = 10),
-            QuizTask("Сім'я -> Святі дні")
         )
         6 -> listOf(
             HdhMonthlyTask(countRequired = 20),
-            QuizTask("Сім'я -> Основи"),
-            QuizTask("Сім'я -> Традиції"),
-            QuizTask("Сім'я -> Святі дні")
         )
         7 -> listOf(
             HdhMonthlyTask(countRequired = 20),
@@ -150,24 +142,20 @@ object TreeTasksConfig {
         1 -> listOf(
             HdhWeeklyTask(weeksRequired = 2),
             ReadArticleTask("Рід -> Основи"),
-            QuizTask("Рід -> Основи"),
             PrayerTask(minutesPerSession = 12, sessionsRequired = 3)
         )
         2 -> listOf(
             HdhWeeklyTask(weeksRequired = 3),
-            QuizTask("Рід -> Основи"),
             PrayerTask(minutesPerSession = 12, sessionsRequired = 5),
             CardOpenTask(cardsRequired = 1, scCost = 75)
         )
         3 -> listOf(
             HdhMonthlyTask(countRequired = 20),
             ReadArticleTask("Рід -> Традиції"),
-            QuizTask("Рід -> Традиції"),
             CardOpenTask(cardsRequired = 2, scCost = 75)
         )
         4 -> listOf(
             HdhMonthlyTask(countRequired = 20),
-            QuizTask("Рід -> Спадщина"),
             DedicationTask,
             CardOpenTask(cardsRequired = 2, scCost = 75)
         )
@@ -175,13 +163,9 @@ object TreeTasksConfig {
             HdhMonthlyTask(countRequired = 20),
             CardOpenTask(cardsRequired = 4, scCost = 75),
             PrayerTask(minutesPerSession = 12, sessionsRequired = 10),
-            QuizTask("Рід -> Спадщина")
         )
         6 -> listOf(
             HdhMonthlyTask(countRequired = 20),
-            QuizTask("Рід -> Основи"),
-            QuizTask("Рід -> Традиції"),
-            QuizTask("Рід -> Спадщина")
         )
         7 -> listOf(
             HdhMonthlyTask(countRequired = 20),

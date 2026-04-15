@@ -88,6 +88,17 @@
 
             </androidx.cardview.widget.CardView>
 
+            <ImageView
+                android:id="@+id/coin_hdh_10"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_shimjeong_coin"
+                android:visibility="gone"
+                android:layout_marginHorizontal="@dimen/parent_margin"
+                android:layout_marginTop="10dp"
+                tools:visibility="visible"
+                android:alpha="0.8" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,6 +115,18 @@
                 android:layout_marginBottom="16dp"
                 android:text="@string/open_hdh_app"
                 app:cornerRadius="12dp" />
+
+            <ImageView
+                android:id="@+id/coin_hdh_11"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_shimjeong_coin"
+                android:visibility="gone"
+                android:layout_marginHorizontal="@dimen/parent_margin"
+                android:layout_gravity="end"
+                android:layout_marginTop="-33dp"
+                tools:visibility="visible"
+                android:alpha="1" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

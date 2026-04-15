@@ -30,7 +30,7 @@ class TreeProfileView : CoinActivity() {
     private lateinit var db: TreeOfLifeDB
     private lateinit var coinManager: CoinManager
     private lateinit var profilePhoto: ImageView
-    private lateinit var editPhotoBadge: View
+//    private lateinit var editPhotoBadge: View
     private lateinit var nicknameText: TextView
     private lateinit var editNicknameBtn: ImageView
     private lateinit var warnBanner: View
@@ -83,7 +83,7 @@ class TreeProfileView : CoinActivity() {
 
     private fun bindViews() {
         profilePhoto    = findViewById(R.id.profile_photo)
-        editPhotoBadge  = findViewById(R.id.edit_photo_badge)
+//        editPhotoBadge  = findViewById(R.id.edit_photo_badge)
         nicknameText    = findViewById(R.id.profile_nickname)
         editNicknameBtn = findViewById(R.id.edit_nickname_btn)
         warnBanner      = findViewById(R.id.profile_warn_banner)
@@ -100,7 +100,7 @@ class TreeProfileView : CoinActivity() {
         // UI без БД — одразу
         val savedUri = prefs.getString("photo_uri", null)
         if (savedUri != null) loadPhoto(Uri.parse(savedUri))
-        editPhotoBadge.setOnClickListener { openGallery() }
+//        editPhotoBadge.setOnClickListener { openGallery() }
         profilePhoto.setOnClickListener { openGallery() }
         nicknameText.text = prefs.getString("nickname", "User") ?: "User"
         editNicknameBtn.setOnClickListener { showEditNicknameDialog() }
@@ -171,46 +171,6 @@ class TreeProfileView : CoinActivity() {
         }
     }
 
-//    private fun renderStatCards(tree: TreeRow, hdhCount: Int) {
-//        coinViewModel.collectedCount.observe(this) { _ ->
-//            renderStatCards(db.getTree() ?: return@observe, hdhCountThisMonth())
-//        }
-//        val prefs     = getSharedPreferences(PREFS_PROFILE, MODE_PRIVATE)
-//        val joinDate  = prefs.getString("join_date", LocalDate.now().toString()) ?: LocalDate.now().toString()
-//        val daysIn    = LocalDate.parse(joinDate).until(LocalDate.now()).days.coerceAtLeast(0)
-//
-//        val cardsOpened = getSharedPreferences("shimjeong_coins", MODE_PRIVATE)
-//            .getStringSet("purchased_cards", emptySet())?.size ?: 0
-//
-//        val phrasesOpened = getSharedPreferences("PhraseForDay", MODE_PRIVATE)
-//            .getInt("total_phrases_opened", 0)
-//
-//        val dedicationCount  = DedicationTask.finishedCount(this)
-//        val totalConditions = ConditionSqlDB.getInstance(this).listConditions().size
-//
-//        val eggCount = coinViewModel.collectedCount.value ?: 0
-//
-//        val cards = listOf(
-//            StatCard(hdhCount.toString(), getString(R.string.stat_card_hdh), R.drawable.bg_stat_card),
-//            StatCard(coinManager.balance.toString(), getString(R.string.stat_card_sc), R.drawable.bg_stat_card_blue),
-//            StatCard("${tree.stageIndividual} / 7", "Статус 1", R.drawable.bg_stat_card_turquoise),
-//            StatCard("$daysIn", getString(R.string.stat_card_days), R.drawable.bg_stat_card_purple),
-//            StatCard(cardsOpened.toString(), getString(R.string.stat_card_cards), R.drawable.bg_stat_card_orange),
-//            StatCard("$dedicationCount / $totalConditions", getString(R.string.stat_card_conditions), R.drawable.bg_stat_card_red),
-//            StatCard(phrasesOpened.toString(), getString(R.string.stat_card_phrases), R.drawable.bg_stat_card_pink),
-//            StatCard("$eggCount / 100", getString(R.string.stat_card_easter_egg), R.drawable.bg_stat_card_salad)
-//        )
-//
-//        val grid = findViewById<GridLayout>(R.id.stats_grid)
-//        grid.removeAllViews()
-//        cards.forEach { card ->
-//            val v = layoutInflater.inflate(R.layout.item_stat_card, grid, false)
-//            v.findViewById<TextView>(R.id.stat_value).text = card.value
-//            v.findViewById<TextView>(R.id.stat_label).text = card.label
-//            v.setBackgroundResource(card.colorRes)
-//            grid.addView(v)
-//        }
-//    }
 
     data class StatCard(val value: String, val label: String, val colorRes: Int)
 

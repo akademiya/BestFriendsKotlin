@@ -34,6 +34,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.kido.Chronometer.nextBeep
 import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapter
 import com.vadym.gvd.bestfriendskotlin.kido.adapter.PersonAdapterListener
@@ -42,7 +43,7 @@ import com.vadym.gvd.bestfriendskotlin.restartActivity
 import java.util.Collections
 
 
-class PersonView : MainActivity(), PersonAdapterListener {
+class PersonView : CoinActivity(), PersonAdapterListener {
     private lateinit var allPerson: List<Person>
     private lateinit var listPersonEmpty: RelativeLayout
     private lateinit var database: SqliteDatabase
@@ -63,6 +64,14 @@ class PersonView : MainActivity(), PersonAdapterListener {
     private enum class ImageTarget { NONE, NEW_PERSON, EDIT_PERSON }
 
     private var isMusicPlaying = false
+
+    override val coinViewMap = mapOf(
+        "coin_kido_17" to R.id.coin_kido_17,
+        "coin_kido_18" to R.id.coin_kido_18,
+        "coin_kido_19" to R.id.coin_kido_19,
+        "coin_kido_20" to R.id.coin_kido_20,
+        "coin_kido_21" to R.id.coin_kido_21
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

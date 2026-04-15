@@ -134,7 +134,8 @@
     </style>
 
     <style name="StatusTreeLifeText" parent="AppTheme">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_size_status_tree_life</item>
         <item name="android:textColor">@color/tree_status_color</item>
@@ -227,8 +228,6 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">56dp</item>
-        <item name="android:layout_marginHorizontal">@dimen/parent_margin</item>
-        <item name="android:layout_marginBottom">32dp</item>
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>
     </style>

@@ -23,6 +23,16 @@
             android:text="@string/nav_exercise"
             tools:text="TF Exercise" />
 
+        <ImageView
+            android:id="@+id/coin_exercise_4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            tools:visibility="visible"
+            android:alpha="1" />
+
         <ImageButton
             android:id="@+id/watch_in_youtube"
             android:layout_width="48dp"
@@ -42,11 +52,10 @@
         android:background="@color/white"
         tools:ignore="MissingConstraints">
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/fl_archive_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
                 <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                     android:id="@+id/youtube_exercises"
@@ -57,18 +66,54 @@
                     android:id="@+id/adDivider"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_below="@+id/youtube_exercises"
                     android:layout_marginVertical="@dimen/margin8"
                     android:layout_marginTop="@dimen/parent_margin"
                     android:background="@color/divider_color" />
 
+                <ImageView
+                    android:id="@+id/coin_exercise_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_shimjeong_coin"
+                    android:visibility="gone"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="140dp"
+                    tools:visibility="visible"
+                    android:alpha="1" />
+
+                <ImageView
+                    android:id="@+id/coin_exercise_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_shimjeong_coin"
+                    android:visibility="gone"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    tools:visibility="visible"
+                    android:alpha="1" />
+
+                <ImageView
+                    android:id="@+id/coin_exercise_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_shimjeong_coin"
+                    android:visibility="gone"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_below="@+id/adViewExercise"
+                    tools:visibility="visible"
+                    android:alpha="1" />
+
                 <com.google.android.gms.ads.AdView
                     android:id="@+id/adViewExercise"
+                    android:layout_below="@+id/adDivider"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     app:adSize="SMART_BANNER"
                     app:adUnitId="ca-app-pub-5169531562006723/9791396001" />
 
-            </LinearLayout>
+            </RelativeLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

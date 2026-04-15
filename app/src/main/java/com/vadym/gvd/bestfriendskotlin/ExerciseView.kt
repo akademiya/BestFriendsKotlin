@@ -14,12 +14,20 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstan
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ExerciseView : MainActivity() {
+class ExerciseView : CoinActivity() {
 
     private lateinit var youTubePlayerView: YouTubePlayerView
+
+    override val coinViewMap = mapOf(
+        "coin_exercise_4" to R.id.coin_exercise_4,
+        "coin_exercise_5" to R.id.coin_exercise_5,
+        "coin_exercise_6" to R.id.coin_exercise_6,
+        "coin_exercise_7" to R.id.coin_exercise_7
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

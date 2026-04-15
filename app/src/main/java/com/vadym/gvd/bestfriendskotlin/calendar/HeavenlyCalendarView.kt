@@ -13,12 +13,13 @@ import com.vadym.gvd.bestfriendskotlin.FirebaseStorage
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.deviceLocale
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
-class HeavenlyCalendarView : MainActivity() {
+class HeavenlyCalendarView : CoinActivity() {
 
     private val storage = FirebaseStorage()
     private lateinit var recyclerView: RecyclerView
@@ -38,6 +39,11 @@ class HeavenlyCalendarView : MainActivity() {
             set(Calendar.MILLISECOND, 0)
         }.timeInMillis
     }
+
+    override val coinViewMap = mapOf(
+        "coin_hcalendar_8" to R.id.coin_hcalendar_8,
+        "coin_hcalendar_9" to R.id.coin_hcalendar_9
+    )
 
     data class CalendarDay(
         val gregorian: String,

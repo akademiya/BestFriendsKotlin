@@ -11,16 +11,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.PodcastTtsManager
 import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
 
 
-class FatherKidoNadezdyViewIntro : MainActivity() {
+class FatherKidoNadezdyViewIntro : CoinActivity() {
 
     private lateinit var rv: RecyclerView
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var ttsManager: PodcastTtsManager
     private lateinit var kidoList: List<KidoNadezdy>
+
+    override val coinViewMap = mapOf(
+        "coin_father_nadezdy_30" to R.id.coin_father,
+        "coin_father_nadezdy_31" to R.id.coin_father2,
+        "coin_father_nadezdy_32" to R.id.coin_father3,
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

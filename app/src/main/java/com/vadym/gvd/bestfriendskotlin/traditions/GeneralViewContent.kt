@@ -11,6 +11,7 @@ import com.google.android.gms.ads.AdView
 import com.vadym.gvd.bestfriendskotlin.AdManager
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.quiz.QuizView
 import com.vadym.gvd.bestfriendskotlin.toHtml
 import com.vadym.gvd.bestfriendskotlin.treelife.ReadArticleTask
@@ -18,9 +19,17 @@ import com.vadym.gvd.bestfriendskotlin.treelife.TreeLevel
 import com.vadym.gvd.bestfriendskotlin.treelife.TreeOfLifeDB
 import com.vadym.gvd.bestfriendskotlin.treelife.TreeTasksConfig
 
-class GeneralViewContent : MainActivity() {
+class GeneralViewContent : CoinActivity() {
 
     private lateinit var ARTICLE_KEYS: Map<Int, String>
+//    private lateinit var COIN_KEYS: Map<Int, String>
+
+    override val coinViewMap = mapOf(
+        "coin_tradition1" to R.id.coin_tradition1,
+        "coin_tradition2" to R.id.coin_tradition2,
+        "coin_tradition3" to R.id.coin_tradition3,
+        "coin_tradition4" to R.id.coin_tradition4
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +52,24 @@ class GeneralViewContent : MainActivity() {
             10 to getString(R.string.prayer_tradition),  //stage 6
             13 to getString(R.string.salt)               //stage 7
         )
+
+//        COIN_KEYS = mapOf(
+//            0 to "SS",
+//            1 to "HDH",
+//            2 to "PLEDGE",
+//            3 to "ANSHIIL",
+//            4 to "PHOTO",
+//            5 to "DAY8",
+//            6 to "BIRTHDAY",
+//            7 to "CLOTHES",
+//            8 to "LS",
+//            9 to "SONGHWA",
+//            10 to "PRAYER",
+//            12 to "DESYATYNA",
+//            13 to "SALT",
+//            14 to "VINE",
+//            15 to "CANDLE"
+//        )
 
 
         AdManager.setupBanner(this, adContainer, adDivider)

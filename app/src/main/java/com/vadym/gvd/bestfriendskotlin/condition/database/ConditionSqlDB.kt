@@ -17,31 +17,36 @@ class ConditionSqlDB(val context: Context) : SQLiteOpenHelper(context, DATABASE_
                 + "$KEY_CONDITION TEXT,"
                 + "$KEY_PUB_GOAL TEXT,"
                 + "$KEY_PER_GOAL TEXT,"
-                + "$KEY_POSITION INTEGER)")
+                + "$KEY_POSITION INTEGER,"
+                + "coinsAwarded INTEGER DEFAULT 0)")
         db?.execSQL(CREATE_CONDITION_TABLE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         if (oldVersion < 2) {
-            if (!isFieldExist(TABLE_CONDITIONS, KEY_POSITION))
+            if (!isFieldExist(db, TABLE_CONDITIONS, KEY_POSITION))  // ← передаємо db
                 db.execSQL("ALTER TABLE $TABLE_CONDITIONS ADD COLUMN $KEY_POSITION INTEGER;")
+
+            if (!isFieldExist(db, TABLE_CONDITIONS, "coinsAwarded"))  // ← передаємо db
+                db.execSQL("ALTER TABLE $TABLE_CONDITIONS ADD COLUMN coinsAwarded INTEGER DEFAULT 0;")
         } else {
             db.execSQL("DROP TABLE IF EXISTS $TABLE_CONDITIONS")
             onCreate(db)
         }
     }
 
-    private fun isFieldExist(tableName: String, fieldName: String): Boolean {
+    private fun isFieldExist(db: SQLiteDatabase, tableName: String, fieldName: String): Boolean {
         var isExist = false
-        val db = this.writableDatabase
         val res = db.rawQuery("PRAGMA table_info($tableName)", null)
-        res.moveToFirst()
-        do {
-            val currentColumn = res.getString(1)
-            if (currentColumn == fieldName) {
-                isExist = true
-            }
-        } while (res.moveToNext())
+        if (res.moveToFirst()) {
+            do {
+                val currentColumn = res.getString(1)
+                if (currentColumn == fieldName) {
+                    isExist = true
+                }
+            } while (res.moveToNext())
+        }
+        res.close()  // ← також додати закриття курсора
         return isExist
     }
 
@@ -60,6 +65,7 @@ class ConditionSqlDB(val context: Context) : SQLiteOpenHelper(context, DATABASE_
                 val pubGoal = cursor.getString(5)
                 val perGoal = cursor.getString(6)
                 val position = Integer.parseInt(cursor.getString(7))
+                val coinsAwarded = cursor.getInt(8) == 1
                 storeConditions.add(Condition(
                         conditionId = id,
                         lider = lider,
@@ -68,7 +74,8 @@ class ConditionSqlDB(val context: Context) : SQLiteOpenHelper(context, DATABASE_
                         condition = condition,
                         pubGoal = pubGoal,
                         perGoal = perGoal,
-                        conditionPosition = position)
+                        conditionPosition = position,
+                        coinsAwarded = coinsAwarded)
                 )
 
             } while (cursor.moveToNext())
@@ -118,9 +125,16 @@ class ConditionSqlDB(val context: Context) : SQLiteOpenHelper(context, DATABASE_
         db.delete(TABLE_CONDITIONS, "$KEY_ID =?", arrayOf(id.toString()))
     }
 
+    fun markCoinsAwarded(conditionId: Int) {
+        val values = ContentValues().apply {
+            put("coinsAwarded", 1)
+        }
+        writableDatabase.update(TABLE_CONDITIONS, values, "$KEY_ID = ?", arrayOf(conditionId.toString()))
+    }
+
     companion object {
 
-        private val DATABASE_VERSION = 1
+        private val DATABASE_VERSION = 2
         private val DATABASE_NAME = "condition"
         val TABLE_CONDITIONS = "conditions"
 

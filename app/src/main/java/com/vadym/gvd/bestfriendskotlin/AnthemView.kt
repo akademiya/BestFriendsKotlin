@@ -7,12 +7,19 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import java.io.IOException
 
 
-class AnthemView : MainActivity() {
+class AnthemView : CoinActivity() {
 
     private lateinit var cheonIlGukAnthem: MediaPlayer
+
+    override val coinViewMap = mapOf(
+        "coin_anthem_14" to R.id.coin_anthem_14,
+        "coin_anthem_15" to R.id.coin_anthem_15,
+        "coin_anthem_16" to R.id.coin_anthem_16
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -18,6 +18,7 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
@@ -31,8 +32,7 @@ class TreeOfLifeView : MainActivity() {
     private lateinit var stageLabel: TextView
     private lateinit var coinManager: CoinManager
     private lateinit var btnProfile: MaterialCardView
-    private lateinit var warnBanner: View
-    private lateinit var warnText: TextView
+    private lateinit var warnIcon: ImageView
     private lateinit var stageDots: StageDotsView
     private lateinit var chipGroup: ChipGroup
 
@@ -73,8 +73,7 @@ class TreeOfLifeView : MainActivity() {
         stageLabel    = findViewById(R.id.tree_stage_label)
         stageDots     = findViewById(R.id.tree_stage_dots)
         btnProfile    = findViewById(R.id.btn_profile)
-        warnBanner    = findViewById(R.id.tree_warn_banner)
-        warnText      = findViewById(R.id.tree_warn_text)
+        warnIcon    = findViewById(R.id.tree_warn_icon)
         chipGroup     = findViewById(R.id.level_chip_group)
     }
 
@@ -112,6 +111,7 @@ class TreeOfLifeView : MainActivity() {
     }
 
     private fun treeDrawable(stage: Int) = when (stage) {
+        0 -> R.drawable.tree_regres
         1 -> R.drawable.tree_stage_1
         2 -> R.drawable.tree_stage_2
         3 -> R.drawable.tree_stage_3
@@ -191,11 +191,16 @@ class TreeOfLifeView : MainActivity() {
         val tree  = db.getTree() ?: return
         val stage = tree.stageForLevel(activeLevel).coerceIn(1, 7)
 
-        if (count < 20 && stage > 1) {
-            warnBanner.visibility = View.VISIBLE
-            warnText.text = getString(R.string.warning_text, count, 20 - count)
+        if (count in 8..20 && stage > 1) {
+            val root = findViewById<View>(android.R.id.content)
+            warnIcon.visibility = View.VISIBLE
+            warnIcon.setOnClickListener {
+                Snackbar.make(root, getString(R.string.warning_text, count, 20 - count), Snackbar.LENGTH_LONG).show()
+            }
+            treeImage.setImageResource(treeDrawable(0))
         } else {
-            warnBanner.visibility = View.GONE
+            treeImage.setImageResource(treeDrawable(stage))
+            warnIcon.visibility = View.GONE
         }
 
         val prefs          = getSharedPreferences("hdh_calendar", Context.MODE_PRIVATE)

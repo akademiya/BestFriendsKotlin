@@ -20,6 +20,16 @@
             style="@style/Toolbar.TitleText"
             android:text="@string/toolbar_title" />
 
+        <ImageView
+            android:id="@+id/coin_condition_22"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
@@ -39,6 +49,56 @@
                 tools:listitem="@layout/item_condition" />
 
         </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/coin_condition_23"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="@dimen/parent_margin"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/coin_condition_24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="80dp"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/coin_condition_25"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="80dp"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/coin_condition_26"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginTop="120dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/coin_condition_27"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="220dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_shimjeong_coin"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"

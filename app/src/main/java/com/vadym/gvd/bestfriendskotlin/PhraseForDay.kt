@@ -11,12 +11,13 @@ import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.snackbar.Snackbar
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class PhraseForDay : MainActivity() {
+class PhraseForDay : CoinActivity() {
 
     // ── Константи ────────────────────────────────────────────────────────────
     companion object {
@@ -35,6 +36,11 @@ class PhraseForDay : MainActivity() {
     private lateinit var phraseTextView: TextView
     private lateinit var textOnButton: TextView
     private lateinit var coinManager: CoinManager
+
+    override val coinViewMap = mapOf(
+        "coin_phrase_12" to R.id.coin_phrase_12,
+        "coin_phrase_13" to R.id.coin_phrase_13
+    )
 
     private val phrases: List<String> by lazy {
         (1..PHRASE_COUNT).map { "$PHRASE_PREFIX$it" }

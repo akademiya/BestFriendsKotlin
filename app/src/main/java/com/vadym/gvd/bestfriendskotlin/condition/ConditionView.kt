@@ -22,14 +22,16 @@ import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.condition.adapter.ConditionAdapter
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.formatterDate
 import com.vadym.gvd.bestfriendskotlin.restartActivity
+import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Collections
 import java.util.Locale
 
-class ConditionView : MainActivity() {
+class ConditionView : CoinActivity() {
 
     private lateinit var emptyPage: RelativeLayout
     private lateinit var listCondition: List<Condition>
@@ -38,6 +40,16 @@ class ConditionView : MainActivity() {
     private lateinit var itemTouchHelper: ItemTouchHelper
     private lateinit var viewListCondition: RecyclerView
     private lateinit var fab: FloatingActionButton
+    private lateinit var coinManager: CoinManager
+
+    override val coinViewMap = mapOf(
+        "coin_condition_22" to R.id.coin_condition_22,
+        "coin_condition_23" to R.id.coin_condition_23,
+        "coin_condition_24" to R.id.coin_condition_24,
+        "coin_condition_25" to R.id.coin_condition_25,
+        "coin_condition_26" to R.id.coin_condition_26,
+        "coin_condition_27" to R.id.coin_condition_27
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +62,7 @@ class ConditionView : MainActivity() {
 
         fab.setOnClickListener { addTaskDialog() }
         emptyPage = findViewById(R.id.list_condition_empty)
+        coinManager    = CoinManager(this)
 
         itemTouchHelper = ItemTouchHelper(touchHelperCallback()).apply {
             attachToRecyclerView(viewListCondition)
@@ -62,7 +75,7 @@ class ConditionView : MainActivity() {
 
         if (listCondition.isNotEmpty()) {
             viewListCondition.visibility = View.VISIBLE
-            adapter = ConditionAdapter(this, database, listCondition) {
+            adapter = ConditionAdapter(this, coinManager, database, listCondition) {
                 onStartDrag(it)
             }
             viewListCondition.adapter = adapter

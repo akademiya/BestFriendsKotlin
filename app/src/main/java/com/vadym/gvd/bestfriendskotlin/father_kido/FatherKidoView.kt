@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamingan.KidoChaminganView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chamkajon.KidoChamkajonView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.chammanmul.KidoChammanmulView
@@ -35,7 +36,12 @@ import com.vadym.gvd.bestfriendskotlin.father_kido.intro.yongye.KidoYongyeView
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.zelaniya.FatherKidoZelaniyaViewIntro
 
 
-class FatherKidoView : MainActivity() {
+class FatherKidoView : CoinActivity() {
+
+    override val coinViewMap = mapOf(
+        "coin_father_28" to R.id.coin_father_28,
+        "coin_father_29" to R.id.coin_father_29
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

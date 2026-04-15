@@ -21,10 +21,12 @@ import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.condition.Condition
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
 import com.vadym.gvd.bestfriendskotlin.restartActivity
+import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CoinManager
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class ConditionAdapter(private val context: Context,
+                       private val coinManager: CoinManager,
                        private val database: ConditionSqlDB,
                        private val conditionList: List<Condition>,
                        private val onMoveItemTouch: (holder: VH) -> Unit) : RecyclerView.Adapter<ConditionAdapter.VH>() {
@@ -91,6 +93,16 @@ class ConditionAdapter(private val context: Context,
             if (isFinished) {
                 title.setTextColor(Color.RED)
                 title.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+
+                if (!singleCondition.coinsAwarded) {
+                    coinManager.addCoins(CoinManager.COINS_FOR_CONDITION)
+                    database.markCoinsAwarded(singleCondition.conditionId)
+                    Toast.makeText(
+                        context,
+                        context.getString(R.string.coins_per_condition, CoinManager.COINS_FOR_CONDITION),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
 
         }

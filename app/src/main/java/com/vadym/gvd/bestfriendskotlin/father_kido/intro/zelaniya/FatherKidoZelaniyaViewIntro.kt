@@ -12,15 +12,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vadym.gvd.bestfriendskotlin.DarkModePreferences
 import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
+import com.vadym.gvd.bestfriendskotlin.easter_egg.CoinActivity
 import com.vadym.gvd.bestfriendskotlin.father_kido.intro.PodcastTtsManager
 import com.vadym.gvd.bestfriendskotlin.kidoListPopupMenu
 
-class FatherKidoZelaniyaViewIntro : MainActivity() {
+class FatherKidoZelaniyaViewIntro : CoinActivity() {
 
     private lateinit var rv: RecyclerView
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var ttsManager: PodcastTtsManager
     private lateinit var kidoList: List<KidoZelaniya>
+
+    override val coinViewMap = mapOf(
+        "coin_father_zelaniya_39" to R.id.coin_father,
+        "coin_father_zelaniya_40" to R.id.coin_father2,
+        "coin_father_zelaniya_41" to R.id.coin_father3
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
