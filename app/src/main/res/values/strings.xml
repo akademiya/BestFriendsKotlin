@@ -192,7 +192,7 @@
     <string name="close_dialog">Закрити</string>
     <string name="warning_text">Увага: цього місяця лише %1$d ХДХ. \nЗроби ще %2$d, щоб дерево не висохло.</string>
     <string name="regress_dialog_title">Дерево висохло</string>
-    <string name="regress_dialog_message">Минулого місяця лише %1$d ХДХ (потрібно 20). Твоє дерево опустилось на один рівень.</string>
+    <string name="regress_dialog_message">Минулого місяця лише %1$d ХДХ, що менше за 20. Твоє дерево опустилось на один рівень.</string>
     <string name="regress_accept">Зрозумів</string>
     <string name="profile">Профіль</string>
     <string name="lider_sj">Лідер 심정</string>

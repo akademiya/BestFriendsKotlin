@@ -23,6 +23,7 @@ import com.vadym.gvd.bestfriendskotlin.kido.PersonView
 import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.CardShopActivity
 import com.vadym.gvd.bestfriendskotlin.traditions.TraditionsView
 import com.vadym.gvd.bestfriendskotlin.treelife.TreeOfLifeView
+import com.vadym.gvd.bestfriendskotlin.treelife.TreeProfileView
 import java.net.URL
 import java.time.LocalDate
 import java.util.Locale
@@ -169,6 +170,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_exercise        to ExerciseView::class.java,
             R.id.nav_shop            to CardShopActivity::class.java,
             R.id.nav_treelife        to TreeOfLifeView::class.java,
+            R.id.nav_profile         to TreeProfileView::class.java,
             R.id.nav_hdh             to HDHView::class.java
         )
 
@@ -185,7 +187,6 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_ua_sj    -> openApp("com.mattermost.rn", "https://umua.org/hpwords/channels/town-square")
             R.id.nav_birthday -> Toast.makeText(this, "Coming soon. I'm fixing the code", Toast.LENGTH_SHORT).show()
 //                openApp( "com.vadym.birthday", "https://sites.google.com/view/birthday-app/main" )
-//            R.id.nav_facebook -> startActivity(openFacebookIntent(this))
             R.id.nav_share    -> shareApp()
             R.id.nav_send     -> sendEmail()
         }

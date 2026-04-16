@@ -191,7 +191,7 @@ class TreeOfLifeView : MainActivity() {
         val tree  = db.getTree() ?: return
         val stage = tree.stageForLevel(activeLevel).coerceIn(1, 7)
 
-        if (count in 8..20 && stage > 1) {
+        if (count in 9..20 && stage > 1) {
             val root = findViewById<View>(android.R.id.content)
             warnIcon.visibility = View.VISIBLE
             warnIcon.setOnClickListener {

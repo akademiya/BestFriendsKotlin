@@ -59,11 +59,6 @@
             android:icon="@drawable/books"
             android:title="@string/tp_kido" />
 
-<!--        <item-->
-<!--            android:id="@+id/nav_kido_explanation"-->
-<!--            android:icon="@drawable/ic_explanation"-->
-<!--            android:title="@string/explanation" />-->
-
         <item
             android:id="@+id/nav_traditions"
             android:icon="@drawable/ic_traditions"
@@ -73,11 +68,6 @@
             android:id="@+id/nav_holly_days"
             android:icon="@drawable/ic_liliya"
             android:title="@string/holy_days" />
-
-<!--        <item-->
-<!--            android:id="@+id/nav_experiences_prayer"-->
-<!--            android:icon="@drawable/pray"-->
-<!--            android:title="@string/experiences_prayer"/>-->
 
         <item
             android:id="@+id/nav_shop"
@@ -89,10 +79,10 @@
             android:icon="@drawable/ic_tree_life"
             android:title="@string/card_tree_title" />
 
-<!--        <item-->
-<!--            android:id="@+id/nav_facebook"-->
-<!--            android:icon="@drawable/fb"-->
-<!--            android:title="@string/facebook"/>-->
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/empty_person2"
+            android:title="@string/profile" />
 
         <item
             android:id="@+id/nav_info"
