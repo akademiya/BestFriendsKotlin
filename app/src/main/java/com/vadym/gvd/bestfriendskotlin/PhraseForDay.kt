@@ -184,7 +184,7 @@ class PhraseForDay : CoinActivity() {
 
     // ── Монети ────────────────────────────────────────────────────────────────
     private fun awardDailyCoins() {
-        coinManager.addCoins(CoinManager.COINS_PER_DAY)
+        coinManager.addCoins(CoinManager.COINS_FOR_PHRASE)
 
         val mediaPlayer = MediaPlayer.create(this, R.raw.sj_coin)
         mediaPlayer.setOnCompletionListener { it.release() }
@@ -198,20 +198,20 @@ class PhraseForDay : CoinActivity() {
 
         if (streakBonus) {
             // 🎉 Бонус за 7 днів підряд
-            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(root, "+${CoinManager.COINS_FOR_PHRASE} 심정", Snackbar.LENGTH_SHORT).show()
 
             // Показуємо окремий діалог про бонус
             android.os.Handler(mainLooper).postDelayed({
                 com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
                     .setTitle("🔥 ${streak} " + getString(R.string.bonus_7days))
-                    .setMessage(getString(R.string.bonus_congratulation, CoinManager.COINS_STREAK_BONUS, CoinManager.STREAK_DAYS))
+                    .setMessage(getString(R.string.bonus_congratulation, CoinManager.COINS_PHRASE_STREAK_BONUS, CoinManager.PHRASE_STREAK_DAYS))
                     .setPositiveButton(android.R.string.ok, null)
                     .show()
             }, 1200) // затримка щоб Snackbar встиг показатись
         } else {
             // Звичайне нарахування + показуємо поточну серію
             val streakText = if (streak > 1) "  🔥 $streak" else ""
-            Snackbar.make(root, "+${CoinManager.COINS_PER_DAY} 심정 $streakText", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(root, "+${CoinManager.COINS_FOR_PHRASE} 심정 $streakText", Snackbar.LENGTH_SHORT).show()
         }
     }
 

@@ -148,11 +148,25 @@ class HDHView : CoinActivity() {
 
                         val coinManager = CoinManager(this@HDHView)
                         coinManager.addCoins(CoinManager.COINS_PER_HDH_DAY)
-                        Snackbar.make(
-                            binding.root,
-                            getString(R.string.coins_per_hdh_day, CoinManager.COINS_PER_HDH_DAY),
-                            Snackbar.LENGTH_LONG
-                        ).show()
+
+                        val streakBonus = coinManager.recordHDHDay(date.toString())
+
+                        val message = if (streakBonus) {
+                            getString(R.string.coins_per_hdh_day, CoinManager.COINS_PER_HDH_DAY) +
+                                    "\n🔥 +${CoinManager.COINS_HDH_STREAK_BONUS} 심정 бонус за 7 днів ХДХ поспіль!"
+                        } else {
+                            val streak = coinManager.currentHDHStreak
+                            getString(R.string.coins_per_hdh_day, CoinManager.COINS_PER_HDH_DAY) +
+                                    if (streak > 0) "\n🔥 Серія: $streak / ${CoinManager.HDH_STREAK_DAYS}" else ""
+                        }
+
+                        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
+
+//                        Snackbar.make(
+//                            binding.root,
+//                            getString(R.string.coins_per_hdh_day, CoinManager.COINS_PER_HDH_DAY),
+//                            Snackbar.LENGTH_LONG
+//                        ).show()
 
                         renderCalendar()
                     }
