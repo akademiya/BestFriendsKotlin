@@ -185,6 +185,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
 
         when (itemId) {
             R.id.nav_ua_sj    -> openApp("com.mattermost.rn", "https://umua.org/hpwords/channels/town-square")
+            R.id.nav_8books   -> openSite(getString(R.string.site_8books_link))
             R.id.nav_birthday -> Toast.makeText(this, "Coming soon. I'm fixing the code", Toast.LENGTH_SHORT).show()
 //                openApp( "com.vadym.birthday", "https://sites.google.com/view/birthday-app/main" )
             R.id.nav_share    -> shareApp()
@@ -198,6 +199,11 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
         val intent = packageManager.getLaunchIntentForPackage(packageName)
             ?: Intent(Intent.ACTION_VIEW, Uri.parse(fallbackUrl))
         startActivity(intent)
+    }
+
+    private fun openSite(url: String) {
+        val uri = Uri.parse(url)
+        Intent(Intent.ACTION_VIEW, uri).apply { noAnimation() }.also { startActivity(it) }
     }
 
 

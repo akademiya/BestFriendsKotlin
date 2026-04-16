@@ -12,9 +12,7 @@
 \n\nIn the future, I plan to add even more useful features.
 \n\nIf you have any ideas or suggestions, please feel free to write to me. Your thoughts are very important, and I will gladly take them into consideration.
     \n\nI work on this app by myself, so not everything moves quickly. If you\'d like to support and inspire me, you can tap the ☕ button below 😉</string>
-    <string name="privacy_policy"><a href="https://drive.google.com/file/d/1mS3vjhdWB4gV23UGREKpstizmCEGNsPA/view?usp=sharing">Privacy policy</a></string>
     <string name="site">Site</string>
-    <string name="site_link">https://sites.google.com/view/tfprayer/main-en</string>
     <string name="about">Settings</string>
     <string name="experiences_prayer">Prayer in my life</string>
     <string name="share_by">Share:</string>
@@ -35,6 +33,11 @@
     <string name="youtube_video_id">6_QzQ5KRDw8</string>
     <string name="yes">Так</string>
     <string name="no">Ні</string>
+
+    // Links to site
+    <string name="privacy_policy"><a href="https://drive.google.com/file/d/1mS3vjhdWB4gV23UGREKpstizmCEGNsPA/view?usp=sharing">Privacy policy</a></string>
+    <string name="site_link">https://sites.google.com/view/tfprayer/main-en</string>
+    <string name="site_8books_link">https://8books.net/</string>
 
     // Theme
     <string name="dark">Dark</string>
@@ -104,6 +107,7 @@
     <string name="mense">Family Pledge</string>
 <!--    <string name="mense_k">가정 맹세</string>-->
     <string name="traditions">Traditions</string>
+    <string name="site_8books">8 books</string>
     <string name="h_calendar">Heavenly Calendar</string>
     <string name="uasj_app">UA Shimjeong</string>
     <string name="anthem">Anthem</string>
@@ -506,7 +510,8 @@
     <string name="next_month">Next month</string>
     <string name="hdh_calendar_description">In the Hoon Dok Hae calendar, you should mark each day when you complete your Hoon Dok Hae. You can place the mark only between 6:00 and 8:00 in the morning. So don’t delay—come here and tap to mark it. But keep in mind that you cannot mark the previous or the next day. Earn Simjeong Coins for each day you complete HDH.</string>
     <string name="open_hdh_app">Open app HDH</string>
-    <string name="coins_per_hdh_day">+%1$d 심정 per HDH today! 💪</string>
+    <string name="coins_per_hdh_day">🪙 +%1$d 심정 per HDH today! 💪</string>
+    <string name="coins_per_hdh_month">\n🪙 +%1$d 심정 бонус за 7 днів ХДХ поспіль! 💪</string>
 
 
     // Update Checker

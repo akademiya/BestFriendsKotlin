@@ -25,6 +25,11 @@
             android:title="@string/uasj_app" />
 
         <item
+            android:id="@+id/nav_8books"
+            android:icon="@drawable/books"
+            android:title="@string/site_8books" />
+
+        <item
             android:id="@+id/nav_birthday"
             android:icon="@drawable/home_cake"
             android:title="@string/birthday_app"/>
