@@ -101,7 +101,7 @@ class TreeOfLifeView : MainActivity() {
     private fun renderTree() {
         val tree  = db.getTree() ?: return
         val stage = tree.stageForLevel(activeLevel).coerceIn(1, 7)
-        val stageNames = TreeStageNames.forLevel(activeLevel)
+        val stageNames = TreeStageNames.forLevel(activeLevel, this)
         val stageName  = stageNames[stage - 1]
 
         stageDots.setStage(currentStage = stage, total = 7)
@@ -128,7 +128,7 @@ class TreeOfLifeView : MainActivity() {
         val tree  = db.getTree() ?: return
         val stage = tree.stageForLevel(activeLevel).coerceIn(1, 7)
         val tasks = TreeTasksConfig.tasksFor(activeLevel, stage, this)
-        val stageNames = TreeStageNames.forLevel(activeLevel)
+        val stageNames = TreeStageNames.forLevel(activeLevel, this)
 
         val view  = layoutInflater.inflate(R.layout.dialog_tree_tasks, null)
         val rv    = view.findViewById<RecyclerView>(R.id.rv_tasks)
@@ -191,15 +191,15 @@ class TreeOfLifeView : MainActivity() {
         val tree  = db.getTree() ?: return
         val stage = tree.stageForLevel(activeLevel).coerceIn(1, 7)
 
-        if (count in 9..20 && stage > 1) {
+        if (count in 9..16 && stage > 1) {
             val root = findViewById<View>(android.R.id.content)
             warnIcon.visibility = View.VISIBLE
             warnIcon.setOnClickListener {
-                Snackbar.make(root, getString(R.string.warning_text, count, 20 - count), Snackbar.LENGTH_LONG).show()
+                Snackbar.make(root, getString(R.string.warning_text, count, 16 - count), Snackbar.LENGTH_LONG).show()
             }
-            treeImage.setImageResource(treeDrawable(0))
+//            treeImage.setImageResource(treeDrawable(0))
         } else {
-            treeImage.setImageResource(treeDrawable(stage))
+//            treeImage.setImageResource(treeDrawable(stage))
             warnIcon.visibility = View.GONE
         }
 

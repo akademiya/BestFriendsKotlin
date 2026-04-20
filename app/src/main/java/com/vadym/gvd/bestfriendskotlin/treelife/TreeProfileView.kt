@@ -110,7 +110,7 @@ class TreeProfileView : CoinActivity() {
             lifecycleScope.launch {
                 val tree = withContext(Dispatchers.IO) { db.getTree() } ?: return@launch
                 val hdh  = withContext(Dispatchers.IO) { hdhCountThisMonth() }
-                val ded  = withContext(Dispatchers.IO) { DedicationTask.finishedCount(this@TreeProfileView) }
+                val ded  = withContext(Dispatchers.IO) { DedicationTask(this@TreeProfileView).finishedCount(this@TreeProfileView) }
                 val cond = withContext(Dispatchers.IO) { ConditionSqlDB.getInstance(this@TreeProfileView).listConditions().size }
                 renderStatCards(tree, hdh, ded, cond)
             }
@@ -120,12 +120,12 @@ class TreeProfileView : CoinActivity() {
         lifecycleScope.launch {
             val tree = withContext(Dispatchers.IO) { db.getTree() } ?: return@launch
             val hdh  = withContext(Dispatchers.IO) { hdhCountThisMonth() }
-            val ded  = withContext(Dispatchers.IO) { DedicationTask.finishedCount(this@TreeProfileView) }
+            val ded  = withContext(Dispatchers.IO) { DedicationTask(this@TreeProfileView).finishedCount(this@TreeProfileView) }
             val cond = withContext(Dispatchers.IO) { ConditionSqlDB.getInstance(this@TreeProfileView).listConditions().size }
 
-            if (hdh < 20) {
+            if (hdh < 16) {
                 warnBanner.visibility = View.VISIBLE
-                warnText.text = getString(R.string.warning_text_profile, hdh, daysLeftInMonth(), 20 - hdh)
+                warnText.text = getString(R.string.warning_text_profile, hdh, daysLeftInMonth(), 16 - hdh)
             } else {
                 warnBanner.visibility = View.GONE
             }
@@ -152,7 +152,7 @@ class TreeProfileView : CoinActivity() {
         val cards = listOf(
             StatCard(hdhCount.toString(), getString(R.string.stat_card_hdh), R.drawable.bg_stat_card),
             StatCard(coinManager.balance.toString(), getString(R.string.stat_card_sc), R.drawable.bg_stat_card_blue),
-            StatCard("${tree.stageIndividual} / 7", "Статус 1", R.drawable.bg_stat_card_turquoise),
+            StatCard("${tree.stageIndividual} / 7", TreeLevel.INDIVIDUAL.displayName, R.drawable.bg_stat_card_turquoise),
             StatCard("$daysIn", getString(R.string.stat_card_days), R.drawable.bg_stat_card_purple),
             StatCard(cardsOpened.toString(), getString(R.string.stat_card_cards), R.drawable.bg_stat_card_orange),
             StatCard("$dedicationCount / $totalConditions", getString(R.string.stat_card_conditions), R.drawable.bg_stat_card_red),
@@ -194,7 +194,7 @@ class TreeProfileView : CoinActivity() {
 
     private fun renderStatusList(tree: TreeRow, level: TreeLevel) {
         val stage      = tree.stageForLevel(level)
-        val names      = TreeStageNames.forLevel(level)
+        val names      = TreeStageNames.forLevel(level, this)
         statusList.removeAllViews()
 
         // Поточний статус — виділений

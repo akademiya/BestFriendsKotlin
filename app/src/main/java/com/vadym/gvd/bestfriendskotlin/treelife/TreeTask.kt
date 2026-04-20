@@ -1,6 +1,7 @@
 package com.vadym.gvd.bestfriendskotlin.treelife
 
 import android.content.Context
+import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -15,8 +16,8 @@ sealed class TreeTask {
 
 // ─── ХДХ 4р/тиждень × N тижнів ──────────────────────────────────────────────
 
-data class HdhWeeklyTask(val weeksRequired: Int) : TreeTask() {
-    override val label get() = "ХДХ 4р/тиждень × $weeksRequired тижні"
+data class HdhWeeklyTask(val weeksRequired: Int, val ctx: Context) : TreeTask() {
+    override val label get() = ctx.getString(R.string.task_hdh_weekly, weeksRequired) //"ХДХ 4р/тиждень × $weeksRequired тижні"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         val prefs = ctx.getSharedPreferences("hdh_calendar", Context.MODE_PRIVATE)
@@ -39,8 +40,8 @@ data class HdhWeeklyTask(val weeksRequired: Int) : TreeTask() {
 
 // ─── ХДХ 20+ за місяць ───────────────────────────────────────────────────────
 
-data class HdhMonthlyTask(val countRequired: Int = 20) : TreeTask() {
-    override val label get() = "ХДХ $countRequired+ разів цього місяця"
+data class HdhMonthlyTask(val countRequired: Int = 20, val ctx: Context) : TreeTask() {
+    override val label get() = ctx.getString(R.string.task_hdh_monthly, countRequired) //"ХДХ $countRequired+ разів цього місяця"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         val prefs  = ctx.getSharedPreferences("hdh_calendar", Context.MODE_PRIVATE)
@@ -57,9 +58,10 @@ data class HdhMonthlyTask(val countRequired: Int = 20) : TreeTask() {
 
 data class PrayerTask(
     val minutesPerSession: Int,
-    val sessionsRequired: Int
+    val sessionsRequired: Int,
+    val ctx: Context
 ) : TreeTask() {
-    override val label get() = "Молитва $minutesPerSession хв × $sessionsRequired разів"
+    override val label get() = ctx.getString(R.string.task_prayer, minutesPerSession, sessionsRequired) //"Молитва $minutesPerSession хв × $sessionsRequired разів"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         val prefs = ctx.getSharedPreferences("prayer_sessions", Context.MODE_PRIVATE)
@@ -73,8 +75,8 @@ data class PrayerTask(
 
 // ─── Прочитати статтю + клікнути монету ──────────────────────────────────────
 
-data class ReadArticleTask(val articleKey: String) : TreeTask() {
-    override val label get() = "Прочитати «$articleKey»"
+data class ReadArticleTask(val articleKey: String, val ctx: Context) : TreeTask() {
+    override val label get() = ctx.getString(R.string.task_read_article, articleKey) //"Прочитати «$articleKey»"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         val prefs = ctx.getSharedPreferences("articles_read", Context.MODE_PRIVATE)
@@ -84,8 +86,8 @@ data class ReadArticleTask(val articleKey: String) : TreeTask() {
 
 // ─── Вікторина ───────────────────────────────────────────────────────────────
 
-data class QuizTask(val quizKey: String) : TreeTask() {
-    override val label get() = "Вікторина «$quizKey»"
+data class QuizTask(val quizKey: String, val ctx: Context) : TreeTask() {
+    override val label get() = ctx.getString(R.string.task_quiz, quizKey) //"Вікторина «$quizKey»"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         val prefs = ctx.getSharedPreferences("quizzes_passed", Context.MODE_PRIVATE)
@@ -95,8 +97,8 @@ data class QuizTask(val quizKey: String) : TreeTask() {
 
 // ─── Відкрити картки × SC ────────────────────────────────────────────────────
 
-data class CardOpenTask(val cardsRequired: Int, val scCost: Int) : TreeTask() {
-    override val label get() = "Відкрити $cardsRequired картки × $scCost SC"
+data class CardOpenTask(val cardsRequired: Int, val scCost: Int, val ctx: Context) : TreeTask() {
+    override val label get() = ctx.getString(R.string.task_open_card, cardsRequired, scCost) //"Відкрити $cardsRequired картки × $scCost SC"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         val prefs = ctx.getSharedPreferences("cards_opened", Context.MODE_PRIVATE)
@@ -111,8 +113,8 @@ data class CardOpenTask(val cardsRequired: Int, val scCost: Int) : TreeTask() {
 
 // ─── Відкрити фразу на день ────────────────────────────────────────────────────
 
-data class PhraseOpenTask(val count: Int) : TreeTask() {
-    override val label get() = "Відкрити «Фраза на день» × $count разів"
+data class PhraseOpenTask(val count: Int, val ctx: Context) : TreeTask() {
+    override val label get() = ctx.getString(R.string.task_open_phrase, count) //"Відкрити «Фраза на день» × $count разів"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         val done = ctx.getSharedPreferences("PhraseForDay", Context.MODE_PRIVATE)
@@ -126,8 +128,8 @@ data class PhraseOpenTask(val count: Int) : TreeTask() {
 
 // ─── Умова посвячення ─────────────────────────────────────────────────────────
 
-object DedicationTask : TreeTask() {
-    override val label = "Умова посвячення"
+data class DedicationTask(val ctx: Context) : TreeTask() {
+    override val label = ctx.getString(R.string.condition_title) //"Умова посвячення"
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         return finishedCount(ctx) > 0

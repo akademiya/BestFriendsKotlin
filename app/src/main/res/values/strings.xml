@@ -107,7 +107,7 @@
     <string name="mense">Family Pledge</string>
 <!--    <string name="mense_k">가정 맹세</string>-->
     <string name="traditions">Traditions</string>
-    <string name="site_8books">8 books</string>
+    <string name="site_8books">8 Books</string>
     <string name="h_calendar">Heavenly Calendar</string>
     <string name="uasj_app">UA Shimjeong</string>
     <string name="anthem">Anthem</string>
@@ -226,8 +226,12 @@
     <string name="generational_7">Божий 심정</string>
     <string name="status_current">Поточний</string>
     <string name="task_read_article">Прочитати «%1$s»</string>
+    <string name="task_prayer">Молитва %1$d хв × %2$d разів</string>
+    <string name="task_hdh_weekly">ХДХ 4р/тиждень × %1$d тижні</string>
+    <string name="task_hdh_monthly">ХДХ %1$d+ разів цього місяця</string>
     <string name="task_quiz">Вікторина «%1$s»</string>
-    <string name="task_open_card">Відкрити %1$d картки × %1$d SC</string>
+    <string name="task_open_card">Відкрити %1$d картки × %2$d SC</string>
+    <string name="task_open_phrase">Відкрити «Фраза на день» × %1$d разів</string>
     <string name="task_condition">Виконати умову посвячення</string>
     <string name="task_completed">Прочитано</string>
     <string name="task_already_completed">✓ Прочитано</string>
@@ -537,9 +541,9 @@
     <string name="eight"><b>8.</b> Our family, the owner of Cheon Il Guk, pledges, having entered the Era of Cheon Il Guk, to achieve the ideal of God and human beings united in love through absolute faith, absolute love and absolute obedience, and to perfect the realm of liberation and complete freedom in the Kingdom of God on earth and in heaven, by centering on true love.</string>
     <string name="deviz_toolbar">Девізи</string>
     <string name="deviz_vertical"><b>Вертикальний</b></string>
-    <string name="deviz_vertical_desc_ko">창조주 하늘부모님을 실체로 모시고 사는 천일국 13년 전 세계 축복가정들은 참부모와 하나된 선민으로서 책임을 다하는 천일국의 참자녀가 되자!</string>
-    <string name="deviz_vertical_desc_ko_ua">Чан(г)-джо-джу Ха-ниль-Пу-мо-нім-иль шіль-чє-ро мо-ші-ґо са-нин Чон-іль-ґук шіп-сам-ньон чон се-ґє чук-пок-ка-джон(г)-ди-рин чам-пу-мо-(у)а ха-на-т(у)ен сон-мін-и-ро-со чє-ґім-иль та-ха-нин чон-іль-ґу-ґе чам-джа-ньо-ґа т(у)е-джа!</string>
-    <string name="deviz_vertical_desc">«Благословенні сім’ї всього світу, які живуть у субстанційному служінні Небесному Батькові-Творцю! У 13-й рік Чонільґук станьмо істинними дітьми Чонільґук, які повністю виконують відповідальність обраного народу, єдиного з Істинними Батьками»</string>
+    <string name="deviz_vertical_desc_ko">창조주 하늘부모님을 실체로 모시고 사는 천일국 14년 전 세계 축복가정들은 참부모와 하나된 선민으로서 책임을 다하는 천일국의 참자녀가 되자!</string>
+    <string name="deviz_vertical_desc_ko_ua">Чан(г)-джо-джу Ха-ниль-Пу-мо-нім-иль шіль-чє-ро мо-ші-ґо са-нин Чон-іль-ґук шіп-са-ньон чон се-ґє чук-пок-ка-джон(г)-ди-рин чам-пу-мо-(у)а ха-на-т(у)ен сон-мін-и-ро-со чє-ґім-иль та-ха-нин чон-іль-ґу-ґе чам-джа-ньо-ґа т(у)е-джа!</string>
+    <string name="deviz_vertical_desc">«Благословенні сім’ї всього світу, які живуть у субстанційному служінні Небесному Батькові-Творцю! У 14-й рік Чонільґук станьмо істинними дітьми Чонільґук, які повністю виконують відповідальність обраного народу, єдиного з Істинними Батьками»</string>
     <string name="deviz_horizontal"><b>Горизонтальний</b></string>
     <string name="deviz_horizontal_desc_ko">우주주관 바라기 전에 자아를 주관하라</string>
     <string name="deviz_horizontal_desc">«Перш, ніж прагнути володіти над Всесвітом, навчись володіти собою»</string>
@@ -634,7 +638,7 @@
 
 
     // Traditions
-    <string name="anshiil">An Shi Il</string>
+    <string name="anshiil">Anshiil</string>
     <string name="hdh">HDH</string>
     <string name="pledge">Family Pledge</string>
     <string name="candle">Candle of CIG</string>
