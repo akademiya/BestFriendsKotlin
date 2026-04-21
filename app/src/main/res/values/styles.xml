@@ -296,7 +296,7 @@
 
     <style name="TransparentBottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet">
         <item name="android:background">@android:color/transparent</item>
-        <item name="backgroundTint">@null</item>
+        <item name="backgroundTint">@android:color/transparent</item>
     </style>
 
 </resources>
