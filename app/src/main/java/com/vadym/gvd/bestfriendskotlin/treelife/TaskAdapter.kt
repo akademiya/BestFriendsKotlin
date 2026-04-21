@@ -67,7 +67,6 @@ class TaskAdapter(
             "$count/${task.countRequired}"
         }
         is HdhWeeklyTask -> {
-            // рахуємо скільки тижнів вже кваліфіковані
             val prefs = ctx.getSharedPreferences("hdh_calendar", Context.MODE_PRIVATE)
             val today = LocalDate.now()
             var q = 0
@@ -79,16 +78,20 @@ class TaskAdapter(
                 }
                 if (c >= 4) q++
             }
-            "$q/${task.weeksRequired} тиж"
+            "$q/${task.weeksRequired} week"
         }
         is PrayerTask -> {
             val prefs = ctx.getSharedPreferences("prayer_sessions", Context.MODE_PRIVATE)
             val done  = prefs.getInt("sessions_${task.minutesPerSession}min", 0)
             "$done/${task.sessionsRequired}"
         }
+//        is CardOpenTask -> {
+//            val prefs = ctx.getSharedPreferences("cards_opened", Context.MODE_PRIVATE)
+//            val done  = prefs.getInt("cards_${task.scCost}sc", 0)
+//            "$done/${task.cardsRequired}"
+//        }
         is CardOpenTask -> {
-            val prefs = ctx.getSharedPreferences("cards_opened", Context.MODE_PRIVATE)
-            val done  = prefs.getInt("cards_${task.scCost}sc", 0)
+            val done = task.purchasedCount(ctx)
             "$done/${task.cardsRequired}"
         }
         is PhraseOpenTask -> {

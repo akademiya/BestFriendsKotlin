@@ -3,6 +3,7 @@ package com.vadym.gvd.bestfriendskotlin.treelife
 import android.content.Context
 import com.vadym.gvd.bestfriendskotlin.R
 import com.vadym.gvd.bestfriendskotlin.condition.database.ConditionSqlDB
+import com.vadym.gvd.bestfriendskotlin.shimjeong_shop.ShopCard
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -108,6 +109,18 @@ data class CardOpenTask(val cardsRequired: Int, val scCost: Int, val ctx: Contex
 
     override val progressText: String
         get() = "" // заповнюється динамічно в адаптері
+
+    fun purchasedCount(ctx: Context): Int {
+        val purchasedIds = ctx.getSharedPreferences("shimjeong_coins", Context.MODE_PRIVATE)
+            .getStringSet("purchased_cards", emptySet()) ?: return 0
+
+        return purchasedIds
+            .mapNotNull { it.toIntOrNull() }
+            .count { cardId ->
+                val card = ShopCard.all.find { it.id == cardId }
+                card?.price == scCost
+            }
+    }
 }
 
 

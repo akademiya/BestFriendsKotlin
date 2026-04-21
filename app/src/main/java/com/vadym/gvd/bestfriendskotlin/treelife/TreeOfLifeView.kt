@@ -111,7 +111,6 @@ class TreeOfLifeView : MainActivity() {
     }
 
     private fun treeDrawable(stage: Int) = when (stage) {
-        0 -> R.drawable.tree_regres
         1 -> R.drawable.tree_stage_1
         2 -> R.drawable.tree_stage_2
         3 -> R.drawable.tree_stage_3
@@ -119,6 +118,26 @@ class TreeOfLifeView : MainActivity() {
         5 -> R.drawable.tree_stage_5
         6 -> R.drawable.tree_stage_6
         else -> R.drawable.tree_stage_7
+    }
+
+    private fun treeRegressDrawable(level: TreeLevel, stage: Int) = when (level) {
+        TreeLevel.INDIVIDUAL -> when (stage) {
+            1    -> R.drawable.tree_stage_1
+            2    -> R.drawable.tree_regres
+            3, 4 -> R.drawable.tree4_regres
+            5    -> R.drawable.tree4_regres
+            6    -> R.drawable.tree6_regres
+            else -> R.drawable.tree7_regres
+        }
+        // Family і Generational — підстав свої drawable або використай ті самі
+        TreeLevel.FAMILY, TreeLevel.GENERATIONAL -> when (stage) {
+            1    -> R.drawable.tree_stage_1
+            2    -> R.drawable.tree_regres
+            3, 4 -> R.drawable.tree4_regres
+            5    -> R.drawable.tree4_regres
+            6    -> R.drawable.tree6_regres
+            else -> R.drawable.tree7_regres
+        }
     }
 
 
@@ -197,9 +216,7 @@ class TreeOfLifeView : MainActivity() {
             warnIcon.setOnClickListener {
                 Snackbar.make(root, getString(R.string.warning_text, count, 16 - count), Snackbar.LENGTH_LONG).show()
             }
-//            treeImage.setImageResource(treeDrawable(0))
         } else {
-//            treeImage.setImageResource(treeDrawable(stage))
             warnIcon.visibility = View.GONE
         }
 
@@ -209,14 +226,27 @@ class TreeOfLifeView : MainActivity() {
 
         if (lastCheck != currentMonth) {
             val prev = hdhCountPrevMonth()
+            var didRegress = false
             // Регрес діє на всі рівні одночасно
             TreeLevel.entries.forEach { level ->
                 val s = tree.stageForLevel(level)
-                if (prev < 20 && s > 1) db.updateStageForLevel(level, s - 1)
+                if (prev < 16 && s > 1) {
+                    db.updateStageForLevel(level, s - 1)
+                    didRegress = true
+                }
             }
-            if (prev < 20) showRegressionDialog(prev)
+//            if (prev < 16) {
+//                treeImage.setImageResource(treeRegressDrawable(stage))
+//                showRegressionDialog(prev)
+//            }
             prefs.edit().putString("last_regression_check", currentMonth).apply()
             renderTree()
+
+            if (didRegress) {
+                val newStage = db.getTree()?.stageForLevel(activeLevel)?.coerceIn(1, 7) ?: 1
+                treeImage.setImageResource(treeRegressDrawable(activeLevel, newStage))
+                showRegressionDialog(prev)
+            }
         }
     }
 
