@@ -18,18 +18,30 @@ sealed class TreeTask {
 // ─── ХДХ 4р/тиждень × N тижнів ──────────────────────────────────────────────
 
 data class HdhWeeklyTask(val weeksRequired: Int, val ctx: Context) : TreeTask() {
-    override val label get() = ctx.getString(R.string.task_hdh_weekly, weeksRequired) //"ХДХ 4р/тиждень × $weeksRequired тижні"
+    override val label get() = ctx.getString(R.string.task_hdh_weekly, weeksRequired)
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
         val prefs = ctx.getSharedPreferences("hdh_calendar", Context.MODE_PRIVATE)
-        var qualifyingWeeks = 0
-        val today = LocalDate.now()
 
-        // Перевіряємо останні N тижнів назад від сьогодні
+        // Беремо дату відкриття поточної стадії для активного рівня
+        // Якщо дата невідома (стадія 1 з початку) — беремо сьогодні
+        val stageOpenDate = tree.stageDateForLevel(activeLevel(ctx, tree))
+            ?: LocalDate.now()
+
+        // Початок тижня в якому відкрилась стадія
+        val stageWeekStart = stageOpenDate.with(java.time.DayOfWeek.MONDAY)
+
+        var qualifyingWeeks = 0
+
         for (weekOffset in 0 until weeksRequired) {
-            val weekStart = today.minusWeeks(weekOffset.toLong()).with(java.time.DayOfWeek.MONDAY)
+            val weekStart = stageWeekStart.plusWeeks(weekOffset.toLong())
+            // Не рахуємо тижні у майбутньому
+            if (weekStart.isAfter(LocalDate.now())) break
+
             val count = (0..6).count { dayOffset ->
                 val day = weekStart.plusDays(dayOffset.toLong())
+                // Не рахуємо майбутні дні
+                if (day.isAfter(LocalDate.now())) return@count false
                 val key = day.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
                 prefs.getBoolean(key, false)
             }
@@ -37,6 +49,35 @@ data class HdhWeeklyTask(val weeksRequired: Int, val ctx: Context) : TreeTask() 
         }
         return qualifyingWeeks >= weeksRequired
     }
+
+    // Визначаємо активний рівень через SharedPreferences
+    // (зберігається при перемиканні chip у TreeOfLifeView)
+    private fun activeLevel(ctx: Context, tree: TreeRow): TreeLevel {
+        val saved = ctx.getSharedPreferences("tree_ui", Context.MODE_PRIVATE)
+            .getString("active_level", TreeLevel.INDIVIDUAL.name) ?: TreeLevel.INDIVIDUAL.name
+        return runCatching { TreeLevel.valueOf(saved) }.getOrDefault(TreeLevel.INDIVIDUAL)
+    }
+
+
+//    override val label get() = ctx.getString(R.string.task_hdh_weekly, weeksRequired) //"ХДХ 4р/тиждень × $weeksRequired тижні"
+//
+//    override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
+//        val prefs = ctx.getSharedPreferences("hdh_calendar", Context.MODE_PRIVATE)
+//        var qualifyingWeeks = 0
+//        val today = LocalDate.now()
+//
+//        // Перевіряємо останні N тижнів назад від сьогодні
+//        for (weekOffset in 0 until weeksRequired) {
+//            val weekStart = today.minusWeeks(weekOffset.toLong()).with(java.time.DayOfWeek.MONDAY)
+//            val count = (0..6).count { dayOffset ->
+//                val day = weekStart.plusDays(dayOffset.toLong())
+//                val key = day.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+//                prefs.getBoolean(key, false)
+//            }
+//            if (count >= 4) qualifyingWeeks++
+//        }
+//        return qualifyingWeeks >= weeksRequired
+//    }
 }
 
 // ─── ХДХ 20+ за місяць ───────────────────────────────────────────────────────

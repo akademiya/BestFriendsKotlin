@@ -92,6 +92,8 @@ class TreeOfLifeView : MainActivity() {
                 R.id.chip_level_3 -> TreeLevel.GENERATIONAL
                 else              -> TreeLevel.INDIVIDUAL
             }
+            getSharedPreferences("tree_ui", Context.MODE_PRIVATE)
+                .edit().putString("active_level", activeLevel.name).apply()
             renderTree()
         }
     }
@@ -220,9 +222,9 @@ class TreeOfLifeView : MainActivity() {
             warnIcon.visibility = View.GONE
         }
 
-        val prefs          = getSharedPreferences("hdh_calendar", Context.MODE_PRIVATE)
-        val lastCheck      = prefs.getString("last_regression_check", "") ?: ""
-        val currentMonth   = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM"))
+        val prefs        = getSharedPreferences("hdh_calendar", Context.MODE_PRIVATE)
+        val lastCheck    = prefs.getString("last_regression_check", "") ?: ""
+        val currentMonth = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM"))
 
         if (lastCheck != currentMonth) {
             val prev = hdhCountPrevMonth()
