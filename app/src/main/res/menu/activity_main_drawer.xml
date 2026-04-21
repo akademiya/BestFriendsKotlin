@@ -84,10 +84,10 @@
             android:icon="@drawable/ic_tree_life"
             android:title="@string/card_tree_title" />
 
-        <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/empty_person2"
-            android:title="@string/profile" />
+<!--        <item-->
+<!--            android:id="@+id/nav_profile"-->
+<!--            android:icon="@drawable/empty_person2"-->
+<!--            android:title="@string/profile" />-->
 
         <item
             android:id="@+id/nav_info"

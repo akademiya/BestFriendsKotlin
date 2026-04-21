@@ -170,7 +170,7 @@ open class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_exercise        to ExerciseView::class.java,
             R.id.nav_shop            to CardShopActivity::class.java,
             R.id.nav_treelife        to TreeOfLifeView::class.java,
-            R.id.nav_profile         to TreeProfileView::class.java,
+//            R.id.nav_profile         to TreeProfileView::class.java,
             R.id.nav_hdh             to HDHView::class.java
         )
 
