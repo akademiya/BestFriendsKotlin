@@ -32,6 +32,18 @@ class AnthemView : CoinActivity() {
 
         cheonIlGukAnthem = MediaPlayer.create(this, R.raw.cheon_il_guk_anthem)
 
+        cheonIlGukAnthem.setOnCompletionListener {
+            val prefs = getSharedPreferences("anthem_task", MODE_PRIVATE)
+            if (!prefs.getBoolean("anthem_listened", false)) {
+                prefs.edit().putBoolean("anthem_listened", true).apply()
+                Toast.makeText(this, getString(R.string.task_anthem_done), Toast.LENGTH_SHORT).show()
+            }
+            // Скидаємо кнопки після завершення
+            play.isEnabled  = true
+            pause.isEnabled = false
+            stop.isEnabled  = false
+        }
+
         toolbarButtonMenu(cheonIlGukAnthem)
         stop.isEnabled = false
         pause.isEnabled = false

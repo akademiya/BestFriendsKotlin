@@ -209,3 +209,15 @@ data class DedicationTask(val ctx: Context) : TreeTask() {
         }
     }
 }
+
+
+// ─── Прослухати гімн ЧІГ ─────────────────────────────────────────────────────────
+
+data class AnthemListenTask(val ctx: Context) : TreeTask() {
+    override val label get() = ctx.getString(R.string.task_listen_anthem)
+
+    override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
+        return ctx.getSharedPreferences("anthem_task", Context.MODE_PRIVATE)
+            .getBoolean("anthem_listened", false)
+    }
+}

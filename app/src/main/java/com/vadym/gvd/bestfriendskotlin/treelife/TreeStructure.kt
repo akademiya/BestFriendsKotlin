@@ -93,14 +93,15 @@ object TreeTasksConfig {
         4 -> listOf(
             ReadArticleTask(ctx.getString(R.string.anshiil), ctx),
             QuizTask(ctx.getString(R.string.anshiil), ctx),
-            DedicationTask(ctx),
-            CardOpenTask(cardsRequired = 1, scCost = 40, ctx)
+            AnthemListenTask(ctx),
+            DedicationTask(ctx)
         )
         5 -> listOf(
             HdhWeeklyTask(weeksRequired = 2, ctx),
             PrayerTask(minutesPerSession = 12, sessionsRequired = 3, ctx),
             ReadArticleTask(ctx.getString(R.string.life_service), ctx),
-            QuizTask(ctx.getString(R.string.life_service), ctx)
+            QuizTask(ctx.getString(R.string.life_service), ctx),
+            CardOpenTask(cardsRequired = 1, scCost = 40, ctx)
         )
         6 -> listOf(
             HdhWeeklyTask(weeksRequired = 2, ctx),

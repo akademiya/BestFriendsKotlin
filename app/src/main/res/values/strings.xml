@@ -235,6 +235,8 @@
     <string name="task_condition">Виконати умову посвячення</string>
     <string name="task_completed">Прочитано</string>
     <string name="task_already_completed">✓ Прочитано</string>
+    <string name="task_listen_anthem">Прослухати Гімн ЧІГ</string>
+    <string name="task_anthem_done">✓ Завдання виконано</string>
     // quiz
     <string name="go_to_quiz">Вікторина</string>
     <string name="quiz_already_passed">✓ Вікторина</string>
