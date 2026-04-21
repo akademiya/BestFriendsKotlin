@@ -14,19 +14,6 @@ enum class TreeLevel(val displayName: String) {
 // ─── Назви стадій по рівнях ──────────────────────────────────────────────────
 
 object TreeStageNames {
-//    val individual = listOf(
-//        "Шукач", "Початківець", "Учень",
-//        "Вірний", "Посвячений", "Служитель", "Лідер 심정"
-//    )
-//    val family = listOf(
-//        "Іскра життя", "Розквіт любові", "Друге покоління",
-//        "Міцний фундамент", "Щедрість", "Повнота життя", "Батьківський 심정"
-//    )
-//    val generational = listOf(
-//        "Початок роду", "Закладення традицій", "Сильний рід",
-//        "Розквіт поколінь", "Спадщина", "Легенда роду", "Божий 심정"
-//    )
-
     fun forLevel(level: TreeLevel, ctx: Context) = when (level) {
         TreeLevel.INDIVIDUAL   -> listOf(
             ctx.getString(R.string.individual_1),
@@ -88,6 +75,7 @@ object TreeTasksConfig {
             HdhWeeklyTask(weeksRequired = 2, ctx),
             ReadArticleTask(ctx.getString(R.string.sunday_service), ctx),
             QuizTask(ctx.getString(R.string.sunday_service), ctx),
+//            ExerciseTask(2, ctx),
             CardOpenTask(cardsRequired = 1, scCost = 40, ctx)
         )
         4 -> listOf(

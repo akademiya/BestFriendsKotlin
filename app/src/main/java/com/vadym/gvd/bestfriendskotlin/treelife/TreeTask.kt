@@ -140,16 +140,14 @@ data class QuizTask(val quizKey: String, val ctx: Context) : TreeTask() {
 // ─── Відкрити картки × SC ────────────────────────────────────────────────────
 
 data class CardOpenTask(val cardsRequired: Int, val scCost: Int, val ctx: Context) : TreeTask() {
-    override val label get() = ctx.getString(R.string.task_open_card, cardsRequired, scCost) //"Відкрити $cardsRequired картки × $scCost SC"
+    override val label get() = ctx.getString(R.string.task_open_card, cardsRequired, scCost)
 
     override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
-        val prefs = ctx.getSharedPreferences("cards_opened", Context.MODE_PRIVATE)
-        val done  = prefs.getInt("cards_${scCost}sc", 0)
-        return done >= cardsRequired
+        return purchasedCount(ctx) >= cardsRequired  // було: читало з "cards_opened"
     }
 
     override val progressText: String
-        get() = "" // заповнюється динамічно в адаптері
+        get() = ""
 
     fun purchasedCount(ctx: Context): Int {
         val purchasedIds = ctx.getSharedPreferences("shimjeong_coins", Context.MODE_PRIVATE)
@@ -220,4 +218,20 @@ data class AnthemListenTask(val ctx: Context) : TreeTask() {
         return ctx.getSharedPreferences("anthem_task", Context.MODE_PRIVATE)
             .getBoolean("anthem_listened", false)
     }
+}
+
+
+
+// ─── Виконати зарядку ───────────────────────────────────────────
+
+data class ExerciseTask(val count: Int, val ctx: Context) : TreeTask() {
+    override val label get() = ctx.getString(R.string.task_exercise, count)
+
+    override fun isCompleted(ctx: Context, tree: TreeRow): Boolean {
+        val done = ctx.getSharedPreferences("exercise_task", Context.MODE_PRIVATE)
+            .getInt("exercise_count", 0)
+        return done >= count
+    }
+
+    override val progressText: String get() = ""
 }
