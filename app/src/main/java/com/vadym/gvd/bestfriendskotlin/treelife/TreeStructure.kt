@@ -75,7 +75,7 @@ object TreeTasksConfig {
             HdhWeeklyTask(weeksRequired = 2, ctx),
             ReadArticleTask(ctx.getString(R.string.sunday_service), ctx),
             QuizTask(ctx.getString(R.string.sunday_service), ctx),
-//            ExerciseTask(2, ctx),
+            ExerciseTask(2, ctx),
             CardOpenTask(cardsRequired = 1, scCost = 40, ctx)
         )
         4 -> listOf(

@@ -63,7 +63,7 @@ class ExerciseView : CoinActivity() {
     }
 
     private fun initYouTubePlayer() {
-        val videoId = "6_QzQ5KRDw8"
+        val videoId = getString(R.string.youtube_video_id)
 
         lifecycle.addObserver(youTubePlayerView)
 

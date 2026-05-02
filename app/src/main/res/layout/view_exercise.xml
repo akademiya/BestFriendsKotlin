@@ -60,7 +60,8 @@
                 <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                     android:id="@+id/youtube_exercises"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:videoId="@string/youtube_video_id" />
 
                 <View
                     android:id="@+id/adDivider"
