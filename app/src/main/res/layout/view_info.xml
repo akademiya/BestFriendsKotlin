@@ -80,12 +80,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parent_margin"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:textSize="14sp"
                     android:textColor="@color/accent_darker"
                     android:visibility="gone"
+                    tools:visibility="visible"
                     tools:text="Реклама прихована: 22 дні залишилось" />
 
                 <LinearLayout

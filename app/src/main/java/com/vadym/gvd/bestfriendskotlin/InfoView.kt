@@ -129,28 +129,63 @@ class InfoView : CoinActivity() {
 
     private fun refreshAdCards() {
         val hidden = AdManager.isAdHidden(this)
+        val remaining = AdManager.remainingMs(this)
+        val isForever = hidden && remaining == 0L
 
-        if (hidden) {
-            cardAdMonth.isEnabled   = false
-            cardAdForever.isEnabled = false
-            cardAdMonth.alpha       = 0.4f
-            cardAdForever.alpha     = 0.4f
-
-            val remaining = AdManager.remainingMs(this)
-            cardAdStatus.visibility = View.VISIBLE
-            cardAdStatus.text = if (remaining == 0L) {
-                getString(R.string.ad_status_forever)
-            } else {
-                val days = TimeUnit.MILLISECONDS.toDays(remaining)
-                getString(R.string.ad_status_days, days)
+        when {
+            isForever -> {
+                cardAdMonth.visibility   = View.GONE
+                cardAdForever.visibility = View.GONE
+                cardAdStatus.visibility  = View.VISIBLE
+                cardAdStatus.text        = getString(R.string.ad_status_forever)
             }
-        } else {
-            cardAdMonth.isEnabled   = true
-            cardAdForever.isEnabled = true
-            cardAdMonth.alpha       = 1f
-            cardAdForever.alpha     = 1f
-            cardAdStatus.visibility = View.GONE
+
+            hidden -> {
+                cardAdMonth.visibility   = View.VISIBLE
+                cardAdForever.visibility = View.VISIBLE
+                cardAdMonth.isEnabled    = false
+                cardAdForever.isEnabled  = false
+                cardAdMonth.alpha        = 0.4f
+                cardAdForever.alpha      = 0.4f
+                cardAdStatus.visibility  = View.VISIBLE
+                cardAdStatus.text        = getString(
+                    R.string.ad_status_days,
+                    TimeUnit.MILLISECONDS.toDays(remaining)
+                )
+            }
+
+            else -> {
+                cardAdMonth.visibility   = View.VISIBLE
+                cardAdForever.visibility = View.VISIBLE
+                cardAdMonth.isEnabled    = true
+                cardAdForever.isEnabled  = true
+                cardAdMonth.alpha        = 1f
+                cardAdForever.alpha      = 1f
+                cardAdStatus.visibility  = View.GONE
+            }
         }
+
+//        if (hidden) {
+//            cardAdMonth.isEnabled   = false
+//            cardAdForever.isEnabled = false
+//            cardAdMonth.alpha       = 0.4f
+//            cardAdForever.alpha     = 0.4f
+//
+//            val remaining = AdManager.remainingMs(this)
+//            cardAdStatus.visibility = View.VISIBLE
+//            cardAdStatus.text = if (remaining == 0L) {
+//                getString(R.string.ad_status_forever)
+//            } else {
+//                val days = TimeUnit.MILLISECONDS.toDays(remaining)
+//                getString(R.string.ad_status_days, days)
+//            }
+//        } else {
+//            cardAdMonth.isEnabled   = true
+//            cardAdForever.isEnabled = true
+//            cardAdMonth.alpha       = 1f
+//            cardAdForever.alpha     = 1f
+//            cardAdStatus.visibility = View.GONE
+//        }
     }
 
     // -------------------------------------------------------------------------
