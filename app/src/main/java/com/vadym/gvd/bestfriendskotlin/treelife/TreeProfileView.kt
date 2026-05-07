@@ -208,15 +208,21 @@ class TreeProfileView : CoinActivity() {
             val stageNum = idx + 1
             if (stageNum == stage) return@forEachIndexed  // поточна вже показана
 
-            val itemView = layoutInflater.inflate(R.layout.item_status_locked, statusList, false)
-            itemView.findViewById<TextView>(R.id.locked_name).text = name
-            itemView.findViewById<TextView>(R.id.locked_req).text  =
-                if (stageNum < stage) getString(R.string.status_fulfill) else getString(R.string.current_status_list, stageNum, level.displayName)
-            val lockIcon = itemView.findViewById<ImageView>(R.id.lock_icon)
-            lockIcon.setImageResource(
-                if (stageNum < stage) R.drawable.ic_check_done else R.drawable.ic_lock
-            )
-            statusList.addView(itemView)
+            statusList.addView(if (stageNum < stage) {
+                val itemView = layoutInflater.inflate(R.layout.item_status_fulfill, statusList, false)
+                itemView.findViewById<TextView>(R.id.fulfill_name).text = name
+                itemView.findViewById<TextView>(R.id.fulfil_req).text  = getString(R.string.status_fulfill)
+                itemView
+            } else {
+                val itemView = layoutInflater.inflate(R.layout.item_status_locked, statusList, false)
+                itemView.findViewById<TextView>(R.id.locked_name).text = name
+                itemView.findViewById<TextView>(R.id.locked_req).text = getString(R.string.current_status_list, stageNum, level.displayName)
+                val lockIcon = itemView.findViewById<ImageView>(R.id.lock_icon)
+                lockIcon.setImageResource(R.drawable.ic_lock)
+                itemView
+            })
+
+//            statusList.addView(itemView)
         }
     }
 
