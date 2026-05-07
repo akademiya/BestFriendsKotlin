@@ -1,8 +1,12 @@
 package com.vadym.gvd.bestfriendskotlin.shimjeong_shop
 
+import android.animation.ValueAnimator
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.view.animation.AnimationUtils
+import android.view.animation.DecelerateInterpolator
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.addCallback
@@ -84,8 +88,34 @@ class CardShopActivity : MainActivity() {
         val mediaPlayer = MediaPlayer.create(this, R.raw.sj_coin)
         mediaPlayer.setOnCompletionListener { it.release() }
         mediaPlayer.start()
+
+        // Анімація обертання монети в тулбарі
+        val coinIcon = findViewById<ImageView>(R.id.img_shimjon_coin)
+        val anim = AnimationUtils.loadAnimation(this, R.anim.coin_spin)
+        coinIcon.startAnimation(anim)
+
+        // Відрахування балансу з анімацією числа
+        val currentBalance = coinManager.balance
+        val previousBalance = currentBalance + (ShopCard.all.find {
+            coinManager.isCardPurchased(it.id)
+        }?.price ?: 0)
+
+        animateBalanceChange(previousBalance, currentBalance)
+
         Snackbar.make(binding.root, R.string.card_unlocked, Snackbar.LENGTH_SHORT).show()
     }
+
+    private fun animateBalanceChange(from: Int, to: Int) {
+        ValueAnimator.ofInt(from, to).apply {
+            duration = 800
+            interpolator = DecelerateInterpolator()
+            addUpdateListener { animator ->
+                binding.coinBalance.text = "${animator.animatedValue} SC"
+            }
+            start()
+        }
+    }
+
 
     private fun updateBalanceDisplay() {
         binding.coinBalance.text = "${coinManager.balance} SC"
