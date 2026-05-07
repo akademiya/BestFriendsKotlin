@@ -2,7 +2,9 @@ package com.vadym.gvd.bestfriendskotlin.easter_egg
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
@@ -10,17 +12,21 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import com.vadym.gvd.bestfriendskotlin.MainActivity
 import com.vadym.gvd.bestfriendskotlin.R
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
 class DailyCoinWorker(ctx: Context, params: WorkerParameters) : CoroutineWorker(ctx, params) {
+    companion object {
+        const val NOTIF_ID_NEW_COIN = 1001
+    }
 
     override suspend fun doWork(): Result {
         val prefs = applicationContext.getSharedPreferences("daily_coin", Context.MODE_PRIVATE)
         val repo  = CoinRepository(CoinDatabase.getInstance(applicationContext).coinDao())
         repo.pickDailyCoinIfNeeded(prefs)
-        showCoinNotification(applicationContext)
+        showCoinNotification(applicationContext, NOTIF_ID_NEW_COIN)
         return Result.success()
     }
 }
@@ -52,9 +58,16 @@ fun calculateDelayUntilNoon(): Long {
 }
 
 // ─── Нотифікація "Сьогодні є монета" ─────────────────────────────────────────
-fun showCoinNotification(context: Context) {
+fun showCoinNotification(context: Context, id: Int) {
     val channelId = "daily_coin_channel"
     val manager   = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    val intent = Intent(context, MainActivity::class.java).apply {
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+    }
+    val pi = PendingIntent.getActivity(
+        context, id, intent,
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+    )
 
     // Канал потрібен для Android 8+
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -71,8 +84,9 @@ fun showCoinNotification(context: Context) {
         .setContentTitle(context.getString(R.string.notif_exist_coin))
         .setContentText(context.getString(R.string.notif_find_coin))
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        .setContentIntent(pi)
         .setAutoCancel(true)
         .build()
 
-    manager.notify(1001, notification)
+    manager.notify(id, notification)
 }
